@@ -144,7 +144,9 @@
     "removeAllNotifications": "Effacer toutes les notifications",
     "repeatedNotificationTimes": "répété {{count}} fois",
     "closeNotificationsDialog": "Fermer la boîte de dialogue des notifications",
-    "navLabel": "Contrôles principaux de la carte"
+    "navLabel": "Contrôles principaux de la carte",
+    "scrollUp": "Faire défiler vers le haut",
+    "scrollDown": "Faire défiler vers le bas"
   },
   "legend": {
     "title": "Légende",

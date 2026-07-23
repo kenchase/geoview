@@ -10,6 +10,7 @@ import { logger } from '@/core/utils/logger';
  *
  * @property children - The icon or content to display inside the button
  * @property aria-label - Screen reader text for accessibility. An icon button will never have a text label so it needs a descriptive label for screen readers
+ * @property aria-disabled - Optional ARIA attribute to mark button as disabled without disabling pointer events (accepts boolean or string values per React standard)
  * @property tooltip - Optional tooltip text shown on hover (defaults to aria-label if not provided, set to null to disable)
  * @property tooltipPlacement - Optional position of the tooltip (top, bottom, left, right, etc.)
  * @property tabIndex - Optional tab order for keyboard navigation
@@ -21,6 +22,7 @@ import { logger } from '@/core/utils/logger';
 export interface IconButtonPropsExtend extends Omit<IconButtonProps, 'aria-label'> {
   children?: ReactNode;
   'aria-label': string;
+  'aria-disabled'?: React.AriaAttributes['aria-disabled'];
   tooltip?: string | null;
   tooltipPlacement?: TooltipProps['placement'];
   tabIndex?: number;
@@ -29,7 +31,7 @@ export interface IconButtonPropsExtend extends Omit<IconButtonProps, 'aria-label
 }
 
 /**
- * Material-UI IconButton component with optional tooltip support.
+ * Creates a Material-UI IconButton component with optional tooltip support.
  *
  * Wraps Material-UI's IconButton to provide accessible icon-based button control
  * with built-in tooltip support. Requires aria-label for accessibility compliance.
@@ -37,7 +39,7 @@ export interface IconButtonPropsExtend extends Omit<IconButtonProps, 'aria-label
  * All Material-UI IconButton props are supported and passed through directly.
  *
  * @param props - IconButton configuration (see IconButtonPropsExtend interface)
- * @returns IconButton component with optional tooltip overlay on hover
+ * @returns The icon button component
  *
  * @example
  * ```tsx
@@ -105,6 +107,7 @@ function IconButtonUI(props: IconButtonPropsExtend): JSX.Element {
     children,
     onClick,
     'aria-label': ariaLabel,
+    'aria-disabled': ariaDisabled,
     tooltip,
     tooltipPlacement,
     id,
@@ -124,6 +127,7 @@ function IconButtonUI(props: IconButtonPropsExtend): JSX.Element {
         id={id}
         sx={sx}
         aria-label={ariaLabel}
+        aria-disabled={ariaDisabled}
         style={style}
         className={className}
         onClick={onClick}

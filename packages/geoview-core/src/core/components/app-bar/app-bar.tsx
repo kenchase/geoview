@@ -1,7 +1,19 @@
 import { useTranslation } from 'react-i18next';
-import type { ReactNode, KeyboardEvent } from 'react';
-import { useEffect, useCallback, Fragment, useMemo, useRef } from 'react';
+import {
+  type ReactNode,
+  type ReactElement,
+  type KeyboardEvent,
+  useEffect,
+  useCallback,
+  useState,
+  Fragment,
+  useMemo,
+  useRef,
+  isValidElement,
+  cloneElement,
+} from 'react';
 import { useTheme } from '@mui/material/styles';
+import type { SxProps } from '@mui/material';
 import type { IconButtonPropsExtend } from '@/ui';
 import {
   Box,
@@ -14,6 +26,8 @@ import {
   StorageIcon,
   SearchIcon,
   LayersOutlinedIcon,
+  KeyboardArrowUpIcon,
+  KeyboardArrowDownIcon,
 } from '@/ui';
 
 import { useMapController, useUIController } from '@/core/controllers/use-controllers';
@@ -30,7 +44,7 @@ import {
 } from '@/core/stores/states/ui-state';
 import { useStoreMapInteraction } from '@/core/stores/states/map-state';
 import { useStoreAppGeoviewHTMLElement } from '@/core/stores/states/app-state';
-import { useStoreGeoViewConfig, useStoreGeoViewMapId } from '@/core/stores/geoview-store';
+import { useStoreGeoViewConfig, useStoreGeoViewMapId, useStoreGeoViewSharedMode } from '@/core/stores/geoview-store';
 import { logger } from '@/core/utils/logger';
 import type { AppBarApi } from '@/core/components';
 import { Guide, Legend, DetailsPanel, Datapanel, LayersPanel } from '@/core/components';
@@ -44,6 +58,9 @@ import { CONTAINER_TYPE, LIGHTBOX_SELECTORS, TIMEOUT } from '@/core/utils/consta
 import { DEFAULT_APPBAR_CORE, DEFAULT_APPBAR_TABS_ORDER } from '@/api/types/map-schema-types';
 import { camelCase, handleEscapeKey } from '@/core/utils/utilities';
 import { IconButton } from '@/ui/icon-button/icon-button';
+
+/** Scroll step size in pixels (matches single button height). */
+const BUTTON_HEIGHT = 54;
 
 /** Mapping of panel id to its icon and content. */
 interface GroupPanelType {
@@ -89,6 +106,7 @@ export function AppBar(props: AppBarProps): JSX.Element {
   const { tabId, isOpen, isFocusTrapped } = useStoreUIActiveAppBarTab();
   const hiddenTabs = useStoreUIHiddenTabs();
   const activeTrapGeoView = useStoreUIActiveTrapGeoView();
+  const isSharedModeEnabled = useStoreGeoViewSharedMode();
   const uiController = useUIController();
   const mapController = useMapController();
 
@@ -104,6 +122,11 @@ export function AppBar(props: AppBarProps): JSX.Element {
   // Ref so the focus-restore effect can read the latest geoviewElement without it being a dep
   const geoviewElementRef = useRef(geoviewElement);
   geoviewElementRef.current = geoviewElement;
+
+  // Scroll indicator state (consolidated to reduce re-renders)
+  const [scrollState, setScrollState] = useState({ isScrollable: false, canScrollUp: false, canScrollDown: false });
+  const appBarListRef = useRef<HTMLUListElement>(null);
+  const rafIdRef = useRef<number | undefined>(undefined);
 
   /**
    * Builds the button panels record from store panel ids and api registry, with open/focus state derived from the active tab.
@@ -170,6 +193,50 @@ export function AppBar(props: AppBarProps): JSX.Element {
     [mapId]
   );
 
+  /**
+   * Updates scroll indicator visibility based on overflow and scroll position.
+   */
+  const updateScrollIndicators = useCallback((): void => {
+    const container = appBarListRef.current;
+    if (!container) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = container;
+    const isOverflowing = scrollHeight > clientHeight;
+
+    // Functional update with equality check to prevent unnecessary re-renders
+    setScrollState((prev) => {
+      const newState = {
+        isScrollable: isOverflowing,
+        // 1px tolerance to avoid floating-point precision issues
+        canScrollUp: isOverflowing && scrollTop > 1,
+        canScrollDown: isOverflowing && scrollTop + clientHeight < scrollHeight - 1,
+      };
+
+      // Return previous state reference if values haven't changed (avoids re-render)
+      if (
+        prev.isScrollable === newState.isScrollable &&
+        prev.canScrollUp === newState.canScrollUp &&
+        prev.canScrollDown === newState.canScrollDown
+      ) {
+        return prev;
+      }
+
+      return newState;
+    });
+  }, []);
+
+  /**
+   * RAF-throttled version for scroll events (limits updates to ~60fps).
+   */
+  const updateScrollIndicatorsThrottled = useCallback((): void => {
+    if (rafIdRef.current) return; // Already scheduled
+
+    rafIdRef.current = requestAnimationFrame(() => {
+      rafIdRef.current = undefined;
+      updateScrollIndicators();
+    });
+  }, [updateScrollIndicators]);
+
   // #region Handlers
 
   /**
@@ -205,6 +272,46 @@ export function AppBar(props: AppBarProps): JSX.Element {
     [uiController, isFocusTrapped, getButtonElementId]
   );
 
+  /**
+   * Handles clicking the scroll-up button.
+   */
+  const handleScrollUp = useCallback((): void => {
+    if (!scrollState.canScrollUp) return;
+
+    const container = appBarListRef.current;
+    if (!container) return;
+
+    // Accessibility-first: default to instant scroll when matchMedia unavailable (SSR/test environments)
+    const prefersReducedMotion =
+      typeof window === 'undefined' ||
+      typeof window.matchMedia !== 'function' ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    container.scrollBy({
+      top: -BUTTON_HEIGHT,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    });
+  }, [scrollState.canScrollUp]);
+
+  /**
+   * Handles clicking the scroll-down button.
+   */
+  const handleScrollDown = useCallback((): void => {
+    if (!scrollState.canScrollDown) return;
+
+    const container = appBarListRef.current;
+    if (!container) return;
+
+    // Accessibility-first: default to instant scroll when matchMedia unavailable (SSR/test environments)
+    const prefersReducedMotion =
+      typeof window === 'undefined' ||
+      typeof window.matchMedia !== 'function' ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    container.scrollBy({
+      top: BUTTON_HEIGHT,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth',
+    });
+  }, [scrollState.canScrollDown]);
+
   // #endregion
 
   /**
@@ -229,14 +336,14 @@ export function AppBar(props: AppBarProps): JSX.Element {
   /**
    * Handles when the panel opens.
    */
-  const handlePanelOpen = useCallback(() => {
+  const handlePanelOpen = useCallback((): void => {
     // Do something
   }, []);
 
   /**
    * Handles when the panel closes.
    */
-  const handlePanelClose = useCallback(() => {
+  const handlePanelClose = useCallback((): void => {
     // Hide the marker icon
     mapController.clickMarkerIconHide();
   }, [mapController]);
@@ -303,12 +410,61 @@ export function AppBar(props: AppBarProps): JSX.Element {
       .forEach((appBarTab) => appBarApi.createAppbarPanel(appBarTab[0], appBarTab[1]));
   }, [footerBarConfig?.tabs.core, appBarConfig?.tabs.core, appBarApi, t, memoPanels, geoviewElement, getPanelWidth]);
 
+  /**
+   * Monitors scroll container overflow and scroll position.
+   */
+  useEffect(() => {
+    // Log
+    logger.logTraceUseEffect('APP-BAR - scroll indicators', appBarListRef.current);
+
+    const container = appBarListRef.current;
+    if (!container) return undefined;
+
+    // Initial check (immediate, not throttled)
+    updateScrollIndicators();
+
+    // ResizeObserver for container size changes (immediate, infrequent events)
+    // Feature check: ResizeObserver is supported in all modern browsers (Chrome 64+, Firefox 69+, Safari 13.1+, Edge 79+)
+    // Guard prevents crashes in legacy test environments
+    let resizeObserver: ResizeObserver | undefined;
+    if (typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver(() => {
+        updateScrollIndicators();
+      });
+      resizeObserver.observe(container);
+    }
+
+    // Scroll event for boundary detection (throttled via RAF, frequent events)
+    container.addEventListener('scroll', updateScrollIndicatorsThrottled, { passive: true });
+
+    return () => {
+      resizeObserver?.disconnect();
+      container.removeEventListener('scroll', updateScrollIndicatorsThrottled);
+      // Cancel any pending RAF
+      if (rafIdRef.current) {
+        cancelAnimationFrame(rafIdRef.current);
+        rafIdRef.current = undefined;
+      }
+    };
+  }, [updateScrollIndicators, updateScrollIndicatorsThrottled]);
+
+  /**
+   * Updates scroll indicators when the button list content changes.
+   */
+  useEffect(() => {
+    // Log
+    logger.logTraceUseEffect('APP-BAR - scroll indicators on content change', appBarPanelIds.length);
+
+    // Trigger update when panels are added/removed (ResizeObserver only watches container size, not scrollHeight)
+    updateScrollIndicators();
+  }, [appBarPanelIds.length, updateScrollIndicators]);
+
   // #endregion
 
   /**
    * Re-order the appbar buttons.
    */
-  const { topPanelNames, bottomPanelNames } = useMemo(() => {
+  const { topPanelNames, bottomPanelNames } = useMemo<{ topPanelNames: string[]; bottomPanelNames: string[] }>(() => {
     // Log
     logger.logTraceUseMemo('APP-BAR - panels reorder buttons');
 
@@ -321,88 +477,193 @@ export function AppBar(props: AppBarProps): JSX.Element {
   }, [memoButtonPanels]);
 
   /**
-   * Renders tab buttons in the app-bar.
+   * Renders tab button ListItems for the app-bar.
    *
    * @param panelNames - The panel names to render as buttons
-   * @returns The rendered list of buttons, or null if none are visible
+   * @param isBottomSection - Whether this is the bottom section (applies marginTop: auto to first item)
+   * @returns Array of ListItem elements, or empty array if none are visible
    */
-  const renderButtonPanel = (panelNames: string[]): ReactNode => {
-    // Map through panel names and create ListItems for visible buttons
-    const visibleButtons = panelNames
-      .filter((name) => !hiddenTabs.includes(name))
-      .map((panelName: string) => {
-        // Get the button panel configuration for this panel name
-        const buttonPanel = memoButtonPanels[panelName];
+  const renderButtonPanelItems = useCallback(
+    (panelNames: string[], isBottomSection = false): ReactNode[] => {
+      // Type helper: button panel with guaranteed button.id (string, not undefined)
+      type ButtonPanelWithId = NonNullable<(typeof memoButtonPanels)[string]> & {
+        button: { id: string };
+      };
 
-        // Only render if the button is explicitly set to visible
-        if (buttonPanel?.button.visible !== undefined && buttonPanel?.button.visible) {
-          // WCAG - Compute ARIA attributes before rendering
-          const isPanelOpen: boolean = tabId === buttonPanel.button.id && isOpen;
-          const expandedState: 'true' | 'false' = isPanelOpen ? 'true' : 'false';
-          const ariaControls: string | undefined = activeTrapGeoView ? undefined : getButtonElementId(buttonPanel.button.id!, '-panel');
-          const ariaExpanded: 'true' | 'false' | undefined = activeTrapGeoView ? undefined : expandedState;
+      // First pass: collect visible panel configurations with valid button IDs
+      const visiblePanels = panelNames
+        .filter((name) => !hiddenTabs.includes(name))
+        .map((panelName) => ({ panelName, buttonPanel: memoButtonPanels[panelName] }))
+        .filter((item): item is { panelName: string; buttonPanel: ButtonPanelWithId } => {
+          return item.buttonPanel?.button.visible === true && !!item.buttonPanel?.button.id;
+        });
 
-          return (
-            <ListItem key={buttonPanel.button.id}>
-              <IconButton
-                id={getButtonElementId(buttonPanel.button.id!, '-panel-btn')}
-                aria-label={t(buttonPanel.button['aria-label'])}
-                // In WCAG mode, panels are treated as dialogs because they are focus-trapped, so we set aria-haspopup to dialog to indicate that.
-                aria-haspopup={activeTrapGeoView ? 'dialog' : undefined}
-                // In default mode, panels are treated as regions, so we use aria-controls and aria-expanded to indicate the relationship and state.
-                aria-controls={ariaControls}
-                aria-expanded={ariaExpanded}
-                tooltipPlacement="right"
-                className={`buttonFilled ${tabId === buttonPanel.button.id && isOpen ? 'active' : ''}`}
-                size="small"
-                onClick={() => handleButtonClicked(buttonPanel.button.id!)}
-              >
-                {buttonPanel.button.children}
-              </IconButton>
-            </ListItem>
-          );
-        }
-        // Return null for buttons that aren't visible
-        return null;
-      })
-      // Filter out all null values to get only visible buttons
-      .filter(Boolean);
+      // Second pass: render ListItems with proper styling based on index
+      return visiblePanels.map(({ buttonPanel }, index) => {
+        // WCAG - Compute ARIA attributes before rendering
+        const isPanelOpen: boolean = tabId === buttonPanel.button.id && isOpen;
+        const expandedState: 'true' | 'false' = isPanelOpen ? 'true' : 'false';
+        const ariaControls: string | undefined = activeTrapGeoView ? undefined : getButtonElementId(buttonPanel.button.id, '-panel');
+        const ariaExpanded: 'true' | 'false' | undefined = activeTrapGeoView ? undefined : expandedState;
 
-    // Don't render an empty list if there are no visible buttons
-    if (visibleButtons.length === 0) {
-      return null;
+        // Apply bottom section style to first visible button only
+        const itemSx = isBottomSection && index === 0 ? sxClasses.appBarBottomSection : undefined;
+
+        return (
+          <ListItem key={buttonPanel.button.id} sx={itemSx}>
+            <IconButton
+              id={getButtonElementId(buttonPanel.button.id, '-panel-btn')}
+              aria-label={t(buttonPanel.button['aria-label'])}
+              // In WCAG mode, panels are treated as dialogs because they are focus-trapped, so we set aria-haspopup to dialog to indicate that.
+              aria-haspopup={activeTrapGeoView ? 'dialog' : undefined}
+              // In default mode, panels are treated as regions, so we use aria-controls and aria-expanded to indicate the relationship and state.
+              aria-controls={ariaControls}
+              aria-expanded={ariaExpanded}
+              tooltipPlacement="right"
+              className={`buttonFilled ${tabId === buttonPanel.button.id && isOpen ? 'active' : ''}`}
+              size="small"
+              onClick={() => handleButtonClicked(buttonPanel.button.id)}
+            >
+              {buttonPanel.button.children}
+            </IconButton>
+          </ListItem>
+        );
+      });
+    },
+    [hiddenTabs, memoButtonPanels, tabId, isOpen, activeTrapGeoView, sxClasses, getButtonElementId, t, handleButtonClicked]
+  );
+
+  /**
+   * Computes bottom section button ListItems.
+   */
+  const memoBottomItems = useMemo((): ReactNode[] => {
+    // Log
+    logger.logTraceUseMemo('APP-BAR - memoBottomItems', bottomPanelNames);
+
+    return renderButtonPanelItems(bottomPanelNames, true);
+  }, [bottomPanelNames, renderButtonPanelItems]);
+
+  // Compute which fixed buttons are shown (reduces repeated conditionals)
+  const showExportButton = appBarComponents.includes(DEFAULT_APPBAR_CORE.EXPORT) && interaction === 'dynamic';
+  const showShareButton = isSharedModeEnabled;
+
+  /**
+   * Builds all bottom list items (everything after top section buttons).
+   */
+  const memoBottomListItems = useMemo((): ReactNode[] => {
+    // Log
+    logger.logTraceUseMemo('APP-BAR - memoBottomListItems', memoBottomItems.length, showExportButton, showShareButton);
+
+    const items: ReactNode[] = [];
+
+    // 1. Bottom panel buttons (guide, etc.)
+    items.push(...memoBottomItems);
+
+    // 2. Export button (conditional)
+    if (showExportButton) {
+      items.push(
+        <ListItem key="export">
+          <ExportButton
+            id={`${mapId}-${CONTAINER_TYPE.APP_BAR}-export-modal-btn`}
+            className={` buttonFilled ${activeModalId === DEFAULT_APPBAR_CORE.EXPORT ? 'active' : ''}`}
+          />
+        </ListItem>
+      );
     }
 
-    // Render a single List containing all visible button ListItems
-    return <List sx={sxClasses.appBarList}>{visibleButtons}</List>;
-  };
+    // 3. Share button (conditional)
+    if (showShareButton) {
+      items.push(
+        <ListItem key="share">
+          <Share />
+        </ListItem>
+      );
+    }
+
+    // 4. Notifications (with separator)
+    items.push(
+      <ListItem key="notifications" sx={sxClasses.appBarSeparator}>
+        <Notifications />
+      </ListItem>
+    );
+
+    // 5. Version
+    items.push(
+      <ListItem key="version">
+        <Version />
+      </ListItem>
+    );
+
+    return items;
+  }, [memoBottomItems, showExportButton, showShareButton, mapId, activeModalId, sxClasses]);
+
+  /**
+   * Applies marginTop: auto to the first bottom item to push all items to the bottom.
+   */
+  const memoBottomListItemsWithStyle = useMemo((): ReactNode[] => {
+    // Log
+    logger.logTraceUseMemo('APP-BAR - memoBottomListItemsWithStyle', memoBottomListItems.length);
+
+    if (memoBottomListItems.length === 0) return [];
+
+    return memoBottomListItems.map((item, index) => {
+      if (index === 0 && isValidElement(item)) {
+        // Apply marginTop: auto to first item
+        const existingSx = (item.props as { sx?: SxProps }).sx;
+        // Flatten sx to avoid nested arrays if existingSx is already an array
+        const combinedSx = existingSx
+          ? [...(Array.isArray(existingSx) ? existingSx : [existingSx]), sxClasses.appBarBottomSection]
+          : sxClasses.appBarBottomSection;
+        return cloneElement(item as ReactElement<{ sx?: SxProps }>, { sx: combinedSx as SxProps });
+      }
+      return item;
+    });
+  }, [memoBottomListItems, sxClasses]);
 
   return (
     <Box sx={sxClasses.appBar} className={`interaction-${interaction}`} id={`${mapId}-appBar`} onClick={onScrollShellIntoView}>
-      <Box sx={sxClasses.appBarButtons} component="nav" aria-label={t('appbar.navLabel')}>
-        {renderButtonPanel(topPanelNames)}
-        <Box sx={sxClasses.versionButtonDiv}>
-          {renderButtonPanel(bottomPanelNames)}
-          <List sx={sxClasses.appBarList}>
-            {appBarComponents.includes(DEFAULT_APPBAR_CORE.EXPORT) && interaction === 'dynamic' && (
-              <ListItem>
-                <ExportButton
-                  id={`${mapId}-${CONTAINER_TYPE.APP_BAR}-export-modal-btn`}
-                  className={` buttonFilled ${activeModalId === DEFAULT_APPBAR_CORE.EXPORT ? 'active' : ''}`}
-                />
-              </ListItem>
-            )}
-            <ListItem>
-              <Share />
-            </ListItem>
-            <ListItem sx={sxClasses.appBarSeparator}>
-              <Notifications />
-            </ListItem>
-            <ListItem>
-              <Version />
-            </ListItem>
-          </List>
-        </Box>
+      <Box
+        sx={[sxClasses.appBarButtons, !scrollState.isScrollable && { paddingTop: '16px' }] as SxProps}
+        component="nav"
+        aria-label={t('appbar.navLabel')}
+      >
+        {/* Scroll up button */}
+        {scrollState.isScrollable && (
+          <IconButton
+            id={`${mapId}-${CONTAINER_TYPE.APP_BAR}-scroll-up-btn`}
+            aria-label={t('appbar.scrollUp')}
+            aria-disabled={!scrollState.canScrollUp}
+            tooltip={t('appbar.scrollUp')}
+            tooltipPlacement="right"
+            onClick={handleScrollUp}
+            sx={sxClasses.scrollButtonUp}
+          >
+            <KeyboardArrowUpIcon />
+          </IconButton>
+        )}
+
+        <List ref={appBarListRef} sx={sxClasses.appBarList}>
+          {/* Top section buttons */}
+          {renderButtonPanelItems(topPanelNames, false)}
+
+          {/* All bottom items - first one automatically gets marginTop: auto */}
+          {memoBottomListItemsWithStyle}
+        </List>
+
+        {/* Scroll down button */}
+        {scrollState.isScrollable && (
+          <IconButton
+            id={`${mapId}-${CONTAINER_TYPE.APP_BAR}-scroll-down-btn`}
+            aria-label={t('appbar.scrollDown')}
+            aria-disabled={!scrollState.canScrollDown}
+            tooltip={t('appbar.scrollDown')}
+            tooltipPlacement="right"
+            onClick={handleScrollDown}
+            sx={sxClasses.scrollButtonDown}
+          >
+            <KeyboardArrowDownIcon />
+          </IconButton>
+        )}
       </Box>
       {Object.keys(memoButtonPanels).map((panelName: string) => {
         // get button panel

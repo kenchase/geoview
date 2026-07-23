@@ -144,7 +144,9 @@
     "removeAllNotifications": "Remove all notifications",
     "repeatedNotificationTimes": "repeated {{count}} times",
     "closeNotificationsDialog": "Close notifications dialog",
-    "navLabel": "Main map controls"
+    "navLabel": "Main map controls",
+    "scrollUp": "Scroll up",
+    "scrollDown": "Scroll down"
   },
   "legend": {
     "title": "Legend",

@@ -29,17 +29,25 @@ const IMAGE_VALIDATION_PATTERNS = {
 } as const;
 
 interface TypeDocument extends Document {
+  /** Safari vendor-prefixed fullscreen exit method. */
   webkitExitFullscreen: () => void;
+  /** IE11 vendor-prefixed fullscreen exit method. */
   msExitFullscreen: () => void;
+  /** Firefox vendor-prefixed fullscreen exit method. */
   mozCancelFullScreen: () => void;
 }
 
 /** Result of a URL reachability ping check. */
 export type PingResult = {
+  /** Whether the URL has valid syntax. */
   isValid: boolean;
+  /** Whether the server responded successfully. */
   isReachable: boolean;
+  /** Whether the request required a proxy to succeed. */
   needsProxy: boolean;
+  /** The HTTP status code from the server response, or null if no response. */
   status: number | null;
+  /** Optional error message describing why the check failed. */
   error?: string;
 };
 
@@ -1643,7 +1651,12 @@ export function isElementInViewport(el: Element): boolean {
  * @param offset - Optional offset in pixels for 'start' (top gap) and 'end' (bottom gap) positions (default: 100)
  */
 export function scrollIfNotVisible(el: HTMLElement, blockValue: ScrollLogicalPosition, offset = 100): void {
-  const behaviorScroll = (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth') as ScrollBehavior;
+  // Accessibility-first: default to instant scroll when matchMedia unavailable (SSR/test environments)
+  const prefersReducedMotion =
+    typeof window === 'undefined' ||
+    typeof window.matchMedia !== 'function' ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const behaviorScroll = (prefersReducedMotion ? 'instant' : 'smooth') as ScrollBehavior;
   const rect = el.getBoundingClientRect();
   if (rect.top < offset || rect.bottom > window.innerHeight) {
     if (blockValue === 'center' || blockValue === 'nearest') {
@@ -1671,7 +1684,12 @@ export function scrollIfNotVisible(el: HTMLElement, blockValue: ScrollLogicalPos
  * @param listItem - The list item element to scroll into view
  */
 export function scrollListItemIntoView(listItem: HTMLElement): void {
-  const behaviorScroll = (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth') as ScrollBehavior;
+  // Accessibility-first: default to instant scroll when matchMedia unavailable (SSR/test environments)
+  const prefersReducedMotion =
+    typeof window === 'undefined' ||
+    typeof window.matchMedia !== 'function' ||
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const behaviorScroll = (prefersReducedMotion ? 'instant' : 'smooth') as ScrollBehavior;
   const gap = 20;
 
   // Find the nearest scrollable parent

@@ -39,14 +39,30 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     },
   },
   appBarList: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: 0,
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    scrollbarWidth: 'none',
+    msOverflowStyle: 'none',
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
     '& li': {
       backgroundColor: 'transparent',
       justifyContent: 'center',
+      paddingTop: 0,
+      paddingBottom: 0,
     },
   },
   appBarButtons: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: 0,
     position: 'relative',
-    paddingTop: '16px',
     borderRightColor: theme.palette.geoViewColor.primary.light[100],
     borderRightWidth: 1,
     borderRightStyle: 'solid',
@@ -71,27 +87,33 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
       '& .MuiTouchRipple-root': {
         maxWidth: '50px',
       },
+      '&[aria-disabled="true"]': {
+        color: theme.palette.geoViewColor.bgColor.dark[450],
+        cursor: 'not-allowed',
+      },
     },
   },
   appBarSeparator: {
+    position: 'relative',
+    marginTop: '0.5em',
+    paddingTop: '0.5em',
     '&::before': {
       content: '""',
-      display: 'block',
-      borderTop: `1px solid ${theme.palette.geoViewColor.grey.light[100]}`,
-      width: '40px',
-      margin: 'auto 5px',
       position: 'absolute',
       top: 0,
-      left: 0,
+      left: '4px',
+      right: '4px',
+      borderTop: `1px solid ${theme.palette.geoViewColor.grey.light[100]}`,
     },
-    marginTop: '0.5em',
-    padding: '0.5em 0 0 0',
-    position: 'relative',
   },
-  versionButtonDiv: {
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
+  appBarBottomSection: {
+    marginTop: 'auto',
+  },
+  scrollButtonUp: {
+    borderBottom: `1px solid ${theme.palette.divider}`,
+  },
+  scrollButtonDown: {
+    borderTop: `1px solid ${theme.palette.divider}`,
   },
   appBarPanels: {},
 });
