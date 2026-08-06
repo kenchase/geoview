@@ -14,6 +14,7 @@ import { useStoreUINavbarComponents, useStoreUINavBarButtonPanelVersion, useStor
 import { useStoreAppDisplayLanguage } from '@/core/stores/states/app-state';
 import { useStoreMapOverviewShouldBeVisible } from '@/core/stores/states/map-state';
 import { logger } from '@/core/utils/logger';
+import { translateTooltip } from '@/core/utils/utilities';
 import BasemapSelect from './buttons/basemap-select';
 import Measurement from './buttons/measurement';
 import ZoomIn from './buttons/zoom-in';
@@ -171,8 +172,8 @@ export function NavBar(props: NavBarProps): JSX.Element {
           <IconButton
             key={buttonPanel.button.id}
             id={buttonPanel.button.id}
-            aria-label={buttonPanel.button['aria-label']}
-            tooltip={buttonPanel.button.tooltip}
+            aria-label={t(buttonPanel.button['aria-label'])}
+            tooltip={translateTooltip(t, buttonPanel.button.tooltip)}
             tooltipPlacement={buttonPanel.button.tooltipPlacement}
             sx={memoSxClasses.navButton}
             onClick={buttonPanel.button.onClick}

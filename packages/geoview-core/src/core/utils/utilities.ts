@@ -356,6 +356,19 @@ export function getLocalizedMessage(
 }
 
 /**
+ * Translates an optional tooltip value with tri-state semantics.
+ *
+ * @param t - Translation function from i18next
+ * @param tooltip - Tooltip value (translation key, null to disable, or undefined for fallback)
+ * @returns Translated string, null (disabled), or undefined (fallback to aria-label)
+ */
+export function translateTooltip(t: (key: string) => string, tooltip: string | null | undefined): string | null | undefined {
+  if (tooltip === null) return null;
+  if (tooltip !== undefined) return t(tooltip);
+  return undefined;
+}
+
+/**
  * Deep merge objects together. Latest object will overwrite value on previous one
  * if property exist.
  *

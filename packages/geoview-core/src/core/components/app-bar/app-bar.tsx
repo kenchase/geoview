@@ -56,7 +56,7 @@ import { getSxClasses } from './app-bar-style';
 import { enforceArrayOrder } from './app-bar-helper';
 import { CONTAINER_TYPE, LIGHTBOX_SELECTORS, TIMEOUT } from '@/core/utils/constant';
 import { DEFAULT_APPBAR_CORE, DEFAULT_APPBAR_TABS_ORDER } from '@/api/types/map-schema-types';
-import { camelCase, handleEscapeKey } from '@/core/utils/utilities';
+import { camelCase, handleEscapeKey, translateTooltip } from '@/core/utils/utilities';
 import { IconButton } from '@/ui/icon-button/icon-button';
 
 /** Scroll step size in pixels (matches single button height). */
@@ -83,6 +83,9 @@ export interface ButtonPanelType {
 
 /**
  * Creates an app-bar with buttons that can open a panel.
+ *
+ * Not memoized because this component receives props that change frequently
+ * (api, onScrollShellIntoView callbacks). Memoization would add overhead without benefit.
  *
  * @param props - Properties defined in AppBarProps interface
  * @returns The app bar component
@@ -389,8 +392,8 @@ export function AppBar(props: AppBarProps): JSX.Element {
       .map((tab): [IconButtonPropsExtend, TypePanelProps, string] => {
         const button: IconButtonPropsExtend = {
           id: tab,
-          'aria-label': t(`${camelCase(tab)}.title`),
-          tooltip: t(`${camelCase(tab)}.title`),
+          'aria-label': `${camelCase(tab)}.title`,
+          tooltip: `${camelCase(tab)}.title`,
           tooltipPlacement: 'bottom',
           children: memoPanels[tab].icon,
         };
@@ -519,6 +522,7 @@ export function AppBar(props: AppBarProps): JSX.Element {
               // In default mode, panels are treated as regions, so we use aria-controls and aria-expanded to indicate the relationship and state.
               aria-controls={ariaControls}
               aria-expanded={ariaExpanded}
+              tooltip={translateTooltip(t, buttonPanel.button.tooltip)}
               tooltipPlacement="right"
               className={`buttonFilled ${tabId === buttonPanel.button.id && isOpen ? 'active' : ''}`}
               size="small"
