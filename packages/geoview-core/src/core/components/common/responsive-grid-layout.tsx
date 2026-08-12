@@ -17,6 +17,7 @@ import { getSxClasses } from './responsive-grid-layout-style';
 import { getSxClasses as getGuideSxClasses } from '@/core/components/guide/guide-style';
 import { FullScreenDialog } from './full-screen-dialog';
 import { logger } from '@/core/utils/logger';
+import { transformMarkdownIds } from '@/core/utils/utilities';
 import { ArrowBackIcon, ArrowForwardIcon, CloseIcon, QuestionMarkIcon } from '@/ui/icons';
 import { useStoreGeoViewMapId } from '@/core/stores/geoview-store';
 import { useStoreAppGuide, useStoreAppIsFullscreenActive, useStoreAppShellContainer } from '@/core/stores/states/app-state';
@@ -618,6 +619,9 @@ const ResponsiveGridLayout = forwardRef(
         .replace(/<a[^>]*data-guide-nav="top"[^>]*>.*?<\/a>/g, '');
       if (!content) return null;
 
+      // Transform IDs to be unique for this map/container instance
+      const transformedContent = transformMarkdownIds(content, `${mapId}-${containerType}`);
+
       return (
         <Box
           ref={guideContainerRef}
@@ -651,7 +655,7 @@ const ResponsiveGridLayout = forwardRef(
                 <CloseIcon />
               </IconButton>
             )}
-            <Markdown options={{ wrapper: 'article' }}>{content}</Markdown>
+            <Markdown options={{ wrapper: 'article' }}>{transformedContent}</Markdown>
           </Box>
         </Box>
       );
