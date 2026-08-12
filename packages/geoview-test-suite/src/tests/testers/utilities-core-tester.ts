@@ -27,6 +27,7 @@ import {
   sanitizeHtmlContent,
   enhanceLinksAccessibility,
   getLocalizedMessage,
+  transformMarkdownIds,
 } from 'geoview-core/core/utils/utilities';
 
 import { Test } from '../core/test';
@@ -916,6 +917,63 @@ export class UtilitiesCoreTester extends GVAbstractTester {
 
         test.addStep('Verifying multi-param interpolation (fr)...');
         Test.assertIsEqual(results[7], 'Traitement de 3 élément(s) sur 10');
+      }
+    );
+  }
+
+  // #endregion
+
+  // #region transformMarkdownIds()
+
+  /**
+   * Tests transformMarkdownIds() prefixes guide anchor IDs and hrefs.
+   *
+   * @returns A promise that resolves when the test completes
+   */
+  testTransformMarkdownIds(): Promise<Test<string[]>> {
+    return this.test(
+      'Test transformMarkdownIds() prefixes Section IDs and hrefs...',
+      (test) => {
+        test.addStep('Transforming markdown IDs with various scenarios...');
+        const prefix = 'map1-about';
+        return [
+          // Case 1: id attribute prefixing
+          transformMarkdownIds('<a id="legendSection">Link</a>', prefix),
+          // Case 2: href anchor prefixing
+          transformMarkdownIds('<a href="#layersSection">Link</a>', prefix),
+          // Case 3: both id and href
+          transformMarkdownIds('<a id="geolocatorSection" href="#legendSection">Link</a>', prefix),
+          // Case 4: idempotency — already prefixed IDs should not be re-prefixed
+          transformMarkdownIds('<a id="map1-about-legendSection" href="#map1-about-layersSection">Link</a>', prefix),
+          // Case 5: mixed — some prefixed, some not
+          transformMarkdownIds('<a id="legendSection" href="#map1-about-layersSection">Link</a>', prefix),
+          // Case 6: selective targeting — only transforms IDs ending with "Section"
+          transformMarkdownIds('<a id="myCustomId" href="#anotherLink">Link</a>', prefix),
+          // Case 7: multiple elements
+          transformMarkdownIds('<a id="legendSection">L1</a><a id="layersSection">L2</a>', prefix),
+        ];
+      },
+      (test, results) => {
+        test.addStep('Verifying id attribute prefixing...');
+        Test.assertIsEqual(results[0], '<a id="map1-about-legendSection">Link</a>');
+
+        test.addStep('Verifying href anchor prefixing...');
+        Test.assertIsEqual(results[1], '<a href="#map1-about-layersSection">Link</a>');
+
+        test.addStep('Verifying both id and href prefixed...');
+        Test.assertIsEqual(results[2], '<a id="map1-about-geolocatorSection" href="#map1-about-legendSection">Link</a>');
+
+        test.addStep('Verifying idempotency — already prefixed not re-prefixed...');
+        Test.assertIsEqual(results[3], '<a id="map1-about-legendSection" href="#map1-about-layersSection">Link</a>');
+
+        test.addStep('Verifying mixed — only unprefixed transformed...');
+        Test.assertIsEqual(results[4], '<a id="map1-about-legendSection" href="#map1-about-layersSection">Link</a>');
+
+        test.addStep('Verifying selective targeting — non-Section IDs unchanged...');
+        Test.assertIsEqual(results[5], '<a id="myCustomId" href="#anotherLink">Link</a>');
+
+        test.addStep('Verifying multiple elements...');
+        Test.assertIsEqual(results[6], '<a id="map1-about-legendSection">L1</a><a id="map1-about-layersSection">L2</a>');
       }
     );
   }

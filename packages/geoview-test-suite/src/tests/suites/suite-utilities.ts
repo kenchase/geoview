@@ -98,6 +98,7 @@ export class GVTestSuiteUtilities extends GVAbstractTestSuite {
     const pSanitizeHtmlContent = this.#coreTester.testSanitizeHtmlContent();
     const pEnhanceLinksAccessibility = this.#coreTester.testEnhanceLinksAccessibility();
     const pGetLocalizedMessage = this.#coreTester.testGetLocalizedMessage();
+    const pTransformMarkdownIds = this.#coreTester.testTransformMarkdownIds();
 
     // Date tester tests
     const pFormatDate = this.#dateTester.testFormatDate();
@@ -159,6 +160,7 @@ export class GVTestSuiteUtilities extends GVAbstractTestSuite {
       pSanitizeHtmlContent,
       pEnhanceLinksAccessibility,
       pGetLocalizedMessage,
+      pTransformMarkdownIds,
       // Date
       pFormatDate,
       pFormatDateISOShort,
