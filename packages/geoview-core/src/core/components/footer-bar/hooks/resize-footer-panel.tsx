@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import type { MouseEvent } from 'react';
-import { useMemo, memo, useCallback, useState } from 'react';
+import { useMemo, memo, useCallback, useState, useRef } from 'react';
 import { useTheme } from '@mui/material/styles';
 import { ClickAwayListener } from '@mui/material';
 import Slider from '@mui/material/Slider';
@@ -13,6 +13,7 @@ import { getSxClasses } from './resize-footer-panel-style';
 import { useStoreUIFooterPanelResizeValue, useStoreUIActiveTrapGeoView } from '@/core/stores/states/ui-state';
 import { logger } from '@/core/utils/logger';
 import { handleEscapeKey } from '@/core/utils/utilities';
+import { TIMEOUT } from '@/core/utils/constant';
 
 /** Slider input styles for vertical orientation. */
 const SLIDER_STYLES = {
@@ -62,6 +63,9 @@ export const ResizeFooterPanel = memo((): JSX.Element => {
   const [pendingValue, setPendingValue] = useState<number | undefined>(undefined);
   const [open, setOpen] = useState(false);
 
+  // Refs
+  const triggerButtonRef = useRef<HTMLButtonElement | null>(null);
+
   // Get container
   const mapId = useStoreGeoViewMapId();
   const mapElem = document.getElementById(`shell-${mapId}`);
@@ -94,6 +98,11 @@ export const ResizeFooterPanel = memo((): JSX.Element => {
     }
     setOpen(false);
     setAnchorEl(null);
+
+    // Restore focus to trigger button for keyboard accessibility
+    setTimeout(() => {
+      triggerButtonRef.current?.focus();
+    }, TIMEOUT.focusDelay);
   }, [pendingValue, uiController]);
 
   /**
@@ -168,7 +177,7 @@ export const ResizeFooterPanel = memo((): JSX.Element => {
   return (
     <ClickAwayListener mouseEvent="onMouseDown" touchEvent="onTouchStart" onClickAway={handleClose}>
       <Box>
-        <IconButton onClick={handleClick} aria-label={t('footerBar.resizeTooltip')}>
+        <IconButton ref={triggerButtonRef} onClick={handleClick} aria-label={t('footerBar.resizeTooltip')}>
           <HeightIcon />
         </IconButton>
         <Popper
