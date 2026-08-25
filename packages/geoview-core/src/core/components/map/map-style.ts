@@ -13,6 +13,12 @@ export const getSxClasses = (): SxStyles => ({
     height: '100%',
     position: 'relative',
 
+    // Keyboard focus indicator for map container
+    '&:focus-visible': {
+      outline: '2px solid black',
+      outlineOffset: '2px',
+    },
+
     '& .ol-viewport': {
       // Target OpenLayers viewport directly
       height: '100% !important',

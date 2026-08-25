@@ -82,14 +82,6 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
         marginTop: '0.25rem',
         marginBottom: '0.25rem',
       },
-      '& .keyboard-focused': {
-        backgroundColor: theme.palette.action.focus,
-        borderRadius: '50%',
-        border: `1px solid black !important`,
-        '> svg': {
-          opacity: 1,
-        },
-      },
       '& .MuiTableSortLabel-root': {
         width: '2rem',
         height: '2rem',
@@ -120,10 +112,11 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
         borderRadius: '50%',
         border: `2px solid ${theme.palette.divider}`,
       },
-      '&.keyboard-focused, &:focus-visible': {
+      '&:focus-visible, &.Mui-focusVisible': {
         backgroundColor: theme.palette.geoViewColor?.bgColor.dark[100],
         borderRadius: '50%',
-        border: `2px solid black !important`,
+        outline: `2px solid ${theme.palette.common.black}`,
+        outlineOffset: '2px',
       },
     },
     '& .Mui-TableHeadCell-Content-Actions': {
@@ -133,9 +126,10 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
         '&:hover': {
           border: `2px solid ${theme.palette.divider}`,
         },
-        '&.keyboard-focused, &:focus-visible': {
+        '&:focus-visible, &.Mui-focusVisible': {
           borderRadius: '50%',
-          border: `2px solid black !important`,
+          outline: `2px solid ${theme.palette.common.black}`,
+          outlineOffset: '2px',
         },
       },
     },

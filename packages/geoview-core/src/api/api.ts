@@ -49,8 +49,8 @@ export class API {
    * Initiates the event and projection objects.
    */
   constructor() {
-    // apply focus to element when keyboard navigation is use
-    API.#manageKeyboardFocus(this);
+    // activate crosshair when map element receives keyboard focus
+    API.#manageCrosshairActivation(this);
   }
 
   /**
@@ -337,17 +337,12 @@ export class API {
   // #region STATIC METHODS
 
   /**
-   * Applies outline to elements when keyboard is used to navigate.
+   * Manages crosshair activation when the map element receives keyboard focus.
    *
-   * Code from: https://github.com/MaxMaeder/keyboardFocus.js
+   * Listens for Tab keyup events and activates the crosshair when the map element is focused.
+   * Visual focus indicators are handled natively by the browser via :focus-visible.
    */
-  static #manageKeyboardFocus(apiInstance: API): void {
-    // Remove the 'keyboard-focused' class from any elements that have it
-    function removeFocusedClass(): void {
-      const previouslyFocusedElement = document.getElementsByClassName('keyboard-focused')[0];
-      if (previouslyFocusedElement) previouslyFocusedElement.classList.toggle('keyboard-focused');
-    }
-
+  static #manageCrosshairActivation(apiInstance: API): void {
     // Add event listener for when tab pressed
     document.addEventListener('keyup', (event: KeyboardEvent) => {
       if (event.key !== 'Tab') return;
@@ -357,11 +352,7 @@ export class API {
       const activeEl = document.activeElement;
 
       if (elements.some((element) => element.contains(activeEl))) {
-        // Remove class on previous element then add the 'keyboard-focused' class to the currently focused element
-        removeFocusedClass();
-        activeEl?.classList.toggle('keyboard-focused');
-
-        // Check if the focus element is a map and set store value for crosshair
+        // Check if the focused element is a map and activate crosshair accordingly
         const mapId =
           activeEl?.closest('.geoview-shell') !== null ? activeEl?.closest('.geoview-shell')!.getAttribute('id')?.split('-')[1] : undefined;
 
@@ -377,10 +368,6 @@ export class API {
         }
       }
     });
-
-    // Remove the class when the user interacts with the page with their mouse, or when the page looses focus
-    document.addEventListener('click', removeFocusedClass);
-    document.addEventListener('focusout', removeFocusedClass);
   }
 
   // #endregion STATIC METHODS

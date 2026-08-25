@@ -64,7 +64,6 @@ function BaseLightBoxComponent({
       const element = document.getElementById(returnFocusId);
       if (element) {
         element.focus();
-        element.classList.add('keyboard-focused');
       } else {
         logger.logWarning(`LightBox focus restoration failed: element "${returnFocusId}" not found`);
       }

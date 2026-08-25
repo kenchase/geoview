@@ -130,20 +130,18 @@ export const getSxClasses = (theme: Theme): SxClasses => ({
       color: theme.palette.geoViewColor?.textColor.light[600],
       borderLeft: `5px solid ${theme.palette.geoViewColor?.bgColor.dark[200]}`,
     },
-    '&.unchecked:focus, &.unchecked.keyboard-focused': {
-      borderLeft: `5px solid ${theme.palette.geoViewColor?.bgColor.dark[200]} !important`,
-    },
-    '&.unchecked.Mui-focusVisible': {
-      borderLeft: `5px solid ${theme.palette.geoViewColor?.bgColor.dark[200]} !important`,
+    '&.unchecked:focus-visible, &.unchecked.Mui-focusVisible': {
+      borderLeft: `5px solid ${theme.palette.geoViewColor?.bgColor.dark[200]}`,
+      outline: `2px solid ${theme.palette.common.black}`,
+      outlineOffset: '2px',
     },
     '&.checked': {
       borderLeft: `5px solid ${theme.palette.geoViewColor?.bgColor.dark[600]}`,
     },
-    '&.checked:focus, &.checked.keyboard-focused': {
-      borderLeft: `5px solid ${theme.palette.geoViewColor?.bgColor.dark[600]} !important`,
-    },
-    '&.checked.Mui-focusVisible': {
-      borderLeft: `5px solid ${theme.palette.geoViewColor?.bgColor.dark[600]} !important`,
+    '&.checked:focus-visible, &.checked.Mui-focusVisible': {
+      borderLeft: `5px solid ${theme.palette.geoViewColor?.bgColor.dark[600]}`,
+      outline: `2px solid ${theme.palette.common.black}`,
+      outlineOffset: '2px',
     },
     '&.Mui-disabled': {
       borderLeft: '5px solid transparent',
