@@ -97,6 +97,18 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     wordBreak: 'break-word',
     whiteSpace: 'pre-wrap',
   },
+  notificationsItemCount: {
+    display: 'inline-block',
+    marginLeft: '8px',
+    padding: '0 8px',
+    backgroundColor: theme.palette.geoViewColor?.bgColor.dark[800],
+    color: theme.palette.geoViewColor?.bgColor.light[800],
+    fontSize: theme.palette.geoViewFontSize?.sm,
+    borderRadius: '10px',
+    height: '20px',
+    lineHeight: '20px',
+    textAlign: 'center',
+  },
   emptyMessage: {
     padding: '16px 16px',
   },
