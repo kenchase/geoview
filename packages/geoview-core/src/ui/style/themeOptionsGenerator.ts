@@ -43,6 +43,18 @@ export const getFocusIndicatorStyles = (geoViewColors: IGeoViewColors): CSSObjec
 });
 
 /**
+ * WCAG-compliant focus indicator styles for InputBase-derived form controls.
+ *
+ * Delegates to getFocusIndicatorStyles so buttons and form controls share one visual treatment.
+ * Kept as a separate seam so the form-control offset/halo can be tuned independently later without
+ * affecting ButtonBase-derived components.
+ *
+ * @param geoViewColors - GeoView color palette for focus indicator colors
+ * @returns Focus indicator style object for use with :has(:focus-visible) on the input root
+ */
+export const getFormControlFocusIndicatorStyles = (geoViewColors: IGeoViewColors): CSSObject => getFocusIndicatorStyles(geoViewColors);
+
+/**
  * Generates button style overrides for all button variants.
  *
  * Note: Focus indicators are applied via MuiButtonBase (parent component) to avoid duplication.
@@ -531,6 +543,10 @@ export const generateThemeOptions = (geoViewColors: IGeoViewColors = defaultGeoV
               WebkitAppearance: 'none',
               appearance: 'none',
             },
+            // Keyboard-only focus indicator for InputBase-derived controls (TextField, Select, Autocomplete, date-pickers).
+            // Scoped to .geoview-keyboard-active (GeoView keyboard-navigation mode) because :focus-visible alone still
+            // matches text inputs on mouse click; the ancestor gate ensures mouse users never see the outline.
+            '.geoview-keyboard-active &:has(:focus-visible)': getFormControlFocusIndicatorStyles(geoViewColors),
           },
         },
       },
