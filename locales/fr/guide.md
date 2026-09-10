@@ -118,6 +118,7 @@ Le mouvement ou le positionnement de la souris peut provoquer un comportement in
 
 - Avant de tabuler vers la visionneuse pour activer le mode de navigation au clavier (WCAG), éloignez votre souris de la fenêtre du navigateur.
 - Évitez de déplacer votre souris après avoir activé le mode de navigation au clavier.
+- Avant d'activer le mode plein écran de la visionneuse, éloignez votre souris de l'endroit où la visionneuse apparaîtra, afin qu'elle ne chevauche pas la souris lorsque la visionneuse s'agrandit pour remplir l'écran. Placer la souris dans l'un des coins de votre écran devrait aider à éviter tout problème.
 
 ### Utilisateurs de lecteurs d'écran
 

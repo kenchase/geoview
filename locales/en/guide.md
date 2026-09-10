@@ -119,6 +119,7 @@ Mouse movement or placement can cause unexpected behaviour with keyboard navigat
 
 - Before tabbing into the viewer to enter keyboard navigation (WCAG) mode, move your mouse away from the browser window.
 - Avoid moving your mouse after enabling keyboard navigation mode.
+- Before entering the viewer's fullscreen mode, move your mouse away from where the viewer will appear, so it doesn't overlap with the mouse as the viewer expands to fill the screen. Placing the mouse in one of your display's corners should help avoid any issues.
 
 ### Screen Reader Users
 

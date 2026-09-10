@@ -56,6 +56,7 @@ To avoid these issues:
 
 - Before tabbing into the viewer to enter WCAG mode, move your mouse away from the browser window.
 - Avoid moving your mouse after entering WCAG mode.
+- Before entering the viewer's fullscreen mode, move your mouse away from where the viewer will appear, so it doesn't overlap with the mouse as the viewer expands to fill the screen. Placing the mouse in one of your display's corners should help avoid any issues.
 
 ### Step 5 — Contact the GeoView Team
 
