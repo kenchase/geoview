@@ -219,7 +219,7 @@ export function CoordinateInfo(): JSX.Element {
               <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
                 {t('details.declination')}
               </Typography>
-              <Box sx={{ ml: 2 }}>
+              <Box sx={{ ml: '2px' }}>
                 <Typography>{declination}</Typography>
               </Box>
             </ListItem>

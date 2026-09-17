@@ -30,8 +30,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     },
   },
   scaleExpandedContainer: {
-    gap: theme.spacing(5),
-    padding: theme.spacing(0, 6),
+    gap: '6px',
+    padding: '0px 8px',
   },
   scaleExpandedCheckmarkText: {
     display: 'flex',
@@ -81,7 +81,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     },
   },
   scaleCheckmark: {
-    paddingRight: 5,
+    paddingRight: '6px',
     color: theme.palette.geoViewColor?.bgColor.light[800],
   },
 });

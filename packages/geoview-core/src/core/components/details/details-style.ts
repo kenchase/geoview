@@ -40,7 +40,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 3,
+    gap: '4px',
     flexWrap: 'wrap',
   },
   featureInfoListContainer: {
@@ -134,7 +134,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     padding: '16px',
   },
   coordinateInfoTitle: {
-    mb: 10,
+    mb: '15px',
   },
   coordinateInfoSection: {
     flexDirection: 'column',

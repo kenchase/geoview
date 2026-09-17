@@ -171,7 +171,7 @@ export const MousePosition = memo((props: MousePositionProps): JSX.Element => {
         onClick={handleRadioGroupClick}
         aria-label={t('mapctrl.mouseposition.selectFormat')}
         sx={{
-          padding: theme.spacing(0, 6),
+          padding: '0px 8px',
           // Show focus ring when any child Radio has focus
           '&:has(:focus-visible)': {
             borderRadius: '4px',

@@ -169,9 +169,9 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   toolbarContainer: {
     justifyContent: 'space-between',
     borderBottom: `1px solid ${theme.palette.divider}`,
-    padding: theme.spacing(5),
+    padding: '6px',
     display: 'flex',
-    gap: theme.spacing(6),
+    gap: '8px',
     flexDirection: 'column',
   },
   toolbarRow: {
@@ -179,7 +179,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    gap: theme.spacing(5),
+    gap: '6px',
     '& > *': {
       flex: '0 1 auto', // Default: can shrink
       minWidth: 0, // Allow shrinking below content size
@@ -198,14 +198,14 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   toolbarControls: {
     display: 'flex',
     alignItems: 'center',
-    gap: theme.spacing(2), // Space between Switch and button group
+    gap: '2px', // Space between Switch and button group
     flexWrap: 'wrap',
     justifyContent: 'center',
   },
   toolbarButtonGroup: {
     display: 'flex',
     alignItems: 'center',
-    gap: theme.spacing(1), // Tighter spacing between buttons
+    gap: '1px', // Tighter spacing between buttons
     '& .MuiIconButton-root': {
       '&.Mui-focusVisible': {
         outlineOffset: '-3px',

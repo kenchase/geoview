@@ -9,7 +9,7 @@ import type { Theme, SxStyles } from 'geoview-core/ui/style/types';
 export const getSxClasses = (theme: Theme): SxStyles => ({
   // Common control wrapper
   filterControl: {
-    mb: 2,
+    mb: '2px',
     '&:last-child': {
       mb: 0,
     },
@@ -18,7 +18,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   // Label text
   filterLabel: {
     display: 'block',
-    mb: 0.75,
+    mb: '0.75px',
     mt: '5px',
     fontWeight: 500,
     fontSize: theme.palette.geoViewFontSize?.md || '1rem',
@@ -38,7 +38,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     border: 1,
     borderColor: theme.palette.geoViewColor?.bgColor?.dark?.[100] || 'divider',
     borderRadius: 1,
-    p: 0.5,
+    p: '0.5px',
   },
 
   // Multiselect checkbox item
@@ -50,8 +50,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   // Date range info text
   filterDateInfo: {
     color: theme.palette.geoViewColor?.textColor?.light?.[400] || 'text.secondary',
-    pt: 0.5,
-    px: 5,
+    pt: '0.5px',
+    px: '6px',
     display: 'block',
     fontSize: theme.palette.geoViewFontSize?.sm || '0.875rem',
   },
@@ -59,7 +59,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   // Range slider container
   filterSliderContainer: {
     px: '25px',
-    pt: 1,
+    pt: '1px',
   },
 
   // Range value display container
@@ -68,6 +68,6 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     justifyContent: 'space-between',
     fontSize: theme.palette.geoViewFontSize?.sm || '0.875rem',
     color: theme.palette.geoViewColor?.textColor?.light?.[400] || 'text.secondary',
-    px: 5,
+    px: '6px',
   },
 });

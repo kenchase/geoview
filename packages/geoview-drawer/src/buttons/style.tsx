@@ -17,13 +17,13 @@ import { FONT_OPTIONS, DEFAULT_FONT, loadGoogleFont } from '../utils/fonts';
 // Styles
 const sxClasses = {
   listItem: {
-    mb: 8,
+    mb: '12px',
     p: 0,
     flexDirection: 'column',
     alignItems: 'flex-start',
   },
   label: {
-    mb: 1,
+    mb: '1px',
   },
   input: {
     width: '100%',
@@ -355,7 +355,7 @@ export function StylePanel(): JSX.Element {
 
           {/* Text Color and Size in one row */}
           <ListItem sx={sxClasses.listItem}>
-            <Box sx={{ display: 'flex', gap: 3, width: '100%' }}>
+            <Box sx={{ display: 'flex', gap: '4px', width: '100%' }}>
               <Box sx={{ flex: 1 }}>
                 <Typography variant="subtitle2" sx={sxClasses.label}>
                   {t('drawer.textColour')}
@@ -388,7 +388,7 @@ export function StylePanel(): JSX.Element {
 
           {/* Halo Color and Size in one row */}
           <ListItem sx={sxClasses.listItem}>
-            <Box sx={{ display: 'flex', gap: 3, width: '100%' }}>
+            <Box sx={{ display: 'flex', gap: '4px', width: '100%' }}>
               <Box sx={{ flex: 1 }}>
                 <Typography variant="subtitle2" sx={sxClasses.label}>
                   {t('drawer.textHaloColour')}
@@ -422,7 +422,7 @@ export function StylePanel(): JSX.Element {
             <Typography variant="subtitle2" sx={sxClasses.label}>
               {t('drawer.textFormatting')}
             </Typography>
-            <Box sx={{ display: 'flex', gap: 1, width: '100%' }}>
+            <Box sx={{ display: 'flex', gap: '1px', width: '100%' }}>
               <IconButton
                 aria-label={t('drawer.textBold')}
                 tooltipPlacement="bottom"

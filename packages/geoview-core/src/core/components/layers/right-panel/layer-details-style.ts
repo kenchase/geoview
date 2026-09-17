@@ -65,16 +65,16 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     },
   },
   infoSection: {
-    marginBottom: theme.spacing(2),
+    marginBottom: '2px',
   },
   infoSectionTitle: {
     fontWeight: 600,
     fontSize: theme.palette.geoViewFontSize?.default,
     color: theme.palette.geoViewColor?.textColor.main,
-    marginBottom: theme.spacing(0.5),
+    marginBottom: '0.5px',
   },
   infoSectionContent: {
-    paddingLeft: theme.spacing(1),
+    paddingLeft: '1px',
   },
   verticalDivider: {
     width: '1px',

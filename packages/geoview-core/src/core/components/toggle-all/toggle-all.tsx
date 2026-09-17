@@ -27,7 +27,7 @@ interface ToggleAllProps {
 const toggleAllStyle = {
   display: 'flex',
   flexWrap: 'wrap',
-  gap: 3,
+  gap: '4px',
   alignItems: 'center',
 };
 

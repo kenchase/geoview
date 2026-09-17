@@ -49,8 +49,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'flex-end',
-    gap: 6,
-    padding: 6,
+    gap: '8px',
+    padding: '8px',
     borderBottom: `1px solid ${theme.palette.divider}`,
     '& .MuiInputLabel-formControl': {
       fontSize: theme.palette.geoViewFontSize?.default,

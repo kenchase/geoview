@@ -8,8 +8,8 @@ const sizes = ['15%', '10%', '15%', '25%', '10%', '20%', '10%'];
 /** Style constants for the skeleton layout. */
 const SKELETON_STYLES = {
   box: { padding: '10px' },
-  title: { mb: 1 },
-  text: { pt: 4, pb: 4 },
+  title: { mb: '1px' },
+  text: { pt: '5px', pb: '5px' },
 } as const;
 
 /**

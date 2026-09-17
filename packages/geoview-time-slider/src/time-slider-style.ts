@@ -37,8 +37,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     width: '100px',
   },
   descriptionText: {
-    px: theme.spacing(2.5),
-    py: theme.spacing(0.625),
+    px: '3px',
+    py: '0.625px',
     paddingTop: '15px',
     fontSize: theme.palette.geoViewFontSize?.sm,
   },

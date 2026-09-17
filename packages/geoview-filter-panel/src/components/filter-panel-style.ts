@@ -17,8 +17,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
 
   filterPanelButtonContainer: {
     display: 'flex',
-    gap: 1,
-    p: 2,
+    gap: '1px',
+    p: '2px',
     borderTop: 1,
     borderColor: 'divider',
     bgcolor: 'background.default',
@@ -39,7 +39,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
 
   // Layer section container
   filterLayerSection: {
-    mb: 5,
+    mb: '6px',
     '&:last-child': {
       mb: 0,
     },
@@ -54,8 +54,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   filterLayerHeader: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 1,
-    p: 1.5,
+    gap: '1px',
+    p: '1.5px',
     bgcolor: 'background.default',
   },
 
@@ -63,7 +63,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    gap: 1,
+    gap: '1px',
   },
 
   // Layer section header (collapsed state - no bottom border)
@@ -102,20 +102,20 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     minWidth: 'auto',
     whiteSpace: 'nowrap',
     alignSelf: 'flex-start',
-    marginBottom: 5,
+    marginBottom: '6px',
   },
 
   // Layer content area
   filterLayerContent: {
     flex: 1,
     overflowY: 'auto',
-    p: 2,
+    p: '2px',
   },
 
   // Loading state container
   filterLayerLoading: {
     textAlign: 'center',
-    py: 2,
+    py: '2px',
   },
 
   // Loading text

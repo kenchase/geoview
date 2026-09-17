@@ -23,8 +23,8 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
   return {
     navBarContainer: {
       position: 'absolute',
-      right: theme.spacing(6),
-      top: theme.spacing(6),
+      right: '8px',
+      top: '8px',
       bottom: NAV_BAR_BOTTOM_OFFSET,
       left: 'auto',
       width: 'auto',
@@ -34,12 +34,12 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'safe flex-end',
-      gap: theme.spacing(6),
+      gap: '8px',
       alignItems: 'center',
       overflowY: 'auto',
-      padding: theme.spacing(2),
+      padding: '2px',
       backgroundColor: 'transparent',
-      borderRadius: theme.spacing(5),
+      borderRadius: '6px',
       pointerEvents: 'all',
       scrollbarWidth: 'thin',
       scrollbarColor: `${theme.palette.geoViewColor?.primary.main ?? theme.palette.primary.main} transparent`,
@@ -70,11 +70,11 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
     navBtnGroupColumns: {
       display: 'flex',
       flexDirection: 'row',
-      gap: theme.spacing(6),
+      gap: '8px',
       alignItems: 'center',
     },
     navBtnGroup: {
-      borderRadius: theme.spacing(5),
+      borderRadius: '6px',
       backgroundColor: theme.palette.geoViewColor?.bgColor.light[500],
       overflow: 'clip',
       '& .MuiButtonGroup-grouped:not(:last-child)': {
@@ -149,7 +149,7 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
       maxHeight: 'min(100vh, 500px)',
       display: 'flex',
       flexDirection: 'column',
-      marginRight: theme.spacing(6),
+      marginRight: '8px',
     },
     popoverTitleContainer: {
       display: 'flex',
@@ -216,12 +216,12 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
     rotationControlContainer: {
       width: '100%',
       maxWidth: '300px',
-      padding: `0 ${theme.spacing(11)}`,
+      padding: `0 16px`,
     },
     rotationLabelBox: {
       display: 'flex',
       justifyContent: 'center',
-      paddingTop: theme.spacing(7),
+      paddingTop: '10px',
       minWidth: 0,
     },
     rotationLabel: {
@@ -238,8 +238,8 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
       justifyContent: 'center',
       flexDirection: 'column',
       alignItems: 'center',
-      marginTop: theme.spacing(7),
-      gap: 1,
+      marginTop: '10px',
+      gap: '1px',
       [theme.breakpoints.up('sm')]: {
         flexDirection: 'row',
       },

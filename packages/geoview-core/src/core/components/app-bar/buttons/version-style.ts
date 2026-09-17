@@ -20,7 +20,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     backgroundColor: theme.palette.geoViewColor?.bgColor.light[200],
     borderRadius: '5px',
     boxShadow: 2,
-    marginLeft: theme.spacing(6),
+    marginLeft: '8px',
     '& a': {
       color: theme.palette.mode === 'light' ? theme.palette.secondary.contrastText : theme.palette.geoViewColor?.primary.light[300],
       textDecoration: 'underline',

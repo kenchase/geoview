@@ -67,7 +67,7 @@ export function GeolocatorBar({ searchValue, onChange, onSearch, onReset, isLoad
               aria-label={t('geolocator.searchClose')}
               className="buttonOutline"
               size="small"
-              sx={{ mr: 2, ml: 4 }}
+              sx={{ mr: '2px', ml: '5px' }}
               onClick={onReset}
             >
               <CloseIcon />

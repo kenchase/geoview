@@ -33,7 +33,7 @@ export const getSxClasses = (theme: Theme, width?: string | number, height?: str
     background: theme.palette?.backdrop,
   },
   content: {
-    padding: theme.spacing(5, 0),
+    padding: '6px 0px',
     whiteSpace: 'pre-line',
   },
   modalTitleContainer: {
@@ -55,7 +55,7 @@ export const getSxClasses = (theme: Theme, width?: string | number, height?: str
     display: 'flex',
     padding: '5px 10px',
     '& > *:not(:last-child)': {
-      marginRight: theme.spacing(3),
+      marginRight: '4px',
     },
   },
   closedModal: {

@@ -193,7 +193,7 @@ export function GeolocatorResult({ geoLocationData, searchValue, error }: Geoloc
             aria-live="polite"
             aria-atomic="true"
             component="p"
-            sx={{ p: 10, fontSize: theme.palette.geoViewFontSize?.md }}
+            sx={{ p: '15px', fontSize: theme.palette.geoViewFontSize?.md }}
           >
             {t('error.geolocator.noService')}
           </Typography>
@@ -211,7 +211,7 @@ export function GeolocatorResult({ geoLocationData, searchValue, error }: Geoloc
           </>
         )}
         {!memoFilteredData.length && searchValue.length >= 3 && (
-          <Box sx={{ p: 10 }}>
+          <Box sx={{ p: '15px' }}>
             <Typography
               role="status"
               aria-live="polite"
