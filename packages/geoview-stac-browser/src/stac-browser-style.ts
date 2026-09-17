@@ -18,17 +18,17 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     flexDirection: 'column',
     flex: 1,
     overflow: 'auto',
-    gap: '1px',
+    gap: theme.spacing(1),
   },
   backLink: {
     display: 'flex',
-    gap: '1px',
-    padding: '1px 1.5px 0px',
+    gap: theme.spacing(1),
+    padding: theme.spacing(1, 1.5, 0),
   },
   stickyNav: {
     display: 'flex',
-    gap: '1px',
-    padding: '1px 1.5px 0.5px',
+    gap: theme.spacing(1),
+    padding: theme.spacing(1, 1.5, 0.5),
     position: 'sticky',
     top: 0,
     backgroundColor: theme.palette.geoViewColor?.bgColor.dark[50] ?? theme.palette.background.paper,
@@ -37,14 +37,14 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   },
   browseToolbar: {
     display: 'flex',
-    gap: '1px',
+    gap: theme.spacing(1),
     alignItems: 'center',
-    marginBottom: '1px',
+    marginBottom: theme.spacing(1),
   },
   mapControls: {
     display: 'flex',
     flexWrap: 'wrap',
-    gap: '1px',
+    gap: theme.spacing(1),
     alignItems: 'center',
   },
   modeToggle: {
@@ -56,7 +56,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     flex: 1,
     borderRadius: 0,
     borderBottom: '2px solid transparent',
-    padding: '1px',
+    padding: theme.spacing(1),
     fontWeight: 500,
     fontSize: theme.palette.geoViewFontSize?.sm,
     color: theme.palette.geoViewColor?.textColor.light[200],
@@ -74,8 +74,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   filterPanel: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '1.5px',
-    padding: '1.5px',
+    gap: theme.spacing(1.5),
+    padding: theme.spacing(1.5),
     flex: 1,
   },
   searchButton: {
@@ -84,7 +84,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   filterRow: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '0.5px',
+    gap: theme.spacing(0.5),
   },
   filterLabel: {
     fontWeight: 600,
@@ -92,14 +92,14 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     color: theme.palette.geoViewColor?.textColor.main,
   },
   resultsList: {
-    padding: '1px',
+    padding: theme.spacing(1),
   },
   resultCard: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '0.5px',
-    padding: '1.5px',
-    marginBottom: '1px',
+    gap: theme.spacing(0.5),
+    padding: theme.spacing(1.5),
+    marginBottom: theme.spacing(1),
     border: `1px solid ${theme.palette.divider}`,
     borderRadius: theme.shape.borderRadius,
     cursor: 'pointer',
@@ -117,7 +117,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     color: theme.palette.geoViewColor?.textColor.light[200],
     display: 'flex',
     alignItems: 'center',
-    gap: '0.5px',
+    gap: theme.spacing(0.5),
   },
   thumbnail: {
     width: '100%',
@@ -137,13 +137,13 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   assetList: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '0.5px',
+    gap: theme.spacing(0.5),
   },
   assetItem: {
     display: 'flex',
     alignItems: 'center',
-    gap: '1px',
-    padding: '0.5px',
+    gap: theme.spacing(1),
+    padding: theme.spacing(0.5),
     borderRadius: theme.shape.borderRadius,
     '&:hover': {
       backgroundColor: theme.palette.action.hover,
@@ -153,31 +153,31 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '5px',
+    padding: theme.spacing(4),
   },
   noResults: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '5px',
+    padding: theme.spacing(4),
     color: theme.palette.geoViewColor?.textColor.light[200],
   },
   pagination: {
     display: 'flex',
     justifyContent: 'center',
-    gap: '1px',
-    padding: '1px',
+    gap: theme.spacing(1),
+    padding: theme.spacing(1),
   },
   dateInputRow: {
     display: 'flex',
-    gap: '1px',
+    gap: theme.spacing(1),
     alignItems: 'center',
   },
   dateInput: {
     flex: 1,
     '& input': {
       fontSize: theme.palette.geoViewFontSize?.sm,
-      padding: '0.75px',
+      padding: theme.spacing(0.75),
     },
   },
   collectionsListBox: {
@@ -185,16 +185,16 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     overflow: 'auto',
   },
   detailSection: {
-    padding: '0 12px',
+    padding: theme.spacing(0, 1.5),
   },
 
   // Collection card styles
   collectionCard: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '0.5px',
-    padding: '1.5px',
-    marginBottom: '1px',
+    gap: theme.spacing(0.5),
+    padding: theme.spacing(1.5),
+    marginBottom: theme.spacing(1),
     border: `1px solid ${theme.palette.divider}`,
     cursor: 'pointer',
     '&:hover': {
@@ -217,11 +217,11 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   keywordChipsRow: {
     display: 'flex',
     flexWrap: 'wrap',
-    gap: '0.5px',
+    gap: theme.spacing(0.5),
   },
   keywordChip: {
     display: 'inline-block',
-    padding: '2px 8px',
+    padding: theme.spacing(0.25, 1),
     fontSize: '0.75rem',
     backgroundColor: theme.palette.action.selected,
     color: theme.palette.geoViewColor?.textColor.main,
@@ -232,14 +232,14 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   metadataSection: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '1px',
-    padding: '0px 1.5px 1px',
+    gap: theme.spacing(1),
+    padding: theme.spacing(0, 1.5, 1),
   },
   metadataColumnsRow: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '2px',
-    padding: '0px 1.5px 1px',
+    gap: theme.spacing(2),
+    padding: theme.spacing(0, 1.5, 1),
     '@media (min-width: 500px)': {
       flexDirection: 'row',
     },
@@ -247,14 +247,14 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   metadataColumn: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '1px',
+    gap: theme.spacing(1),
     flex: 1,
     minWidth: 0,
   },
   metadataRow: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '0.25px',
+    gap: theme.spacing(0.25),
   },
   metadataLabel: {
     fontWeight: 600,
@@ -270,13 +270,13 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     fontWeight: 600,
     fontSize: theme.palette.geoViewFontSize?.default,
     color: theme.palette.geoViewColor?.textColor.main,
-    marginBottom: '0.5px',
+    marginBottom: theme.spacing(0.5),
   },
   itemRow: {
     display: 'flex',
-    gap: '5px',
-    padding: '6px 4px',
-    marginBottom: '15px',
+    gap: theme.spacing(4),
+    padding: theme.spacing(5, 3),
+    marginBottom: theme.spacing(10),
     border: `1px solid ${theme.palette.divider}`,
     cursor: 'pointer',
     alignItems: 'center',
@@ -305,7 +305,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     borderRadius: '4px',
     backgroundColor: theme.palette.geoViewColor?.primary.main,
     color: theme.palette.geoViewColor?.white,
-    marginRight: '0.5px',
+    marginRight: theme.spacing(0.5),
   },
   assetRoleBadge: {
     display: 'inline-block',
@@ -320,25 +320,25 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   assetActions: {
     display: 'flex',
     alignItems: 'center',
-    gap: '0.5px',
+    gap: theme.spacing(0.5),
     flexShrink: 0,
   },
   paginationBar: {
     display: 'flex',
     justifyContent: 'space-between',
-    padding: '1px 0px',
+    padding: theme.spacing(1, 0),
   },
 
   // Search results grouped by collection
   collectionGroup: {
-    marginBottom: '1.5px',
+    marginBottom: theme.spacing(1.5),
   },
   collectionGroupTitle: {
     fontWeight: 600,
     fontSize: theme.palette.geoViewFontSize?.default,
     color: theme.palette.geoViewColor?.primary.main,
-    padding: '0.5px 0px',
+    padding: theme.spacing(0.5, 0),
     borderBottom: `1px solid ${theme.palette.divider}`,
-    marginBottom: '0.5px',
+    marginBottom: theme.spacing(0.5),
   },
 });
