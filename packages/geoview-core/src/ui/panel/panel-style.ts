@@ -65,7 +65,7 @@ export const getSxClasses = (theme: Theme, open: boolean, panelWidth: string | n
         border: `1px solid ${theme.palette.geoViewColor?.primary.main}`,
         height: 36,
         width: 36,
-        marginRight: 8,
+        marginRight: '12px',
         transition: 'all 0.3s ease-in-out',
         '& .MuiSvgIcon-root': {
           width: 24,

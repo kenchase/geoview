@@ -59,7 +59,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
         left: 'auto',
         right: 100,
         top: 100,
-        margin: 5,
+        margin: '6px',
       },
       '&:not(.ol-collapsed)': {
         boxShadow: '0 1px 5px rgb(0 0 0 / 65%)',

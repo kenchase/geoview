@@ -160,7 +160,7 @@ export const getSxClasses = (theme: Theme): SxClasses => ({
   },
   toggleBar: {
     borderBottom: `1px solid ${theme.palette.geoViewColor?.bgColor.dark[100]}`,
-    padding: 6,
+    padding: '8px',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
@@ -169,8 +169,8 @@ export const getSxClasses = (theme: Theme): SxClasses => ({
   buttonDivider: {
     display: 'flex',
     alignItems: 'center',
-    marginRight: 3,
-    paddingRight: 3,
+    marginRight: '4px',
+    paddingRight: '4px',
     position: 'relative',
     '&::after': {
       content: '""',

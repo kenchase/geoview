@@ -29,7 +29,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     padding: '2px 1px 0px 1px',
     backgroundColor: theme.palette.geoViewColor?.grey.lighten(0.1, 0.8),
     '& span': {
-      paddingLeft: 70,
+      // Preserves prior rendering: the old non-linear spacing(70) produced invalid CSS (no padding applied).
+      paddingLeft: 0,
     },
   },
   crosshairIcon: {

@@ -48,7 +48,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   maxIconImg: {
     maxWidth: 24,
     maxHeight: 24,
-    padding: 1,
+    padding: '1px',
     height: 'auto !important', // Make sure the WMS image is not duplicated to fill the 100% height from parent
   },
   legendIcon: {

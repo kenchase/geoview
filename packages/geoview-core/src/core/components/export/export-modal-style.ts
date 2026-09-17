@@ -27,7 +27,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     flexDirection: 'column',
     gap: '1rem',
     justifyContent: 'space-between',
-    marginBottom: 2,
+    marginBottom: '2px',
     [theme.breakpoints.up('md')]: {
       flexDirection: 'row',
     },

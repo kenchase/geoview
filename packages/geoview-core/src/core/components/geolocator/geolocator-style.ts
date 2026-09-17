@@ -24,7 +24,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     '& form': {
       display: 'flex',
       width: '100%',
-      paddingLeft: 5,
+      paddingLeft: '6px',
     },
     '& .MuiPaper-root': {
       backgroundColor: 'background.default',
@@ -36,7 +36,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   },
   geolocatorResultsStatus: {
     ...visuallyHidden,
-    padding: 10,
+    padding: '15px',
   },
   progressBar: {
     position: 'relative',
@@ -78,14 +78,14 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     display: 'flex',
     flexDirection: 'column',
     zIndex: 1100,
-    marginTop: 6,
+    marginTop: '8px',
   },
   filterListError: {
     listStyleType: 'disc',
     listStylePosition: 'inside',
     '& li': {
       display: 'list-item',
-      paddingLeft: 12,
+      paddingLeft: '18px',
       '& .MuiListItemText-root': {
         display: 'inline-flex',
         marginLeft: '-8px',

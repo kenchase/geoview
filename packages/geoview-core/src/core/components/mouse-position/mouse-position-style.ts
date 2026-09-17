@@ -49,7 +49,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     },
   },
   mousePositionCheckmark: {
-    paddingRight: 5,
+    paddingRight: '6px',
   },
   mousePositionText: {
     fontSize: theme.palette.geoViewFontSize?.default,

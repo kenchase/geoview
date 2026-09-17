@@ -120,7 +120,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     '& .noSelection': {
       fontSize: theme.palette.geoViewFontSize?.md,
       fontWeight: '500',
-      padding: 10,
+      padding: '15px',
     },
     '& .guide-button-container': {
       display: 'flex',
