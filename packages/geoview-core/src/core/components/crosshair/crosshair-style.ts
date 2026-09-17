@@ -14,7 +14,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     right: '0px',
     left: '0px',
     bottom: '0px',
-    paddingBottom: '8px',
+    paddingBottom: theme.spacing(1),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

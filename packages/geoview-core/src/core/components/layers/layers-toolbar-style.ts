@@ -11,8 +11,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
-    gap: '4px',
-    '&>button': { padding: '10px 15px' },
+    gap: theme.spacing(0.5),
+    '&>button': { padding: theme.spacing(1.25, 2) }, // snapped from '10px 15px'
     '& .MuiButton-startIcon': { [theme.breakpoints.down('sm')]: { margin: 0, padding: '0 0.25rem' } },
     '& .MuiButtonGroup-root': { backgroundColor: theme.palette.geoViewColor?.bgColor.light[300] },
   },

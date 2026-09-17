@@ -20,7 +20,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     color: theme.palette.geoViewColor?.bgColor.dark[650],
     lineHeight: 1.5,
     minHeight: '33px',
-    paddingBlock: '2px',
+    paddingBlock: theme.spacing(0.25),
     ':hover': {
       backgroundColor: 'transparent !important',
       color: theme.palette.geoViewColor?.bgColor.dark[750],
@@ -49,7 +49,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     },
   },
   mousePositionCheckmark: {
-    paddingRight: '6px',
+    paddingRight: theme.spacing(0.75),
   },
   mousePositionText: {
     fontSize: theme.palette.geoViewFontSize?.default,

@@ -33,18 +33,18 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     flexWrap: 'wrap',
-    padding: '10px 16px',
+    padding: theme.spacing(1.25, 2),
     boxShadow: `0px 12px 9px -13px ${theme.palette.geoViewColor?.bgColor.dark[200]}`,
   },
   rightPanelButtons: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '4px',
+    gap: theme.spacing(0.5),
     flexWrap: 'wrap',
   },
   featureInfoListContainer: {
-    padding: '0 16px 16px',
+    padding: theme.spacing(0, 2, 2),
     overflowY: 'auto',
     overflowX: 'hidden',
   },
@@ -59,7 +59,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     '& td, & th': {
       verticalAlign: 'top',
       width: '50%',
-      padding: '5px',
+      padding: theme.spacing(0.5), // snapped from 5px
       borderBottom: 'none',
       overflowWrap: 'break-word',
       wordBreak: 'break-word',
@@ -84,7 +84,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     ' th, td': {
       border: '1px solid',
       textAlign: 'center',
-      padding: '5px',
+      padding: theme.spacing(0.5), // snapped from 5px
       overflowWrap: 'break-word',
       wordBreak: 'break-word',
       whiteSpace: 'pre-wrap',
@@ -121,9 +121,9 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   layoutSwitch: {
     alignItems: 'center',
     display: 'flex',
-    gap: '10px',
+    gap: theme.spacing(1.25),
     justifyContent: 'space-between',
-    marginBottom: '10px',
+    marginBottom: theme.spacing(1.25),
     width: '100%',
   },
   imageButton: {
@@ -131,15 +131,15 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   },
   coordinateInfoContainer: {
     backgroundColor: theme.palette.geoViewColor?.bgColor.light[600],
-    padding: '16px',
+    padding: theme.spacing(2),
   },
   coordinateInfoTitle: {
-    mb: '15px',
+    mb: theme.spacing(2), // snapped from 15px
   },
   coordinateInfoSection: {
     flexDirection: 'column',
     alignItems: 'flex-start',
-    marginBottom: '10px',
+    marginBottom: theme.spacing(1.25),
   },
   coordinateInfoSectionTitle: {
     fontWeight: 'bold',

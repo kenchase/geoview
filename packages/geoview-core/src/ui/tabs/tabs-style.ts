@@ -37,7 +37,7 @@ export const getSxClasses = (theme: Theme, isMapFullScreen: boolean, appHeight: 
     margin: 0,
     textTransform: 'capitalize',
     '.MuiTab-icon': {
-      marginRight: '7px',
+      marginRight: theme.spacing(1), // snapped from 7px
       maxWidth: '18px',
     },
     '&.Mui-focusVisible': {
@@ -56,12 +56,12 @@ export const getSxClasses = (theme: Theme, isMapFullScreen: boolean, appHeight: 
   mobileDropdown: {
     marginLeft: '41px',
     maxWidth: '200px',
-    padding: '8px 0',
+    padding: theme.spacing(1, 0),
     '& .MuiInputBase-root': {
       borderRadius: '4px',
     },
     '& .MuiSelect-select': {
-      padding: '8px 12px !important',
+      padding: `${theme.spacing(1, 1.5)} !important`,
     },
   },
 });

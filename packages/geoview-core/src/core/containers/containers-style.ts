@@ -43,7 +43,7 @@ export const getShellSxClasses = (theme: Theme, appHeight: number): SxStyles => 
     width: '100%',
 
     '& .layer-icon': {
-      padding: '4px',
+      padding: theme.spacing(0.5),
       borderRadius: 0,
       border: '1px solid',
       borderColor: theme.palette.geoViewColor?.grey.dark[100],
@@ -52,7 +52,7 @@ export const getShellSxClasses = (theme: Theme, appHeight: number): SxStyles => 
       objectFit: 'scale-down',
       width: '35px',
       height: '35px',
-      marginRight: '10px',
+      marginRight: theme.spacing(1.25),
     },
 
     '& a[href]': {
@@ -134,7 +134,7 @@ export const getShellSxClasses = (theme: Theme, appHeight: number): SxStyles => 
       width: 'auto',
       height: 'auto',
       overflow: 'visible',
-      padding: '4px',
+      padding: theme.spacing(0.5),
     },
   },
 });

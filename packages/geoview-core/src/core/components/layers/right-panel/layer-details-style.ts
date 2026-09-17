@@ -15,7 +15,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     fontSize: theme.palette.geoViewFontSize?.lg,
   },
   layerDetails: {
-    padding: '16px',
+    padding: theme.spacing(2),
   },
   itemsGrid: {
     width: '100%',
@@ -25,7 +25,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
         borderBottom: `1px solid ${theme.palette.geoViewColor?.bgColor.dark[300]}`,
       },
       '& .MuiGrid-item': {
-        padding: '3px 6px',
+        padding: theme.spacing(0.5, 0.75), // snapped from '3px 6px'
 
         '&:first-of-type': {
           width: '80px',
@@ -58,14 +58,14 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
       width: '100%',
       '& a': {
         ...ellipsisOverflow,
-        marginLeft: '4px',
+        marginLeft: theme.spacing(0.5),
         flex: 1,
         minWidth: 0,
       },
     },
   },
   infoSection: {
-    marginBottom: '2px',
+    marginBottom: theme.spacing(0.25),
   },
   infoSectionTitle: {
     fontWeight: 600,
@@ -86,7 +86,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   layerDetailsListGroup: {
     listStyleType: 'disc',
     listStylePosition: 'outside',
-    paddingLeft: '20px',
+    paddingLeft: theme.spacing(2.5),
   },
   layerDetailsListItem: {
     display: 'list-item',

@@ -33,14 +33,14 @@ export const getSxClasses = (theme: Theme, width?: string | number, height?: str
     background: theme.palette?.backdrop,
   },
   content: {
-    padding: '6px 0px',
+    padding: theme.spacing(0.75, 0),
     whiteSpace: 'pre-line',
   },
   modalTitleContainer: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '5px 10px',
+    padding: theme.spacing(0.5, 1.25), // snapped from '5px 10px'
     borderBottom: `1px solid ${theme.palette.geoViewColor?.bgColor.dark[300]}`,
   },
   modalTitleLabel: {
@@ -53,9 +53,9 @@ export const getSxClasses = (theme: Theme, width?: string | number, height?: str
   },
   headerActionsContainer: {
     display: 'flex',
-    padding: '5px 10px',
+    padding: theme.spacing(0.5, 1.25), // snapped from '5px 10px'
     '& > *:not(:last-child)': {
-      marginRight: '4px',
+      marginRight: theme.spacing(0.5),
     },
   },
   closedModal: {

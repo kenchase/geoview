@@ -19,7 +19,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     letterSpacing: '0.01071em',
     display: 'flex',
     margin: '0px',
-    padding: '6px',
+    padding: theme.spacing(0.75),
     alignItems: 'center',
   },
   selectedRowsDirection: {
@@ -169,9 +169,9 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   toolbarContainer: {
     justifyContent: 'space-between',
     borderBottom: `1px solid ${theme.palette.divider}`,
-    padding: '6px',
+    padding: theme.spacing(0.75),
     display: 'flex',
-    gap: '8px',
+    gap: theme.spacing(1),
     flexDirection: 'column',
   },
   toolbarRow: {

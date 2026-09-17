@@ -34,10 +34,10 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'safe flex-end',
-      gap: '8px',
+      gap: theme.spacing(1),
       alignItems: 'center',
       overflowY: 'auto',
-      padding: '2px',
+      padding: theme.spacing(0.25),
       backgroundColor: 'transparent',
       borderRadius: '6px',
       pointerEvents: 'all',
@@ -70,7 +70,7 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
     navBtnGroupColumns: {
       display: 'flex',
       flexDirection: 'row',
-      gap: '8px',
+      gap: theme.spacing(1),
       alignItems: 'center',
     },
     navBtnGroup: {
@@ -149,7 +149,7 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
       maxHeight: 'min(100vh, 500px)',
       display: 'flex',
       flexDirection: 'column',
-      marginRight: '8px',
+      marginRight: theme.spacing(1),
     },
     popoverTitleContainer: {
       display: 'flex',
@@ -158,9 +158,9 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
       width: '100%',
       minHeight: '48px',
       borderBottom: `1px solid ${theme.palette.geoViewColor?.bgColor.dark[100] ?? theme.palette.divider}`,
-      padding: '4px 8px 4px 16px',
+      padding: theme.spacing(0.5, 1, 0.5, 2),
       flexShrink: 0,
-      gap: '8px',
+      gap: theme.spacing(1),
     },
     popoverTitleLabel: {
       fontSize: theme.palette.geoViewFontSize?.default ?? theme.typography.fontSize,
@@ -182,11 +182,11 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
       borderBottom: `1px solid ${theme.palette.geoViewColor?.bgColor.dark[100] ?? theme.palette.divider}`,
       display: 'flex',
       alignItems: 'center',
-      padding: '4px 16px',
+      padding: theme.spacing(0.5, 2),
     },
     popoverContent: {
       '&.MuiDialogContent-root': {
-        padding: '16px 16px',
+        padding: theme.spacing(2, 2),
         flexGrow: 1 /* Forces this child to fill all remaining space */,
         minHeight: 0,
         overflowY: 'auto',
@@ -195,7 +195,7 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
       },
     },
     listItem: {
-      marginBottom: '6px', // Create space for the focus indicator to be visible
+      marginBottom: theme.spacing(0.75), // Create space for the focus indicator to be visible
     },
     button: {
       justifyContent: 'flex-start',
@@ -216,12 +216,12 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
     rotationControlContainer: {
       width: '100%',
       maxWidth: '300px',
-      padding: `0 16px`,
+      padding: theme.spacing(0, 2),
     },
     rotationLabelBox: {
       display: 'flex',
       justifyContent: 'center',
-      paddingTop: '10px',
+      paddingTop: theme.spacing(1.25),
       minWidth: 0,
     },
     rotationLabel: {
@@ -238,7 +238,7 @@ export const getSxClasses = (theme: Theme, panelWidth?: string | number): SxStyl
       justifyContent: 'center',
       flexDirection: 'column',
       alignItems: 'center',
-      marginTop: '10px',
+      marginTop: theme.spacing(1.25),
       gap: '1px',
       [theme.breakpoints.up('sm')]: {
         flexDirection: 'row',

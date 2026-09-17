@@ -60,12 +60,12 @@ export const getSxClasses = (theme: Theme, open: boolean, panelWidth: string | n
       },
     },
     '& .MuiCardHeader-action': {
-      marginTop: '-10px',
+      marginTop: theme.spacing(-1.25),
       '& .MuiButtonBase-root': {
         border: `1px solid ${theme.palette.geoViewColor?.primary.main}`,
         height: 36,
         width: 36,
-        marginRight: '12px',
+        marginRight: theme.spacing(1.5),
         transition: 'all 0.3s ease-in-out',
         '& .MuiSvgIcon-root': {
           width: 24,

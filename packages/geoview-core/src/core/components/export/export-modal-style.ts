@@ -61,7 +61,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
       color: theme.palette.text.primary,
     },
     '& .MuiSelect-select': {
-      padding: '0px 12px 4px 0px !important',
+      padding: `${theme.spacing(0, 1.5, 0.5, 0)} !important`,
     },
     [theme.breakpoints.down('md')]: {
       flexDirection: 'column',
