@@ -15,7 +15,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     fontSize: theme.palette.geoViewFontSize?.lg,
   },
   layerDetails: {
-    padding: '16px',
+    padding: theme.spacing(2),
   },
   itemsGrid: {
     width: '100%',
@@ -25,7 +25,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
         borderBottom: `1px solid ${theme.palette.geoViewColor?.bgColor.dark[300]}`,
       },
       '& .MuiGrid-item': {
-        padding: '3px 6px',
+        padding: theme.spacing(0.5, 0.75), // snapped from '3px 6px'
 
         '&:first-of-type': {
           width: '80px',
@@ -58,23 +58,23 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
       width: '100%',
       '& a': {
         ...ellipsisOverflow,
-        marginLeft: '4px',
+        marginLeft: theme.spacing(0.5),
         flex: 1,
         minWidth: 0,
       },
     },
   },
   infoSection: {
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(0.25),
   },
   infoSectionTitle: {
     fontWeight: 600,
     fontSize: theme.palette.geoViewFontSize?.default,
     color: theme.palette.geoViewColor?.textColor.main,
-    marginBottom: theme.spacing(0.5),
+    marginBottom: '0.5px',
   },
   infoSectionContent: {
-    paddingLeft: theme.spacing(1),
+    paddingLeft: '1px',
   },
   verticalDivider: {
     width: '1px',
@@ -86,24 +86,24 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   layerDetailsListGroup: {
     listStyleType: 'disc',
     listStylePosition: 'outside',
-    paddingLeft: '20px',
+    paddingLeft: theme.spacing(2.5),
   },
   layerDetailsListItem: {
     display: 'list-item',
-    paddingTop: '0px',
-    paddingBottom: '0px',
-    paddingLeft: '0px',
+    paddingTop: theme.spacing(0),
+    paddingBottom: theme.spacing(0),
+    paddingLeft: theme.spacing(0),
     '& .MuiListItemText-root': {
-      margin: 0,
+      margin: theme.spacing(0),
       '& .MuiTypography-root': {
         whiteSpace: 'normal',
       },
     },
   },
   formControlLabelFull: {
-    margin: 0,
+    margin: theme.spacing(0),
     width: '100%',
-    gap: '8px',
+    gap: theme.spacing(1),
     '& .MuiFormControlLabel-label': {
       width: '100%',
       flex: 1,
@@ -111,8 +111,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   },
 
   formControlLabel: {
-    margin: 0,
-    gap: '8px',
+    margin: theme.spacing(0),
+    gap: theme.spacing(1),
     '& .MuiFormControlLabel-label': {
       flex: 1,
     },
@@ -121,6 +121,6 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   checkboxLabelContent: {
     display: 'flex',
     alignItems: 'center',
-    gap: '8px',
+    gap: theme.spacing(1),
   },
 });

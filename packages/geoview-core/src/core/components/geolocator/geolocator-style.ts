@@ -24,7 +24,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     '& form': {
       display: 'flex',
       width: '100%',
-      paddingLeft: 5,
+      paddingLeft: theme.spacing(0.75),
     },
     '& .MuiPaper-root': {
       backgroundColor: 'background.default',
@@ -36,7 +36,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   },
   geolocatorResultsStatus: {
     ...visuallyHidden,
-    padding: 10,
+    padding: theme.spacing(2), // snapped from 15px
   },
   progressBar: {
     position: 'relative',
@@ -49,18 +49,18 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'flex-end',
-    gap: 6,
-    padding: 6,
+    gap: theme.spacing(1),
+    padding: theme.spacing(1),
     borderBottom: `1px solid ${theme.palette.divider}`,
     '& .MuiInputLabel-formControl': {
       fontSize: theme.palette.geoViewFontSize?.default,
-      marginTop: 0,
+      marginTop: theme.spacing(0),
     },
     '& .MuiInputLabel-formControl.Mui-focused': {
       color: theme.palette.text.primary,
     },
     '& .MuiSelect-select': {
-      padding: '0px 12px 4px 0px !important',
+      padding: `${theme.spacing(0, 1.5, 0.5, 0)} !important`,
     },
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
@@ -78,17 +78,17 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     display: 'flex',
     flexDirection: 'column',
     zIndex: 1100,
-    marginTop: 6,
+    marginTop: theme.spacing(1),
   },
   filterListError: {
     listStyleType: 'disc',
     listStylePosition: 'inside',
     '& li': {
       display: 'list-item',
-      paddingLeft: 12,
+      paddingLeft: theme.spacing(2.25),
       '& .MuiListItemText-root': {
         display: 'inline-flex',
-        marginLeft: '-8px',
+        marginLeft: theme.spacing(-1),
       },
     },
   },
@@ -103,11 +103,11 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
  */
 export const getSxClassesList = (theme: Theme): SxStyles => ({
   geoList: {
-    paddingTop: '6px', // Add spacing between the search bar and the list for the first items focus indicator to be visible
+    paddingTop: theme.spacing(0.75), // Add spacing between the search bar and the list for the first items focus indicator to be visible
   },
   geoListItemButton: {
-    marginInline: '6px', // Create space for the focus indicator to be visible on the left and right sides of the button
-    paddingInline: '10px', // Reduce padding (from 16px) to maintain the same overall width as before the margin was added
+    marginInline: theme.spacing(0.75), // Create space for the focus indicator to be visible on the left and right sides of the button
+    paddingInline: theme.spacing(1.25), // Reduce padding (from 16px) to maintain the same overall width as before the margin was added
   },
   geoListItemGrid: {
     width: '100%',

@@ -41,7 +41,7 @@ export const getSxClasses = (theme: Theme): SxClasses => ({
   layerStackContainer: {
     flexWrap: 'wrap',
     alignItems: 'center',
-    gap: 5,
+    gap: '6px',
     '& button': {
       padding: '0.25rem',
       marginRight: 0,
@@ -85,7 +85,7 @@ export const getSxClasses = (theme: Theme): SxClasses => ({
   legendListItemHeader: {
     width: '100%',
     display: 'flex',
-    gap: 8,
+    gap: '12px',
     alignItems: 'center',
     borderBottom: `1px solid ${theme.palette.geoViewColor?.bgColor.dark[100]}`,
   },
@@ -121,7 +121,7 @@ export const getSxClasses = (theme: Theme): SxClasses => ({
   },
   layerListItemButton: {
     padding: '0 0 0 6px',
-    gap: 8,
+    gap: '12px',
     '&:hover': {
       backgroundColor: 'transparent',
     },
@@ -160,7 +160,7 @@ export const getSxClasses = (theme: Theme): SxClasses => ({
   },
   toggleBar: {
     borderBottom: `1px solid ${theme.palette.geoViewColor?.bgColor.dark[100]}`,
-    padding: 6,
+    padding: '8px',
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
@@ -169,8 +169,8 @@ export const getSxClasses = (theme: Theme): SxClasses => ({
   buttonDivider: {
     display: 'flex',
     alignItems: 'center',
-    marginRight: 3,
-    paddingRight: 3,
+    marginRight: '4px',
+    paddingRight: '4px',
     position: 'relative',
     '&::after': {
       content: '""',

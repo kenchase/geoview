@@ -308,7 +308,7 @@ export function StacItemDetail(props: StacItemDetailProps): JSX.Element {
                 >
                   <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minWidth: 0 }}>
                     <Typography sx={{ ...sxClasses.resultMeta, fontWeight: isSelected ? 600 : 400 }}>{asset.title ?? key}</Typography>
-                    <Box sx={{ display: 'flex', gap: theme.spacing(0.5), flexWrap: 'wrap' }}>
+                    <Box sx={{ display: 'flex', gap: '0.5px', flexWrap: 'wrap' }}>
                       {roles.map((role) => (
                         <Box key={role} component="span" sx={sxClasses.assetRoleBadge}>
                           {role.toUpperCase()}

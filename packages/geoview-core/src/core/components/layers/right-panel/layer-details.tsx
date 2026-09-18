@@ -538,7 +538,7 @@ export function LayerDetails(props: LayerDetailsProps): JSX.Element | null {
     if (hasLayerLegendImage) {
       return (
         <Grid sx={sxClasses.itemsGrid}>
-          <Grid container sx={{ pt: 6, pb: 6 }}>
+          <Grid container sx={{ pt: '8px', pb: '8px' }}>
             <Box component="img" alt="" src={layerIcons![0].iconImage!} sx={sxClasses.wmsImage} />
           </Grid>
         </Grid>

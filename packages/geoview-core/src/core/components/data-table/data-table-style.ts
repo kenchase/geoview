@@ -18,8 +18,8 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     linHeight: 1.43,
     letterSpacing: '0.01071em',
     display: 'flex',
-    margin: '0px',
-    padding: '6px',
+    margin: theme.spacing(0),
+    padding: theme.spacing(0.75),
     alignItems: 'center',
   },
   selectedRowsDirection: {
@@ -36,7 +36,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
       borderRadius: '6px',
     },
     '& .layer-icon': {
-      marginRight: '0 !important',
+      marginRight: `${theme.spacing(0)} !important`,
     },
     '& .MuiFormHelperText-root': {
       color: theme.palette.geoViewColor?.textColor.light[200], // WCAG - Matches global placeholder text color
@@ -63,13 +63,13 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   tableHead: {
     '& th:nth-of-type(-n+3)': {
       justifyContent: 'center',
-      padding: '0px',
+      padding: theme.spacing(0),
     },
   },
   pinnedColumn: {
     justifyContent: 'center !important',
     textAlign: 'center',
-    padding: '4px 6px 3px 6px !important',
+    padding: `${theme.spacing(0.5, 0.75, 0.5, 0.75)} !important`, // snapped from '4px 6px 3px 6px'
     '& > div': {
       justifyContent: 'center',
     },
@@ -112,7 +112,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 0,
+        padding: theme.spacing(0),
       },
     },
     '& .MuiBadge-root >span': {
@@ -169,9 +169,9 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   toolbarContainer: {
     justifyContent: 'space-between',
     borderBottom: `1px solid ${theme.palette.divider}`,
-    padding: theme.spacing(5),
+    padding: theme.spacing(0.75),
     display: 'flex',
-    gap: theme.spacing(6),
+    gap: theme.spacing(1),
     flexDirection: 'column',
   },
   toolbarRow: {
@@ -179,7 +179,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    gap: theme.spacing(5),
+    gap: theme.spacing(0.75),
     '& > *': {
       flex: '0 1 auto', // Default: can shrink
       minWidth: 0, // Allow shrinking below content size
@@ -198,14 +198,14 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   toolbarControls: {
     display: 'flex',
     alignItems: 'center',
-    gap: theme.spacing(2), // Space between Switch and button group
+    gap: theme.spacing(0.25), // Space between Switch and button group
     flexWrap: 'wrap',
     justifyContent: 'center',
   },
   toolbarButtonGroup: {
     display: 'flex',
     alignItems: 'center',
-    gap: theme.spacing(1), // Tighter spacing between buttons
+    gap: '1px', // Tighter spacing between buttons
     '& .MuiIconButton-root': {
       '&.Mui-focusVisible': {
         outlineOffset: '-3px',

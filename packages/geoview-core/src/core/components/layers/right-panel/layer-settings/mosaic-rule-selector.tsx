@@ -170,7 +170,7 @@ export function MosaicRulePanel({ layerPath }: MosaicRulePanelProps): JSX.Elemen
           </FormControl>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Checkbox checked={currentAscending} onChange={handleChangeAscending} />
-            <Box component="span" sx={{ ml: 1 }}>
+            <Box component="span" sx={{ ml: '1px' }}>
               {t('layers.settings.ascending')}
             </Box>
           </Box>

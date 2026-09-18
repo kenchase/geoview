@@ -23,15 +23,15 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   scaleContainerButton: {
     height: '100%',
     maxHeight: '40px',
-    paddingBlock: '2px',
+    paddingBlock: theme.spacing(0.25),
     '&.Mui-focusVisible': {
       outlineOffset: '0',
       boxShadow: 'none',
     },
   },
   scaleExpandedContainer: {
-    gap: theme.spacing(5),
-    padding: theme.spacing(0, 6),
+    gap: theme.spacing(0.75),
+    padding: theme.spacing(0, 1),
   },
   scaleExpandedCheckmarkText: {
     display: 'flex',
@@ -81,7 +81,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     },
   },
   scaleCheckmark: {
-    paddingRight: 5,
+    paddingRight: theme.spacing(0.75),
     color: theme.palette.geoViewColor?.bgColor.light[800],
   },
 });

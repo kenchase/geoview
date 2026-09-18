@@ -185,7 +185,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
     overflow: 'auto',
   },
   detailSection: {
-    padding: '0 12px',
+    padding: theme.spacing(0, 1.5),
   },
 
   // Collection card styles
@@ -221,7 +221,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({
   },
   keywordChip: {
     display: 'inline-block',
-    padding: '2px 8px',
+    padding: theme.spacing(0.25, 1),
     fontSize: '0.75rem',
     backgroundColor: theme.palette.action.selected,
     color: theme.palette.geoViewColor?.textColor.main,

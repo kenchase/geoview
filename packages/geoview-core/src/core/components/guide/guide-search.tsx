@@ -588,7 +588,7 @@ export function GuideSearch({ containerType, guide, onSectionChange, onSearchSta
               ),
               endAdornment: searchTerm && (
                 <InputAdornment position="end">
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
                     {allMatches.length > 0 && (
                       <>
                         <Box
@@ -625,7 +625,12 @@ export function GuideSearch({ containerType, guide, onSectionChange, onSearchSta
                     )}
                     {searchTerm.trim().length >= 3 && allMatches.length === 0 && (
                       <Box
-                        sx={{ fontSize: '0.75rem', color: theme.palette.geoViewColor?.textColor.light[200], whiteSpace: 'nowrap', mr: 1 }}
+                        sx={{
+                          fontSize: '0.75rem',
+                          color: theme.palette.geoViewColor?.textColor.light[200],
+                          whiteSpace: 'nowrap',
+                          mr: '1px',
+                        }}
                         role="status"
                       >
                         {t('guide.noResults')}
@@ -639,7 +644,7 @@ export function GuideSearch({ containerType, guide, onSectionChange, onSearchSta
                       aria-label={t('general.clearSearch')}
                       onClick={handleClear}
                       onKeyDown={handleClearKeyDown}
-                      sx={{ ml: 1 }}
+                      sx={{ ml: '1px' }}
                     >
                       <CloseIcon sx={{ fontSize: theme.palette.geoViewFontSize?.sm }} />
                     </IconButton>

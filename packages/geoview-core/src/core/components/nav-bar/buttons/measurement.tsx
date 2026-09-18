@@ -418,7 +418,7 @@ export default function Measurement(): JSX.Element {
     const isMeasurementActive = activeMeasurement !== null;
 
     return (
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {/* WCAG - Screen reader status announcements */}
         <Typography role="status" aria-live="polite" aria-atomic="true" sx={visuallyHidden}>
           {statusMessage}
@@ -452,7 +452,7 @@ export default function Measurement(): JSX.Element {
             disabled={!isMeasurementActive}
             sx={{
               '& .MuiToggleButton-root': {
-                gap: 6, // Adds 8px spacing between icon and text
+                gap: '8px', // Adds 8px spacing between icon and text
               },
               '& .MuiToggleButton-root.Mui-selected': {
                 backgroundColor: 'primary.main',
