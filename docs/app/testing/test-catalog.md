@@ -71,21 +71,22 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 ### Summary
 
-| Group             | Suite               | Tester(s)                                                                                       | Test Count | Execution                   |
-| ----------------- | ------------------- | ----------------------------------------------------------------------------------------------- | ---------- | --------------------------- |
-| 1. Core / Utility | `suite-core`        | `CoreTester`                                                                                    | 14         | Parallel                    |
-| 1. Core / Utility | `suite-config`      | `ConfigTester`                                                                                  | 39         | Parallel                    |
-| 1. Core / Utility | `suite-utilities`   | `UtilitiesCoreTester`, `UtilitiesDateTester`, `UtilitiesGeoTester`, `UtilitiesProjectionTester` | 53         | Parallel                    |
-| 2. Layers         | `suite-layer`       | `LayerTester`                                                                                   | 43         | Mixed parallel + sequential |
-| 3. Map            | `suite-map`         | `MapTester`                                                                                     | 16         | Complex mixed               |
-| 3. Map            | `suite-map-config`  | `MapConfigTester`                                                                               | 39         | Fully sequential            |
-| 4. Components     | `suite-ui`          | `UITester`                                                                                      | 2          | Parallel                    |
-| 4. Components     | `suite-details`     | `DetailsTester`                                                                                 | 6          | Guarded sequential          |
-| 4. Components     | `suite-data-table`  | `DataTableTester`                                                                               | 13         | Guarded sequential          |
-| 5. Packages       | `suite-geochart`    | `GeochartTester`                                                                                | 2          | Guarded sequential          |
-| 5. Packages       | `suite-swiper`      | `SwiperTester`                                                                                  | 2          | Guarded sequential          |
-| 5. Packages       | `suite-time-slider` | `TimeSliderTester`                                                                              | 2          | Guarded sequential          |
-| **Total**         |                     |                                                                                                 | **230**    |                             |
+| Group             | Suite                   | Tester(s)                                                                                       | Test Count | Execution                   |
+| ----------------- | ----------------------- | ----------------------------------------------------------------------------------------------- | ---------- | --------------------------- |
+| 1. Core / Utility | `suite-core`            | `CoreTester`                                                                                    | 14         | Parallel                    |
+| 1. Core / Utility | `suite-config`          | `ConfigTester`                                                                                  | 39         | Parallel                    |
+| 1. Core / Utility | `suite-utilities`       | `UtilitiesCoreTester`, `UtilitiesDateTester`, `UtilitiesGeoTester`, `UtilitiesProjectionTester` | 53         | Parallel                    |
+| 2. Layers         | `suite-layer`           | `LayerTester`                                                                                   | 44         | Mixed parallel + sequential |
+| 2. Layers         | `suite-layer-functions` | `LayerTester`                                                                                   | 8          | Mixed parallel + sequential |
+| 3. Map            | `suite-map`             | `MapTester`                                                                                     | 16         | Complex mixed               |
+| 3. Map            | `suite-map-config`      | `MapConfigTester`                                                                               | 41         | Fully sequential            |
+| 4. Components     | `suite-ui`              | `UITester`                                                                                      | 2          | Parallel                    |
+| 4. Components     | `suite-details`         | `DetailsTester`                                                                                 | 6          | Guarded sequential          |
+| 4. Components     | `suite-data-table`      | `DataTableTester`                                                                               | 13         | Guarded sequential          |
+| 5. Packages       | `suite-geochart`        | `GeochartTester`                                                                                | 2          | Guarded sequential          |
+| 5. Packages       | `suite-swiper`          | `SwiperTester`                                                                                  | 2          | Guarded sequential          |
+| 5. Packages       | `suite-time-slider`     | `TimeSliderTester`                                                                              | 2          | Guarded sequential          |
+| **Total**         |                         |                                                                                                 | **239**    |                             |
 
 ---
 
@@ -486,6 +487,62 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 | 33  | `testEsriDynamicDomainFieldQueryValue` | test | Test Esri Dynamic Water Network domain field query value translation... |
 | 34  | `testEsriFeatureDomainFieldQueryValue` | test | Test Esri Feature Water Network domain field query value translation... |
 
+#### 2.1.15 Group Layer Visibility
+
+[↑ Back to top](#table-of-contents)
+
+| #   | Method                                | Type | Description                                                                                        |
+| --- | ------------------------------------- | ---- | -------------------------------------------------------------------------------------------------- |
+| 35  | `testSetLayerVisibleIncludingParents` | test | Test hidden-by-parent child and setLayerVisibleIncludingParents parent crawl (hidden/available)... |
+
+#### 2.1.16 ESRI Dynamic Junction Geometry Pairing
+
+[↑ Back to top](#table-of-contents)
+
+| #   | Method                                   | Type | Description                                                                                                        |
+| --- | ---------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------ |
+| 36  | `testEsriDynamicJunctionGeometryPairing` | test | Test ESRI Dynamic junction: each returned feature's geometry pairs to its own OBJECTID, not a neighbour (#3636)... |
+
+---
+
+### 2.2 Layer Functions (EPSG: 3857)
+
+[↑ Back to top](#table-of-contents)
+
+**Suite:** `suite-layer-functions` · **File:** `tests/suites/suite-layer-functions.ts` · **Tester:** `LayerTester` (`tests/testers/layer-tester.ts`)
+**Execution:** Mixed — parallel for the duplicate-group-names test, then sequential for zoom/query tests (they change zoom level) · **Guard:** None
+
+> **Note:** This suite runs on a single map with EPSG: 3857, testing layer controller functions and feature-query behavior.
+
+#### 2.2.1 Layer Path Resolution
+
+[↑ Back to top](#table-of-contents)
+
+| #   | Method                          | Type | Description                                                                                                          |
+| --- | ------------------------------- | ---- | -------------------------------------------------------------------------------------------------------------------- |
+| 1   | `testAddWMSDuplicateGroupNames` | test | Test WMS with duplicate nested group names loads without ambiguous paths or recursion loops (#3521)...               |
+| 2   | `testGetGeoviewLayerByRootId`   | test | Test getGeoviewLayerByRootId resolves the first layer under a root id (e.g. a GeoCore UUID) for selection (#3633)... |
+
+#### 2.2.2 Zoom To Extent (sequential)
+
+[↑ Back to top](#table-of-contents)
+
+| #   | Method                                              | Type | Description                                                           |
+| --- | --------------------------------------------------- | ---- | --------------------------------------------------------------------- |
+| 3   | `testZoomExtentWithOneFeature`                      | test | Test zoom to extent of a layer with only one point feature...         |
+| 4   | `testZoomExtentWithoutFeatures`                     | test | Test zoom to extent of a layer without features...                    |
+| 5   | `testZoomExtentWithoutFeaturesWithConfiguredExtent` | test | Test zoom to extent falls back to the configured extent when empty... |
+
+#### 2.2.3 Feature Query (sequential)
+
+[↑ Back to top](#table-of-contents)
+
+| #   | Method                                                  | Type | Description                                                                   |
+| --- | ------------------------------------------------------- | ---- | ----------------------------------------------------------------------------- |
+| 6   | `testFeatureHasGeometryWhenOutfieldsHasNoGeometryField` | test | Test feature query still retrieves geometry when outfields omit geometry...   |
+| 7   | `testQueryWMSLayerForWFSFeaturesCities`                 | test | Test WMS layer retrieves feature results via its associated WFS (Cities)...   |
+| 8   | `testQueryWMSLayerForWFSFeaturesAirborne`               | test | Test WMS layer retrieves feature results via its associated WFS (Airborne)... |
+
 ---
 
 ## 3. Map
@@ -537,8 +594,9 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 | 2   | `testDataTableSelectedTabAppBar`          | test | Test DataTable in app bar with selectedDataTableLayerPath                                                               |
 | 3   | `testNoFooterBarAppBarConfigHasDefaults`  | test | Test no footerBar or app bar config creates default tabs (layers, data-table) and (geolocator, legend, details, export) |
 | 4   | `testEmptyFooterBarAppBarTabsHasNoFooter` | test | Test footerBar with empty tabs array has no footer bar                                                                  |
-| 5   | `testNoNavBarHasDefaults`                 | test | Test no navBar config value creates default navigation controls                                                         |
-| 6   | `testEmptyNavBarHasZoomRotate`            | test | Test navBar with empty array has only zoom and rotate                                                                   |
+| 5   | `testDuplicatedPanelsRemovedFromFooter`   | test | Test panels declared in both appBar and footerBar are removed from the footer bar (kept in app bar)                     |
+| 6   | `testNoNavBarHasDefaults`                 | test | Test no navBar config value creates default navigation controls                                                         |
+| 7   | `testEmptyNavBarHasZoomRotate`            | test | Test navBar with empty array has only zoom and rotate                                                                   |
 
 #### 3.2.2 Initial View
 
@@ -546,7 +604,7 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                             | Type | Description                                                     |
 | --- | ---------------------------------- | ---- | --------------------------------------------------------------- |
-| 7   | `testInitialViewLayerIdsSetExtent` | test | Test initial view with layerIds sets map extent to layer extent |
+| 8   | `testInitialViewLayerIdsSetExtent` | test | Test initial view with layerIds sets map extent to layer extent |
 
 #### 3.2.3 Overlay Objects
 
@@ -554,7 +612,7 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                           | Type | Description                                       |
 | --- | -------------------------------- | ---- | ------------------------------------------------- |
-| 8   | `testOverlayObjectsPointMarkers` | test | Test overlayObjects with pointMarkers are created |
+| 9   | `testOverlayObjectsPointMarkers` | test | Test overlayObjects with pointMarkers are created |
 
 #### 3.2.4 View Settings
 
@@ -562,9 +620,9 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                                          | Type | Description                                                                                    |
 | --- | ----------------------------------------------- | ---- | ---------------------------------------------------------------------------------------------- |
-| 9   | `testViewSettingsZoomConstraints`               | test | Test viewSettings minZoom and maxZoom constraints                                              |
-| 10  | `testViewSettingsInitialViewVsHomeView`         | test | Test initialView sets zoom = 7, zoomToInitialExtent() changes zoom to 4 (homeView)             |
-| 11  | `testViewSettingsHomeButtonNavigatesToHomeView` | test | Test zoomToInitialExtent() navigates center to homeView coordinates ≈ [-95, 60] with tolerance |
+| 10  | `testViewSettingsZoomConstraints`               | test | Test viewSettings minZoom and maxZoom constraints                                              |
+| 11  | `testViewSettingsInitialViewVsHomeView`         | test | Test initialView sets zoom = 7, zoomToInitialExtent() changes zoom to 4 (homeView)             |
+| 12  | `testViewSettingsHomeButtonNavigatesToHomeView` | test | Test zoomToInitialExtent() navigates center to homeView coordinates ≈ [-95, 60] with tolerance |
 
 #### 3.2.5 Overview Map
 
@@ -572,10 +630,10 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                                      | Type | Description                                                           |
 | --- | ------------------------------------------- | ---- | --------------------------------------------------------------------- |
-| 12  | `testOverviewMapPresent`                    | test | Test overview map is present when configured in components            |
-| 13  | `testOverviewMapAbsent`                     | test | Test overview map is absent when not in components                    |
-| 14  | `testOverviewMapHideOnZoom`                 | test | Test overview map hideOnZoom hides at low zoom, shows above threshold |
-| 15  | `testOverviewMapHideOnZoomWithReprojection` | test | Test overview map hideOnZoom with reprojection preserves visibility   |
+| 13  | `testOverviewMapPresent`                    | test | Test overview map is present when configured in components            |
+| 14  | `testOverviewMapAbsent`                     | test | Test overview map is absent when not in components                    |
+| 15  | `testOverviewMapHideOnZoom`                 | test | Test overview map hideOnZoom hides at low zoom, shows above threshold |
+| 16  | `testOverviewMapHideOnZoomWithReprojection` | test | Test overview map hideOnZoom with reprojection preserves visibility   |
 
 #### 3.2.6 North Arrow
 
@@ -583,8 +641,8 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                  | Type | Description                                               |
 | --- | ----------------------- | ---- | --------------------------------------------------------- |
-| 16  | `testNorthArrowPresent` | test | Test north arrow is present when configured in components |
-| 17  | `testNorthArrowAbsent`  | test | Test north arrow is absent when not in components         |
+| 17  | `testNorthArrowPresent` | test | Test north arrow is present when configured in components |
+| 18  | `testNorthArrowAbsent`  | test | Test north arrow is absent when not in components         |
 
 #### 3.2.7 Initial Settings — Controls
 
@@ -592,7 +650,7 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                                | Type | Description                                  |
 | --- | ------------------------------------- | ---- | -------------------------------------------- |
-| 18  | `testInitialSettingsControlsAllFalse` | test | Test initialSettings all controls = false... |
+| 19  | `testInitialSettingsControlsAllFalse` | test | Test initialSettings all controls = false... |
 
 #### 3.2.8 Initial Settings — States
 
@@ -600,10 +658,10 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                                   | Type | Description                                      |
 | --- | ---------------------------------------- | ---- | ------------------------------------------------ |
-| 19  | `testInitialSettingsStateVisibleFalse`   | test | Test initialSettings states.visible = false...   |
-| 20  | `testInitialSettingsStateOpacity`        | test | Test initialSettings states.opacity = 0.5...     |
-| 21  | `testInitialSettingsStateQueryableFalse` | test | Test initialSettings states.queryable = false... |
-| 22  | `testInitialSettingsStateHoverableFalse` | test | Test initialSettings states.hoverable = false... |
+| 20  | `testInitialSettingsStateVisibleFalse`   | test | Test initialSettings states.visible = false...   |
+| 21  | `testInitialSettingsStateOpacity`        | test | Test initialSettings states.opacity = 0.5...     |
+| 22  | `testInitialSettingsStateQueryableFalse` | test | Test initialSettings states.queryable = false... |
+| 23  | `testInitialSettingsStateHoverableFalse` | test | Test initialSettings states.hoverable = false... |
 
 #### 3.2.9 Initial Settings — Opacity Cascading
 
@@ -611,9 +669,9 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                                                   | Type | Description                                                                   |
 | --- | -------------------------------------------------------- | ---- | ----------------------------------------------------------------------------- |
-| 23  | `testInitialSettingsOpacityCascadingChildCappedByParent` | test | Test opacity cascading: child (1.0) capped by parent (0.5) = effective 0.5... |
-| 24  | `testInitialSettingsOpacityCascadingChildBelowParent`    | test | Test opacity cascading: child (0.3) below parent (0.5) = effective 0.3...     |
-| 25  | `testInitialSettingsOpacityCascadingRuntimeParentChange` | test | Test opacity cascading: runtime parent change cascades to children...         |
+| 24  | `testInitialSettingsOpacityCascadingChildCappedByParent` | test | Test opacity cascading: child (1.0) capped by parent (0.5) = effective 0.5... |
+| 25  | `testInitialSettingsOpacityCascadingChildBelowParent`    | test | Test opacity cascading: child (0.3) below parent (0.5) = effective 0.3...     |
+| 26  | `testInitialSettingsOpacityCascadingRuntimeParentChange` | test | Test opacity cascading: runtime parent change cascades to children...         |
 
 #### 3.2.10 Initial Settings — Cascading (Controls & Visibility)
 
@@ -621,8 +679,8 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                                                   | Type | Description                                                                                                      |
 | --- | -------------------------------------------------------- | ---- | ---------------------------------------------------------------------------------------------------------------- |
-| 26  | `testInitialSettingsControlRemoveCascadingToDescendants` | test | Test controls.remove cascading: parent false cascades unless child explicitly overrides with true...             |
-| 27  | `testInitialSettingsStateVisibleCascadingToDescendants`  | test | Test states.visible cascading: parent false hides all descendants on map, children keep visible true in store... |
+| 27  | `testInitialSettingsControlRemoveCascadingToDescendants` | test | Test controls.remove cascading: parent false cascades unless child explicitly overrides with true...             |
+| 28  | `testInitialSettingsStateVisibleCascadingToDescendants`  | test | Test states.visible cascading: parent false hides all descendants on map, children keep visible true in store... |
 
 #### 3.2.11 Initial Settings — Combo Tests
 
@@ -630,8 +688,8 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                                                        | Type | Description                                                              |
 | --- | ------------------------------------------------------------- | ---- | ------------------------------------------------------------------------ |
-| 28  | `testInitialSettingsComboQueryControlTrueStateQueryableFalse` | test | Test initialSettings controls.query = true + states.queryable = false... |
-| 29  | `testInitialSettingsComboHoverControlTrueStateHoverableFalse` | test | Test initialSettings controls.hover = true + states.hoverable = false... |
+| 29  | `testInitialSettingsComboQueryControlTrueStateQueryableFalse` | test | Test initialSettings controls.query = true + states.queryable = false... |
+| 30  | `testInitialSettingsComboHoverControlTrueStateHoverableFalse` | test | Test initialSettings controls.hover = true + states.hoverable = false... |
 
 #### 3.2.12 Initial Settings — Legend Collapsed
 
@@ -639,7 +697,7 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                               | Type | Description                                                          |
 | --- | ------------------------------------ | ---- | -------------------------------------------------------------------- |
-| 30  | `testInitialSettingsLegendCollapsed` | test | Test initialSettings states.legendCollapsed = true on group layer... |
+| 31  | `testInitialSettingsLegendCollapsed` | test | Test initialSettings states.legendCollapsed = true on group layer... |
 
 #### 3.2.13 Initial Settings — Controls Cascading (All Controls)
 
@@ -647,8 +705,8 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                                         | Type | Description                                                                                                                |
 | --- | ---------------------------------------------- | ---- | -------------------------------------------------------------------------------------------------------------------------- |
-| 31  | `testInitialSettingsControlsCascadeToChildren` | test | Test parent controls { highlight: false, zoom: false, hover: false, query: false } cascade to children...                  |
-| 32  | `testInitialSettingsControlsGroupOverride`     | test | Test group-level override: parent { highlight: false, zoom: false }, subgroup overrides { highlight: true, zoom: true }... |
+| 32  | `testInitialSettingsControlsCascadeToChildren` | test | Test parent controls { highlight: false, zoom: false, hover: false, query: false } cascade to children...                  |
+| 33  | `testInitialSettingsControlsGroupOverride`     | test | Test group-level override: parent { highlight: false, zoom: false }, subgroup overrides { highlight: true, zoom: true }... |
 
 #### 3.2.14 Initial Settings — Filters
 
@@ -656,11 +714,19 @@ This catalog lists every test in the GeoView test suite, organized by group, sui
 
 | #   | Method                                  | Type | Description                                                             |
 | --- | --------------------------------------- | ---- | ----------------------------------------------------------------------- |
-| 33  | `testInitialSettingsFilters`            | test | Test GeoJSON layerFilter is stored and accessible after loading...      |
-| 34  | `testInitialSettingsFiltersOgcFeature`  | test | Test OGC Feature layerFilter is stored and accessible after loading...  |
-| 35  | `testInitialSettingsFiltersWfs`         | test | Test WFS layerFilter is stored and accessible after loading...          |
-| 36  | `testInitialSettingsFiltersEsriDynamic` | test | Test Esri Dynamic layerFilter is stored and accessible after loading... |
-| 37  | `testInitialSettingsFiltersEsriFeature` | test | Test Esri Feature layerFilter is stored and accessible after loading... |
+| 34  | `testInitialSettingsFilters`            | test | Test GeoJSON layerFilter is stored and accessible after loading...      |
+| 35  | `testInitialSettingsFiltersOgcFeature`  | test | Test OGC Feature layerFilter is stored and accessible after loading...  |
+| 36  | `testInitialSettingsFiltersWfs`         | test | Test WFS layerFilter is stored and accessible after loading...          |
+| 37  | `testInitialSettingsFiltersEsriDynamic` | test | Test Esri Dynamic layerFilter is stored and accessible after loading... |
+| 38  | `testInitialSettingsFiltersEsriFeature` | test | Test Esri Feature layerFilter is stored and accessible after loading... |
+
+#### 3.2.15 Selected Layer Path Resolution
+
+[↑ Back to top](#table-of-contents)
+
+| #   | Method                                         | Type | Description                                                                                                       |
+| --- | ---------------------------------------------- | ---- | ----------------------------------------------------------------------------------------------------------------- |
+| 39  | `testSelectedLayersLayerPathGeoCoreResolution` | test | Test selectedLayersLayerPath with a GeoCore UUID resolves to the first layer path (`uuid/0`) in the store (#3633) |
 
 ---
 

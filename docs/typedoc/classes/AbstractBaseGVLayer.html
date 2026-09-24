@@ -13,7 +13,7 @@
 <section class="tsd-panel tsd-comment">
 <div class="tsd-comment tsd-typography"><p>Abstract Base GV Layer managing an OpenLayer layer, including a layer group.</p>
 </div></section>
-<section class="tsd-panel tsd-hierarchy" data-refl="31768">
+<section class="tsd-panel tsd-hierarchy" data-refl="31917">
 <h4>Hierarchy (<a href="../hierarchy.html#AbstractBaseGVLayer">View Summary</a>)</h4>
 <ul class="tsd-hierarchy">
 <li class="tsd-hierarchy-item"><span class="tsd-hierarchy-target">AbstractBaseGVLayer</span>
@@ -90,6 +90,7 @@
 <a href="#setopacity" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Opacity</span></a>
 <a href="#setparent" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Parent</span></a>
 <a href="#setvisible" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Visible</span></a>
+<a href="#setvisibleincludingparents" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Visible<wbr/>Including<wbr/>Parents</span></a>
 <a href="#setzindex" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Z<wbr/>Index</span></a>
 <a href="#waitforbounds" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>wait<wbr/>For<wbr/>Bounds</span></a>
 <a href="#getparent-2" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Parent</span></a>
@@ -286,7 +287,7 @@ The extent is used to clip the data displayed on the map.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><p>The max zoom of the layer.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:576</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:592</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="getminzoom"><span>get<wbr/>Min<wbr/>Zoom</span><a href="#getminzoom" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -298,7 +299,7 @@ The extent is used to clip the data displayed on the map.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><p>The min zoom of the layer.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:558</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:574</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="getollayer"><span>get<wbr/>OL<wbr/>Layer</span><a href="#getollayer" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -385,7 +386,7 @@ This is useful for CSS-based operations like clip-path (e.g., swiper).</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLElement</span> <span class="tsd-signature-symbol">|</span> <span class="tsd-signature-type">undefined</span></h4><p>The container HTMLElement, or undefined if the renderer has no container</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:637</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:653</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="getvisible"><span>get<wbr/>Visible</span><a href="#getvisible" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -462,7 +463,7 @@ is visible at exactly scale 41999.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><p>True if the layer is in visible range</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:624</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:640</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="offboundsinitialized"><span>off<wbr/>Bounds<wbr/>Initialized</span><a href="#offboundsinitialized" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -479,7 +480,7 @@ is visible at exactly scale 41999.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:809</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:825</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="offlayernamechanged"><span>off<wbr/>Layer<wbr/>Name<wbr/>Changed</span><a href="#offlayernamechanged" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -496,7 +497,7 @@ is visible at exactly scale 41999.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:674</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:690</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="offlayeropacitychanged"><span>off<wbr/>Layer<wbr/>Opacity<wbr/>Changed</span><a href="#offlayeropacitychanged" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -513,7 +514,7 @@ is visible at exactly scale 41999.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:736</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:752</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="offlayervisiblechanged"><span>off<wbr/>Layer<wbr/>Visible<wbr/>Changed</span><a href="#offlayervisiblechanged" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -530,7 +531,7 @@ is visible at exactly scale 41999.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:705</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:721</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="offlayerzindexchanged"><span>off<wbr/>Layer<wbr/>Z<wbr/>Index<wbr/>Changed</span><a href="#offlayerzindexchanged" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -547,7 +548,7 @@ is visible at exactly scale 41999.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:767</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:783</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="onboundsinitialized"><span>on<wbr/>Bounds<wbr/>Initialized</span><a href="#onboundsinitialized" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -565,7 +566,7 @@ is visible at exactly scale 41999.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">BoundsInitializedDelegate</span></h4><p>The registered callback, which can be used to unregister the event handler later</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:799</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:815</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="onceboundsinitialized"><span>once<wbr/>Bounds<wbr/>Initialized</span><a href="#onceboundsinitialized" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -583,7 +584,7 @@ is visible at exactly scale 41999.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">BoundsInitializedEvent</span><span class="tsd-signature-symbol">&gt;</span></h4><p>A promise that resolves with the bounds initialized event payload</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:788</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:804</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected">
 <h3 class="tsd-anchor-link" id="ongetattributions"><code class="tsd-tag">Protected</code> <code class="tsd-tag">Abstract</code><span>on<wbr/>Get<wbr/>Attributions</span><a href="#ongetattributions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected">
@@ -656,7 +657,7 @@ is visible at exactly scale 41999.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">LayerNameChangedDelegate</span></h4><p>The registered callback, which can be used to unregister the event handler later</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:664</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:680</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="onlayeropacitychanged"><span>on<wbr/>Layer<wbr/>Opacity<wbr/>Changed</span><a href="#onlayeropacitychanged" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -674,7 +675,7 @@ is visible at exactly scale 41999.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">LayerOpacityChangedDelegate</span></h4><p>The registered callback, which can be used to unregister the event handler later</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:726</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:742</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="onlayervisiblechanged"><span>on<wbr/>Layer<wbr/>Visible<wbr/>Changed</span><a href="#onlayervisiblechanged" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -692,7 +693,7 @@ is visible at exactly scale 41999.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">LayerVisibleChangedDelegate</span></h4><p>The registered callback, which can be used to unregister the event handler later</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:695</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:711</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="onlayerzindexchanged"><span>on<wbr/>Layer<wbr/>Z<wbr/>Index<wbr/>Changed</span><a href="#onlayerzindexchanged" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -710,7 +711,7 @@ is visible at exactly scale 41999.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">LayerZIndexChangedDelegate</span></h4><p>The registered callback, which can be used to unregister the event handler later</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:757</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:773</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected">
 <h3 class="tsd-anchor-link" id="onrefresh"><code class="tsd-tag">Protected</code> <code class="tsd-tag">Abstract</code><span>on<wbr/>Refresh</span><a href="#onrefresh" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected">
@@ -864,7 +865,7 @@ Set from the effective minScale of the layer configuration.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:609</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:625</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="setmaxzoom"><span>set<wbr/>Max<wbr/>Zoom</span><a href="#setmaxzoom" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -881,7 +882,7 @@ Set from the effective minScale of the layer configuration.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:585</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:601</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="setminresolution"><span>set<wbr/>Min<wbr/>Resolution</span><a href="#setminresolution" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -900,7 +901,7 @@ Set from the effective maxScale of the layer configuration.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:597</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:613</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="setminzoom"><span>set<wbr/>Min<wbr/>Zoom</span><a href="#setminzoom" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -917,7 +918,7 @@ Set from the effective maxScale of the layer configuration.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:567</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:583</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-protected">
 <h3 class="tsd-anchor-link" id="setollayer"><code class="tsd-tag">Protected</code><span>set<wbr/>OL<wbr/>Layer</span><a href="#setollayer" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-protected">
@@ -997,6 +998,19 @@ updating the opacity. Defaults to true.</p>
 <ul>
 <li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:538</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
+<h3 class="tsd-anchor-link" id="setvisibleincludingparents"><span>set<wbr/>Visible<wbr/>Including<wbr/>Parents</span><a href="#setvisibleincludingparents" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="">
+<div class="tsd-signature tsd-anchor-link" id="setvisibleincludingparents-1"><span class="tsd-kind-call-signature">setVisibleIncludingParents</span><span class="tsd-signature-symbol">()</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">void</span><a href="#setvisibleincludingparents-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></div>
+<div class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Makes the layer visible, enabling any hidden parent groups so it actually renders.</p>
+<p>A layer's own visibility has no visible effect while an ancestor group is hidden, so this walks up
+the parent chain and turns each hidden ancestor group visible before showing this layer itself.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:549</li></ul></aside></div></li></ul></section>
+<section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="setzindex"><span>set<wbr/>Z<wbr/>Index</span><a href="#setzindex" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
 <li class="">
@@ -1015,7 +1029,7 @@ updating the opacity. Defaults to true.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:549</li></ul></aside></div></li></ul></section>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:565</li></ul></aside></div></li></ul></section>
 <section class="tsd-panel tsd-member">
 <h3 class="tsd-anchor-link" id="waitforbounds"><span>wait<wbr/>For<wbr/>Bounds</span><a href="#waitforbounds" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -1058,7 +1072,7 @@ search within. Typically this is the root layer group of the map.</p>
 otherwise <code>undefined</code> if the layer has no parent.</p>
 <aside class="tsd-sources">
 <ul>
-<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:834</li></ul></aside></div></li></ul></section></section></details></div>
+<li>Defined in packages/geoview-core/src/geo/layer/gv-layers/abstract-base-layer.ts:850</li></ul></aside></div></li></ul></section></section></details></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -1079,7 +1093,7 @@ otherwise <code>undefined</code> if the layer has no parent.</p>
 <details open class="tsd-accordion tsd-page-navigation-section"><summary class="tsd-accordion-summary" data-key="section-Properties"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Properties</summary>
 <div><a href="#loadedonce"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Property"><use href="../assets/icons.svg#icon-1024"></use></svg><span>loaded<wbr/>Once</span></a></div></details>
 <details open class="tsd-accordion tsd-page-navigation-section"><summary class="tsd-accordion-summary" data-key="section-Methods"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Methods</summary>
-<div><a href="#getattributions"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Attributions</span></a><a href="#getbounds"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Bounds</span></a><a href="#getboundslonlat"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Bounds<wbr/>Lon<wbr/>Lat</span></a><a href="#getboundsprojection"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Bounds<wbr/>Projection</span></a><a href="#getclassname"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Class<wbr/>Name</span></a><a href="#getextent"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Extent</span></a><a href="#getgeoviewlayerid"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Geoview<wbr/>Layer<wbr/>Id</span></a><a href="#getgeoviewlayername"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Geoview<wbr/>Layer<wbr/>Name</span></a><a href="#getlayerconfig"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Layer<wbr/>Config</span></a><a href="#getlayername"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Layer<wbr/>Name</span></a><a href="#getlayerpath"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Layer<wbr/>Path</span></a><a href="#getlayerstatus"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Layer<wbr/>Status</span></a><a href="#getmaxzoom"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Max<wbr/>Zoom</span></a><a href="#getminzoom"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Min<wbr/>Zoom</span></a><a href="#getollayer"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>OL<wbr/>Layer</span></a><a href="#getopacity"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Opacity</span></a><a href="#getparent"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Parent</span></a><a href="#getparentroot"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Parent<wbr/>Root</span></a><a href="#getparents"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Parents</span></a><a href="#getrenderercontainer"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Renderer<wbr/>Container</span></a><a href="#getvisible"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Visible</span></a><a href="#getvisibleincludingparents"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Visible<wbr/>Including<wbr/>Parents</span></a><a href="#initbounds"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>init<wbr/>Bounds</span></a><a href="#isinvisiblerange"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>is<wbr/>In<wbr/>Visible<wbr/>Range</span></a><a href="#offboundsinitialized"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>off<wbr/>Bounds<wbr/>Initialized</span></a><a href="#offlayernamechanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>off<wbr/>Layer<wbr/>Name<wbr/>Changed</span></a><a href="#offlayeropacitychanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>off<wbr/>Layer<wbr/>Opacity<wbr/>Changed</span></a><a href="#offlayervisiblechanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>off<wbr/>Layer<wbr/>Visible<wbr/>Changed</span></a><a href="#offlayerzindexchanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>off<wbr/>Layer<wbr/>Z<wbr/>Index<wbr/>Changed</span></a><a href="#onboundsinitialized"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Bounds<wbr/>Initialized</span></a><a href="#onceboundsinitialized"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>once<wbr/>Bounds<wbr/>Initialized</span></a><a href="#ongetattributions" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Get<wbr/>Attributions</span></a><a href="#oninitbounds" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Init<wbr/>Bounds</span></a><a href="#onisinvisiblerange" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Is<wbr/>In<wbr/>Visible<wbr/>Range</span></a><a href="#onlayernamechanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Layer<wbr/>Name<wbr/>Changed</span></a><a href="#onlayeropacitychanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Layer<wbr/>Opacity<wbr/>Changed</span></a><a href="#onlayervisiblechanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Layer<wbr/>Visible<wbr/>Changed</span></a><a href="#onlayerzindexchanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Layer<wbr/>Z<wbr/>Index<wbr/>Changed</span></a><a href="#onrefresh" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Refresh</span></a><a href="#onsetopacity" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Set<wbr/>Opacity</span></a><a href="#onsetvisible" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Set<wbr/>Visible</span></a><a href="#onsetzindex" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Set<wbr/>Z<wbr/>Index</span></a><a href="#refresh"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>refresh</span></a><a href="#setextent"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Extent</span></a><a href="#setlayername"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Layer<wbr/>Name</span></a><a href="#setmaxresolution"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Max<wbr/>Resolution</span></a><a href="#setmaxzoom"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Max<wbr/>Zoom</span></a><a href="#setminresolution"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Min<wbr/>Resolution</span></a><a href="#setminzoom"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Min<wbr/>Zoom</span></a><a href="#setollayer" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>OL<wbr/>Layer</span></a><a href="#setopacity"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Opacity</span></a><a href="#setparent"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Parent</span></a><a href="#setvisible"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Visible</span></a><a href="#setzindex"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Z<wbr/>Index</span></a><a href="#waitforbounds"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>wait<wbr/>For<wbr/>Bounds</span></a><a href="#getparent-2"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Parent</span></a></div></details></div></details></div>
+<div><a href="#getattributions"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Attributions</span></a><a href="#getbounds"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Bounds</span></a><a href="#getboundslonlat"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Bounds<wbr/>Lon<wbr/>Lat</span></a><a href="#getboundsprojection"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Bounds<wbr/>Projection</span></a><a href="#getclassname"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Class<wbr/>Name</span></a><a href="#getextent"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Extent</span></a><a href="#getgeoviewlayerid"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Geoview<wbr/>Layer<wbr/>Id</span></a><a href="#getgeoviewlayername"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Geoview<wbr/>Layer<wbr/>Name</span></a><a href="#getlayerconfig"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Layer<wbr/>Config</span></a><a href="#getlayername"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Layer<wbr/>Name</span></a><a href="#getlayerpath"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Layer<wbr/>Path</span></a><a href="#getlayerstatus"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Layer<wbr/>Status</span></a><a href="#getmaxzoom"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Max<wbr/>Zoom</span></a><a href="#getminzoom"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Min<wbr/>Zoom</span></a><a href="#getollayer"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>OL<wbr/>Layer</span></a><a href="#getopacity"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Opacity</span></a><a href="#getparent"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Parent</span></a><a href="#getparentroot"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Parent<wbr/>Root</span></a><a href="#getparents"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Parents</span></a><a href="#getrenderercontainer"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Renderer<wbr/>Container</span></a><a href="#getvisible"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Visible</span></a><a href="#getvisibleincludingparents"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Visible<wbr/>Including<wbr/>Parents</span></a><a href="#initbounds"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>init<wbr/>Bounds</span></a><a href="#isinvisiblerange"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>is<wbr/>In<wbr/>Visible<wbr/>Range</span></a><a href="#offboundsinitialized"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>off<wbr/>Bounds<wbr/>Initialized</span></a><a href="#offlayernamechanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>off<wbr/>Layer<wbr/>Name<wbr/>Changed</span></a><a href="#offlayeropacitychanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>off<wbr/>Layer<wbr/>Opacity<wbr/>Changed</span></a><a href="#offlayervisiblechanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>off<wbr/>Layer<wbr/>Visible<wbr/>Changed</span></a><a href="#offlayerzindexchanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>off<wbr/>Layer<wbr/>Z<wbr/>Index<wbr/>Changed</span></a><a href="#onboundsinitialized"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Bounds<wbr/>Initialized</span></a><a href="#onceboundsinitialized"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>once<wbr/>Bounds<wbr/>Initialized</span></a><a href="#ongetattributions" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Get<wbr/>Attributions</span></a><a href="#oninitbounds" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Init<wbr/>Bounds</span></a><a href="#onisinvisiblerange" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Is<wbr/>In<wbr/>Visible<wbr/>Range</span></a><a href="#onlayernamechanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Layer<wbr/>Name<wbr/>Changed</span></a><a href="#onlayeropacitychanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Layer<wbr/>Opacity<wbr/>Changed</span></a><a href="#onlayervisiblechanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Layer<wbr/>Visible<wbr/>Changed</span></a><a href="#onlayerzindexchanged"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Layer<wbr/>Z<wbr/>Index<wbr/>Changed</span></a><a href="#onrefresh" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Refresh</span></a><a href="#onsetopacity" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Set<wbr/>Opacity</span></a><a href="#onsetvisible" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Set<wbr/>Visible</span></a><a href="#onsetzindex" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>on<wbr/>Set<wbr/>Z<wbr/>Index</span></a><a href="#refresh"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>refresh</span></a><a href="#setextent"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Extent</span></a><a href="#setlayername"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Layer<wbr/>Name</span></a><a href="#setmaxresolution"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Max<wbr/>Resolution</span></a><a href="#setmaxzoom"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Max<wbr/>Zoom</span></a><a href="#setminresolution"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Min<wbr/>Resolution</span></a><a href="#setminzoom"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Min<wbr/>Zoom</span></a><a href="#setollayer" class="tsd-is-protected"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>OL<wbr/>Layer</span></a><a href="#setopacity"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Opacity</span></a><a href="#setparent"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Parent</span></a><a href="#setvisible"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Visible</span></a><a href="#setvisibleincludingparents"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Visible<wbr/>Including<wbr/>Parents</span></a><a href="#setzindex"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>set<wbr/>Z<wbr/>Index</span></a><a href="#waitforbounds"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>wait<wbr/>For<wbr/>Bounds</span></a><a href="#getparent-2"><svg class="tsd-kind-icon" viewBox="0 0 24 24" aria-label="Method"><use href="../assets/icons.svg#icon-2048"></use></svg><span>get<wbr/>Parent</span></a></div></details></div></details></div>
 <div class="site-menu">
 <nav class="tsd-navigation"><a href="../modules.html">geoview-core - v2.3.0</a>
 <ul class="tsd-small-nested-navigation" id="tsd-nav-container">
