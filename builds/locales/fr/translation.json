@@ -256,7 +256,9 @@
     "fetchStart": "Téléchargement des données pour « {{layerName}} »...",
     "only": "seulement",
     "opacity": "Opacité (%)",
+    "opacityAriaLabel": "{{label}} de la couche {{name}}",
     "opacityMax": "Maximum du parent",
+    "opacityValueText": "{{value}} %",
     "outOfVisibleRange": "hors de la plage visible",
     "reloadLayer": "Recharger la couche",
     "reloadSublayers": "Recharger toutes les couches en erreur",
@@ -482,7 +484,8 @@
     "letter": "Lettre",
     "legal": "Légal",
     "tabloid": "Tabloïd",
-    "previewAlt": "Aperçu de l'exportation de la carte"
+    "previewAlt": "Aperçu de l'exportation de la carte",
+    "loadingPreview": "Chargement de l'aperçu..."
   },
   "geolocator": {
     "title": "Géolocalisation",
@@ -519,6 +522,7 @@
     "filterMap": "Filtrer la carte",
     "stopFilterMap": "Arrêter le filtrage de la carte",
     "clearFilters": "Effacer les filtres",
+    "zoomToFilteredExtent": "Zoomer sur l'étendue filtrée",
     "rowsSelected": "{rowsSelected} sur {totalRows} ligne(s) sélectionnée(s)",
     "rowsFiltered": "{rowsFiltered} sur {totalRows} ligne(s) filtrée(s)",
     "enlargeBtn": "Agrandir",
@@ -550,7 +554,8 @@
   "filterPanel": {
     "errorRegistrationTimeout": "Erreur de délai d'attente du panneau de filtres : La couche '{{layerName}}' a mis trop de temps à s'enregistrer",
     "errorFilterPanelQuery": "Erreur de requête du panneau de filtres : La couche '{{layerName}}' n'a pas pu être interrogée",
-    "errorFilterPanelClear": "Erreur de nettoyage du panneau de filtres : La couche '{{layerName}}' n'a pas pu effacer les filtres"
+    "errorFilterPanelClear": "Erreur de nettoyage du panneau de filtres : La couche '{{layerName}}' n'a pas pu effacer les filtres",
+    "warningNoFilteredExtent": "Aucun élément ne correspond actuellement aux filtres actifs pour la couche '{{layerName}}' - rien à zoomer"
   },
   "guide": {
     "title": "Guide",
@@ -575,8 +580,11 @@
   "footerBar": {
     "resizeTooltip": "Redimensionner",
     "resizeAriaLabel": "Redimensionner le panneau de pied de page",
+    "footerPanelHeight": "Hauteur du panneau de pied de page",
+    "resizeValueText": "{{value}} %",
     "noTab": "Pas d'onglet",
-    "tabsLabel": "Onglets du panneau de pied de page"
+    "tabsLabel": "Onglets du panneau de pied de page",
+    "tabsSelectionLabel": "Sélection du panneau"
   },
   "toggleAll": {
     "show": "Afficher tout",
