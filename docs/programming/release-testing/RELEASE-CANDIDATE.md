@@ -91,9 +91,9 @@ The swiper package `layers` property changed shape (schema `version` bumped `1.0
 
 ### UI Components — Select and Slider Compatibility
 
-- `Select` now requires exactly one non-empty `label` or `aria-label`; supplying both or a blank name throws a `TypeError`. `inputLabel.id` is no longer supported: use `labelId` to customize the associated label ID. These restrictions affect external consumers of the UI wrapper (branch `3657-slider-accessibility`; PR pending).
-- `Slider` removed the `ariaLabelledby` prop. Use standard `aria-labelledby` for a shared name or `getAriaLabel(index)` for distinct thumb names (issue #3657; PR pending).
-- Filter-panel attribute `displayLabel` must contain a non-whitespace character for every filter type. Previously schema-valid blank labels now prevent filter controls from rendering and show an explicit configuration error; replace them with meaningful labels and reload the viewer (branch `3657-slider-accessibility`; PR pending).
+- `Select` now requires exactly one non-empty `label` or `aria-label`; supplying both or a blank name throws a `TypeError`. `inputLabel.id` is no longer supported: use `labelId` to customize the associated label ID. These restrictions affect external consumers of the UI wrapper (#3678).
+- `Slider` removed the `ariaLabelledby` prop. Use standard `aria-labelledby` for a shared name or `getAriaLabel(index)` for distinct thumb names (issue #3657; #3678).
+- Filter-panel attribute `displayLabel` must contain a non-whitespace character for every filter type. Previously schema-valid blank labels now prevent filter controls from rendering and show an explicit configuration error; replace them with meaningful labels and reload the viewer (#3678).
 
 ## Breaking Changes — Developer-Only (Internal)
 
@@ -129,15 +129,11 @@ _(User-facing features added or enabled)_
 - Added built-in `canada.ca` display theme with Government of Canada-inspired colors and typography (#3609)
 - New `cgpv.api.utilities.dom` public surface exposing the map-scoped DOM helpers (`buildGVElementId`, `getGVRootElement`, `getGVElementById`, `getGVElementByFullId`, `getGVMapTargetElement`, `getGVShellElement`, `getGVGuidebox`, `queryGVSelector`/`queryGVSelectorAll`) so plugins and framework consumers can resolve map-scoped elements without deep-importing internal modules (#3221)
 - Layers hidden on the map now stay listed in the data table, details, geochart, and time slider panels under a separate **Hidden layers** section (greyed/italic, non-interactive) with an inline eye toggle to restore visibility directly from the list, so a table/chart/slider for a hidden layer stays discoverable without opening the Layers panel. Includes a new `LayerController.setLayerVisibleIncludingParents()` that crawls parent groups (a child hidden only because its group is hidden becomes visible again) and a new `useStoreLayerInVisibleRangeSet()` store selector; out-of-scale-range filtering, the Legend, and the Layers panel are unchanged (#3635)
-<<<<<<< HEAD
 - Improved WMS style and ESRI Image raster-function selection to Layer Settings, including metadata-driven initial selections.
 - Added temporal metadata to Layer Info, including normalized range values, ISO 8601 duration intervals, and grouped-dimension status.
 - Added support to the special QGIS group dimension configuration allowing time-dimension WMS rasters to function with the time-slider.
 - Added calendar-aware time-slider stepping for hour, day, week, month, and year intervals, including leap-year-safe year navigation.
 - **Interactive Swiper customization**: a new `interactive` boolean on the swiper package config (default `false`) lets end users add/remove layers from the swiper and choose the revealed side of each layer directly from the layer's right-panel **settings** section — no longer limited to the author-defined config. Each swiper layer now carries a per-layer `side` (`left`/`right` for a vertical bar, `up`/`down` for a horizontal bar), and layers can be clipped to different sides of the divider simultaneously. When `interactive` is `false` (or the swiper package is absent), the swiper stays static and behaves exactly as before. User changes persist into the exported/reloaded map config. New `SwiperController` methods `setLayers(entries)`, `setLayerSide(layerPath, side)`, `setInteractive(interactive)`, and an optional `side` parameter on `addLayerPath(layerPath, side?)`; new store selectors `useStoreSwiperLayerSides`/`useStoreSwiperInteractive` (plus a plugin-safe `useStoreSwiperInteractiveIfExists`) (#3625)
-=======
-- **Interactive Swiper customization**: a new `interactive` boolean on the swiper package config (default `false`) lets end users add/remove layers from the swiper and choose the revealed side of each layer directly from the layer's right-panel **settings** section — no longer limited to the author-defined config. Each swiper layer now carries a per-layer `side` (`left`/`right` for a vertical bar, `up`/`down` for a horizontal bar), and layers can be clipped to different sides of the divider simultaneously. When `interactive` is `false` (or the swiper package is absent), the swiper stays static and behaves exactly as before. User changes persist into the exported/reloaded map config. New `SwiperController` methods `setLayers(entries)`, `setLayerSide(layerPath, side)`, `setInteractive(interactive)`, and an optional `side` parameter on `addLayerPath(layerPath, side?)`; new store selectors `useStoreSwiperLayerSides`/`useStoreSwiperInteractive` (the latter is plugin-safe and returns `false` when the swiper package is absent) (#3625)
->>>>>>> d9564ea759 (fix review)
 
 ## Bug Fixes
 
