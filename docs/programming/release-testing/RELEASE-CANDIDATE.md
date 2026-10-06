@@ -285,11 +285,11 @@ _(WCAG fixes and improvements)_
 - Fixed an empty `<ul>` element appearing in the generated legend layer container HTML (#3630)
 - Hidden-layers panel lists render as two separate semantic lists ("Available layers" / "Hidden layers") with `aria-labelledby` headings and an `aria-live` region announcing when a layer moves between lists; hidden rows are non-interactive (`tabIndex=-1`, no click/keydown handlers) with the eye toggle as the sole control, and focus is restored by stable id after a layer is re-enabled (the item re-mounts when moving between the two lists) (#3635)
 
-- Improved slider accessibility with distinct time-slider thumb names, formatted date/percentage value text, calendar-step keyboard navigation, and keyboard-friendly footer resize interaction (issue #3657; PR pending).
-- Updated raster function, mosaic rule, and WMS style settings to use native button controls for expandable sections and selectable cards, with associated labels and decorative previews (issue #3656; PR pending).
-- Updated Select controls across export, geolocator, layer settings, filter panel, and mobile tabs to use a single accessible naming source and automatically associated visible labels (branch `3657-slider-accessibility`; PR pending).
-- Validated filter attribute labels before creating controls: blank `displayLabel` values now show a translated configuration error in the panel, snackbar, and notification history instead of crashing Select during rendering; valid configurations are unchanged (branch `3657-slider-accessibility`; PR pending).
-- Localized the export preview loading message in English and French (branch `3657-slider-accessibility`; PR pending).
+- Improved slider accessibility with distinct time-slider thumb names, formatted date/percentage value text, calendar-step keyboard navigation, and keyboard-friendly footer resize interaction (issue #3657; #3678).
+- Updated raster function, mosaic rule, and WMS style settings to use native button controls for expandable sections and selectable cards, with associated labels and decorative previews (issue #3656; #3678).
+- Updated Select controls across export, geolocator, layer settings, filter panel, and mobile tabs to use a single accessible naming source and automatically associated visible labels (#3678).
+- Validated filter attribute labels before creating controls: blank `displayLabel` values now show a translated configuration error in the panel, snackbar, and notification history instead of crashing Select during rendering; valid configurations are unchanged (#3678).
+- Localized the export preview loading message in English and French (#3678).
 
 ## Documentation & Cleanup
 
