@@ -70,13 +70,15 @@ marginTop: theme.spacing(2), // snapped from 15px
 
 Use one of the five border-radius tokens. Never use a literal px/% value or a bare number.
 
-| Token              | Value    | Use for                                                                                 |
-| ------------------ | -------- | --------------------------------------------------------------------------------------- |
-| `borderRadiusNone` | `0`      | Squared-off corners, e.g. where a surface attaches to another (tabs on panels)          |
-| `borderRadiusSm`   | `4px`    | Small controls: map controls, chips, thumbnails, icons, scrollbar thumbs, inline `code` |
-| `borderRadiusMd`   | `6px`    | Default surfaces: cards, panels, popovers, tooltips, inputs (same as the MUI base)       |
-| `borderRadiusLg`   | `8px`    | Larger grouped containers such as settings sections                                     |
-| `borderRadiusFull` | `9999px` | Circles (square elements) and pills (rectangular elements)                              |
+The examples below are guidance rather than fixed mappings; choose a token based on the visual context and consistency with surrounding components.
+
+| Token              | Value    | Example uses                                                                                   |
+| ------------------ | -------- | ---------------------------------------------------------------------------------------------- |
+| `borderRadiusNone` | `0`      | Squared-off corners, e.g. where a surface attaches to another (tabs on panels)                 |
+| `borderRadiusSm`   | `4px`    | Smaller elements, e.g. map controls, chips, thumbnails, icons, scrollbar thumbs, inline `code` |
+| `borderRadiusMd`   | `6px`    | Common surfaces, e.g. cards, panels, popovers, tooltips, inputs (same as the MUI base)         |
+| `borderRadiusLg`   | `8px`    | Larger grouped containers, e.g. settings sections                                              |
+| `borderRadiusFull` | `9999px` | Circles (square elements) and pills (rectangular elements)                                     |
 
 Where each kind of file gets the token:
 
