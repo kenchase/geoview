@@ -634,6 +634,7 @@ const ResponsiveGridLayout = forwardRef(
       return (
         <Box
           ref={guideContainerRef}
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- scrollable guide region must be keyboard-focusable to scroll it (WCAG 2.1.1)
           tabIndex={0}
           className="panel-content-container"
           sx={memoGuideSxClasses.guideContainer}
