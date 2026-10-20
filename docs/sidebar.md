@@ -55,7 +55,6 @@
 
 - **Developer Documentation**
   - [Best Practices](programming/best-practices.md)
-  - [GeoView Terminology](programming/terminology.md)
   - [Controller Architecture](programming/controller-architecture.md)
   - [Using Store](programming/using-store.md)
   - [LayerSet Architecture](programming/layerset-architecture.md)
@@ -67,7 +66,6 @@
   - [Notifications](programming/notifications.md)
   - [Object Oriented](programming/object-oriented.md)
   - [Troubleshooting](programming/troubleshooting.md)
-  - [Using AI Assistants](programming/using-ai.md)
 
 - **TypeDoc API**
   - [TypeScript API Reference](../docs/typedoc/index.html ":ignore")
