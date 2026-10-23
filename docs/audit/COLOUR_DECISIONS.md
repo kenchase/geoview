@@ -1,8 +1,8 @@
 # Colour normalization — decisions
 
-Input: `docs/audit/COLOUR_PLAN.md`
-Status: decided except D6 and D7. Hand to the agent as the authoritative basis for
-all subsequent phases.
+Outstanding colour work: see [WHATS_LEFT.md](./WHATS_LEFT.md).
+
+Status: all decisions are closed. D7 is confirmed as written.
 
 ---
 
@@ -107,24 +107,42 @@ and it gets its own phase.
 
 ---
 
-## D6. Focus-ring contract — **OPEN**
+## D6. Focus-ring contract — **Decided: leave as is**
 
-Does not block the mapping work. MUI's `focusVisible` API is confirmed available in
-v9.4 and is already partly in use. Open question is whether custom controls can move
-to it or need to keep a shared colour source.
+The GeoView focus helpers are not a duplicate of MUI's `focusVisible` API.
+`docs/audit/FOCUS.md` found nine call sites, and most style targets MUI
+cannot reach: an OpenLayers native button, a focusable Box with
+`role="note"`, and three wrapper rings where a child receives focus but the
+indicator is drawn on the parent group. MUI's global option has no way to
+express a wrapper target.
 
-**Risk note:** accessibility regressions are invisible to visual A/B review. Keyboard-
-only testing and forced-colors mode must be explicit when this is implemented.
+Consolidating would remove the shared ring from roughly four controls while
+keeping the helper for the rest, plus all of the per-component geometry
+overrides. That is a smaller split rather than consolidation, with a real
+risk of keyboard accessibility regressions that visual review would not
+catch.
+
+The `focusIndicator` pair stays in `geoViewColor` rather than moving to a
+standard palette role. The contract needs two colours, and MUI's second
+layer is a CSS shadow, not a palette role — `action.focus` cannot express
+it.
+
+Revisit only if MUI's API gains wrapper-target support, or if the custom
+call sites reduce to MUI components alone.
 
 ---
 
-## D7. Scope — **recommended, confirm**
+## D7. Scope — **confirmed as written**
 
 **In:** viewer UI, theme source, `theme.components`, first-party static CSS
 (`style.css`, drawer stylesheet).
 
 **Out:** user map symbology and drawing colours (API/config data, separate product
 decision); JSON test fixtures; demo, sandbox and release HTML; vendored CodeMirror CSS.
+
+First-party static CSS is in scope by intent, but unreachable in practice while
+D3 stands: a plain stylesheet cannot read the theme, and `cssVariables` is
+deferred. This is a current implementation limitation, not an oversight.
 
 Follows from D5 — map rendering keeps the ramp, so it is not part of this work.
 
@@ -133,56 +151,3 @@ Follows from D5 — map rendering keeps the ramp, so it is not part of this work
 ## D8. `nativeColor` — **Deferred**
 
 Depends on D3, which is deferred. OpenLayers may not accept CSS relative-colour syntax.
-
----
-
-## Next task: propose the semantic mapping
-
-Hand the agent this file plus `docs/audit/COLOUR_PLAN.md`, with the following prompt.
-
-```
-Planning task. Read-only — do not modify any file except the single output file
-named at the end.
-
-docs/audit/COLOUR_DECISIONS.md records decisions already made. Treat them as
-settled. Where it conflicts with docs/audit/COLOUR_PLAN.md, the decisions file
-wins. Do not re-litigate a decision; if one appears unworkable, stop and report
-rather than choosing differently.
-
-## Task
-Propose a mapping from current colour usage to MUI's standard palette roles,
-per decision D4/D5.
-
-Work from the clusters in COLOUR_PLAN.md Part 3, sections A, C, D and E. Use the
-mui-mcp server for MUI role semantics; do not answer from memory.
-
-## For each cluster
-- The current value or token, the CSS properties it sets, and its usage count
-- The MUI role you propose it maps to, and why
-- Your confidence: high (the role is unambiguous) or low (needs my judgement)
-- Any usage within the cluster that does not fit the proposed role, listed
-  separately rather than forced into it
-
-## Rules
-- Prefer an existing MUI role over a new token, always. Propose a custom token
-  only where no MUI role covers the meaning, and justify each one individually.
-- Do not propose a custom token that duplicates an MUI role under a different
-  name. This is what produced the secondary bug.
-- Where a cluster splits across several roles, say so and split it. A single
-  token doing six jobs is the problem being solved, not a shape to preserve.
-- Map rendering, OpenLayers, and user drawing colours are out of scope (D7).
-  Exclude them. If a cluster spans both UI and map consumers, flag it rather
-  than mapping it.
-- Mark any mapping that would change a colour noticeably, not just slightly.
-- Where you cannot determine intent from the code, say so. Do not guess.
-
-## Output
-A table of proposed mappings, grouped by MUI role, with a separate section for
-proposed custom tokens and a separate section for clusters you could not resolve.
-
-Write to docs/audit/COLOUR_MAPPING.md. Nothing else written or modified.
-```
-
-When reviewing the result, the two things to check are: whether any proposed custom
-token is really an MUI role under a different name, and whether the low-confidence
-list is short enough to work through by hand.
