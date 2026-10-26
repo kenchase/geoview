@@ -46,11 +46,7 @@ above.
 to any theme. Do not map it on hue alone; decide whether the pink was deliberate
 or whether it should use a semantic palette role.
 
-**Tabs and AppBar hover treatment.** Both currently use `primary.main` as the
-hover background and `primary.contrastText` as the foreground. The AppBar's
-`primary.light` is a hover border, not its background. Decide whether the solid
-primary hover is intended or whether these controls should use a lighter
-treatment, and review the two together.
+**Tabs and AppBar hover treatment — decided.** Use `action.hover` / `text.primary` for hover, `primary.main` / `primary.contrastText` for selection, and `primary.dark` with the selected foreground for selected-hover, so selection stays identifiable and still responds to the pointer.
 
 **Zebra striping contrast.** Alternating rows in the data table and feature
 details currently use two different hand-picked shades. Mapping both to the
