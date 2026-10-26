@@ -90,6 +90,12 @@ root.
 `bgColor` already uses the inverse flag in this theme; `textColor` does not.
 That may be the oversight, though it needs checking rather than assuming.
 
+The pale dark-theme primary (`#8ec4fa`) also demonstrates that applying
+`darken()` is not a reliable way to derive a contrasting foreground: the
+darkened value can converge toward the dark surface behind it. Resolve derived
+colors against their actual background roles rather than assuming a darkened
+primary will retain contrast.
+
 Options, in rough order of preference:
 
 1. Use the inverse flag on the dark theme's `textColor`, matching what
