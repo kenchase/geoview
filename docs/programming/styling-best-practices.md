@@ -26,6 +26,10 @@ const memoSxClasses = useMemo((): SxStyles => getSxClasses(theme), [theme]);
 
 This standardized style memo needs neither JSDoc nor trace logging. Combine conditional styles with
 the MUI array syntax, for example `[memoSxClasses.base, condition && memoSxClasses.extra] as SxProps`.
+When sources are typed as `SxProps` (including entries in `SxStyles`), use `composeSxProps` from
+`@/ui/style/types` instead: a source may already be an array, and nested `sx` arrays are not supported.
+For example, `composeSxProps(memoSxClasses.base, { opacity: selected ? 1 : 0 })` flattens the sources
+without requiring a type assertion.
 
 ## 2- Theme tokens and external-theme safety
 
@@ -107,6 +111,8 @@ margin: theme.spacing(0),
 margin: 0,
 margin: '0px',
 ```
+
+**Unitless zero for other CSS lengths.** For CSS length values outside the spacing properties covered above, prefer `0` over a zero with a unit (such as `'0px'`) when CSS permits it. This convention does not replace `theme.spacing(0)` for in-scope spacing declarations. Preserve units where they affect meaning or are required, such as `%` in `0%`.
 
 - **Exception — inline `sx` props in JSX:** shorthand is acceptable there, but per [best-practices.md](./best-practices.md) inline styles should generally be minimized — prefer moving styles into a `*-style.ts` module using explicit `theme.spacing()` instead of reaching for inline `sx`.
 
