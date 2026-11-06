@@ -111,3 +111,14 @@ The completed checks are encouraging and found no confirmed additional regressio
 Keep the known Skip and reflow failures, unresolved diagnostics and remaining focus observations tracked for follow-up. Accessibility sign-off remains on hold.
 
 Only this testing document was added. It is locally Git-ignored under `docs/audit/`; application source, configuration, translations, index and commits were not changed.
+
+## Follow-up: map-query Details focus return
+
+**Date:** 2026-11-06  
+**Scope:** Follow-up browser validation of the map-query focus-return fix; not a repeat of the full accessibility retest.
+
+- **Keyboard mode remains enabled:** With keyboard navigation enabled, Ctrl+M focused the map, arrow keys moved the crosshair, and Enter opened AppBar Details. Closing Details returned focus to the map; pressing Enter again opened Details. **Pass.**
+- **Keyboard mode disabled while Details is open:** With a keyboard-origin query open in Details, Settings was used to turn keyboard navigation off. After closing Settings and then Details, the mode remained off when checked in Settings. **Pass for preserving the mode setting.** The browser check did not independently inspect OpenLayers interaction internals.
+- **Pointer-origin Details:** The pointer-query path was not separately retested in this follow-up.
+
+The check used the existing VS Code integrated browser and the demo URL `http://localhost:8080/demos-navigator.html?config=./configs/navigator/demos/10-basic-appbar-data-table-tab.json`. The served bundle was not independently identified by commit. Targeted ESLint, the core TypeScript check, and repository-root `git diff --check` passed for the focus-return changes. No full Rush build or test suite was run.

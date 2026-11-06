@@ -126,9 +126,9 @@ At every step, capture the active element (visible focus and `document.activeEle
 
 ### A8 — Map actions and feature panels
 
-**Steps:** With crosshair active, query a feature; open Details; wait for loading; close with header Close and Escape; test sketch/measurement cancel sequence and fullscreen Escape precedence.
+**Steps:** With keyboard navigation enabled and the map focused, query a feature; open Details; wait for loading; close with header Close and Escape; then repeat a query to verify map focus is reusable. While a keyboard-origin Details panel is open, open Settings, disable keyboard navigation, close Settings, and then close Details using both Escape and the header Close in separate runs. After each close, verify the mode is still off and map keyboard pan/crosshair interactions have not been re-enabled. Test sketch/measurement cancel sequence and fullscreen Escape precedence.
 
-**Expected:** Feature details and drawing/measurement actions use the documented focus and map coordinate; one Escape cancels only the innermost pending action, and a subsequent Escape behaves as documented. Loading/status updates do not move focus unexpectedly. Fullscreen Escape follows the known browser/dialog precedence and does not leave mode or trap in a stale state.
+**Expected:** Feature details and drawing/measurement actions use the documented focus and map coordinate. When mode remains enabled, closing keyboard-origin Details returns focus to the map and a subsequent Enter can query again. If mode is disabled while Details is open, closing the panel must not reactivate crosshair or keyboard map interactions; confirm the switch remains off and arrow keys do not pan the map. One Escape cancels only the innermost pending action, and a subsequent Escape behaves as documented. Loading/status updates do not move focus unexpectedly. Fullscreen Escape follows the known browser/dialog precedence and does not leave mode or trap in a stale state.
 
 ### A9 — Pointer interaction while another control owns focus
 
