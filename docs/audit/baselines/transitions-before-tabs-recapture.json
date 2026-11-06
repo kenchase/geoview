@@ -1,0 +1,498 @@
+{
+  "unit": "tabs",
+  "phase": "before",
+  "sourceCommit": "7af9cb2f85386b572cec9beb09b655691fbff0b9",
+  "buildCommand": "cd packages/geoview-core && rushx build-dev",
+  "servedAt": "http://127.0.0.1:8081",
+  "bundleSha256": "dfd343648e24f3e5d0190b214ac1ea3b58871c8caedc771591a5898ffe9518a6",
+  "captureHelperSha256": "294101dbc78c75afa80bce552c65423c85a0ff17a1d7c567c69382dd21056b5b",
+  "environment": {
+    "visible": true,
+    "clock": "resumed",
+    "width": 1600,
+    "height": 1200,
+    "dpr": 1
+  },
+  "scope": "Computed transition fields only; no functional timers in these units.",
+  "selection": "Latest visible record per T-ID/theme/state; earlier hidden/partial diagnostic records excluded. Focus-owner states refer to the focusable owner of nonfocusable styled children.",
+  "observations": {
+    "T56": {
+      "geo.ca": {
+        "resting": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-resting",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1jtx031-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:04.807Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-hover",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1jtx031-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:05.169Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1jtx031-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:05.550Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "light": {
+        "resting": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-resting",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1f6icq2-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:14.030Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-hover",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1f6icq2-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:14.396Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1f6icq2-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:14.782Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "dark": {
+        "resting": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-resting",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-ys7z84-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:23.960Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-hover",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-ys7z84-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:24.322Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-ys7z84-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:24.707Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "canada.ca": {
+        "resting": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-resting",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1bdsnfg-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:34.429Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-hover",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1bdsnfg-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:34.791Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T56": {
+              "selector": "#map1-tab-layers",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-tab-layers",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1bdsnfg-MuiButtonBase-root-MuiTab-root",
+                "label": null,
+                "text": "Layers",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:35.177Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      }
+    }
+  }
+}

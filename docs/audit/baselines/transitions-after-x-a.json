@@ -1,0 +1,283 @@
+{
+  "unit": "x-a",
+  "ids": [
+    "T25"
+  ],
+  "phase": "after-x-a",
+  "sourceCommit": "af8d78d2466e2f3bea0111a886af02f215a9ee7a",
+  "worktreeDiff": "diff --git a/packages/geoview-core/src/ui/slider/slider-style.ts b/packages/geoview-core/src/ui/slider/slider-style.ts\nindex 41d703ecf..a6afe6c88 100644\n--- a/packages/geoview-core/src/ui/slider/slider-style.ts\n+++ b/packages/geoview-core/src/ui/slider/slider-style.ts\n@@ -44,7 +44,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({\n       boxShadow: 'rgba(1, 0, 155, 0.7) 0px 0px 0px 3px !important',\n     },\n     '& .MuiSlider-valueLabel': {\n-      fontSize: '0.7rem',\n+      fontSize: theme.palette.geoViewFontSize?.xs ?? '0.7rem',\n       padding: theme.spacing(0.5, 0.75),\n       [theme.breakpoints.down('md')]: {\n         ...visuallyHidden, // Hide value tooltips on tablets and below\ndiff --git a/packages/geoview-core/src/ui/tooltip/tooltip.tsx b/packages/geoview-core/src/ui/tooltip/tooltip.tsx\nindex c3daa1931..ecbcb2083 100644\n--- a/packages/geoview-core/src/ui/tooltip/tooltip.tsx\n+++ b/packages/geoview-core/src/ui/tooltip/tooltip.tsx\n@@ -2,6 +2,7 @@ import type { Ref } from 'react';\n import { forwardRef } from 'react';\n import type { TooltipProps } from '@mui/material';\n import { Tooltip as MaterialTooltip } from '@mui/material';\n+import { useTheme } from '@mui/material/styles';\n import { logger } from '@/core/utils/logger';\n \n /**\n@@ -31,11 +32,13 @@ import { logger } from '@/core/utils/logger';\n function TooltipUI(props: TooltipProps, ref: Ref<HTMLElement>): JSX.Element {\n   logger.logTraceRenderDetailed('ui/Tooltip/Tooltip', props);\n \n+  const theme = useTheme();\n+\n   // TODO: open issue about this behavior in the Material-UI GitHub repository (multiple tooltip)\n   // Both delays stay literal: they are interaction timing, not animation\n   // durations. Migrate to dedicated theme delay values (GeoView `tooltipDelay`)\n   // once a fallback policy for plain MUI themes is decided.\n-  return <MaterialTooltip enterDelay={1000} enterNextDelay={200} {...props} ref={ref} />;\n+  return <MaterialTooltip enterDelay={theme.transitions.duration.tooltipDelay ?? 1000} enterNextDelay={200} {...props} ref={ref} />;\n }\n \n // Export the Tooltip using forwardRef so that passing ref is permitted and functional in the react standards\ndiff --git a/packages/geoview-custom-legend/src/custom-legend-style.ts b/packages/geoview-custom-legend/src/custom-legend-style.ts\nindex 4ab4b61ab..657bc1047 100644\n--- a/packages/geoview-custom-legend/src/custom-legend-style.ts\n+++ b/packages/geoview-custom-legend/src/custom-legend-style.ts\n@@ -66,7 +66,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({\n   // Group title styling\n   groupTitle: {\n     textWrapMode: 'wrap',\n-    fontSize: '1.125rem', // 18px\n+    fontSize: theme.palette.geoViewFontSize?.md ?? '1.125rem', // 18px\n     fontWeight: '700',\n     lineHeight: 1.2,\n     color: theme.palette.text.primary,\n@@ -189,7 +189,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({\n   },\n \n   descriptionText: {\n-    fontSize: '0.875rem',\n+    fontSize: theme.palette.geoViewFontSize?.sm ?? '0.875rem',\n     fontStyle: 'italic',\n     fontWeight: 300,\n     color: theme.palette.text.primary,\n",
+  "buildHashes": {
+    "cgpv-main.js": "8e076e1c06ac26b47eae72cf4958aa5924e5fd64ed1d0d2e4fb35a00e92849f3",
+    "corePackages/geoview-custom-legend.js": "15ee0e915b336c4408189177d4b75d4f6ec8a2537c4d29c7aa9cc875248e2f56"
+  },
+  "harness": "session-state/files/final-runtime.js",
+  "consumers": "Production SliderUI and GroupItem (including DescriptionText), and TooltipUI; three named override fixtures reproduce the caller 1000/1000 props.",
+  "captures": [
+    {
+      "phase": "after-x-a",
+      "theme": "geo.ca",
+      "rows": {},
+      "tooltips": [
+        {
+          "owner": "default",
+          "enterDelay": 1000,
+          "enterNextDelay": 200
+        },
+        {
+          "owner": "LayerListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "SingleLayer",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "LegendListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        }
+      ],
+      "timer": {
+        "requestedDelay": 1000,
+        "fired": true,
+        "elapsed": 1104
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-x-a",
+      "theme": "light",
+      "rows": {},
+      "tooltips": [
+        {
+          "owner": "default",
+          "enterDelay": 1000,
+          "enterNextDelay": 200
+        },
+        {
+          "owner": "LayerListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "SingleLayer",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "LegendListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        }
+      ],
+      "timer": {
+        "requestedDelay": 1000,
+        "fired": true,
+        "elapsed": 1001
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-x-a",
+      "theme": "dark",
+      "rows": {},
+      "tooltips": [
+        {
+          "owner": "default",
+          "enterDelay": 1000,
+          "enterNextDelay": 200
+        },
+        {
+          "owner": "LayerListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "SingleLayer",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "LegendListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        }
+      ],
+      "timer": {
+        "requestedDelay": 1000,
+        "fired": true,
+        "elapsed": 1002
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-x-a",
+      "theme": "canada.ca",
+      "rows": {},
+      "tooltips": [
+        {
+          "owner": "default",
+          "enterDelay": 1000,
+          "enterNextDelay": 200
+        },
+        {
+          "owner": "LayerListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "SingleLayer",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "LegendListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        }
+      ],
+      "timer": {
+        "requestedDelay": 1000,
+        "fired": true,
+        "elapsed": 1001
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-x-a",
+      "theme": "plain",
+      "rows": {},
+      "tooltips": [
+        {
+          "owner": "default",
+          "enterDelay": 1000,
+          "enterNextDelay": 200
+        },
+        {
+          "owner": "LayerListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "SingleLayer",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "LegendListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        }
+      ],
+      "timer": {
+        "requestedDelay": 1000,
+        "fired": true,
+        "elapsed": 1000
+      },
+      "plain": {
+        "hasGeoViewFontSize": false,
+        "hasGeoViewColor": false,
+        "hasTooltipDelay": false
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    }
+  ],
+  "comparison": {
+    "status": "FAIL",
+    "failures": [
+      "Timer elapsed difference >20ms geo.ca: 1001->1104"
+    ]
+  }
+}

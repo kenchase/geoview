@@ -1,0 +1,586 @@
+{
+  "unit": "layer-preview",
+  "phase": "after",
+  "sourceCommit": "7af9cb2f85386b572cec9beb09b655691fbff0b9",
+  "buildCommand": "cd packages/geoview-core && rushx build-dev",
+  "servedAt": "http://127.0.0.1:8081",
+  "bundleSha256": "063cdc4a5bd3633c3acdd57a61fae972c754cfefe0f84a630ac95e30c307143d",
+  "captureHelperSha256": "294101dbc78c75afa80bce552c65423c85a0ff17a1d7c567c69382dd21056b5b",
+  "environment": {
+    "visible": true,
+    "clock": "resumed",
+    "width": 1600,
+    "height": 1200,
+    "dpr": 1
+  },
+  "scope": "Computed transition fields only; no functional timers in these units.",
+  "selection": "Latest visible record per T-ID/theme/state; earlier hidden/partial diagnostic records excluded. Focus-owner states refer to the focusable owner of nonfocusable styled children.",
+  "observations": {
+    "T66": {
+      "geo.ca": {
+        "resting": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-resting",
+          "rows": {
+            "T66": {
+              "selector": "#map1 [data-baseline-t66]",
+              "element": {
+                "tag": "SPAN",
+                "id": "",
+                "classes": "material-icons notranslate MuiIcon-root MuiIcon-colorPrimary MuiIcon-fontSizeMedium css-vaxx8c-MuiIcon-root",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:42:32.821Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-hover",
+          "rows": {
+            "T66": {
+              "selector": "#map1 [data-baseline-t66]",
+              "element": {
+                "tag": "SPAN",
+                "id": "",
+                "classes": "material-icons notranslate MuiIcon-root MuiIcon-colorPrimary MuiIcon-fontSizeMedium css-vaxx8c-MuiIcon-root",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.96561, -0.259996, 0.259996, 0.96561, -6.46737, 1.74138)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:42:33.183Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "light": {
+        "resting": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-resting",
+          "rows": {
+            "T66": {
+              "selector": "#map1 [data-baseline-t66]",
+              "element": {
+                "tag": "SPAN",
+                "id": "",
+                "classes": "material-icons notranslate MuiIcon-root MuiIcon-colorPrimary MuiIcon-fontSizeMedium css-1mfx9ia-MuiIcon-root",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.951057, -0.309017, 0.309017, 0.951057, -7.60845, 2.47214)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:42:35.122Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-hover",
+          "rows": {
+            "T66": {
+              "selector": "#map1 [data-baseline-t66]",
+              "element": {
+                "tag": "SPAN",
+                "id": "",
+                "classes": "material-icons notranslate MuiIcon-root MuiIcon-colorPrimary MuiIcon-fontSizeMedium css-1mfx9ia-MuiIcon-root",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.951057, -0.309017, 0.309017, 0.951057, -7.60845, 2.47214)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:42:35.487Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "dark": {
+        "resting": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-resting",
+          "rows": {
+            "T66": {
+              "selector": "#map1 [data-baseline-t66]",
+              "element": {
+                "tag": "SPAN",
+                "id": "",
+                "classes": "material-icons notranslate MuiIcon-root MuiIcon-colorPrimary MuiIcon-fontSizeMedium css-1r79b5g-MuiIcon-root",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.951057, -0.309017, 0.309017, 0.951057, -7.60845, 2.47214)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:42:38.051Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-hover",
+          "rows": {
+            "T66": {
+              "selector": "#map1 [data-baseline-t66]",
+              "element": {
+                "tag": "SPAN",
+                "id": "",
+                "classes": "material-icons notranslate MuiIcon-root MuiIcon-colorPrimary MuiIcon-fontSizeMedium css-1r79b5g-MuiIcon-root",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.951057, -0.309017, 0.309017, 0.951057, -7.60845, 2.47214)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:42:38.418Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "canada.ca": {
+        "resting": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-resting",
+          "rows": {
+            "T66": {
+              "selector": "#map1 [data-baseline-t66]",
+              "element": {
+                "tag": "SPAN",
+                "id": "",
+                "classes": "material-icons notranslate MuiIcon-root MuiIcon-colorPrimary MuiIcon-fontSizeMedium css-1444w5u-MuiIcon-root",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.951057, -0.309017, 0.309017, 0.951057, -7.60845, 2.47214)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:42:41.352Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-hover",
+          "rows": {
+            "T66": {
+              "selector": "#map1 [data-baseline-t66]",
+              "element": {
+                "tag": "SPAN",
+                "id": "",
+                "classes": "material-icons notranslate MuiIcon-root MuiIcon-colorPrimary MuiIcon-fontSizeMedium css-1444w5u-MuiIcon-root",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.951057, -0.309017, 0.309017, 0.951057, -7.60845, 2.47214)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:42:41.751Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "id": "T66",
+      "theme": "geo.ca",
+      "state": "resting",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "geo.ca",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "light",
+      "state": "resting",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "light",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "dark",
+      "state": "resting",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "dark",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "canada.ca",
+      "state": "resting",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "canada.ca",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    }
+  ],
+  "validation": {
+    "workingDirectory": "/Users/kenchase/Documents/Projects/web/Clients/NRCan/geoview-2025/fork/geoview/packages",
+    "checks": [
+      {
+        "command": "node node_modules/prettier/bin/prettier.cjs --check geoview-core/src/core/components/common/layer-icon-style.ts",
+        "result": "passed"
+      },
+      {
+        "command": "node --max-old-space-size=8192 node_modules/eslint/bin/eslint.js geoview-core/src/core/components/common/layer-icon-style.ts",
+        "result": "passed"
+      },
+      {
+        "command": "node node_modules/typescript/bin/tsc --project geoview-core/tsconfig.json --noEmit --tsBuildInfoFile /Users/kenchase/.copilot/session-state/fc4b315b-7a92-4cda-800c-74e89717f1b3/files/layer-preview.tsbuildinfo",
+        "result": "passed"
+      },
+      {
+        "command": "cd geoview-core && rushx build-dev",
+        "result": "passed"
+      }
+    ],
+    "newThemeRead": false,
+    "twoMapCheck": "Not required: existing per-viewer theme parameter only.",
+    "timers": "None in this ledger unit."
+  },
+  "originalBaselineCrossCheck": [
+    {
+      "id": "T66",
+      "theme": "geo.ca",
+      "state": "resting",
+      "originalState": "resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "geo.ca",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "light",
+      "state": "resting",
+      "originalState": "resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "light",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "dark",
+      "state": "resting",
+      "originalState": "resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "dark",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "canada.ca",
+      "state": "resting",
+      "originalState": "resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T66",
+      "theme": "canada.ca",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    }
+  ]
+}
