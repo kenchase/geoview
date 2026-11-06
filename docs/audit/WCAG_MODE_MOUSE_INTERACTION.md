@@ -4,7 +4,7 @@
 
 This note records the investigation, approved focus policy, and implementation checks for persistent mixed mouse/keyboard navigation. The initial request was documentation-only; the user subsequently approved implementation of the policy on 2026-11-04. Earlier experiments below are historical evidence, not the current behavior.
 
-## Phase 2: approved implementation and verification (2026-11-04)
+## Phase 2: approved implementation (2026-11-04); final verification (2026-11-06)
 
 The user explicitly approved: **"Approve the policy and proceed with staged implementation."**
 
@@ -17,6 +17,7 @@ Settings is now a permanent, non-configurable AppBar button below Notifications 
 - **Delayed focus can override deliberate input.** Entry/exit and popup jobs are cancellable and check whether focus has moved. Restoring panel ownership uses `focusOnEntry: false` instead of scheduling another jump to Exit.
 - **Animated popup identity must be stable.** The shared animated Popper component is now created at module scope so state updates do not replace the focused subtree.
 - **The entry prompt's overlay intercepts movement.** Inactive prompt dismissal listens on the map root, including its backdrop, while exempting movement within the dialog itself. Zero movement is still ignored. The EN/FR prompt no longer claims that outside focus is locked.
+- **A custom Switch ID could sever its visible label.** The wrapper previously used a generated `htmlFor` while forwarding a caller-supplied ID to the input. It now applies the same ID to both, and the Settings switch's accessible name was verified through a browser role/name query.
 
 ### Browser regression checks
 
@@ -25,6 +26,7 @@ Playwright checks used the actual running viewer, real clicks/keyboard input, an
 | Scenario                                              | Verified result                                                                                                               |
 | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | Settings on/off/on, including over Layers             | Panel stayed open and switch stayed focused; no competing-trap page errors in controlled checks.                              |
+| Settings switch with caller-supplied ID                | The visible Keyboard navigation label named the switch in the accessibility tree; checked state matched the mode.             |
 | Tab/Shift+Tab from the enabled Settings switch        | Wrapped to Close and back to the switch.                                                                                      |
 | Real pointer movement while enabled                   | Mode remained enabled and keyboard position was preserved.                                                                    |
 | Settings Escape after repeated toggles                | Returned to the Settings trigger, including with Layers open; no subsequent hover jump.                                       |
@@ -49,7 +51,7 @@ These are bounded integration checks, not a WCAG certification. External service
 
 ### Verification limits and follow-up
 
-Passed implementation checks: core TypeScript (`node packages/node_modules/typescript/bin/tsc --noEmit -p packages/geoview-core/tsconfig.json`), targeted ESLint/Prettier for all 15 changed TypeScript files, 570-key EN/FR translation parity, `npm run ai:check --prefix packages`, and `git diff --check`. Final browser checks reconfirmed repeated switch changes and focus retention; clicking the host checkbox immediately after footer Exit also retained checkbox focus after the delayed job. Footer Exit returned to its tab, Skip reached the bottom skip link, and keyboard entry from the reverse skip path stayed enabled during real mouse movement.
+Passed implementation checks: core TypeScript (`node packages/node_modules/typescript/bin/tsc --noEmit -p packages/geoview-core/tsconfig.json`), targeted ESLint and Prettier checks for all 17 changed TypeScript files, parity for all 599 EN/FR translation keys, `npm run ai:check --prefix packages`, and `git diff --check`. The final browser pass after correcting the Switch label association reconfirmed the accessible name, repeated switch changes, focus retention during real pointer movement, Tab/Shift+Tab boundaries, host click-away, Escape restoration, Ctrl+Q exit, and strict modal focus containment. Clicking the host checkbox immediately after footer Exit also retained checkbox focus after the delayed job. Footer Exit returned to its tab, Skip reached the bottom skip link, and keyboard entry from the reverse skip path stayed enabled during real mouse movement.
 
 - Screen-reader/assistive-technology and additional browser testing remain manual release checks.
 - No new repository test-suite cases were added: trusted pointer/Tab behavior was exercised through Playwright, not approximated with synthetic key events in the in-browser suite. The table above provides reproducible regression scenarios.
