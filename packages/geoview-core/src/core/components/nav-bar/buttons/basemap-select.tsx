@@ -8,6 +8,7 @@ import { useTheme } from '@mui/material/styles';
 import { useStoreMapHasGeoviewBasemapLayer, useStoreMapBasemapOptions } from '@/core/stores/states/map-state';
 import { useStoreGeoViewMapId } from '@/core/stores/geoview-store';
 import { logger } from '@/core/utils/logger';
+import { DomHelper } from '@/core/utils/dom-helper';
 import NavbarPanelButton from '@/core/components/nav-bar/nav-bar-panel-button';
 import { getSxClasses } from '@/core/components/nav-bar/nav-bar-style';
 import type { TypeBasemapOptions } from '@/api/types/map-schema-types';
@@ -189,6 +190,7 @@ export default function BasemapSelect(): JSX.Element {
 
   // Set up props for nav bar panel button
   const button: IconButtonPropsExtend = {
+    id: DomHelper.buildButtonBasemapSelectId(mapId),
     'aria-label': 'mapnav.basemap',
     children: createElement(MapIcon),
     tooltipPlacement: 'left',

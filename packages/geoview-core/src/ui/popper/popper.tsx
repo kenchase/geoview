@@ -9,7 +9,6 @@ import { animated } from '@react-spring/web';
 import { useFadeIn } from '@/core/utils/useSpringAnimations';
 import { logger } from '@/core/utils/logger';
 import { FocusTrap } from '@/ui/mui-reexports/mui-reexports';
-import { doTimeout } from '@/core/utils/utilities';
 import { DomHelper } from '@/core/utils/dom-helper';
 
 /** Stable animated wrapper so popper rerenders do not remount its focus trap. */
@@ -90,7 +89,16 @@ interface PopperPropsExtend extends PopperProps {
  *
  * @see {@link https://mui.com/material-ui/react-popper/}
  */
-function PopperUI({ open, onClose, handleKeyDown, focusSelector, focusTrap = false, children, ...props }: PopperPropsExtend): JSX.Element {
+function PopperUI({
+  open,
+  anchorEl,
+  onClose,
+  handleKeyDown,
+  focusSelector,
+  focusTrap = false,
+  children,
+  ...props
+}: PopperPropsExtend): JSX.Element {
   logger.logTraceRenderDetailed('ui/popper/popper');
 
   // Hooks
@@ -115,14 +123,16 @@ function PopperUI({ open, onClose, handleKeyDown, focusSelector, focusTrap = fal
    * Registers keyboard event handlers for the popper.
    */
   useEffect(() => {
-    logger.logTraceUseEffect('UI.POPPER - handleKeyDown/onClose');
+    logger.logTraceUseEffect('UI.POPPER - handleKeyDown/onClose', anchorEl, open, onClose, handleKeyDown);
     if (!open) return;
 
     /**
      * Handles keyboard events for the popper.
      */
     const onKeyDown = (event: KeyboardEvent): void => {
-      if (event.defaultPrevented || !popperRef.current?.contains(event.target as Node)) return;
+      if (event.defaultPrevented || !(event.target instanceof Node)) return;
+      const anchor = typeof anchorEl === 'function' ? anchorEl() : anchorEl;
+      if (!popperRef.current?.contains(event.target) && !(anchor instanceof Element && anchor.contains(event.target))) return;
       if (event.key === 'Escape') {
         event.preventDefault();
         event.stopPropagation();
@@ -134,7 +144,7 @@ function PopperUI({ open, onClose, handleKeyDown, focusSelector, focusTrap = fal
     return () => {
       document.removeEventListener('keydown', onKeyDown);
     };
-  }, [open, onClose, handleKeyDown]);
+  }, [anchorEl, open, onClose, handleKeyDown]);
 
   /**
    * Manages focus when the popper opens.
@@ -145,26 +155,10 @@ function PopperUI({ open, onClose, handleKeyDown, focusSelector, focusTrap = fal
 
     // Focus management when popper opens
     if (open && focusSelector) {
-      const initialFocus = DomHelper.getActiveElement();
-      const focusJob = doTimeout(theme.transitions.duration.shortest);
-      focusJob.promise
-        .then((result) => {
-          if (result !== 'timeout') return;
-          const currentFocus = DomHelper.getActiveElement();
-          if (
-            currentFocus &&
-            currentFocus !== initialFocus &&
-            currentFocus.tagName !== 'BODY' &&
-            !popperRef.current?.contains(currentFocus)
-          ) {
-            return;
-          }
-          const focusElement = popperRef.current?.querySelector(focusSelector) as HTMLElement;
-          focusElement?.focus();
-        })
-        .catch((error: unknown) => {
-          logger.logError('Popper focus delay rejected unexpectedly:', error);
-        });
+      const focusJob = DomHelper.focusElementAfterDelay(
+        () => popperRef.current?.querySelector<HTMLElement>(focusSelector) ?? undefined,
+        theme.transitions.duration.shortest
+      );
 
       return (): void => focusJob.cancel();
     }
@@ -172,16 +166,19 @@ function PopperUI({ open, onClose, handleKeyDown, focusSelector, focusTrap = fal
     return undefined;
   }, [open, focusSelector, theme.transitions.duration.shortest]);
 
-  // TODO: style - manage z-index in theme
+  // NOTE: The theme owns the default layer; external MUI themes retain the historical fallback.
   return (
-    <AnimatedPopper sx={{ zIndex: '2000' }} style={fadeInAnimation} {...props} open={open} ref={setPopperRef}>
-      {focusTrap ? (
-        <FocusTrap open={open} disableEnforceFocus disableAutoFocus disableRestoreFocus>
-          {children}
-        </FocusTrap>
-      ) : (
-        children
-      )}
+    <AnimatedPopper
+      sx={{ zIndex: theme.zIndex?.popper ?? 2000 }}
+      style={fadeInAnimation}
+      {...props}
+      anchorEl={anchorEl}
+      open={open}
+      ref={setPopperRef}
+    >
+      <FocusTrap open={open && focusTrap} disableEnforceFocus disableAutoFocus disableRestoreFocus>
+        {children}
+      </FocusTrap>
     </AnimatedPopper>
   );
 }

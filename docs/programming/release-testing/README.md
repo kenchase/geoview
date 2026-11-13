@@ -166,7 +166,7 @@ Each release gets its own issue. Previous release test results are preserved as 
 | 19  | [19-integration-flows.md](19-integration-flows.md)             | Multi-step workflows and cross-panel interactions                     | 25 min       | 18 (0/7/11)          |
 | 19b | [19b-store-verification.md](19b-store-verification.md)         | Zustand store state assertions (automation candidates)                | 10 min       | 13 (0/13/0)          |
 | 20  | [20-edge-cases.md](20-edge-cases.md)                           | Edge cases, outliers, overlays, sandbox, mobile                       | 25 min       | 27 (0/0/27)          |
-| 21  | [21-wcag-accessibility.md](21-wcag-accessibility.md)           | WCAG, keyboard nav, focus trap, screen reader                         | 30 min       | 74 (0/0/74)          |
+| 21  | [21-wcag-accessibility.md](21-wcag-accessibility.md)           | WCAG, keyboard nav, focus trap, screen reader                         | 30 min       | 85 (0/0/85)          |
 | 22  | [22-api-programmatic.md](22-api-programmatic.md)               | API functions, events, controllers, geometry, panels                  | 25 min       | 54 (0/13/41)         |
 | 23  | [23-config-loading-methods.md](23-config-loading-methods.md)   | Config loading (URL params, div attrs, function call)                 | 15 min       | 21 (0/0/21)          |
 | 24  | [24-cdtk-rcs-geocore-custom.md](24-cdtk-rcs-geocore-custom.md) | CDTK, RCS, Geocore custom/VCS configs                                 | 20 min       | 27 (0/0/27)          |

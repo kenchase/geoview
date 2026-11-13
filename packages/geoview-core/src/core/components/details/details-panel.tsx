@@ -115,6 +115,7 @@ export function DetailsPanel({ containerType }: DetailsPanelType): JSX.Element {
   const currentFeatureIndex = useStoreDetailsCurrentFeatureIndex();
   const [isRightPanelVisible, setIsRightPanelVisible] = useState<boolean>(false);
   const prevMapClickCoordinates = useRef<TypeMapMouseInfo | undefined>(mapClickCoordinates);
+  const previousCrosshairQueryInputs = useRef({ mapClickCoordinates, isCrosshairsActive });
   const previousHighlightedFeaturesRef = useRef<TypeFeatureInfoEntry[]>([]);
   const previousLayerFeaturesRef = useRef<TypeFeatureInfoEntry[] | undefined>(undefined);
   const layoutRef = useRef<LayoutExposedMethods>(null);
@@ -621,6 +622,15 @@ export function DetailsPanel({ containerType }: DetailsPanelType): JSX.Element {
       appBarTabId,
       appBarIsOpen
     );
+
+    const previousInputs = previousCrosshairQueryInputs.current;
+    previousCrosshairQueryInputs.current = { mapClickCoordinates, isCrosshairsActive };
+
+    // Reactivating the crosshair must not replay the previous click's focus request.
+    const reactivatedWithoutNewQuery =
+      !previousInputs.isCrosshairsActive && isCrosshairsActive && previousInputs.mapClickCoordinates === mapClickCoordinates;
+
+    if (reactivatedWithoutNewQuery) return;
 
     if (mapClickCoordinates && isCrosshairsActive && containerType === CONTAINER_TYPE.APP_BAR && appBarIsOpen && appBarTabId) {
       DomHelper.getAppBarPanelCloseButton(mapId, appBarTabId)?.focus({ focusVisible: true });

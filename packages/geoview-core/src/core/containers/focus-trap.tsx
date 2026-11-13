@@ -48,7 +48,7 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
 
   // State
   const [open, setOpen] = useState<boolean>(false);
-  const navigationLinkRef = useRef('');
+  const navigationLinkRef = useRef<TypeNavigationLink>('bottom');
 
   // Store
   // Tracks whether the user has entered keyboard navigation mode.
@@ -88,13 +88,13 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
   }, [shellContainer]);
 
   /**
-   * Tracks whether the keyboard navigation dialog has been shown to the user.
+   * Tracks whether the entry dialog has opened or the user has explicitly selected a navigation mode.
    * Tab key presses are intercepted and redirected to skip links until this flag is set.
    */
   const hasBeenPromptedRef = useRef(false);
 
   /**
-   * Intercepts Tab key presses to redirect focus to skip links until the user has been prompted.
+   * Intercepts Tab key presses until the entry dialog or an explicit mode selection handles onboarding.
    */
   useEffect(() => {
     logger.logTraceUseEffect('FOCUS-TRAP - Tab navigation guard');
@@ -133,7 +133,6 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
 
   /**
    * Marks the user as having been prompted when the modal opens.
-   * Reset prompt flag when modal is dismissed.
    */
   useEffect(() => {
     logger.logTraceUseEffect('FOCUS-TRAP - mark navigation prompt shown', open);
@@ -161,6 +160,7 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
    */
   const setKeyboardNavigationMode = useCallback(
     (active: boolean): void => {
+      hasBeenPromptedRef.current = true;
       focusJobRef.current?.cancel();
       uiController.setActiveTrapGeoView(active);
       if (!active) uiController.setCrosshairActive(false);
@@ -169,35 +169,14 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
   );
 
   /**
-   * Schedules a focus request after the entry dialog updates, unless focus has moved elsewhere.
+   * After the keyboard-navigation entry dialog closes, focuses the requested target unless the user has moved focus elsewhere.
    *
    * @param getTarget - Resolves the map-scoped destination after rendering
    */
   const requestFocus = useCallback(
     (getTarget: () => HTMLElement | undefined): void => {
       focusJobRef.current?.cancel();
-      const focusedElement = DomHelper.getActiveElement();
-      const promptElement = DomHelper.getGVElementById(mapId, 'wcag-dialog-title')?.closest('.MuiDialog-root');
-      const focusJob = doTimeout(FOCUS_DELAY);
-      focusJobRef.current = focusJob;
-      focusJob.promise
-        .then((result) => {
-          if (result !== 'timeout') return;
-
-          const currentElement = DomHelper.getActiveElement();
-          if (
-            currentElement &&
-            currentElement !== focusedElement &&
-            currentElement.tagName !== 'BODY' &&
-            !promptElement?.contains(currentElement)
-          ) {
-            return;
-          }
-          getTarget()?.focus({ preventScroll: true, focusVisible: true });
-        })
-        .catch((error) => {
-          logger.logError('FocusTrapDialog focus delay rejected unexpectedly:', error);
-        });
+      focusJobRef.current = DomHelper.focusAfterEntryDialog(mapId, getTarget, FOCUS_DELAY);
     },
     [mapId]
   );
@@ -255,12 +234,19 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
   }, [activeTrapGeoView, gvRootElement, handleExit, handleScrolling, registerModeAction, setKeyboardNavigationMode]);
 
   /**
-   * Activates keyboard navigation and focuses the main-content skip link.
+   * Activates keyboard navigation and focuses the main-content link or viewer shell.
    */
   const handleEnable = useCallback((): void => {
     setOpen(false);
     setKeyboardNavigationMode(true);
-    requestFocus(() => DomHelper.getWCAGLinkToMap(mapId));
+    requestFocus(() => {
+      const mapLink = DomHelper.getWCAGLinkToMap(mapId);
+      if (mapLink) return mapLink;
+
+      const shellElement = shellElementRef.current;
+      if (!shellElement) logger.logError(`Keyboard-navigation shell was not found for map '${mapId}'`);
+      return shellElement ?? undefined;
+    });
   }, [mapId, requestFocus, setKeyboardNavigationMode]);
 
   /**
@@ -268,7 +254,12 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
    */
   const handleSkip = useCallback((): void => {
     setOpen(false);
-    requestFocus(() => DomHelper.getGVElementById(mapId, navigationLinkRef.current));
+    const navigationLink = navigationLinkRef.current;
+    requestFocus(() => {
+      const targetLink = navigationLink === 'top' ? DomHelper.getWCAGTopLink(mapId) : DomHelper.getWCAGBottomLink(mapId);
+      if (!targetLink) logger.logError(`WCAG ${navigationLink} skip link was not found for map '${mapId}'`);
+      return targetLink;
+    });
   }, [mapId, requestFocus]);
 
   /**
@@ -282,17 +273,14 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
 
     // If Tab from topLink or shift+Tab from bottomLink, focus the map element
     const targetId = (event.target as HTMLElement).id;
-    let linkId = '';
-    if (targetId.endsWith('-wcag-toplink')) linkId = 'toplink';
-    else if (targetId.endsWith('-wcag-bottomlink')) linkId = 'bottomlink';
-    if (
-      (event.code === 'Tab' && !event.shiftKey && linkId === 'toplink') ||
-      (event.code === 'Tab' && event.shiftKey && linkId === 'bottomlink')
-    ) {
+    let link: TypeNavigationLink | undefined;
+    if (targetId.endsWith('-wcag-toplink')) link = 'top';
+    else if (targetId.endsWith('-wcag-bottomlink')) link = 'bottom';
+    if ((event.code === 'Tab' && !event.shiftKey && link === 'top') || (event.code === 'Tab' && event.shiftKey && link === 'bottom')) {
       // prevent the event to tab to inner map
       event.preventDefault();
       event.stopPropagation();
-      navigationLinkRef.current = linkId === 'toplink' ? 'bottomlink' : 'toplink';
+      navigationLinkRef.current = link === 'top' ? 'bottom' : 'top';
 
       setOpen(true);
       // Show the entry prompt at the viewer's keyboard-navigation boundary.
@@ -310,7 +298,9 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
 
     const handleMouseMove = (event: MouseEvent): void => {
       if (event.movementX === 0 && event.movementY === 0) return;
-      const promptElement = DomHelper.getGVElementById(mapId, 'wcag-dialog-title')?.closest('.MuiDialog-root');
+
+      // Unlike the focus check, use only the visible dialog here so moving onto the backdrop dismisses it.
+      const promptElement = DomHelper.getKeyboardNavigationDialogTitle(mapId)?.closest('.MuiDialog-paper');
       if (event.target instanceof Node && promptElement?.contains(event.target)) return;
       setOpen(false);
       focusJobRef.current?.cancel();
@@ -398,3 +388,10 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
     />
   );
 }
+
+// #region TYPES AND INTERFACES
+
+/** Identifies one of the map-scoped WCAG skip links. */
+type TypeNavigationLink = 'top' | 'bottom';
+
+// #endregion TYPES AND INTERFACES

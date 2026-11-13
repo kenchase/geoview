@@ -33,13 +33,9 @@ import { useShellContainer } from '@/core/containers/shell-container-context';
 import { useStoreAppNotifications } from '@/core/stores/states/app-state';
 import { useStoreGeoViewMapId } from '@/core/stores/geoview-store';
 import { useStoreMapInteraction } from '@/core/stores/states/map-state';
-import {
-  getStoreUIFocusItem,
-  useStoreUIActiveFocusItem,
-  useStoreUIActiveTrapGeoView,
-  type FocusItemProps,
-} from '@/core/stores/states/ui-state';
+import { useStoreUIActiveFocusItem, useStoreUIActiveTrapGeoView } from '@/core/stores/states/ui-state';
 import { useMapPopover } from '@/core/components/common/hooks/use-map-popover';
+import { usePopoverFocusOwner } from '@/core/components/common/hooks/use-popover-focus-owner';
 import { CONTAINER_TYPE, TIMEOUT } from '@/core/utils/constant';
 import { logger } from '@/core/utils/logger';
 import { useShake } from '@/core/utils/useSpringAnimations';
@@ -291,14 +287,12 @@ const Notifications = memo((): JSX.Element => {
   // State
   const [hasNewNotification, setHasNewNotification] = useState<boolean>(false);
   const [notificationsCount, setNotificationsCount] = useState<number>(0);
-  const { open, anchorEl, openAt, close } = useMapPopover();
+  const { open, anchorEl, tryOpenAt, close } = useMapPopover();
 
   // Refs
   const bellButtonRef = useRef<HTMLButtonElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const removeAllButtonRef = useRef<HTMLButtonElement>(null);
-  const previousFocusItemRef = useRef<FocusItemProps | undefined>(undefined);
-  const previousOpenRef = useRef(open);
 
   // Ref to read the latest notificationsCount inside the notifications effect without making it a dep
   const notificationsCountRef = useRef(notificationsCount);
@@ -316,12 +310,14 @@ const Notifications = memo((): JSX.Element => {
   const shellContainer = useShellContainer();
 
   // Element IDs for accessibility and focus management
+  // TODO: Centralize these IDs in DomHelper using buildGVElementId and add notification-specific element getters as needed.
   const dialogId = `${mapId}-notification-dialog`;
   const titleId = `${mapId}-notification-title`;
   const closeButtonId = `${mapId}-notification-close-button`;
   const bellButtonId = `${mapId}-${CONTAINER_TYPE.APP_BAR}-notifications-btn`;
   const removeAllButtonId = `${mapId}-notification-remove-all-button`;
   const focusTrapId = `${mapId}-notification-focus-trap`;
+  const { claimFocusOwner, releaseFocusOwner, synchronizeOwnership } = usePopoverFocusOwner(focusTrapId, bellButtonId, close);
 
   // Animation
   const shakeAnimation = useShake();
@@ -340,35 +336,26 @@ const Notifications = memo((): JSX.Element => {
         return;
       }
 
-      const previousFocusItem = openAt(event.currentTarget);
-      if (activeTrapGeoView) {
-        previousFocusItemRef.current = previousFocusItem;
-        uiController.enableFocusTrap({
-          activeElementId: focusTrapId,
-          callbackElementId: bellButtonId,
-          focusOnEntry: false,
-        });
+      const result = tryOpenAt(event.currentTarget);
+      if (result.ok && activeTrapGeoView) {
+        claimFocusOwner(result.previousFocusItem);
       }
     },
-    [activeTrapGeoView, bellButtonId, close, focusTrapId, open, openAt, uiController]
+    [activeTrapGeoView, claimFocusOwner, close, open, tryOpenAt]
   );
 
   /**
-   * Handles when the user clicks away from the notification popover.
+   * Closes the notifications popover and optionally restores focus to its trigger.
+   *
+   * @param restoreTrigger - Whether to restore focus to the trigger after closing
    */
   const closePopover = useCallback(
     (restoreTrigger: boolean): void => {
-      if (getStoreUIFocusItem(mapId).activeElementId === focusTrapId) {
-        uiController.enableFocusTrap({
-          ...(previousFocusItemRef.current ?? { activeElementId: false, callbackElementId: false }),
-          focusOnEntry: false,
-        });
-      }
-      previousFocusItemRef.current = undefined;
+      releaseFocusOwner();
       close();
       if (restoreTrigger) bellButtonRef.current?.focus();
     },
-    [close, focusTrapId, mapId, uiController]
+    [close, releaseFocusOwner]
   );
 
   /**
@@ -437,22 +424,8 @@ const Notifications = memo((): JSX.Element => {
    */
   useEffect(() => {
     logger.logTraceUseEffect('NOTIFICATIONS - focus owner', open, activeTrapGeoView, focusItem.activeElementId);
-    const currentFocusItem = getStoreUIFocusItem(mapId);
-    if (open && currentFocusItem.activeElementId && currentFocusItem.activeElementId !== focusTrapId) {
-      closePopover(false);
-    } else if (open && activeTrapGeoView && currentFocusItem.activeElementId !== focusTrapId) {
-      if (previousFocusItemRef.current === undefined) previousFocusItemRef.current = currentFocusItem;
-      uiController.enableFocusTrap({
-        activeElementId: focusTrapId,
-        callbackElementId: bellButtonId,
-        focusOnEntry: false,
-      });
-    }
-
-    const wasOpen = previousOpenRef.current;
-    previousOpenRef.current = open;
-    if (wasOpen && !open) closePopover(false);
-  }, [activeTrapGeoView, bellButtonId, closePopover, focusItem.activeElementId, focusTrapId, mapId, open, uiController]);
+    synchronizeOwnership(open, activeTrapGeoView);
+  }, [activeTrapGeoView, focusItem.activeElementId, open, synchronizeOwnership]);
 
   // Effects
   /**

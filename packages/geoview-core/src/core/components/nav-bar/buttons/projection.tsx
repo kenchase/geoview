@@ -14,6 +14,7 @@ import { List } from '@/ui/list/list';
 import { ListItem } from '@/ui/list/list-item';
 import { ProjectionIcon, PublicIcon } from '@/ui/icons';
 import { logger } from '@/core/utils/logger';
+import { DomHelper } from '@/core/utils/dom-helper';
 import { useStoreMapCurrentProjection } from '@/core/stores/states/map-state';
 import { useStoreGeoViewMapId } from '@/core/stores/geoview-store';
 import { useMapController } from '@/core/controllers/use-controllers';
@@ -124,6 +125,7 @@ export default function Projection(): JSX.Element {
 
   // Set up props for nav bar panel button
   const button: IconButtonPropsExtend = {
+    id: DomHelper.buildButtonProjectionId(mapId),
     'aria-label': 'mapnav.projection',
     children: createElement(ProjectionIcon),
     tooltipPlacement: 'left',

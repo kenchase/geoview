@@ -13,6 +13,7 @@ import {
   useStoreMapCurrentProjectionEPSG,
 } from '@/core/stores/states/map-state';
 import { logger } from '@/core/utils/logger';
+import { DomHelper } from '@/core/utils/dom-helper';
 import NavbarPanelButton from '@/core/components/nav-bar/nav-bar-panel-button';
 import { getSxClasses } from '@/core/components/nav-bar/nav-bar-style';
 import { Box } from '@/ui/layout';
@@ -247,6 +248,7 @@ export default function MapRotation(): JSX.Element {
 
   // Set up props for nav bar panel button
   const button: IconButtonPropsExtend = {
+    id: DomHelper.buildButtonMapRotationId(mapId),
     'aria-label': 'mapnav.rotation.title',
     children: createElement(Box, {
       sx: [memoSxClasses.rotationIconBase, { transform: `rotate(${mapRotation}rad)` }] as SxProps,
