@@ -1,0 +1,810 @@
+{
+  "unit": "overview-toggle",
+  "phase": "before",
+  "sourceCommit": "7af9cb2f85386b572cec9beb09b655691fbff0b9",
+  "buildCommand": "cd packages/geoview-core && rushx build-dev",
+  "servedAt": "http://127.0.0.1:8081",
+  "bundleSha256": "dfd343648e24f3e5d0190b214ac1ea3b58871c8caedc771591a5898ffe9518a6",
+  "captureHelperSha256": "294101dbc78c75afa80bce552c65423c85a0ff17a1d7c567c69382dd21056b5b",
+  "environment": {
+    "visible": true,
+    "clock": "resumed",
+    "width": 1600,
+    "height": 1200,
+    "dpr": 1
+  },
+  "scope": "Computed transition fields only; no functional timers in these units.",
+  "selection": "Latest visible record per T-ID/theme/state; earlier hidden/partial diagnostic records excluded. Focus-owner states refer to the focusable owner of nonfocusable styled children.",
+  "observations": {
+    "T69": {
+      "geo.ca": {
+        "resting": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-resting",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:07.769Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-hover",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:08.139Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:08.506Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-expanded",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapClosed MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(-0.707107, 0.707107, -0.707107, -0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:36.219Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-collapsed",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:36.644Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "light": {
+        "resting": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-resting",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:17.036Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-hover",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:17.403Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:17.770Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-expanded",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapClosed MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(-0.707107, 0.707107, -0.707107, -0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:39.917Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-collapsed",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:40.345Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "dark": {
+        "resting": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-resting",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:26.949Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-hover",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:27.319Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:27.687Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-expanded",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapClosed MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(-0.707107, 0.707107, -0.707107, -0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:44.546Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-collapsed",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:44.973Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "canada.ca": {
+        "resting": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-resting",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:37.400Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-hover",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:37.770Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:38.140Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-expanded",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapClosed MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(-0.707107, 0.707107, -0.707107, -0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:49.738Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-collapsed",
+          "rows": {
+            "T69": {
+              "selector": "#map1 .minimapOpen,#map1 .minimapClosed",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "minimapOpen MuiBox-root css-1yz435j",
+                "label": null,
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease",
+                "transitionDelay": "0s",
+                "opacity": "0.8",
+                "height": "24px",
+                "transform": "matrix(0.707107, -0.707107, 0.707107, 0.707107, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:50.165Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      }
+    }
+  }
+}

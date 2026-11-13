@@ -1,0 +1,1114 @@
+{
+  "unit": "filter-disclosure",
+  "phase": "after",
+  "sourceCommit": "7af9cb2f85386b572cec9beb09b655691fbff0b9",
+  "buildCommand": "cd packages/geoview-core && rushx build-dev",
+  "servedAt": "http://127.0.0.1:8081",
+  "bundleSha256": "b16d2877e9c241db1f4f3cd3fb7a0336c09ff6a9241075be02717516f45a10e6",
+  "captureHelperSha256": "294101dbc78c75afa80bce552c65423c85a0ff17a1d7c567c69382dd21056b5b",
+  "environment": {
+    "visible": true,
+    "clock": "resumed",
+    "width": 1600,
+    "height": 1200,
+    "dpr": 1
+  },
+  "scope": "Computed transition fields only; no functional timers in these units.",
+  "selection": "Latest visible record per T-ID/theme/state; earlier hidden/partial diagnostic records excluded. Focus-owner states refer to the focusable owner of nonfocusable styled children.",
+  "observations": {
+    "T65": {
+      "geo.ca": {
+        "expanded": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-expanded",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-17l8qhn-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(1, 0, 0, 1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:47:56.952Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-hover",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-17l8qhn-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:47:57.827Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-focus-visible",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall css-17l8qhn-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:47:58.203Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-collapsed",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall css-1d5bx98-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(1, 0, 0, 1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:47:58.913Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        }
+      },
+      "light": {
+        "expanded": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-expanded",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-nsrcdc-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:01.060Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-hover",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-nsrcdc-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:02.009Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-focus-visible",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall css-nsrcdc-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:02.384Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-collapsed",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall css-dxq4le-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(1, 0, 0, 1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:03.105Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        }
+      },
+      "dark": {
+        "expanded": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-expanded",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-14j9rov-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:07.320Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-hover",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-14j9rov-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:08.227Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-focus-visible",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall css-14j9rov-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:08.601Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-collapsed",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall css-zjwux8-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(1, 0, 0, 1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:09.440Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        }
+      },
+      "canada.ca": {
+        "expanded": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-expanded",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1x9r6zn-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:14.708Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-hover",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1x9r6zn-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:16.535Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-focus-visible",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall css-1x9r6zn-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(-1, 0, 0, -1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:16.907Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-collapsed",
+          "rows": {
+            "T65": {
+              "selector": "#map1 button[aria-label=\"Toggle Collapse - Top 100 exploration projects in Canada\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall css-1a6f1v0-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Toggle Collapse - Top 100 exploration projects in Canada",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "transform",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "34px",
+                "transform": "matrix(1, 0, 0, 1, 0, 0)",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:48:17.767Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/19-package-filter-panel.json"
+        }
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "id": "T65",
+      "theme": "geo.ca",
+      "state": "expanded",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "geo.ca",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "geo.ca",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "geo.ca",
+      "state": "collapsed",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "light",
+      "state": "expanded",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "light",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "light",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "light",
+      "state": "collapsed",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "dark",
+      "state": "expanded",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "dark",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "dark",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "dark",
+      "state": "collapsed",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "canada.ca",
+      "state": "expanded",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "canada.ca",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "canada.ca",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "canada.ca",
+      "state": "collapsed",
+      "before": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    }
+  ],
+  "validation": {
+    "workingDirectory": "/Users/kenchase/Documents/Projects/web/Clients/NRCan/geoview-2025/fork/geoview/packages",
+    "checks": [
+      {
+        "command": "node node_modules/prettier/bin/prettier.cjs --check geoview-filter-panel/src/components/filter-panel-style.ts",
+        "result": "passed"
+      },
+      {
+        "command": "node --max-old-space-size=8192 node_modules/eslint/bin/eslint.js geoview-filter-panel/src/components/filter-panel-style.ts",
+        "result": "passed"
+      },
+      {
+        "command": "node node_modules/typescript/bin/tsc --project geoview-filter-panel/tsconfig.json --noEmit --tsBuildInfoFile /Users/kenchase/.copilot/session-state/fc4b315b-7a92-4cda-800c-74e89717f1b3/files/filter-disclosure.tsbuildinfo",
+        "result": "passed"
+      },
+      {
+        "command": "cd geoview-core && rushx build-dev",
+        "result": "passed"
+      }
+    ],
+    "newThemeRead": false,
+    "twoMapCheck": "Not required: existing per-viewer theme parameter only.",
+    "timers": "None in this ledger unit."
+  },
+  "originalBaselineCrossCheck": [
+    {
+      "id": "T65",
+      "theme": "geo.ca",
+      "state": "expanded",
+      "originalState": "expanded",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "geo.ca",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "geo.ca",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "geo.ca",
+      "state": "collapsed",
+      "originalState": "collapsed",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "light",
+      "state": "expanded",
+      "originalState": "expanded",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "light",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "light",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "light",
+      "state": "collapsed",
+      "originalState": "collapsed",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "dark",
+      "state": "expanded",
+      "originalState": "expanded",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "dark",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "dark",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "dark",
+      "state": "collapsed",
+      "originalState": "collapsed",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "canada.ca",
+      "state": "expanded",
+      "originalState": "expanded",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "canada.ca",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "canada.ca",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T65",
+      "theme": "canada.ca",
+      "state": "collapsed",
+      "originalState": "collapsed",
+      "status": "matches",
+      "differences": []
+    }
+  ]
+}

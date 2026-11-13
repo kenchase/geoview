@@ -1,0 +1,1045 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "title": "Transitions after: Generator/helper (T55)",
+    "unit": "Generator/helper",
+    "slug": "generator-helper",
+    "rule": "DECIDED R2",
+    "capturedDateUtc": "2026-10-29",
+    "headCommit": "cc7d57918acb4d6bc85b0ffeaf28ceac94976d9c",
+    "servedSource": "HEAD cc7d57918 plus the uncommitted Generator/helper T55 patch only",
+    "changedSourceFile": "packages/geoview-core/src/ui/style/themeOptionsGenerator.ts",
+    "sourceSha256": "a2832c06632520d98337e7590926c93a2e35a0ccb99cd4fa21e07c46ce6fe080",
+    "driftCheck": "PASS: full generator was byte-identical to cc7d57918 before editing; T55 at line 106 and helper callbacks at lines 498/503 matched discovery.",
+    "baseline": {
+      "path": "./transitions-before.json",
+      "sha256": "3b344f726fe4994e55127f9d4a106ac5c16e404b9782fabea0fc29f8e6e2c523"
+    },
+    "build": {
+      "command": "cd packages/geoview-core && rushx build-dev",
+      "result": "PASS: webpack 5.112.0 compiled successfully in 2737 ms",
+      "bundle": "packages/geoview-core/dist/cgpv-main.js",
+      "sha256": "cdc2fcef3b57c61f9664d5df7977524078aae14e6db1c90e812224e08baed4fb",
+      "muiVersion": "9.5.0"
+    },
+    "checks": [
+      {
+        "command": "cd packages && node node_modules/prettier/bin/prettier.cjs --write geoview-core/src/ui/style/themeOptionsGenerator.ts",
+        "result": "PASS (unchanged by formatter)"
+      },
+      {
+        "command": "cd packages && node --max-old-space-size=8192 node_modules/eslint/bin/eslint.js geoview-core/src/ui/style/themeOptionsGenerator.ts",
+        "result": "PASS"
+      },
+      {
+        "command": "cd packages && node node_modules/typescript/bin/tsc --project geoview-core/tsconfig.json --noEmit --incremental false",
+        "result": "Initial invocation rejected (TS6379): composite project cannot disable incremental. Replaced with the following valid command; no config changed."
+      },
+      {
+        "command": "cd packages && node node_modules/typescript/bin/tsc --project geoview-core/tsconfig.json --noEmit --tsBuildInfoFile /Users/kenchase/.copilot/session-state/fc4b315b-7a92-4cda-800c-74e89717f1b3/files/t55-typecheck.tsbuildinfo",
+        "result": "PASS"
+      }
+    ],
+    "server": {
+      "command": "python3 /Users/kenchase/.copilot/session-state/fc4b315b-7a92-4cda-800c-74e89717f1b3/files/t55-server.py",
+      "origin": "http://127.0.0.1:8081",
+      "readiness": "HTTP 200 for demo, unchanged helper and temporary two-map page",
+      "scriptChange": "Server routing only: session-only two-map page and separate after-capture output. Repository demo and baseline-capture.js unchanged."
+    },
+    "capture": {
+      "script": "/Users/kenchase/.copilot/session-state/fc4b315b-7a92-4cda-800c-74e89717f1b3/files/baseline-capture.js",
+      "scriptSha256": "294101dbc78c75afa80bce552c65423c85a0ff17a1d7c567c69382dd21056b5b",
+      "scriptUnchanged": true,
+      "selector": "#map1-notification-close-button",
+      "themes": [
+        "geo.ca",
+        "light",
+        "dark",
+        "canada.ca"
+      ],
+      "states": [
+        "open-resting",
+        "hover",
+        "focus-visible"
+      ],
+      "clock": "page.clock.resume() before actions; absolute browser timestamps may retain the browser clock origin. Capture date is the host UTC date.",
+      "rawEvidence": {
+        "sessionFile": "t55-after-raw.ndjson",
+        "sha256": "aa8b25d3fbdd83ed1cd620a6960cac061b9b2ad92220ef65a1e2a9b9670612d2"
+      }
+    },
+    "timingComparison": {
+      "applicable": false,
+      "reason": "T55 has no verified coupled JS timer/delay or callback in the DECIDED R2 unit. C1/C2/R4 units and their timing comparisons were not started."
+    },
+    "exclusions": [
+      "Three preliminary two-map records after runtime theme switching are excluded: React fiber dependency inspection can read the prior alternate tree. Accepted two-map evidence initializes fresh page contexts for each pairing and verifies context palette against rendered color.",
+      "Initial temporary harness included invalid displayLanguage/notifications config entries; those session-only entries were removed and all accepted two-map runs use the corrected page.",
+      "The first Notifications open attempt did not mount the popup; no sample was saved. Capture proceeded only once the exact close control was rendered."
+    ],
+    "limitations": [
+      "All four shipped themes use the same standard=300ms and easeInOut curve. Two-map assertions compare each actual control with its own distinct theme context and helper output, and verify different rendered palettes; this is not a custom-duration override test.",
+      "The primary demo includes remote layer errors unrelated to this change; the notification close control was rendered and visible in every accepted sample.",
+      "No additional responsive, text-resize or reduced-motion behavior was introduced or claimed tested."
+    ]
+  },
+  "rowDefinitions": {
+    "T55": {
+      "consumer": "Notifications popup close button; generator buttonPopperClose helper",
+      "discovery": "../THEME_DISCOVERY.md#T55",
+      "sourceAtCommit": {
+        "commit": "cc7d57918",
+        "path": "packages/geoview-core/src/ui/style/themeOptionsGenerator.ts",
+        "line": 106
+      },
+      "expectedBefore": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "applicability": "Rest/open as applicable, hover and verified focus-visible on the styled control."
+    }
+  },
+  "observations": {
+    "T55": {
+      "geo.ca": {
+        "open-resting": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 1,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:12.885Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-135dl8j-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        },
+        "hover": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 2,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:13.303Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-135dl8j-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        },
+        "focus-visible": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 3,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:13.734Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-135dl8j-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        }
+      },
+      "light": {
+        "open-resting": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 4,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:15.998Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-1rfdxwh-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        },
+        "hover": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 5,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:16.421Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-1rfdxwh-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        },
+        "focus-visible": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 6,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:16.847Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-1rfdxwh-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        }
+      },
+      "dark": {
+        "open-resting": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 7,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:19.512Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-zlcm97-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        },
+        "hover": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 8,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:19.941Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-zlcm97-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        },
+        "focus-visible": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 9,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:20.376Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-zlcm97-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        }
+      },
+      "canada.ca": {
+        "open-resting": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 10,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:23.210Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-1m537j4-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        },
+        "hover": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 11,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:23.630Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-1m537j4-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        },
+        "focus-visible": {
+          "status": "captured",
+          "phase": "popup-open stable control; hover/focus sampled after 400ms",
+          "rawRecord": 12,
+          "demoUrl": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/00-basic-footer-appbar-combo.json",
+          "browserTimestamp": "1970-01-01T15:34:24.071Z",
+          "selector": "#map1-notification-close-button",
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-notification-close-button",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-1m537j4-MuiButtonBase-root-MuiIconButton-root",
+            "label": "Close notifications dialog",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "36px",
+            "transform": "none",
+            "display": "flex"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false
+        }
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "id": "T55",
+      "theme": "geo.ca",
+      "state": "open-resting",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "geo.ca",
+      "state": "hover",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "geo.ca",
+      "state": "focus-visible",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "light",
+      "state": "open-resting",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "light",
+      "state": "hover",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "light",
+      "state": "focus-visible",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "dark",
+      "state": "open-resting",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "dark",
+      "state": "hover",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "dark",
+      "state": "focus-visible",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "canada.ca",
+      "state": "open-resting",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "canada.ca",
+      "state": "hover",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    },
+    {
+      "id": "T55",
+      "theme": "canada.ca",
+      "state": "focus-visible",
+      "classification": "DECIDED R2 intentional behavior change, not exact alias",
+      "baseline": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "background-color",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "differences": [
+        {
+          "field": "transitionTimingFunction",
+          "before": "ease-in-out",
+          "after": "cubic-bezier(0.4, 0, 0.2, 1)"
+        }
+      ],
+      "unexpectedDifferences": [],
+      "verdict": "PASS"
+    }
+  ],
+  "twoMapCheck": {
+    "required": true,
+    "reason": "New current-theme transitions argument forwarded to generator helper by both MuiButton and MuiIconButton callbacks",
+    "page": "/Users/kenchase/.copilot/session-state/fc4b315b-7a92-4cda-800c-74e89717f1b3/files/t55-two-maps.html",
+    "verdict": "PASS",
+    "method": "Two real viewers per page, Notifications open in both; fresh pages for geo.ca/dark and light/canada.ca. Read-only inspection of each rendered styled control context; no theme mutation or global/default-theme import.",
+    "runs": [
+      {
+        "kind": "two-map-final",
+        "pair": [
+          "geo.ca",
+          "dark"
+        ],
+        "maps": [
+          {
+            "id": "mapA",
+            "displayTheme": "geo.ca",
+            "selector": "#mapA-notification-close-button",
+            "element": {
+              "tag": "BUTTON",
+              "id": "mapA-notification-close-button",
+              "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-135dl8j-MuiButtonBase-root-MuiIconButton-root",
+              "label": "Close notifications dialog",
+              "text": "",
+              "visible": true,
+              "focused": false,
+              "focusVisible": false,
+              "hovered": false
+            },
+            "computed": {
+              "transitionProperty": "background-color",
+              "transitionDuration": "0.3s",
+              "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+              "transitionDelay": "0s",
+              "opacity": "1",
+              "height": "36px",
+              "transform": "none",
+              "display": "flex"
+            },
+            "ownTheme": {
+              "primary": "#515BA5",
+              "standard": 300,
+              "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)"
+            },
+            "expectedFromOwnTheme": "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+            "helperOutput": "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+            "computedColor": "rgb(81, 91, 165)"
+          },
+          {
+            "id": "mapB",
+            "displayTheme": "dark",
+            "selector": "#mapB-notification-close-button",
+            "element": {
+              "tag": "BUTTON",
+              "id": "mapB-notification-close-button",
+              "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-zlcm97-MuiButtonBase-root-MuiIconButton-root",
+              "label": "Close notifications dialog",
+              "text": "",
+              "visible": true,
+              "focused": false,
+              "focusVisible": false,
+              "hovered": false
+            },
+            "computed": {
+              "transitionProperty": "background-color",
+              "transitionDuration": "0.3s",
+              "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+              "transitionDelay": "0s",
+              "opacity": "1",
+              "height": "36px",
+              "transform": "none",
+              "display": "flex"
+            },
+            "ownTheme": {
+              "primary": "#8ec4fa",
+              "standard": 300,
+              "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)"
+            },
+            "expectedFromOwnTheme": "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+            "helperOutput": "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+            "computedColor": "rgb(142, 196, 250)"
+          }
+        ],
+        "distinctThemeObjects": true,
+        "distinctPalette": true,
+        "themeReadMethod": "Read-only context dependencies of the actual rendered controls after a fresh page initialization, no theme mutation",
+        "url": "http://127.0.0.1:8081/__two-maps.html?themeA=geo.ca&themeB=dark",
+        "timestamp": "1970-01-01T15:36:06.078Z"
+      },
+      {
+        "kind": "two-map-final",
+        "pair": [
+          "light",
+          "canada.ca"
+        ],
+        "maps": [
+          {
+            "id": "mapA",
+            "displayTheme": "light",
+            "selector": "#mapA-notification-close-button",
+            "element": {
+              "tag": "BUTTON",
+              "id": "mapA-notification-close-button",
+              "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-1rfdxwh-MuiButtonBase-root-MuiIconButton-root",
+              "label": "Close notifications dialog",
+              "text": "",
+              "visible": true,
+              "focused": false,
+              "focusVisible": false,
+              "hovered": false
+            },
+            "computed": {
+              "transitionProperty": "background-color",
+              "transitionDuration": "0.3s",
+              "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+              "transitionDelay": "0s",
+              "opacity": "1",
+              "height": "36px",
+              "transform": "none",
+              "display": "flex"
+            },
+            "ownTheme": {
+              "primary": "#0066CC",
+              "standard": 300,
+              "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)"
+            },
+            "expectedFromOwnTheme": "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+            "helperOutput": "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+            "computedColor": "rgb(0, 102, 204)"
+          },
+          {
+            "id": "mapB",
+            "displayTheme": "canada.ca",
+            "selector": "#mapB-notification-close-button",
+            "element": {
+              "tag": "BUTTON",
+              "id": "mapB-notification-close-button",
+              "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonPopperClose css-1m537j4-MuiButtonBase-root-MuiIconButton-root",
+              "label": "Close notifications dialog",
+              "text": "",
+              "visible": true,
+              "focused": false,
+              "focusVisible": false,
+              "hovered": false
+            },
+            "computed": {
+              "transitionProperty": "background-color",
+              "transitionDuration": "0.3s",
+              "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+              "transitionDelay": "0s",
+              "opacity": "1",
+              "height": "36px",
+              "transform": "none",
+              "display": "flex"
+            },
+            "ownTheme": {
+              "primary": "#26374A",
+              "standard": 300,
+              "easeInOut": "cubic-bezier(0.4, 0, 0.2, 1)"
+            },
+            "expectedFromOwnTheme": "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+            "helperOutput": "background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+            "computedColor": "rgb(38, 55, 74)"
+          }
+        ],
+        "distinctThemeObjects": true,
+        "distinctPalette": true,
+        "themeReadMethod": "Read-only context dependencies of the actual rendered controls after a fresh page initialization, no theme mutation",
+        "url": "http://127.0.0.1:8081/__two-maps.html?themeA=light&themeB=canada.ca",
+        "timestamp": "1970-01-01T15:36:11.785Z"
+      }
+    ]
+  },
+  "validation": {
+    "verdict": "PASS",
+    "rows": 1,
+    "themes": 4,
+    "statesPerTheme": 3,
+    "comparedSamples": 12,
+    "approvedDifference": "Only transitionTimingFunction: CSS ease-in-out -> cubic-bezier(0.4, 0, 0.2, 1)",
+    "unexpectedComputedDifferences": [],
+    "sourceScope": "Only generator helper signature, its param documentation, both callback arguments and T55 expression changed. Held/context rows unchanged."
+  }
+}

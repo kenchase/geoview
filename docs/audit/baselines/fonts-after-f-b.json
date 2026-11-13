@@ -1,0 +1,209 @@
+{
+  "unit": "f-b",
+  "ids": [
+    "F032",
+    "F048"
+  ],
+  "phase": "after-f-b",
+  "sourceCommit": "af8d78d2466e2f3bea0111a886af02f215a9ee7a",
+  "worktreeDiff": "diff --git a/packages/geoview-core/src/ui/slider/slider-style.ts b/packages/geoview-core/src/ui/slider/slider-style.ts\nindex 41d703ecf..a6afe6c88 100644\n--- a/packages/geoview-core/src/ui/slider/slider-style.ts\n+++ b/packages/geoview-core/src/ui/slider/slider-style.ts\n@@ -44,7 +44,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({\n       boxShadow: 'rgba(1, 0, 155, 0.7) 0px 0px 0px 3px !important',\n     },\n     '& .MuiSlider-valueLabel': {\n-      fontSize: '0.7rem',\n+      fontSize: theme.palette.geoViewFontSize?.xs ?? '0.7rem',\n       padding: theme.spacing(0.5, 0.75),\n       [theme.breakpoints.down('md')]: {\n         ...visuallyHidden, // Hide value tooltips on tablets and below\ndiff --git a/packages/geoview-custom-legend/src/custom-legend-style.ts b/packages/geoview-custom-legend/src/custom-legend-style.ts\nindex 4ab4b61ab..657bc1047 100644\n--- a/packages/geoview-custom-legend/src/custom-legend-style.ts\n+++ b/packages/geoview-custom-legend/src/custom-legend-style.ts\n@@ -66,7 +66,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({\n   // Group title styling\n   groupTitle: {\n     textWrapMode: 'wrap',\n-    fontSize: '1.125rem', // 18px\n+    fontSize: theme.palette.geoViewFontSize?.md ?? '1.125rem', // 18px\n     fontWeight: '700',\n     lineHeight: 1.2,\n     color: theme.palette.text.primary,\n@@ -189,7 +189,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({\n   },\n \n   descriptionText: {\n-    fontSize: '0.875rem',\n+    fontSize: theme.palette.geoViewFontSize?.sm ?? '0.875rem',\n     fontStyle: 'italic',\n     fontWeight: 300,\n     color: theme.palette.text.primary,\n",
+  "buildHashes": {
+    "cgpv-main.js": "cfc3495fa55011faa597d56fdb1a578f63312a15e1ce2656012d123cc387d78b",
+    "corePackages/geoview-custom-legend.js": "a56ae3eedc8838650a5ea46cf5e33d51c26f5a4b6f73039f609758663d368374"
+  },
+  "harness": "session-state/files/final-runtime.js",
+  "consumers": "Production SliderUI and GroupItem (including DescriptionText), and TooltipUI; three named override fixtures reproduce the caller 1000/1000 props.",
+  "captures": [
+    {
+      "phase": "after-f-b",
+      "theme": "geo.ca",
+      "rows": {
+        "F032": {
+          "fontSize": "14px",
+          "tag": "P",
+          "text": "Verification description text",
+          "visible": true
+        },
+        "F048": {
+          "fontSize": "18px",
+          "tag": "P",
+          "text": "Verification group title",
+          "visible": true
+        }
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-f-b",
+      "theme": "light",
+      "rows": {
+        "F032": {
+          "fontSize": "14px",
+          "tag": "P",
+          "text": "Verification description text",
+          "visible": true
+        },
+        "F048": {
+          "fontSize": "18px",
+          "tag": "P",
+          "text": "Verification group title",
+          "visible": true
+        }
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-f-b",
+      "theme": "dark",
+      "rows": {
+        "F032": {
+          "fontSize": "14px",
+          "tag": "P",
+          "text": "Verification description text",
+          "visible": true
+        },
+        "F048": {
+          "fontSize": "18px",
+          "tag": "P",
+          "text": "Verification group title",
+          "visible": true
+        }
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-f-b",
+      "theme": "canada.ca",
+      "rows": {
+        "F032": {
+          "fontSize": "14px",
+          "tag": "P",
+          "text": "Verification description text",
+          "visible": true
+        },
+        "F048": {
+          "fontSize": "18px",
+          "tag": "P",
+          "text": "Verification group title",
+          "visible": true
+        }
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-f-b",
+      "theme": "plain",
+      "rows": {
+        "F032": {
+          "fontSize": "14px",
+          "tag": "P",
+          "text": "Verification description text",
+          "visible": true
+        },
+        "F048": {
+          "fontSize": "18px",
+          "tag": "P",
+          "text": "Verification group title",
+          "visible": true
+        }
+      },
+      "plain": {
+        "hasGeoViewFontSize": false,
+        "hasGeoViewColor": false,
+        "hasTooltipDelay": false
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    }
+  ],
+  "comparison": "PASS: exact computed font sizes/visibility and tooltip props; observed single-timer elapsed difference <=20ms where measured."
+}
