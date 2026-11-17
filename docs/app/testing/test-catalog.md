@@ -66,6 +66,8 @@ This catalog lists every test by group, suite, and tester. Each entry gives the 
   - [5.1 Geochart](#51-geochart)
   - [5.2 Swiper](#52-swiper)
   - [5.3 Time Slider](#53-time-slider)
+- [6. A11Y and UX](#6-a11y-and-ux)
+  - [6.1 Keyboard Navigation](#61-keyboard-navigation)
 - [Summary](#summary)
 
 ---
@@ -86,6 +88,7 @@ This catalog lists every test by group, suite, and tester. Each entry gives the 
 | 5. Packages       | `suite-geochart`        | `GeochartTester`                                                                                | Guarded sequential          |
 | 5. Packages       | `suite-swiper`          | `SwiperTester`                                                                                  | Guarded sequential          |
 | 5. Packages       | `suite-time-slider`     | `TimeSliderTester`                                                                              | Guarded sequential          |
+| 6. A11Y and UX    | `suite-a11y-ux`         | `A11yUxTester`                                                                                  | Sequential                  |
 
 ---
 
@@ -913,3 +916,24 @@ its expected error. Finalizers restore the host width, map target, and usable vi
 | `testResetValues`                          | test | Test Time Slider reset restores registered default values...                                     |
 | `testConstrainValues`                      | test | Test Time Slider prevents dual-handle overlap for discrete and continuous ranges...              |
 | `testWMSLayerLandcoverGroupDimensionFlags` | test | Test WMS Landcover group dimension flags are set in the store on the group and its sub-layers... |
+
+---
+
+## 6. A11Y and UX
+
+[↑ Back to top](#table-of-contents)
+
+### 6.1 Keyboard Navigation
+
+**Suite:** `suite-a11y-ux` · **File:** `tests/suites/suite-a11y-ux.ts` · **Tester:** `A11yUxTester` (`tests/testers/a11y-ux-tester.ts`)
+**Execution:** Sequential on the dedicated map · **Guard:** Details must be available in the app bar
+
+| Method                                               | Type | Description |
+| ---------------------------------------------------- | ---- | ----------- |
+| `testKeyboardQueryMapFocusReturn`                    | test | Test Ctrl+M closes query-opened Details, returns focus to the map, and allows Enter to query again |
+| `testKeyboardShortcutClosesPanelsAndPreservesFooter` | test | Test Ctrl+M closes app-bar panels and map popovers while preserving the open footer panel |
+| `testCrosshairDetailsEscapeReturnsToMap`             | test | Test Escape closes the feature sub-panel and focuses its layer item, then closes Details and returns to the map |
+| `testDetailsEscapeOwnershipCancellation`             | test | Test two-level Escape after mouse cancellation, mouse-open Details, and Close preserve existing focus behavior |
+| `testDetailsEscapeFocusLeaveCancellation`            | test | Test leaving query-opened Details cancels its Escape focus return |
+| `testKeyboardShortcutIgnoredForExportModal`           | test | Test Ctrl+M is ignored while Export is open, and other map keyboard notifications still fire |
+| `testKeyboardShortcutIgnoredForShareModal`            | test | Test Ctrl+M leaves Share open and focused without notifying the map |

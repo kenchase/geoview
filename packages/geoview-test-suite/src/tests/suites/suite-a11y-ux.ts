@@ -1,0 +1,88 @@
+import type { API } from 'geoview-core/api/api';
+import type { MapViewer } from 'geoview-core/geo/map/map-viewer';
+import type { ControllerRegistry } from 'geoview-core/core/controllers/base/controller-registry';
+import { TestSuiteCannotExecuteError } from '../core/exceptions';
+import { A11yUxTester } from '../testers/a11y-ux-tester';
+import { GVAbstractTestSuite } from './abstract-gv-test-suite';
+
+/**
+ * Tests keyboard accessibility and user interactions across the map and panels.
+ */
+export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
+  /** The accessibility and UX tester for this map. */
+  #a11yUxTester: A11yUxTester;
+
+  /**
+   * Constructs the test suite.
+   *
+   * @param api - The shared API
+   * @param mapViewer - The map viewer
+   * @param controllerRegistry - The map's controller registry
+   */
+  constructor(api: API, mapViewer: MapViewer, controllerRegistry: ControllerRegistry) {
+    super(api, mapViewer, controllerRegistry);
+    this.#a11yUxTester = new A11yUxTester(api, mapViewer, controllerRegistry);
+    this.addTester(this.#a11yUxTester);
+  }
+
+  /**
+   * Returns the name of the test suite.
+   *
+   * @returns The suite name
+   */
+  override getName(): string {
+    return 'A11Y and UX Test Suite';
+  }
+
+  /**
+   * Returns the suite description.
+   *
+   * @returns The description as HTML
+   */
+  override getDescriptionAsHtml(): string {
+    return `Tests keyboard accessibility and cross-panel user interactions:<br/>
+      <b>Keyboard query</b> — Ctrl+M focuses the map, activates the crosshair, and closes Details;
+      Enter queries again and reopens and focuses Details<br/>
+      <b>Focus ownership</b> — Ctrl+M closes app-bar panels and map popovers but preserves footer panels;
+      Escape returns from query-opened Details to the map only while focus ownership remains there<br/>
+      <b>Modal shortcut</b> — Ctrl+M is ignored while Export or Share is open`;
+  }
+
+  /**
+   * Gets the number of active tests launched by the full suite.
+   *
+   * @returns The full-suite test count
+   */
+  override getTestsTotalFinal(): number {
+    return 7;
+  }
+
+  /**
+   * Checks that Details is available for keyboard-query tests.
+   *
+   * @returns A promise that resolves when the suite can run
+   */
+  protected override onCanExecuteTestSuite(): Promise<boolean> {
+    if (!this.getMapViewer().hasAppbarTab('details')) {
+      throw new TestSuiteCannotExecuteError('The A11Y and UX suite requires Details in the app bar.');
+    }
+    return Promise.resolve(true);
+  }
+
+  /**
+   * Runs the keyboard-query regression on this suite's map.
+   *
+   * @returns A promise that resolves when the test finishes
+   */
+  protected override onLaunchTestSuite(): Promise<unknown> {
+    return (async (): Promise<void> => {
+      await this.#a11yUxTester.testKeyboardQueryMapFocusReturn();
+      await this.#a11yUxTester.testKeyboardShortcutClosesPanelsAndPreservesFooter();
+      await this.#a11yUxTester.testCrosshairDetailsEscapeReturnsToMap();
+      await this.#a11yUxTester.testDetailsEscapeOwnershipCancellation();
+      await this.#a11yUxTester.testDetailsEscapeFocusLeaveCancellation();
+      await this.#a11yUxTester.testKeyboardShortcutIgnoredForExportModal();
+      await this.#a11yUxTester.testKeyboardShortcutIgnoredForShareModal();
+    })();
+  }
+}
