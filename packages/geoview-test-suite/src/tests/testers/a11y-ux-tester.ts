@@ -10,6 +10,7 @@ import {
   getStoreUIFocusItem,
 } from 'geoview-core/core/stores/states/ui-state';
 import { getStoreAppIsCrosshairsActive } from 'geoview-core/core/stores/states/app-state';
+import { getStoreDetailsCurrentFeatureIndex, getStoreDetailsSelectedLayerPath } from 'geoview-core/core/stores/states/feature-info-state';
 import { getStoreMapPointerPosition, setStoreMapPointerPosition } from 'geoview-core/core/stores/states/map-state';
 import type { FeatureInfoLayerSet, QueryEndedEvent } from 'geoview-core/geo/layer/layer-sets/feature-info-layer-set';
 import { TestError } from '../core/exceptions';
@@ -32,7 +33,7 @@ export class A11yUxTester extends GVAbstractTester {
   }
 
   /**
-   * Tests closing Details with Ctrl+M and reopening it with a new crosshair query.
+   * Tests repeated crosshair queries open the Details sub-panel and focus its main Close button.
    *
    * @returns A promise that resolves with focus, panel, and repeated-query observations
    */
@@ -64,18 +65,13 @@ export class A11yUxTester extends GVAbstractTester {
       activeElement.dispatchEvent(new KeyboardEvent('keydown', { key, ctrlKey, bubbles: true, cancelable: true }));
     };
 
-    /** Checks whether the currently focused element belongs to Details. */
-    const hasDetailsFocus = (): boolean => {
-      const activeElement = DomHelper.getActiveElement();
-      return !!activeElement && !!DomHelper.getAppBarPanel(mapId, 'details')?.contains(activeElement);
-    };
-
     return this.test(
       'Test Ctrl+M closes Details and returns map focus before Enter queries and reopens Details',
       async (test): Promise<TypeKeyboardQueryFocusResult> => {
         const target = DomHelper.getMapTargetElement(mapId);
         const detailsButton = DomHelper.getAppBarButton(mapId, 'details');
-        if (!target || !detailsButton) throw new TestError('Existing map target and Details button must be mounted');
+        const detailsPanel = DomHelper.getAppBarPanel(mapId, 'details');
+        if (!target || !detailsButton || !detailsPanel) throw new TestError('Existing map target and Details controls must be mounted');
         if (!target.ownerDocument.hasFocus()) throw new TestError('Keyboard focus tests require the browser page to be in the foreground');
 
         test.addStep('Preparing keyboard navigation on the existing map and polygon layer...');
@@ -84,108 +80,149 @@ export class A11yUxTester extends GVAbstractTester {
         uiController.setActiveAppBarTab(originalAppBar.tabId, false, false);
         uiController.disableFocusTrap('no-focus');
         uiController.setActiveTrapGeoView(true);
-        await mapController.zoomToLonLatExtentOrCoordinate(GVAbstractTester.ONTARIO_CENTER_LONLAT, GVAbstractTester.USE_ZOOM_ANIMATION);
-        viewer.map.renderSync();
-        await DomHelper.waitForReactIdle();
         detailsButton.focus();
         querySet.onQueryEnded(recordQuery);
+        const observations: TypeKeyboardQueryFocusResult['observations'] = [];
 
-        test.addStep('Pressing Ctrl+M to focus the map and activate its crosshair...');
-        pressKey('m', true);
-        await DomHelper.waitForReactIdle();
-        const initiallyFocused = DomHelper.getActiveElement() === target;
-        const initiallyActive = getStoreAppIsCrosshairsActive(mapId);
-        const firstCrosshair = mapController.getViewportCenterPosition()?.lonlat;
-        if (!firstCrosshair) throw new TestError('Crosshair coordinates must be available before the first query');
+        /** Records one query and its focus transitions before the next query starts. */
+        const runQuery = async (index: number, expectsFeatures: boolean): Promise<TypeKeyboardQueryFocusResult['observations'][number]> => {
+          let subPanelClosedBeforeQuery: boolean | undefined;
+          if (index === 2) {
+            test.addStep('Closing the feature sub-panel before repeating the query at the same coordinates...');
+            uiController.setActiveAppBarTab('details', true, true);
+            await DomHelper.waitForReactIdle();
+            const layerButton = detailsPanel.querySelector<HTMLButtonElement>('ul button');
+            if (!layerButton) throw new TestError('Details must expose its result layer');
+            layerButton.click();
+            await DomHelper.waitForReactIdle();
+            const subPanelClose = detailsPanel.querySelector<HTMLButtonElement>(
+              '.responsive-layout-right-main-content button[aria-label="Close selection"]'
+            );
+            if (!subPanelClose) throw new TestError('Details must expose its feature sub-panel Close button');
+            subPanelClose.focus();
+            pressKey('Escape');
+            await DomHelper.waitForReactIdle();
+            subPanelClosedBeforeQuery = !detailsPanel.querySelector('.responsive-layout-right-main')?.getClientRects().length;
+          }
 
-        test.addStep('Pressing Enter and waiting for the first query and Details focus...');
-        pressKey('Enter');
-        await whenThisThen(() => queries.length === 1, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
-        await GVAbstractTester.waitForBatchedQueryPropagation(test);
-        const detailsFocused = await whenThisThen(hasDetailsFocus, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
-        const queryFocus = DomHelper.getActiveElement();
-        const focusAfterQuery = queryFocus?.id || queryFocus?.className;
-        const crosshairAfterQuery = getStoreAppIsCrosshairsActive(mapId);
+          test.addStep(`Query ${index + 1}: pressing Ctrl+M and checking map focus and Details closure...`);
+          pressKey('m', true);
+          await DomHelper.waitForReactIdle();
+          const shortcutFocusId = DomHelper.getActiveElement()?.id;
+          const shortcutCrosshairActive = getStoreAppIsCrosshairsActive(mapId);
+          const detailsClosedAfterShortcut = !getStoreUIActiveAppBarTab(mapId).isOpen;
+          const queryCountAfterShortcut = queries.length;
+          await mapController.zoomToLonLatExtentOrCoordinate(
+            expectsFeatures ? MULTI_FEATURE_QUERY_EXTENT : GVAbstractTester.ALBERTA_CENTER_LONLAT,
+            false
+          );
+          viewer.map.renderSync();
+          mapController.synchronizeCrosshairPointerPosition();
+          const expectedCoordinate = mapController.getViewportCenterPosition()?.lonlat;
+          if (!expectedCoordinate) throw new TestError('Crosshair coordinates must be available before each query');
 
-        test.addStep('Pressing Ctrl+M again and checking map focus, crosshair activation, and Details closure...');
-        pressKey('m', true);
-        await DomHelper.waitForReactIdle();
-        const shortcutFocus = DomHelper.getActiveElement();
-        const focusAfterShortcut = shortcutFocus?.id || shortcutFocus?.className;
-        const mapFocused = DomHelper.getActiveElement() === target;
-        const detailsFocusedAfterShortcut = !!shortcutFocus && !!DomHelper.getAppBarPanel(mapId, 'details')?.contains(shortcutFocus);
-        const crosshairActive = getStoreAppIsCrosshairsActive(mapId);
-        const detailsOpen = getStoreUIActiveAppBarTab(mapId);
-        const detailsOpenAfterShortcut = detailsOpen.isOpen && detailsOpen.tabId === 'details';
-        const queriesAfterShortcut = queries.length;
-        const secondCrosshair = mapController.getViewportCenterPosition()?.lonlat;
-        if (!secondCrosshair) throw new TestError('Crosshair coordinates must be available after Ctrl+M');
-        let detailsAfterSecondQuery: TypeKeyboardQueryFocusResult['detailsAfterSecondQuery'];
+          test.addStep(`Query ${index + 1}: pressing Enter and waiting for ${expectsFeatures ? 'features' : 'the guide'}...`);
+          const focusDepartures: string[] = [];
+          let mainCloseReceivedFocus = false;
 
-        // Preserve step 3 failures rather than masking them with a timeout or treating an already-open panel as reopened.
-        if (mapFocused && crosshairActive && !detailsOpenAfterShortcut) {
-          test.addStep('Pressing Enter again and waiting for a second query to reopen and focus Details...');
-          pressKey('Enter');
-          await whenThisThen(() => queries.length === 2, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
-          await GVAbstractTester.waitForBatchedQueryPropagation(test);
-          await whenThisThen((): boolean => {
-            const activeTab = getStoreUIActiveAppBarTab(mapId);
-            return activeTab.isOpen && activeTab.tabId === 'details' && hasDetailsFocus();
-          }, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
-          const reopenedTab = getStoreUIActiveAppBarTab(mapId);
-          detailsAfterSecondQuery = {
-            open: reopenedTab.isOpen && reopenedTab.tabId === 'details',
-            focused: hasDetailsFocus(),
+          /** Records transient focus theft even if another pending entry callback later restores the main Close button. */
+          const recordFocus = (event: FocusEvent): void => {
+            const element = event.target;
+            if (!(element instanceof HTMLElement)) return;
+            if (element === DomHelper.getAppBarPanelCloseButton(mapId, 'details')) mainCloseReceivedFocus = true;
+            else if (mainCloseReceivedFocus) focusDepartures.push(element.id || element.getAttribute('aria-label') || element.className);
           };
+
+          detailsPanel.addEventListener('focusin', recordFocus);
+          try {
+            pressKey('Enter');
+            await whenThisThen(() => queries.length === index + 1, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+            await GVAbstractTester.waitForBatchedQueryPropagation(test);
+            test.addStep(`Query ${index + 1}: waiting for rendered content and the sub-panel autofocus animation frame...`);
+            await whenThisThen(
+              () =>
+                !!detailsPanel.querySelector(expectsFeatures ? '[aria-label="Feature navigation"]' : '.guide-container')?.getClientRects()
+                  .length,
+              GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS
+            );
+            await DomHelper.waitForReactIdle();
+            await delay(TIMEOUT.focusDelay);
+            await DomHelper.waitForReactIdle();
+          } finally {
+            detailsPanel.removeEventListener('focusin', recordFocus);
+          }
+          const mainClose = DomHelper.getAppBarPanelCloseButton(mapId, 'details');
+          if (!mainClose) throw new TestError('Query-opened Details must expose its main Close button');
+          const activeElement = DomHelper.getActiveElement();
+          const activeTab = getStoreUIActiveAppBarTab(mapId);
+          const observation: TypeKeyboardQueryFocusResult['observations'][number] = {
+            expectsFeatures,
+            expectedCoordinate,
+            shortcutFocusId,
+            shortcutCrosshairActive,
+            detailsClosedAfterShortcut,
+            queryCountAfterShortcut,
+            focusAfterQuery: activeElement?.id || activeElement?.getAttribute('aria-label') || activeElement?.className,
+            mainCloseId: mainClose.id,
+            focusDepartures,
+            detailsOpenAfterQuery: activeTab.isOpen && activeTab.tabId === 'details',
+            crosshairInactiveAfterQuery: !getStoreAppIsCrosshairsActive(mapId),
+            subPanelVisible: !!detailsPanel.querySelector('.responsive-layout-right-main')?.getClientRects().length,
+            featuresVisible: !!detailsPanel.querySelector('[aria-label="Feature navigation"]')?.getClientRects().length,
+            guideVisible: !!detailsPanel.querySelector('.guide-container')?.getClientRects().length,
+            subPanelClosedBeforeQuery,
+          };
+
+          if (index % 2 === 1) {
+            test.addStep(`Query ${index + 1}: pressing one Escape from query focus...`);
+            pressKey('Escape');
+            await DomHelper.waitForReactIdle();
+            observation.escape = {
+              detailsClosed: !getStoreUIActiveAppBarTab(mapId).isOpen,
+              focusId: DomHelper.getActiveElement()?.id,
+              crosshairActive: getStoreAppIsCrosshairsActive(mapId),
+            };
+          }
+          return observation;
+        };
+
+        for (const [index, expectsFeatures] of [true, true, true, false, false, true].entries()) {
+          // eslint-disable-next-line no-await-in-loop -- Each query reuses the map and must finish its focus transitions before the next.
+          observations.push(await runQuery(index, expectsFeatures));
         }
 
-        return {
-          initiallyFocused,
-          initiallyActive,
-          detailsFocused,
-          focusAfterQuery,
-          crosshairAfterQuery,
-          focusAfterShortcut,
-          mapTargetId: target.id,
-          mapFocused,
-          detailsFocusedAfterShortcut,
-          crosshairActive,
-          detailsOpenAfterShortcut,
-          detailsAfterSecondQuery,
-          queriesAfterShortcut,
-          queries,
-          expectedCoordinates: [firstCrosshair, secondCrosshair],
-        };
+        return { mapTargetId: target.id, queries, observations };
       },
       (test, result): void => {
-        test.addStep('Verifying the initial shortcut and keyboard query transferred focus to Details...');
-        Test.assertIsEqual(result.initiallyFocused, true);
-        Test.assertIsEqual(result.initiallyActive, true);
-        Test.assertIsEqual(result.detailsFocused, true);
-        Test.assertIsEqual(result.crosshairAfterQuery, false);
+        Test.assertIsEqual(result.queries.length, result.observations.length);
+        result.observations.forEach((observation, index): void => {
+          test.addStep(`Query ${index + 1}: verifying Ctrl+M closes Details and focuses the active crosshair without querying...`);
+          Test.assertIsEqual(observation.shortcutFocusId, result.mapTargetId);
+          Test.assertIsEqual(observation.shortcutCrosshairActive, true);
+          Test.assertIsEqual(observation.detailsClosedAfterShortcut, true);
+          Test.assertIsEqual(observation.queryCountAfterShortcut, index);
 
-        test.addStep('Verifying step 3: Ctrl+M focuses the map, activates the crosshair, and closes Details without querying...');
-        Test.assertJsonObject(
-          {
-            focus: result.focusAfterShortcut,
-            crosshairActive: result.crosshairActive,
-            detailsOpen: result.detailsOpenAfterShortcut,
-            queryCount: result.queriesAfterShortcut,
-          },
-          { focus: result.mapTargetId, crosshairActive: true, detailsOpen: false, queryCount: 1 }
-        );
-
-        test.addStep('Verifying two distinct query completions at their crosshair coordinates...');
-        Test.assertIsEqual(result.queries.length, 2);
-        result.queries.forEach((coordinate, index): void => {
-          coordinate.forEach((value, axis): void => {
-            Test.assertIsEqualWithinTolerance(value, result.expectedCoordinates[index][axis], 1e-9);
+          test.addStep(
+            `Query ${index + 1}: verifying exact main Close focus and the open ${observation.expectsFeatures ? 'features' : 'guide'}...`
+          );
+          Test.assertIsEqual(observation.focusAfterQuery, observation.mainCloseId);
+          Test.assertIsEqual(observation.focusDepartures.join(', '), '');
+          Test.assertIsEqual(observation.detailsOpenAfterQuery, true);
+          Test.assertIsEqual(observation.crosshairInactiveAfterQuery, true);
+          Test.assertIsEqual(observation.subPanelVisible, true);
+          Test.assertIsEqual(observation.featuresVisible, observation.expectsFeatures);
+          Test.assertIsEqual(observation.guideVisible, !observation.expectsFeatures);
+          if (observation.subPanelClosedBeforeQuery !== undefined) Test.assertIsEqual(observation.subPanelClosedBeforeQuery, true);
+          result.queries[index].forEach((value, axis): void => {
+            Test.assertIsEqualWithinTolerance(value, observation.expectedCoordinate[axis], 1e-9);
           });
+          if (observation.escape) {
+            test.addStep(`Query ${index + 1}: verifying one Escape closes Details and returns to the active crosshair...`);
+            Test.assertIsEqual(observation.escape.detailsClosed, true);
+            Test.assertIsEqual(observation.escape.focusId, result.mapTargetId);
+            Test.assertIsEqual(observation.escape.crosshairActive, true);
+          }
         });
-        test.addStep('Verifying step 4: the second Enter query reopened Details and transferred focus into it...');
-        Test.assertIsDefined('Details after the second query', result.detailsAfterSecondQuery);
-        Test.assertIsEqual(result.detailsAfterSecondQuery.open, true);
-        Test.assertIsEqual(result.detailsAfterSecondQuery.focused, true);
       },
       async (): Promise<void> => {
         querySet.offQueryEnded(recordQuery);
@@ -193,6 +230,141 @@ export class A11yUxTester extends GVAbstractTester {
         uiController.disableFocusTrap('no-focus');
         uiController.setActiveTrapGeoView(false);
         uiController.setActiveAppBarTab(originalAppBar.tabId, originalAppBar.isOpen, originalAppBar.isFocusTrapped ?? false);
+        view.setResolution(originalResolution);
+        view.setCenter(originalCenter);
+        viewer.map.renderSync();
+        await DomHelper.waitForReactIdle();
+        uiController.setActiveTrapGeoView(originalMode);
+        uiController.enableFocusTrap(originalFocusItem);
+        await DomHelper.waitForReactIdle();
+        if (originalFocus instanceof HTMLElement && originalFocus.isConnected) originalFocus.focus({ preventScroll: true });
+        uiController.setCrosshairActive(originalCrosshair);
+        setStoreMapPointerPosition(mapId, originalPointer ?? mapController.getMapCenterPosition());
+        await DomHelper.waitForReactIdle();
+      }
+    );
+  }
+
+  /**
+   * Tests reopening Details preserves its feature sub-panel after app-bar and Ctrl+M dismissal.
+   *
+   * @returns A promise that resolves with the remembered sub-panel and feature observations
+   */
+  testDetailsSubPanelReopensAfterDismissal(): Promise<Test<TypeDetailsReopenResult[]>> {
+    const mapId = this.getMapId();
+    const viewer = this.getMapViewer();
+    const view = viewer.getView();
+    const { mapController, uiController, detailsController, layerSetController } = this.getControllersRegistry();
+    const originalFocus = DomHelper.getActiveElement();
+    const originalMode = getStoreUIActiveTrapGeoView(mapId);
+    const originalCrosshair = getStoreAppIsCrosshairsActive(mapId);
+    const originalFocusItem = getStoreUIFocusItem(mapId);
+    const originalAppBar = getStoreUIActiveAppBarTab(mapId);
+    const originalCenter = view.getCenter()?.slice();
+    const originalResolution = view.getResolution();
+    const originalPointer = getStoreMapPointerPosition(mapId);
+    const originalLayerPath = getStoreDetailsSelectedLayerPath(mapId);
+    const originalFeatureIndex = getStoreDetailsCurrentFeatureIndex(mapId);
+
+    return this.test(
+      'Test reopening Details preserves its feature sub-panel after app-bar and Ctrl+M dismissal',
+      async (test): Promise<TypeDetailsReopenResult[]> => {
+        const target = DomHelper.getMapTargetElement(mapId);
+        const detailsButton = DomHelper.getAppBarButton(mapId, 'details');
+        const detailsPanel = DomHelper.getAppBarPanel(mapId, 'details');
+        if (!target || !detailsButton || !detailsPanel) throw new TestError('The map target and Details controls must be mounted');
+        if (!target.ownerDocument.hasFocus()) throw new TestError('Keyboard focus tests require the browser page to be in the foreground');
+
+        test.addStep('Opening Details with a pointer-origin query on the existing polygon layer...');
+        await layerSetController.featureInfoLayerSet.waitForLayerToGetRegistered('geojsonLYR5/polygons.json');
+        uiController.setCrosshairActive(false);
+        uiController.setActiveAppBarTab(undefined, false, false);
+        uiController.disableFocusTrap('no-focus');
+        uiController.setActiveTrapGeoView(true);
+        detailsController.setSelectedLayerPath('');
+        await mapController.zoomToLonLatExtentOrCoordinate(MULTI_FEATURE_QUERY_EXTENT, false);
+        viewer.map.renderSync();
+        await DomHelper.waitForReactIdle();
+        const queryPosition = mapController.getViewportCenterPosition();
+        if (!queryPosition) throw new TestError('The existing map must expose a query position');
+        await mapController.performMapClickAction(queryPosition);
+        await GVAbstractTester.waitForBatchedQueryPropagation(test);
+        await whenThisThen(() => {
+          const nextButton = detailsPanel.querySelector<HTMLButtonElement>(
+            '[role="group"][aria-label="Feature navigation"] button[aria-label="Next feature"]'
+          );
+          return !!nextButton && nextButton.getAttribute('aria-disabled') !== 'true';
+        }, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        const nextButton = detailsPanel.querySelector<HTMLButtonElement>(
+          '[role="group"][aria-label="Feature navigation"] button[aria-label="Next feature"]'
+        );
+        const subPanel = nextButton?.closest<HTMLElement>('.responsive-layout-right-main');
+        const layerButton = detailsPanel.querySelector<HTMLButtonElement>('ul button');
+        if (!nextButton || !subPanel || !layerButton)
+          throw new TestError('Details must expose its feature sub-panel and parent layer item');
+        /** Closes the outer panel and reopens it without issuing another feature query. */
+        const closeAndReopen = async (dismissal: 'app-bar button' | 'Ctrl+M'): Promise<TypeDetailsReopenResult> => {
+          test.addStep(`Closing Details with ${dismissal} while its feature sub-panel is open...`);
+          layerButton.click();
+          await DomHelper.waitForReactIdle();
+          nextButton.click();
+          await DomHelper.waitForReactIdle();
+          const selectedLayerPath = getStoreDetailsSelectedLayerPath(mapId);
+          const featureIndex = getStoreDetailsCurrentFeatureIndex(mapId);
+          const subPanelOpenBefore = subPanel.getClientRects().length > 0;
+          if (dismissal === 'app-bar button') {
+            detailsButton.focus();
+            detailsButton.click();
+          } else {
+            nextButton.focus();
+            nextButton.dispatchEvent(new KeyboardEvent('keydown', { key: 'm', ctrlKey: true, bubbles: true, cancelable: true }));
+          }
+          await DomHelper.waitForReactIdle();
+          const detailsClosed = !getStoreUIActiveAppBarTab(mapId).isOpen;
+          const subPanelHiddenWithDetails = subPanel.getClientRects().length === 0;
+
+          test.addStep(`Reopening Details from its app-bar button after ${dismissal} without a new query...`);
+          detailsButton.focus();
+          detailsButton.click();
+          await DomHelper.waitForReactIdle();
+          return {
+            dismissal,
+            subPanelOpenBefore,
+            detailsClosed,
+            subPanelHiddenWithDetails,
+            detailsReopened: getStoreUIActiveAppBarTab(mapId).isOpen,
+            subPanelReopened: subPanel.getClientRects().length > 0,
+            selectedLayerPath,
+            reopenedLayerPath: getStoreDetailsSelectedLayerPath(mapId),
+            featureIndex,
+            reopenedFeatureIndex: getStoreDetailsCurrentFeatureIndex(mapId),
+          };
+        };
+        return [await closeAndReopen('app-bar button'), await closeAndReopen('Ctrl+M')];
+      },
+      (test, results): void => {
+        results.forEach((result): void => {
+          test.addStep(`Verifying the feature sub-panel was open before ${result.dismissal}...`);
+          Test.assertIsEqual(result.subPanelOpenBefore, true);
+          test.addStep(`Verifying ${result.dismissal} hides both Details levels...`);
+          Test.assertIsEqual(result.detailsClosed, true);
+          Test.assertIsEqual(result.subPanelHiddenWithDetails, true);
+          test.addStep(`Verifying the Details app-bar button reopens Details after ${result.dismissal}...`);
+          Test.assertIsEqual(result.detailsReopened, true);
+          test.addStep(`Verifying the remembered feature sub-panel reopens after ${result.dismissal}...`);
+          Test.assertIsEqual(result.subPanelReopened, true);
+          test.addStep(`Verifying the same layer and feature remain selected after ${result.dismissal}...`);
+          Test.assertIsEqual(result.reopenedLayerPath, result.selectedLayerPath);
+          Test.assertIsEqual(result.reopenedFeatureIndex, result.featureIndex);
+        });
+      },
+      async (): Promise<void> => {
+        uiController.setCrosshairActive(false);
+        uiController.disableFocusTrap('no-focus');
+        uiController.setActiveTrapGeoView(false);
+        uiController.setActiveAppBarTab(originalAppBar.tabId, originalAppBar.isOpen, originalAppBar.isFocusTrapped ?? false);
+        detailsController.setSelectedLayerPath(originalLayerPath);
+        detailsController.setCurrentFeatureIndex(originalFeatureIndex);
         view.setResolution(originalResolution);
         view.setCenter(originalCenter);
         viewer.map.renderSync();
@@ -751,7 +923,7 @@ export class A11yUxTester extends GVAbstractTester {
   }
 
   /**
-   * Tests that leaving query-opened Details cancels its Escape focus return.
+   * Tests that focus can leave query-opened Details' feature sub-panel and cancel its Escape focus return.
    *
    * @returns A promise that resolves with fallback focus observations
    */
@@ -787,9 +959,9 @@ export class A11yUxTester extends GVAbstractTester {
       'Test leaving query-opened Details cancels its Escape focus return',
       async (test): Promise<TypeDetailsEscapeFocusLeaveResult> => {
         const target = DomHelper.getMapTargetElement(mapId);
-        const detailsButton = DomHelper.getAppBarButton(mapId, 'details');
+        const detailsPanel = DomHelper.getAppBarPanel(mapId, 'details');
         const layersButton = DomHelper.getAppBarButton(mapId, 'layers');
-        if (!target || !detailsButton || !layersButton) throw new TestError('Map, Details, and Layers controls must be mounted');
+        if (!target || !detailsPanel || !layersButton) throw new TestError('Map, Details, and Layers controls must be mounted');
         if (!target.ownerDocument.hasFocus()) throw new TestError('Keyboard focus tests require the browser page to be in the foreground');
 
         test.addStep('Preparing one crosshair query on the existing polygon layer...');
@@ -806,24 +978,52 @@ export class A11yUxTester extends GVAbstractTester {
         target.focus();
         querySet.onQueryEnded(recordQuery);
 
-        test.addStep('Querying from the active crosshair, leaving Details, and pressing Escape...');
+        test.addStep('Querying from the active crosshair and focusing the Details feature sub-panel...');
         await DomHelper.waitForReactIdle();
         pressKey('Enter');
         await whenThisThen(() => queries.length === 1, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
         await GVAbstractTester.waitForBatchedQueryPropagation(test);
         await DomHelper.waitForReactIdle();
+        const layerButton = detailsPanel.querySelector<HTMLButtonElement>('ul button');
+        if (!layerButton) throw new TestError('The query-opened Details panel must list the available result layer');
+        layerButton.click();
+        await DomHelper.waitForReactIdle();
+        const nextFeatureButton = detailsPanel.querySelector<HTMLButtonElement>(
+          '[role="group"][aria-label="Feature navigation"] button[aria-label="Next feature"]'
+        );
+        const subPanel = nextFeatureButton?.closest<HTMLElement>('.responsive-layout-right-main-content');
+        if (!nextFeatureButton || !subPanel?.getClientRects().length)
+          throw new TestError('Details must expose its feature sub-panel and navigation controls');
+        nextFeatureButton.focus();
+        await DomHelper.waitForReactIdle();
+        const subPanelFocusedBeforeLeaving = DomHelper.getActiveElement() === nextFeatureButton;
+
+        test.addStep('Moving focus from the feature sub-panel to Layers and waiting for focus effects...');
         layersButton.focus();
+        await DomHelper.waitForReactIdle();
+        const focusAfterLeaving = DomHelper.getActiveElement()?.id;
+
+        test.addStep('Pressing Escape after leaving the Details feature sub-panel...');
         pressKey('Escape');
         await DomHelper.waitForReactIdle();
         const focusAfterEscape = DomHelper.getActiveElement();
 
         return {
+          subPanelFocusedBeforeLeaving,
+          focusAfterLeaving,
+          outsideControlId: layersButton.id,
           focusReturnedToMapAfterEscape: focusAfterEscape === target,
           focusRemainsOnLayersButton: focusAfterEscape === layersButton,
           crosshairInactiveAfterEscape: !getStoreAppIsCrosshairsActive(mapId),
         };
       },
       (test, result): void => {
+        test.addStep('Verifying focus started inside the Details feature sub-panel...');
+        Test.assertIsEqual(result.subPanelFocusedBeforeLeaving, true);
+        test.addStep('Verifying focus stays on Layers instead of being pulled back into Details...');
+        Test.assertIsEqual(result.focusAfterLeaving, result.outsideControlId);
+        test.addStep('Verifying Escape keeps focus on Layers after leaving Details...');
+        Test.assertIsEqual(result.focusRemainsOnLayersButton, true);
         test.addStep('Verifying Escape does not return focus to the map after it leaves Details...');
         Test.assertIsEqual(result.focusReturnedToMapAfterEscape, false);
         test.addStep('Verifying Escape leaves the crosshair inactive after focus leaves Details...');
@@ -1112,23 +1312,42 @@ export class A11yUxTester extends GVAbstractTester {
 
 // #region TYPES AND INTERFACES
 
+/** Details sub-panel and selected-feature observations across outer-panel dismissal and reopening. */
+interface TypeDetailsReopenResult {
+  dismissal: string;
+  subPanelOpenBefore: boolean;
+  detailsClosed: boolean;
+  subPanelHiddenWithDetails: boolean;
+  detailsReopened: boolean;
+  subPanelReopened: boolean;
+  selectedLayerPath: string;
+  reopenedLayerPath: string;
+  featureIndex: number;
+  reopenedFeatureIndex: number;
+}
+
 /** Observations before and after returning from Details to the map with Ctrl+M. */
 interface TypeKeyboardQueryFocusResult {
-  initiallyFocused: boolean;
-  initiallyActive: boolean;
-  detailsFocused: boolean;
-  focusAfterQuery: string | undefined;
-  crosshairAfterQuery: boolean;
-  focusAfterShortcut: string | undefined;
   mapTargetId: string;
-  mapFocused: boolean;
-  detailsFocusedAfterShortcut: boolean;
-  crosshairActive: boolean;
-  detailsOpenAfterShortcut: boolean;
-  detailsAfterSecondQuery: { open: boolean; focused: boolean } | undefined;
-  queriesAfterShortcut: number;
   queries: Coordinate[];
-  expectedCoordinates: Coordinate[];
+  observations: {
+    expectsFeatures: boolean;
+    expectedCoordinate: Coordinate;
+    shortcutFocusId: string | undefined;
+    shortcutCrosshairActive: boolean;
+    detailsClosedAfterShortcut: boolean;
+    queryCountAfterShortcut: number;
+    focusAfterQuery: string | undefined;
+    mainCloseId: string;
+    focusDepartures: string[];
+    detailsOpenAfterQuery: boolean;
+    crosshairInactiveAfterQuery: boolean;
+    subPanelVisible: boolean;
+    featuresVisible: boolean;
+    guideVisible: boolean;
+    subPanelClosedBeforeQuery: boolean | undefined;
+    escape?: { detailsClosed: boolean; focusId: string | undefined; crosshairActive: boolean };
+  }[];
 }
 
 /** Ctrl+M focus, crosshair, app-bar, and footer observations. */
@@ -1186,6 +1405,9 @@ interface TypeDetailsEscapeCancellationResult {
 
 /** Fallback focus observations after keyboard focus leaves query-opened Details. */
 interface TypeDetailsEscapeFocusLeaveResult {
+  subPanelFocusedBeforeLeaving: boolean;
+  focusAfterLeaving: string | undefined;
+  outsideControlId: string;
   focusReturnedToMapAfterEscape: boolean;
   focusRemainsOnLayersButton: boolean;
   crosshairInactiveAfterEscape: boolean;

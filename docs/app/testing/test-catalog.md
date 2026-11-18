@@ -934,6 +934,7 @@ its expected error. Finalizers restore the host width, map target, and usable vi
 | `testKeyboardShortcutClosesPanelsAndPreservesFooter` | test | Test Ctrl+M closes app-bar panels and map popovers while preserving the open footer panel |
 | `testCrosshairDetailsEscapeReturnsToMap`             | test | Test Escape closes the feature sub-panel and focuses its layer item, then closes Details and returns to the map |
 | `testDetailsEscapeOwnershipCancellation`             | test | Test two-level Escape after mouse cancellation, mouse-open Details, and Close preserve existing focus behavior |
-| `testDetailsEscapeFocusLeaveCancellation`            | test | Test leaving query-opened Details cancels its Escape focus return |
+| `testDetailsEscapeFocusLeaveCancellation`            | test | Test focus can leave query-opened Details' feature sub-panel, stays on Layers, and cancels its Escape focus return |
 | `testKeyboardShortcutIgnoredForExportModal`           | test | Test Ctrl+M is ignored while Export is open, and other map keyboard notifications still fire |
 | `testKeyboardShortcutIgnoredForShareModal`            | test | Test Ctrl+M leaves Share open and focused without notifying the map |
+| `testDetailsSubPanelReopensAfterDismissal`             | test | Test reopening Details preserves its feature sub-panel and selected layer/feature after app-bar and Ctrl+M dismissal |

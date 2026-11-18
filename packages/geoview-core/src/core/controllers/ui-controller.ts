@@ -16,6 +16,7 @@ import {
   disableStoreUIFocusTrap,
   enableStoreUIFocusTrap,
   getStoreUIFocusItem,
+  getStoreUIActiveAppBarTab,
   hideStoreUITabButton,
   removeStoreUIAppBarPanelId,
   removeStoreUIFooterTab,
@@ -23,6 +24,7 @@ import {
   setStoreUIActiveFooterBarTab,
   setStoreUIActiveTrapGeoView,
   setStoreUIFooterBarIsOpen,
+  setStoreUIFocusEscapeReturn,
   setStoreUIFooterPanelResizeValue,
   setStoreUIMapInfoExpanded,
   showStoreUITabButton,
@@ -292,6 +294,8 @@ export class UIController extends AbstractMapViewerController {
    * @param isFocusTrapped - Whether focus should be trapped in the panel
    */
   setActiveAppBarTab(tab: string | undefined, isOpen: boolean, isFocusTrapped: boolean): void {
+    if (!isOpen || tab !== getStoreUIActiveAppBarTab(this.getMapId()).tabId) this.setFocusEscapeReturn(undefined);
+
     // Save in the store
     setStoreUIActiveAppBarTab(this.getMapId(), tab, isOpen, isFocusTrapped);
   }
@@ -326,6 +330,29 @@ export class UIController extends AbstractMapViewerController {
   isFocusOwnedModalOpen(): boolean {
     const { activeElementId } = getStoreUIFocusItem(this.getMapId());
     return activeElementId === 'export' || activeElementId === 'layerDataTable' || activeElementId === 'featureDetailDataTable';
+  }
+
+  /**
+   * Sets or cancels the scoped Escape return target on the existing focus item.
+   *
+   * @param escapeReturn - The scoped return target, or undefined to cancel it
+   */
+  setFocusEscapeReturn(escapeReturn: FocusItemProps['escapeReturn']): void {
+    setStoreUIFocusEscapeReturn(this.getMapId(), escapeReturn);
+  }
+
+  /**
+   * Releases focus ownership and requests restoration when the originating container closes via Escape.
+   *
+   * @param containerId - The container being dismissed
+   * @returns Whether this dismissal consumed a scoped Escape return target
+   */
+  restoreFocusOnEscape(containerId: string): boolean {
+    const { escapeReturn } = getStoreUIFocusItem(this.getMapId());
+    if (escapeReturn?.containerId !== containerId) return false;
+    this.setFocusEscapeReturn(undefined);
+    disableStoreUIFocusTrap(this.getMapId(), escapeReturn.elementId, true);
+    return true;
   }
 
   /**
@@ -479,6 +506,14 @@ export class UIController extends AbstractMapViewerController {
   closeMapPopovers(): void {
     this.disableFocusTrap('no-focus');
     closeStoreUIMapPopovers(this.getMapId());
+  }
+
+  /**
+   * Closes app-bar panels and map popovers without restoring their triggers or changing footer panels.
+   */
+  closeMapControls(): void {
+    this.setActiveAppBarTab(undefined, false, false);
+    this.closeMapPopovers();
   }
 
   /**

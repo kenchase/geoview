@@ -17,7 +17,7 @@ import {
   useStoreDetailsCurrentFeatureIndex,
   LAYER_PATH_COORDINATE_INFO,
 } from '@/core/stores/states/feature-info-state';
-import { useStoreUIActiveAppBarTab, useStoreUIActiveFooterBarTab } from '@/core/stores/states/ui-state';
+import { useStoreUIActiveAppBarTab, useStoreUIActiveFooterBarTab, useStoreUIActiveFocusItem } from '@/core/stores/states/ui-state';
 import { useStoreAppIsCrosshairsActive } from '@/core/stores/states/app-state';
 import {
   useStoreLayerNameSet,
@@ -101,6 +101,7 @@ export function DetailsPanel({ containerType }: DetailsPanelType): JSX.Element {
   const mapClickCoordinates = useStoreMapClickCoordinates();
   const { tabId: appBarTabId, isOpen: appBarIsOpen } = useStoreUIActiveAppBarTab();
   const { tabId: footerBarTabId, isOpen: footerBarIsOpen } = useStoreUIActiveFooterBarTab();
+  const focusItem = useStoreUIActiveFocusItem();
   const queryableByLayerPath = useStoreLayerQueryableByPaths(visibleInRangeLayers);
   const layerNames = useStoreLayerNameSet();
   const layerStatuses = useStoreLayerStatusSet();
@@ -622,10 +623,21 @@ export function DetailsPanel({ containerType }: DetailsPanelType): JSX.Element {
       appBarIsOpen
     );
 
-    if (mapClickCoordinates && isCrosshairsActive && containerType === CONTAINER_TYPE.APP_BAR && appBarIsOpen && appBarTabId) {
+    if (
+      mapClickCoordinates &&
+      isCrosshairsActive &&
+      containerType === CONTAINER_TYPE.APP_BAR &&
+      appBarIsOpen &&
+      appBarTabId === TABS.DETAILS
+    ) {
+      uiController.setFocusEscapeReturn({
+        containerId: DomHelper.buildAppBarPanelId(mapId, appBarTabId),
+        elementId: DomHelper.buildMapTargetElementId(mapId),
+      });
+      layoutRef.current?.showRightPanel(true);
       DomHelper.getAppBarPanelCloseButton(mapId, appBarTabId)?.focus({ focusVisible: true });
     }
-  }, [mapClickCoordinates, isCrosshairsActive, containerType, appBarIsOpen, appBarTabId, mapId]);
+  }, [mapClickCoordinates, isCrosshairsActive, containerType, appBarIsOpen, appBarTabId, mapId, uiController]);
 
   /**
    * Selects a layer after a map click.
@@ -885,6 +897,11 @@ export function DetailsPanel({ containerType }: DetailsPanelType): JSX.Element {
       guideContentIds={[TABS.DETAILS]}
       hideEnlargeBtn={containerType === CONTAINER_TYPE.APP_BAR}
       toggleMode={containerType === CONTAINER_TYPE.APP_BAR}
+      disableEnforceFocus={containerType === CONTAINER_TYPE.APP_BAR}
+      focusOnEntry={
+        containerType !== CONTAINER_TYPE.APP_BAR ||
+        focusItem.escapeReturn?.containerId !== DomHelper.buildAppBarPanelId(mapId, TABS.DETAILS)
+      }
       compact={containerType === CONTAINER_TYPE.APP_BAR && isRightPanelVisible}
     >
       {renderContent()}

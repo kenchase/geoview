@@ -125,9 +125,9 @@ export function Map(props: MapProps): JSX.Element {
         if (mapInteraction !== 'static' && mapElement.current) {
           event.preventDefault();
 
-          // Finish closing panels and restoring their focus before transferring focus to the map.
+          // Release panel focus traps before transferring focus to the map.
           flushSync((): void => {
-            uiController.closeMapPopovers();
+            uiController.closeMapControls();
             setShortcutMessage('');
           });
 
