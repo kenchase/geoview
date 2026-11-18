@@ -8,6 +8,11 @@ Keyboard navigation, focus management, screen reader support, and WCAG complianc
 
 Test page: `templates/tests/wcag.html`
 
+Crosshair/Details regression rows use [tests.html](https://canadian-geospatial-platform.github.io/geoview/public/tests.html),
+**Group 6 — A11Y and UX, map13**, which has app-bar Details/Layers, map popovers, a footer panel, and local polygon features.
+Enable **Settings → Keyboard navigation** for manual checks. Rows marked `A` are covered by that suite;
+the remaining rows still require manual verification.
+
 ---
 
 ## Skip Links
@@ -44,12 +49,17 @@ When tabbing into GeoView for the first time, a dialog appears asking to enable 
 
 | Test                            | Description                   | Steps                                                             | Expected Result                                                                     | Auto |
 | ------------------------------- | ----------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ---- |
-| Ctrl+M activates crosshair      | Crosshair shown at center     | 1. Focus the map (via Tab or skip link)<br>2. Press `Ctrl+M`      | Crosshair graphic appears at the map center                                         | M    |
+| Ctrl+M activates crosshair      | Focus map without toggling    | 1. On map13, focus a viewer control with no panel open<br>2. Press `Ctrl+M` twice | Map stays focused with the crosshair active; no feature query is triggered | A    |
+| Crosshair graphic at map centre | Visual placement and rendering | 1. On map13, focus a viewer control<br>2. Press `Ctrl+M`<br>3. Inspect the map | Crosshair graphic is visible at the centre of the map viewport | M |
+| Ctrl+M closes map controls      | Preserve footer, not triggers | 1. On map13, open app-bar Details with its feature sub-panel, a map popover, and a footer panel<br>2. Press `Ctrl+M`<br>3. Repeat with Layers and the other map popovers | Entire app-bar panel and popover close without reclaiming focus; footer stays open; map is focused and crosshair active | A |
+| Ctrl+M respects modal dialogs   | Focus-owned modal stays open  | 1. Open Export on map13, then repeat with the layer data table modal and feature detail modal<br>2. Focus a modal control<br>3. Press `Ctrl+M` | Modal stays open and focused; crosshair stays inactive | M |
+| Ctrl+M in Export dropdown       | Portaled menu stays focused   | 1. On map13, open Export and expand its format dropdown<br>2. Focus a format option<br>3. Press `Ctrl+M` | Export and its dropdown stay open; focus stays in the dropdown; crosshair stays inactive | A |
+| Ctrl+M in Share                 | Preserve existing Share focus | 1. On map13, open Share<br>2. Press `Ctrl+M` | Share stays open and focused; crosshair stays inactive | A |
 | First focus is skip-to-map link | Skip link before map canvas   | 1. Enter the map area via Tab                                     | First focusable element is the skip-to-map link (not the map canvas directly)       | M    |
 | Arrow keys pan                  | Map pans with arrows          | 1. With crosshair active, press arrow keys                        | Map pans in the arrow direction (default 128px step)                                | M    |
 | Shift+Up increases step         | Coarser movement              | 1. With crosshair active, press Shift+ArrowUp                     | Pan step increases by 10px (for faster large moves)                                 | M    |
 | Shift+Down decreases step       | Finer movement                | 1. Press Shift+ArrowDown                                          | Pan step decreases by 10px (minimum 10px, for precise positioning over features)    | M    |
-| Enter queries features          | Details close focus repeat   | 1. Position crosshair over a feature<br>2. Press Enter<br>3. Wait for feature attributes to load<br>4. Confirm the Details panel header Close remains focused<br>5. Press Enter to close<br>6. Pan to another feature and press Enter | Focus remains on the Details header Close while attributes load; closing restores the crosshair for the next query | M    |
+| Enter queries features          | Main Close focus after loading | 1. On map13, use `Ctrl+M`, position the crosshair over a polygon, and press Enter<br>2. Wait for results and deferred focus<br>3. Press Esc once<br>4. Repeat over polygons, over empty space, and after closing the sub-panel at the same coordinates | Feature sub-panel (or guide for no features) opens; main Details Close stays focused, never sub-panel Close; one Esc closes Details and restores map focus with the crosshair active | A |
 | Static map — no crosshair       | Crosshair disabled on static  | 1. Load a static map (`interaction: 'static'`)<br>2. Press Ctrl+M | Crosshair does NOT activate; map element has `tabIndex=-1` (not keyboard-focusable) | M    |
 | Static map — viewer controls    | Viewer still accessible       | 1. On same static map, Tab through controls                       | App bar (notifications, about) and map info (attribution, scale) are focusable      | M    |
 | Rotation                        | Crosshair works with rotation | 1. Rotate the map<br>2. Use crosshair                             | Crosshair and panning work correctly with rotation applied                          | M    |
@@ -71,7 +81,7 @@ Host page → Top skip link → App Bar → Map → Nav Bar → Footer Bar → B
 
 ## Panel Focus Trapping (WCAG Mode)
 
-When WCAG mode is enabled and a panel opens, focus should be trapped within it.
+Keyboard-owned panels retain Tab/Shift+Tab boundaries. Non-modal panels permit deliberate pointer interaction outside them.
 
 ### Footer Bar Panels
 
@@ -100,7 +110,15 @@ When WCAG mode is enabled and a panel opens, focus should be trapped within it.
 | Details panel trap (app bar)    | Focus trapped in Details via app bar    | 1. Open Details from app bar<br>2. Press Tab    | Focus is trapped                                   | M    |
 | Layers panel trap (app bar)     | Focus trapped in Layers via app bar     | 1. Open Layers from app bar<br>2. Press Tab     | Focus is trapped                                   | M    |
 | Data Table panel trap (app bar) | Focus trapped in Data Table via app bar | 1. Open Data Table from app bar<br>2. Press Tab | Focus is trapped                                   | M    |
-| Escape closes app bar panel     | Escape returns to app bar button        | 1. Press Escape                                 | Focus returns to the app bar button that opened it | M    |
+| Escape closes app bar panel     | Ordinary dismissal returns to trigger   | 1. Open a panel without a crosshair query<br>2. Press Escape from its main level | Focus returns to the app-bar button that opened it | M |
+| Details nested Escape           | Close the focused level first | 1. Query a polygon on map13 with the crosshair<br>2. Move focus into feature navigation and switch features<br>3. Press Esc<br>4. Press Esc again | First Esc closes only the feature sub-panel and focuses its layer item; second closes Details and restores map focus with the crosshair active | A |
+| Details internal navigation     | Keep the crosshair return | 1. Query a polygon on map13<br>2. Navigate within Details using Tab/arrows and switch results<br>3. Move the mouse without clicking<br>4. Escape through the focused levels | Internal navigation and mouse movement preserve the main-panel Esc return to the crosshair | A |
+| Details focus leaves            | Do not enforce inner focus | 1. Query a polygon on map13 and focus feature navigation<br>2. Move focus to the Layers app-bar button<br>3. Press Esc | Focus stays on Layers, is not pulled back into Details, and does not return to the crosshair | A |
+| Details pointer cancellation    | A click inside cancels return | 1. Query a polygon on map13<br>2. Click Next feature inside Details<br>3. Escape through both levels | Sub-panel closes to its layer item; main-panel Esc does not return to the crosshair | A |
+| Details ordinary closure        | Preserve Close and mouse opening | 1. Query with the crosshair and activate main Close<br>2. Open Details by clicking a polygon and dismiss it with Esc | Close retains its ordinary focus behavior; mouse-opened Details does not gain an Esc return to the crosshair | A |
+| Details remembered sub-panel    | Reopen without a new query | 1. On map13, click a polygon and select a feature<br>2. Close/reopen Details using its app-bar button<br>3. Repeat after Ctrl+M dismissal | Same feature sub-panel, layer, and selected feature reopen | A |
+| Details sub-panel Tab boundary  | Keep forward/reverse wrapping | 1. On map13, open the Details feature sub-panel<br>2. Tab past its last control<br>3. Shift+Tab before its first control | Tab and Shift+Tab wrap within the feature sub-panel as before | M |
+| Details window blur             | Cancel return when window loses focus | 1. Query a polygon on map13<br>2. Switch to another window and back<br>3. Escape through the focused levels | Details closes normally without restoring the crosshair | M |
 
 ## Panel Full Screen Mode Focus
 

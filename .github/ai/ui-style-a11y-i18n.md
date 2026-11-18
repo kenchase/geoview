@@ -161,8 +161,14 @@ Contracts: [Keyboard navigation](../../docs/app/accessibility.md#keyboard-naviga
   is the OpenLayers canvas container. [Map](../../packages/geoview-core/src/core/components/map/map.tsx)
   assigns `tabIndex=0` for dynamic maps and `-1` for static maps. Its Ctrl/Cmd+M handler requires
   focus inside that viewer and non-static interaction; it activates rather than toggles the crosshair.
-  Flush map-control popover closure (navbar, About/Version, Notifications) before focusing the map
-  so MUI focus restoration cannot reclaim focus; clear the registered focus item without restoring caller focus.
+  Guard Ctrl/Cmd+M with `UIController.isFocusOwnedModalOpen()` before `notifyMapKeyboardEvent` or any
+  shortcut side effect. It reads only `focusItem.activeElementId`: `export`, `layerDataTable`, and
+  `featureDetailDataTable`, so portaled dropdown focus does not bypass the guard. Fullscreen dialogs
+  and Lightbox are not covered; Share keeps its existing portal container outside the map root.
+  Other keyboard notifications are unaffected; do not replace the owner check with DOM visibility heuristics.
+  Flush app-bar panel and map-popover closure (navbar, About/Version, Notifications) before focusing
+  the map so MUI focus restoration cannot reclaim focus; clear the registered focus item without
+  restoring caller focus. Leave footer panels and remembered Details sub-panel state unchanged.
   Derive panel openness from the close-request version during render; closing through a passive
   effect schedules a second render whose focus-trap cleanup can run after map focus. New map-control
   popovers use the `useMapPopover` hook, which owns that derivation, rather than re-implementing it.
@@ -202,8 +208,10 @@ Contracts: [Keyboard navigation](../../docs/app/accessibility.md#keyboard-naviga
   click-away or supersede focus after a genuine modal opens. Non-modal shell, panel, and Popper traps
   may disable enforcement while retaining their Tab boundaries; never relax containment for actual
   modal dialogs. Remove `aria-modal` from non-modal panels.
-  App-bar panel Escape dismissal must use the same close handler as the header Close button:
-  Details returns focus to the map while the crosshair is active, not to the Details toolbar button.
+  App-bar Escape first calls `UIController.restoreFocusOnEscape(containerId)`; a matching
+  `focusItem.escapeReturn` is consumed into the existing one-shot focus restoration request with
+  `reactivateCrosshair`. Otherwise it uses the ordinary header Close handler. Close itself does not
+  consume the crosshair return.
   Cancel delayed focus work when its owner closes or changes, and guard against restoring focus over
   a newer modal or panel.
   About, Notifications, and navbar popovers read the current store owner in their coordination effects.
@@ -214,6 +222,23 @@ Contracts: [Keyboard navigation](../../docs/app/accessibility.md#keyboard-naviga
   in a passive effect.
   [ResponsiveGridLayout](../../packages/geoview-core/src/core/components/common/responsive-grid-layout.tsx)
   also checks toggle/mobile mode, content, and right-panel visibility.
+- [DetailsPanel](../../packages/geoview-core/src/core/components/details/details-panel.tsx) records
+  `focusItem.escapeReturn` (app-bar Details container and map target IDs from `DomHelper`) before
+  showing its right panel and focusing the main Close button for a crosshair query. Keep this on
+  the existing focus item, not a parallel query-origin flag. Shell preserves the link through internal
+  focus moves and keyboard-generated clicks, including sub-panel Escape back to the layer item;
+  document focus leaving the container, pointerdown, a real mouse click, or window blur cancels it.
+  Mouse movement does not. Only main-panel Escape consumes it.
+  Pass `focusOnEntry` through Layout to suppress automatic feature/guide focus during this handoff:
+  map blur deactivates the crosshair and otherwise enables a competing sub-panel animation-frame focus.
+  ResponsiveGridLayout reads the latest permission through a ref, not an opening-effect dependency;
+  re-enabling permission when the link clears must not steal focus back. Cancel pending autofocus
+  frames on cleanup and preserve explicit layer/Guide navigation.
+  Enable `disableEnforceFocus` only for app-bar Details: main Close is outside the inner feature trap,
+  and leaving Details must stay effective rather than being pulled back. Tab/Shift+Tab still wrap;
+  other ResponsiveGridLayout consumers keep default enforcement. Do not add `disableRestoreFocus`.
+  Do not reset the right panel on outer dismissal: reopening via app-bar, Close, Esc, or Ctrl+M must
+  retain its existing sub-panel/feature selection.
 - Right-panel scrolling belongs to `.panel-content-container`, not its outer wrapper. It takes the
   remaining flex height below the panel controls. Preserve its keyboard focusability and vertical scroll
   containment (#3697).
