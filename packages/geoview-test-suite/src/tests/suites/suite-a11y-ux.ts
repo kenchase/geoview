@@ -54,7 +54,7 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
    * @returns The full-suite test count
    */
   override getTestsTotalFinal(): number {
-    return 7;
+    return 8;
   }
 
   /**
@@ -83,6 +83,7 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
       await this.#a11yUxTester.testDetailsEscapeFocusLeaveCancellation();
       await this.#a11yUxTester.testKeyboardShortcutIgnoredForExportModal();
       await this.#a11yUxTester.testKeyboardShortcutIgnoredForShareModal();
+      await this.#a11yUxTester.testKeyboardShortcutIgnoredForExportModal(true);
     })();
   }
 }

@@ -15,6 +15,7 @@ import {
   clearStoreUIFocusRestoreRequest,
   disableStoreUIFocusTrap,
   enableStoreUIFocusTrap,
+  getStoreUIFocusItem,
   hideStoreUITabButton,
   removeStoreUIAppBarPanelId,
   removeStoreUIFooterTab,
@@ -315,6 +316,16 @@ export class UIController extends AbstractMapViewerController {
   bumpNavBarButtonPanelVersion(): void {
     // Save in the store
     bumpStoreUINavBarButtonPanelVersion(this.getMapId());
+  }
+
+  /**
+   * Checks whether an existing focus-owned modal is open. Excludes fullscreen dialogs and Lightbox.
+   *
+   * @returns Whether Export, the data table modal, or the feature detail modal owns focus
+   */
+  isFocusOwnedModalOpen(): boolean {
+    const { activeElementId } = getStoreUIFocusItem(this.getMapId());
+    return activeElementId === 'export' || activeElementId === 'layerDataTable' || activeElementId === 'featureDetailDataTable';
   }
 
   /**

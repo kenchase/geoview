@@ -112,12 +112,15 @@ export function Map(props: MapProps): JSX.Element {
       // Only handle shortcuts while focus is within this specific map instance.
       if (!activeElement) return;
 
+      const isMapFocusShortcut = (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'm' && !event.shiftKey;
+      if (isMapFocusShortcut && uiController.isFocusOwnedModalOpen()) return;
+
       const isTextInputFocused = DomHelper.isInputOrContentEditableElement(activeElement);
       const isMapTargetFocused = mapElement.current?.contains(activeElement) ?? false;
       viewer.notifyMapKeyboardEvent({ keyboardEvent: event, isTextInputFocused, isMapTargetFocused });
 
       // Ctrl+M (or Cmd+M on Mac)
-      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'm' && !event.shiftKey) {
+      if (isMapFocusShortcut) {
         // Only activate if map interaction is not static
         if (mapInteraction !== 'static' && mapElement.current) {
           event.preventDefault();

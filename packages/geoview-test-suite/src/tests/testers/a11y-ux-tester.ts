@@ -853,9 +853,10 @@ export class A11yUxTester extends GVAbstractTester {
   /**
    * Tests Ctrl+M is ignored while Export is open.
    *
+   * @param withFormatDropdown - Whether to press the shortcut from Export's portaled format dropdown
    * @returns A promise that resolves with Export modal and keyboard notification observations
    */
-  testKeyboardShortcutIgnoredForExportModal(): Promise<Test<TypeExportModalShortcutResult>> {
+  testKeyboardShortcutIgnoredForExportModal(withFormatDropdown = false): Promise<Test<TypeExportModalShortcutResult>> {
     const mapId = this.getMapId();
     const viewer = this.getMapViewer();
     const { uiController } = this.getControllersRegistry();
@@ -866,6 +867,8 @@ export class A11yUxTester extends GVAbstractTester {
     const originalAppBar = getStoreUIActiveAppBarTab(mapId);
     const keyboardEvents: Array<{ key: string; ctrlKey: boolean }> = [];
     let exportDialog: HTMLElement | undefined;
+    let formatDropdown: HTMLElement | undefined;
+    let formatSelect: HTMLElement | undefined;
 
     /** Dispatches a key from the currently focused element, whether inside or outside the viewer root. */
     const pressActiveKey = (key: string, ctrlKey = false): void => {
@@ -879,7 +882,9 @@ export class A11yUxTester extends GVAbstractTester {
     });
 
     return this.test(
-      'Test Ctrl+M does nothing while Export is open',
+      withFormatDropdown
+        ? 'Test Ctrl+M does nothing while Export format dropdown is open'
+        : 'Test Ctrl+M does nothing while Export is open',
       async (test): Promise<TypeExportModalShortcutResult> => {
         const exportButton = DomHelper.getGVElementByFullId<HTMLButtonElement>(mapId, `${mapId}-appBar-export-modal-btn`);
         const mapTarget = DomHelper.getMapTargetElement(mapId);
@@ -905,15 +910,31 @@ export class A11yUxTester extends GVAbstractTester {
         if (!openedExportDialog) throw new TestError('The Export modal must be mounted after opening');
         const exportTitleInput = openedExportDialog.querySelector<HTMLInputElement>(`#${CSS.escape(`${mapId}-export-title-input`)}`);
         if (!exportTitleInput) throw new TestError('The open Export modal must contain its title input');
-        exportTitleInput.focus();
+        if (!withFormatDropdown) exportTitleInput.focus();
         await whenThisThen(() => {
           const activeElement = DomHelper.getActiveElement();
+          if (withFormatDropdown) return activeElement === exportTitleInput;
           return !!activeElement && openedExportDialog.contains(activeElement);
         }, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
         const notificationsBeforeOrdinaryKey = keyboardEvents.length;
         pressActiveKey('x');
         const ordinaryKeyboardNotification = keyboardEvents.length > notificationsBeforeOrdinaryKey;
         const exportOpenBeforeShortcut = getStoreUIFocusItem(mapId).activeElementId === 'export';
+        if (withFormatDropdown) {
+          test.addStep('Opening the format dropdown and waiting for focus in its portaled list...');
+          formatSelect = openedExportDialog.querySelector<HTMLElement>('[role="combobox"]') ?? undefined;
+          if (!formatSelect) throw new TestError('Export must contain its format selector');
+          formatSelect.focus();
+          pressActiveKey('ArrowDown');
+          await whenThisThen(() => {
+            const listId = formatSelect?.getAttribute('aria-controls');
+            formatDropdown = listId ? DomHelper.getGVElementByFullId(mapId, listId) : undefined;
+            const activeElement = DomHelper.getActiveElement();
+            return formatSelect?.getAttribute('aria-expanded') === 'true' && !!activeElement && !!formatDropdown?.contains(activeElement);
+          }, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        }
+        const dropdownExpandedBeforeShortcut = formatSelect?.getAttribute('aria-expanded') === 'true';
+        test.addStep('Pressing Ctrl+M from the focused Export control...');
         pressActiveKey('m', true);
         await DomHelper.waitForReactIdle();
         const exportOpenAfterShortcut = getStoreUIFocusItem(mapId).activeElementId === 'export';
@@ -929,20 +950,45 @@ export class A11yUxTester extends GVAbstractTester {
           exportCtrlMNotifications,
           crosshairAfterExportShortcut,
           ordinaryKeyboardNotification,
+          dropdown: withFormatDropdown
+            ? {
+                expandedBeforeShortcut: dropdownExpandedBeforeShortcut,
+                expandedAfterShortcut: formatSelect?.getAttribute('aria-expanded') === 'true',
+                focusStayedInDropdown: !!exportFocusAfter && !!formatDropdown?.contains(exportFocusAfter),
+                outsideDialog: !!formatDropdown && !openedExportDialog.contains(formatDropdown),
+              }
+            : undefined,
         };
       },
       (test, result): void => {
         test.addStep('Verifying Export remains open and focused, without crosshair or keyboard-notification side effects...');
         Test.assertIsEqual(result.exportOpenBeforeShortcut, true);
         Test.assertIsEqual(result.exportOpenAfterShortcut, true);
-        Test.assertIsEqual(result.exportFocusStayedInModal, true);
+        if (withFormatDropdown) {
+          Test.assertIsDefined('Export format dropdown observations', result.dropdown);
+          test.addStep('Verifying the format dropdown was expanded outside the dialog before Ctrl+M...');
+          Test.assertIsEqual(result.dropdown.expandedBeforeShortcut, true);
+          Test.assertIsEqual(result.dropdown.outsideDialog, true);
+          test.addStep('Verifying Ctrl+M leaves the format dropdown expanded...');
+          Test.assertIsEqual(result.dropdown.expandedAfterShortcut, true);
+          test.addStep('Verifying focus stays inside the format dropdown...');
+          Test.assertIsEqual(result.dropdown.focusStayedInDropdown, true);
+        } else {
+          Test.assertIsEqual(result.exportFocusStayedInModal, true);
+        }
+        test.addStep('Verifying Ctrl+M sends no map keyboard notification...');
         Test.assertIsEqual(result.exportCtrlMNotifications, 0);
+        test.addStep('Verifying Ctrl+M leaves the crosshair inactive...');
         Test.assertIsEqual(result.crosshairAfterExportShortcut, false);
 
         Test.assertIsEqual(result.ordinaryKeyboardNotification, true);
       },
       async (): Promise<void> => {
         viewer.offMapKeyboardEvent(keyboardEventDelegate);
+        if (formatSelect?.getAttribute('aria-expanded') === 'true' && formatDropdown?.isConnected) {
+          formatDropdown.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true, cancelable: true }));
+          await DomHelper.waitForReactIdle();
+        }
         if (getStoreUIFocusItem(mapId).activeElementId === 'export') uiController.disableFocusTrap('no-focus');
         uiController.setCrosshairActive(false);
         uiController.setActiveAppBarTab(originalAppBar.tabId, originalAppBar.isOpen, originalAppBar.isFocusTrapped ?? false);
@@ -1153,6 +1199,14 @@ interface TypeExportModalShortcutResult {
   exportCtrlMNotifications: number;
   crosshairAfterExportShortcut: boolean;
   ordinaryKeyboardNotification: boolean;
+  dropdown:
+    | {
+        expandedBeforeShortcut: boolean;
+        expandedAfterShortcut: boolean;
+        focusStayedInDropdown: boolean;
+        outsideDialog: boolean;
+      }
+    | undefined;
 }
 
 /** Share modal observations after Ctrl+M. */
