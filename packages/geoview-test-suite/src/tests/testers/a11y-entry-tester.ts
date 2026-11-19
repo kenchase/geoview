@@ -1,4 +1,5 @@
 import { getStoreAppIsCrosshairsActive } from 'geoview-core/core/stores/states/app-state';
+import { getStoreMapInteraction } from 'geoview-core/core/stores/states/map-state';
 import { getStoreUIActiveTrapGeoView } from 'geoview-core/core/stores/states/ui-state';
 import { DomHelper } from 'geoview-core/core/utils/dom-helper';
 import { whenThisThen } from 'geoview-core/core/utils/utilities';
@@ -96,6 +97,24 @@ export class A11yEntryTester extends GVAbstractTester {
       entry.focus(a, 'mapTargetElement');
       entry.crosshair(a, true);
       entry.crosshair(COMPANION_ID, false);
+      entry.prompt();
+    });
+  }
+
+  /** @returns The static viewer's Enable focus destination and keyboard-mode observations */
+  testStaticEntryEnable(): Promise<Test<EntryCheck[]>> {
+    return this.#runEntryTest('Test Enable focuses the static viewer shell without activating the crosshair', async (entry) => {
+      const b = COMPANION_ID;
+      this.getApi().getMapViewer(b).setInteraction('static');
+      await DomHelper.waitForReactIdle();
+      entry.ids(b, 'wcag-link-to-map', false);
+      entry.ids(b, 'appBar-settings-btn', false);
+      await A11yEntryTester.#openPrompt(entry, b);
+      await entry.activate(A11yEntryTester.#requireControl(b, 'enable-focus'), 'Enable keyboard navigation on the static viewer');
+      entry.focus(b, 'shell');
+      entry.mode(b, true);
+      entry.mode(this.getMapId(), false);
+      entry.crosshair(b, false);
       entry.prompt();
     });
   }
@@ -234,20 +253,32 @@ export class A11yEntryTester extends GVAbstractTester {
           id,
           mode: getStoreUIActiveTrapGeoView(id),
           crosshair: getStoreAppIsCrosshairsActive(id),
+          interaction: getStoreMapInteraction(id),
+          interactions: this.getApi()
+            .getMapViewer(id)
+            .map.getInteractions()
+            .getArray()
+            .map((interaction) => ({ interaction, active: interaction.getActive() })),
         }));
         restore = async (): Promise<void> => {
-          for (const { id, mode, crosshair } of originalState) {
+          for (const { id, mode, crosshair, interaction, interactions } of originalState) {
             const enable = DomHelper.getGVElementById(id, 'enable-focus');
             if (enable) {
               enable.click();
               // eslint-disable-next-line no-await-in-loop -- The next case must not observe a closing modal from this case.
               await whenThisThen(() => !enable.isConnected, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
             }
-            const { uiController } = this.getApi().getMapViewer(id).controllers;
+            const viewer = this.getApi().getMapViewer(id);
+            if (getStoreMapInteraction(id) !== interaction) {
+              viewer.setInteraction(interaction);
+              interactions.forEach((state) => state.interaction.setActive(state.active));
+            }
+            const { uiController } = viewer.controllers;
             uiController.closeMapPopovers();
             uiController.setActiveTrapGeoView(mode);
             uiController.setCrosshairActive(crosshair);
           }
+          await DomHelper.waitForReactIdle();
           if (originalFocus instanceof HTMLElement && originalFocus.isConnected) originalFocus.focus({ preventScroll: true });
         };
         if (freshCompanion) {
@@ -351,7 +382,7 @@ interface EntryTestContext {
   pressKey: (key: string, label: string, modifiers?: Pick<KeyboardEventInit, 'shiftKey' | 'ctrlKey'>) => Promise<boolean>;
   activate: (control: HTMLElement, label: string) => Promise<void>;
   check: (label: string, actual: EntryValue, expected: EntryValue) => void;
-  ids: (id: string, suffix: string) => void;
+  ids: (id: string, suffix: string, present?: boolean) => void;
   focus: (id: string, suffix: string) => void;
   prompt: (id?: string) => void;
   mode: (id: string, expected: boolean) => void;

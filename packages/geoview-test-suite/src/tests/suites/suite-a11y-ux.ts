@@ -61,7 +61,7 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
    * @returns The full-suite test count
    */
   override getTestsTotalFinal(): number {
-    return 14;
+    return 15;
   }
 
   /**
@@ -94,6 +94,7 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
       await this.#a11yUxTester.testDetailsSubPanelReopensAfterDismissal();
       await this.#a11yEntryTester.testSettingsEntryGuard();
       await this.#a11yEntryTester.testForwardEntryEnable();
+      await this.#a11yEntryTester.testStaticEntryEnable();
       await this.#a11yEntryTester.testForwardAndReverseEntrySkip();
       await this.#a11yEntryTester.testTwoMapKeyboardShortcuts();
       await this.#a11yEntryTester.testUnansweredPromptStaysOpenOnMouseMove();

@@ -257,13 +257,13 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
   }, [activeTrapGeoView, gvRootElement, handleExit, handleScrolling, registerModeAction, setKeyboardNavigationMode]);
 
   /**
-   * Activates keyboard navigation and focuses the main-content skip link.
+   * Activates keyboard navigation and focuses the dynamic map's skip link or the static viewer's shell.
    */
   const handleEnable = useCallback((): void => {
     setOpen(false);
     setKeyboardNavigationMode(true);
-    requestFocus(() => DomHelper.getWCAGLinkToMap(mapId));
-  }, [mapId, requestFocus, setKeyboardNavigationMode]);
+    requestFocus(() => (isDynamic ? DomHelper.getWCAGLinkToMap(mapId) : DomHelper.getShellElement(mapId)));
+  }, [isDynamic, mapId, requestFocus, setKeyboardNavigationMode]);
 
   /**
    * Closes the entry prompt and focuses the skip link selected by the user.

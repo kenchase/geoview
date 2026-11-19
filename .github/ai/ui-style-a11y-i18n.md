@@ -193,8 +193,9 @@ Contracts: [Keyboard navigation](../../docs/app/accessibility.md#keyboard-naviga
   `.geoview-keyboard-active`/`.geoview-keyboard-inactive` and keep its viewer-level Tab boundary.
   The dynamic-map Settings switch and entry prompt must invoke the same mode lifecycle through the
   Shell callback; never add a config flag or a separate mode state. Settings stays mounted in the app bar
-  below Notifications on dynamic maps only. After Enable closes the prompt, focus
-  `DomHelper.getMainMap(mapId)`: the main-content skip link for dynamic maps, or the static map container.
+  below Notifications on dynamic maps only. After Enable closes the prompt, explicitly focus
+  `DomHelper.getWCAGLinkToMap(mapId)` for dynamic maps or `DomHelper.getShellElement(mapId)` for static maps.
+  Static maps omit the inner skip link; the shell has `tabIndex=-1` and accepts programmatic focus without FocusTrap autofocus.
   Do not focus the OpenLayers target or activate the crosshair on entry; the skip link owns that action.
   The inactive entry prompt may be dismissed by real pointer movement outside the prompt, but movement
   must not disable an already-enabled mode. Ignore zero movement and cancel any pending focus job when

@@ -945,6 +945,7 @@ are checked separately in the [manual WCAG plan](../../programming/release-testi
 | `testDetailsSubPanelReopensAfterDismissal`             | test | Test reopening Details preserves its feature sub-panel and selected layer/feature after app-bar and Ctrl+M dismissal |
 | `testSettingsEntryGuard`                              | test | Verify the per-viewer Settings switch, initial Tab guard, and repeatable boundary prompt |
 | `testForwardEntryEnable`                              | test | Verify the top-link Tab handler, Enable, and activation of the first viewer’s map skip link |
+| `testStaticEntryEnable`                               | test | Verify Enable focuses the static companion viewer's shell without activating its crosshair, then restores its interaction mode |
 | `testForwardAndReverseEntrySkip`                       | test | Verify Skip lands on the opposite outer link of the viewer entered in each direction |
 | `testTwoMapKeyboardShortcuts`                         | test | Verify crosshair blur and Ctrl+M/Ctrl+Q affect only the appropriate viewer |
 | `testUnansweredPromptStaysOpenOnMouseMove`             | test | Verify mouse movement on the dialog overlay does not dismiss the unanswered prompt |
