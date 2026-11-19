@@ -21,6 +21,8 @@ import { useShellContainer } from './shell-container-context';
 interface FocusTrapProps {
   /** The map identifier. */
   mapId: string;
+  /** Whether the viewer supports dynamic interactions and Settings. */
+  isDynamic: boolean;
   /** Registers the coordinated keyboard-navigation mode lifecycle with the viewer shell. */
   registerModeAction: (action: (active: boolean) => void) => () => void;
 }
@@ -39,7 +41,7 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
   logger.logTraceRender('containers/focus-trap/focus-trap');
 
   // Read from props
-  const { mapId, registerModeAction } = props;
+  const { mapId, isDynamic, registerModeAction } = props;
 
   // Hooks
   const { t } = useTranslation<string>();
@@ -360,12 +362,15 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
       aria-labelledby={`${mapId}-wcag-dialog-title`}
       aria-describedby={`${mapId}-wcag-dialog-description`}
       fullScreen={fullScreen}
+      width={fullScreen ? '100%' : '32rem'}
       disableRestoreFocus
       sx={memoSxClasses.trap}
       titleId={`${mapId}-wcag-dialog-title`}
       title={t('keyboardnav.focusdialog.title')}
       contentTextId={`${mapId}-wcag-dialog-description`}
-      contentModal={<UseHtmlToReact htmlContent={t('keyboardnav.focusdialog.main')} />}
+      contentModal={
+        <UseHtmlToReact htmlContent={t(isDynamic ? 'keyboardnav.focusdialog.main' : 'keyboardnav.focusdialog.mainStatic')} omitWrappers />
+      }
       actions={
         <>
           <Button id={`${mapId}-enable-focus`} autoFocus onClick={handleEnable} type="text" sx={memoSxClasses.modalButton}>

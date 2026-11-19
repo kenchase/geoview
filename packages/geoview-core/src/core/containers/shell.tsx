@@ -627,7 +627,7 @@ export function Shell(props: ShellProps): JSX.Element {
               <Modal key={modalId} modalId={modalId} open={modalOpen} modalProps={modalProps} container={gvRootElement} />
             ))}
             {/* modal section start */}
-            <FocusTrapDialog mapId={mapViewer.mapId} registerModeAction={registerModeAction} />
+            <FocusTrapDialog mapId={mapViewer.mapId} isDynamic={interaction === 'dynamic'} registerModeAction={registerModeAction} />
             {mapLoaded && <ExportModal />}
             {focusItem.activeElementId === 'layerDataTable' && <DataTableModal />}
             {/* Show Feature Detail Modal when detail icon is clicked in datatable each row */}
