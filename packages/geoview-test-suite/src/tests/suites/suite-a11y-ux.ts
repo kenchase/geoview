@@ -2,6 +2,7 @@ import type { API } from 'geoview-core/api/api';
 import type { MapViewer } from 'geoview-core/geo/map/map-viewer';
 import type { ControllerRegistry } from 'geoview-core/core/controllers/base/controller-registry';
 import { TestSuiteCannotExecuteError } from '../core/exceptions';
+import { A11yEntryTester } from '../testers/a11y-entry-tester';
 import { A11yUxTester } from '../testers/a11y-ux-tester';
 import { GVAbstractTestSuite } from './abstract-gv-test-suite';
 
@@ -11,6 +12,9 @@ import { GVAbstractTestSuite } from './abstract-gv-test-suite';
 export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
   /** The accessibility and UX tester for this map. */
   #a11yUxTester: A11yUxTester;
+
+  /** The tester for keyboard entry across the two visible fixtures. */
+  #a11yEntryTester: A11yEntryTester;
 
   /**
    * Constructs the test suite.
@@ -22,7 +26,9 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
   constructor(api: API, mapViewer: MapViewer, controllerRegistry: ControllerRegistry) {
     super(api, mapViewer, controllerRegistry);
     this.#a11yUxTester = new A11yUxTester(api, mapViewer, controllerRegistry);
+    this.#a11yEntryTester = new A11yEntryTester(api, mapViewer, controllerRegistry);
     this.addTester(this.#a11yUxTester);
+    this.addTester(this.#a11yEntryTester);
   }
 
   /**
@@ -45,7 +51,8 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
       Enter queries again and reopens and focuses Details<br/>
       <b>Focus ownership</b> — Ctrl+M closes app-bar panels and map popovers but preserves footer panels;
       Escape returns from query-opened Details to the map only while focus ownership remains there<br/>
-      <b>Modal shortcut</b> — Ctrl+M is ignored while Export or Share is open`;
+      <b>Modal shortcut</b> — Ctrl+M is ignored while Export or Share is open<br/>
+      <b>Two-map entry</b> — entry prompt actions, Settings, and shortcut isolation with Group 6 visible in the foreground`;
   }
 
   /**
@@ -54,7 +61,7 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
    * @returns The full-suite test count
    */
   override getTestsTotalFinal(): number {
-    return 9;
+    return 14;
   }
 
   /**
@@ -85,6 +92,11 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
       await this.#a11yUxTester.testKeyboardShortcutIgnoredForShareModal();
       await this.#a11yUxTester.testKeyboardShortcutIgnoredForExportModal(true);
       await this.#a11yUxTester.testDetailsSubPanelReopensAfterDismissal();
+      await this.#a11yEntryTester.testSettingsEntryGuard();
+      await this.#a11yEntryTester.testForwardEntryEnable();
+      await this.#a11yEntryTester.testForwardAndReverseEntrySkip();
+      await this.#a11yEntryTester.testTwoMapKeyboardShortcuts();
+      await this.#a11yEntryTester.testUnansweredPromptStaysOpenOnMouseMove();
     })();
   }
 }

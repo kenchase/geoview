@@ -27,14 +27,14 @@ Three skip links are rendered (visually hidden, shown on focus).
 
 ## WCAG Mode Dialog
 
-When tabbing into GeoView for the first time, a dialog appears asking to enable keyboard navigation mode.
+Tabbing inward from an outer skip link opens a dialog asking to enable keyboard navigation mode.
 
 | Test                     | Description                      | Steps                                                  | Expected Result                                                 | Auto |
 | ------------------------ | -------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------- | ---- |
-| Dialog appears           | WCAG dialog shown on first entry | 1. Tab into the GeoView viewer from outside            | "Keyboard navigation" dialog appears                            | M    |
+| Dialog appears           | Inward Tab opens the dialog      | 1. Focus the top skip link<br>2. Press Tab             | "Keyboard navigation" dialog appears with focus on Enable       | M    |
 | Enable button            | Enables WCAG focus trap          | 1. Click "Enable"<br>2. Press Enter on the focused link | WCAG mode activates; focus starts on the top "Skip to main content - Map" link without activating the crosshair; Enter focuses the map and activates the crosshair | M    |
-| Skip button              | Bypasses viewer                  | 1. Click "Skip"                                        | Dialog closes; focus continues past the viewer without trapping | M    |
-| Dialog does not reappear | One-time per session             | 1. After clicking "Enable" or "Skip", continue tabbing | Dialog does not reappear on subsequent entries                  | M    |
+| Skip button              | Bypasses viewer in either direction | 1. Open from the top link and activate Skip<br>2. Repeat from the bottom link | Forward Skip focuses that viewer's bottom link; reverse Skip focuses its top link | M |
+| Dialog can reappear      | Boundary entry is repeatable     | 1. Dismiss the dialog<br>2. Tab inward from an outer skip link again | The same viewer's dialog reopens | M |
 
 ## Ctrl+Q Exit WCAG Mode
 
@@ -67,16 +67,14 @@ When tabbing into GeoView for the first time, a dialog appears asking to enable 
 
 ## Tab Order
 
-Natural tab order (with WCAG mode):
-
-```
-Host page → Top skip link → App Bar → Map → Nav Bar → Footer Bar → Bottom skip link → Host page continues
-```
+Use the two dynamic viewers in Group 6 of `tests.html` for the native entry and wrapping checks.
 
 | Test                        | Description                              | Steps                                             | Expected Result                                                                                           | Auto |
 | --------------------------- | ---------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ---- |
-| Full tab cycle              | Forward tab order correct                | 1. Press Tab repeatedly through the viewer        | Focus moves in the documented order above                                                                 | M    |
-| Shift+Tab reverses          | Reverse tab order correct                | 1. Press Shift+Tab                                | Focus moves in reverse order                                                                              | M    |
+| Forward entry               | Native Tab from the host page            | 1. Focus **Before the test viewers**<br>2. Press Tab twice | The first Tab focuses map13's top link; the second opens only map13's prompt | M |
+| Reverse entry               | Native Shift+Tab from the host page      | 1. Focus **After the test viewers**<br>2. Press Shift+Tab twice | The first Shift+Tab focuses map14's bottom link; the second opens only map14's prompt | M |
+| Forward wrap                | Native Tab stays in the enabled shell    | 1. Enable on map13 with no panels open<br>2. Press Tab past the last control inside the viewer | Focus wraps to map13's **Skip to main content - Map** link without leaving the viewer | M |
+| Reverse wrap                | Native Shift+Tab stays in the enabled shell | 1. Enable on map14 with no panels open<br>2. From **Skip to main content - Map**, press Shift+Tab | Focus wraps to the last control inside map14 without leaving the viewer | M |
 | Static map limited controls | Static map only exposes non-map controls | 1. Load a static map<br>2. Tab through the viewer | Only notification, about, copyright, and scale controls are focusable; Ctrl+M does not activate crosshair | M    |
 
 ## Panel Focus Trapping (WCAG Mode)
@@ -178,5 +176,5 @@ not a passing result for the universal focus-indicator check.
 
 | Test                      | Description                  | Steps                                                                                            | Expected Result                                                | Auto |
 | ------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | ---- |
-| Only one map in WCAG mode | Second map deactivates first | 1. With 2 maps on page, enable WCAG on the first map<br>2. Tab to the second map and enable WCAG | First map's WCAG mode deactivates (only one active at a time)  | M    |
-| Ctrl+Q exits active map   | Exit and switch maps         | 1. With WCAG active on one map, press Ctrl+Q<br>2. Tab to the other map                          | WCAG exits; dialog appears on the other map to enable it there | M    |
+| Independent keyboard modes | Enabling a second viewer leaves the first enabled | 1. Enable on map13<br>2. Use map14's Settings to enable it<br>3. Inspect the Settings switch in each map | Both switches are on | M |
+| Ctrl+Q exits the focused map | Exit only one viewer's mode | 1. Enable on both maps<br>2. Focus a control inside map14 and press Ctrl+Q | Focus moves to map14's top link; map14's mode turns off and map13's stays on | M |

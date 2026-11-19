@@ -928,6 +928,11 @@ its expected error. Finalizers restore the host width, map target, and usable vi
 **Suite:** `suite-a11y-ux` · **File:** `tests/suites/suite-a11y-ux.ts` · **Tester:** `A11yUxTester` (`tests/testers/a11y-ux-tester.ts`)
 **Execution:** Sequential on the dedicated map · **Guard:** Details must be available in the app bar
 
+The two-viewer entry cases use `A11yEntryTester` (`tests/testers/a11y-entry-tester.ts`) and share the same suite.
+Launch Group 6 with both viewers visible and the document focused. The cases dispatch input events automatically and
+are reported as skipped in the hidden Run All view or when the document is not focused. Native traversal and wrapping
+are checked separately in the [manual WCAG plan](../../programming/release-testing/21-wcag-accessibility.md#tab-order).
+
 | Method                                               | Type | Description |
 | ---------------------------------------------------- | ---- | ----------- |
 | `testKeyboardQueryMapFocusReturn`                    | test | Test Ctrl+M closes query-opened Details, returns focus to the map, and allows Enter to query again |
@@ -938,3 +943,8 @@ its expected error. Finalizers restore the host width, map target, and usable vi
 | `testKeyboardShortcutIgnoredForExportModal`           | test | Test Ctrl+M is ignored while Export is open, and other map keyboard notifications still fire |
 | `testKeyboardShortcutIgnoredForShareModal`            | test | Test Ctrl+M leaves Share open and focused without notifying the map |
 | `testDetailsSubPanelReopensAfterDismissal`             | test | Test reopening Details preserves its feature sub-panel and selected layer/feature after app-bar and Ctrl+M dismissal |
+| `testSettingsEntryGuard`                              | test | Verify the per-viewer Settings switch, initial Tab guard, and repeatable boundary prompt |
+| `testForwardEntryEnable`                              | test | Verify the top-link Tab handler, Enable, and activation of the first viewer’s map skip link |
+| `testForwardAndReverseEntrySkip`                       | test | Verify Skip lands on the opposite outer link of the viewer entered in each direction |
+| `testTwoMapKeyboardShortcuts`                         | test | Verify crosshair blur and Ctrl+M/Ctrl+Q affect only the appropriate viewer |
+| `testUnansweredPromptStaysOpenOnMouseMove`             | test | Verify mouse movement on the dialog overlay does not dismiss the unanswered prompt |
