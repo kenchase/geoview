@@ -96,7 +96,7 @@ Navigating within Details and moving the mouse preserve this return. Leaving Det
 
 ## Measure
 
-#### With a mouse
+### With a mouse
 
 1. Open **Measure**, enable the tool, and choose **Distance** or **Area**.
 2. Click the map to start, then click to add points.
@@ -105,7 +105,7 @@ Navigating within Details and moving the mouse preserve this return. Leaving Det
 5. Press **Esc** to cancel the sketch in progress. The tool stays enabled so you can start again.
 6. While a sketch is in progress, press **Ctrl+Z** or **Backspace** to undo the last point. Use **Clear** in the Measure panel to remove completed measurements.
 
-#### With the crosshair
+### With the crosshair
 
 Enable keyboard navigation, then open **Measure**, enable the tool, and choose **Distance** or **Area**. Press **Ctrl+M** to focus the map and display the crosshair.
 

@@ -302,25 +302,6 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
   useEventListener<HTMLElement>('keydown', manageLinks, DomHelper.getWCAGTopLink(mapId));
 
   /**
-   * Dismisses the inactive entry prompt after real pointer movement outside the dialog.
-   */
-  useEffect(() => {
-    logger.logTraceUseEffect('FOCUS-TRAP - dismiss entry prompt on pointer movement', open, activeTrapGeoView);
-    if (!open || activeTrapGeoView) return undefined;
-
-    const handleMouseMove = (event: MouseEvent): void => {
-      if (event.movementX === 0 && event.movementY === 0) return;
-      const promptElement = DomHelper.getGVElementById(mapId, 'wcag-dialog-title')?.closest('.MuiDialog-root');
-      if (event.target instanceof Node && promptElement?.contains(event.target)) return;
-      setOpen(false);
-      focusJobRef.current?.cancel();
-    };
-
-    gvRootElement.addEventListener('mousemove', handleMouseMove);
-    return (): void => gvRootElement.removeEventListener('mousemove', handleMouseMove);
-  }, [activeTrapGeoView, gvRootElement, mapId, open]);
-
-  /**
    * Focuses the enable button when the modal opens.
    */
   useEffect(() => {

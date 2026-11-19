@@ -52,7 +52,7 @@ Selon la configuration de la visionneuse, le coin inférieur droit de la carte c
 | <img src="{{assetsURL}}/img/guide/navigation/360.svg" alt="Une icône représentant la fonction « Rotation de la carte »" />               | Rotation de la carte     | Permet de contrôler la rotation de la carte avec un curseur de -180° à +180°. Le panneau comprend un bouton à bascule **Nord fixe** (disponible pour la projection LCC) pour garder la carte orientée le nord au haut, et un bouton de réinitialisation pour revenir à l'orientation initiale. |
 | <img src="{{assetsURL}}/img/guide/navigation/geolocation.svg" alt="Une icône représentant la fonction « Géolocalisation »" />            | Géolocalisation          | Permet de zoomer et de déplacer la carte sur votre position géographique.                                                                                                                                                                                                                      |
 | <img src="{{assetsURL}}/img/guide/navigation/home.svg" alt="Une icône représentant la fonction « Vue initiale »" />                      | Zoom à la vue initiale   | Permet de zoomer et de déplacer la carte pour retourner à la vue initiale.                                                                                                                                                                                                                     |
-| <img src="{{assetsURL}}/img/guide/navigation/measure.svg" alt="Une icône représentant la fonction « Mesurer »" />                        | Mesurer                  | Permet de mesurer des distances et des surfaces sur la carte. Basculez entre les modes distance (ligne) et surface (polygone). Consultez [Mesurer](#mesurer) pour les instructions à la souris et au clavier.                                |
+| <img src="{{assetsURL}}/img/guide/navigation/measure.svg" alt="Une icône représentant la fonction « Mesurer »" />                        | Mesurer                  | Permet de mesurer des distances et des surfaces sur la carte. Basculez entre les modes distance (ligne) et surface (polygone). Consultez [Mesurer](#mesurer) pour les instructions à la souris et au clavier.                                                                                  |
 | <img src="{{assetsURL}}/img/guide/navigation/basemapSelect.svg" alt="Une icône représentant la fonction « Changer la carte de base »" /> | Changer la carte de base | Permet de changer la carte de base.                                                                                                                                                                                                                                                            |
 | <img src="{{assetsURL}}/img/guide/navigation/projection.svg" alt="Une icône représentant la fonction « Changer la projection »" />       | Changer la projection    | Permet de changer la projection de la carte entre Web Mercator et LCC.                                                                                                                                                                                                                         |
 
@@ -96,7 +96,7 @@ La navigation dans Détails et les mouvements de la souris préservent ce retour
 
 ## Mesurer
 
-#### Avec une souris
+### Avec une souris
 
 1. Ouvrez **Mesurer**, activez l'outil et choisissez **Distance** ou **Surface**.
 2. Cliquez sur la carte pour commencer, puis cliquez pour ajouter des points.
@@ -105,7 +105,7 @@ La navigation dans Détails et les mouvements de la souris préservent ce retour
 5. Appuyez sur **Échap** pour annuler le tracé en cours. L'outil reste activé et vous pouvez recommencer.
 6. Pendant le tracé, appuyez sur **Ctrl+Z** ou **Retour arrière** pour annuler le dernier point. Utilisez **Effacer** dans le panneau Mesurer pour supprimer les mesures terminées.
 
-#### Avec le pointeur en croix
+### Avec le pointeur en croix
 
 Activez la navigation au clavier, puis ouvrez **Mesurer**, activez l'outil et choisissez **Distance** ou **Surface**. Appuyez sur **Ctrl+M** pour focaliser la carte et afficher le pointeur en croix.
 
