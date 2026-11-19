@@ -292,7 +292,7 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
       // prevent the event to tab to inner map
       event.preventDefault();
       event.stopPropagation();
-      navigationLinkRef.current = linkId === 'toplink' ? 'bottomlink' : 'toplink';
+      navigationLinkRef.current = linkId === 'toplink' ? 'wcag-bottomlink' : 'wcag-toplink';
 
       setOpen(true);
       // Show the entry prompt at the viewer's keyboard-navigation boundary.
