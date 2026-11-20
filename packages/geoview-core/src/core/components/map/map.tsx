@@ -113,7 +113,16 @@ export function Map(props: MapProps): JSX.Element {
       if (!activeElement) return;
 
       const isMapFocusShortcut = (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'm' && !event.shiftKey;
-      if (isMapFocusShortcut && uiController.isFocusOwnedModalOpen()) return;
+
+      if (isMapFocusShortcut) {
+        // Reserve the shortcut in this viewer whether it acts or is blocked: macOS maps Ctrl+M to Return,
+        // which would otherwise activate the focused control (e.g. a dialog's close button).
+        event.preventDefault();
+
+        // Ignore the shortcut while this viewer has a modal, even if focus escaped its dialog.
+        // Share renders outside the viewer root and its focused controls do not reach this handler.
+        if (DomHelper.queryGVSelector(mapId, '[role="dialog"][aria-modal="true"]')) return;
+      }
 
       const isTextInputFocused = DomHelper.isInputOrContentEditableElement(activeElement);
       const isMapTargetFocused = mapElement.current?.contains(activeElement) ?? false;
@@ -123,8 +132,6 @@ export function Map(props: MapProps): JSX.Element {
       if (isMapFocusShortcut) {
         // Only activate if map interaction is not static
         if (mapInteraction !== 'static' && mapElement.current) {
-          event.preventDefault();
-
           // Release panel focus traps before transferring focus to the map.
           flushSync((): void => {
             uiController.closeMapControls();

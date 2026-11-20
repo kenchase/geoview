@@ -86,7 +86,7 @@ When you focus the map using **Tab**, its skip link, or **Ctrl+M**, a crosshair 
 
 <img src="{{assetsURL}}/img/guide/navigation/crosshair.svg" alt="Crosshair marker displayed in the center of the map for keyboard navigation" style="width: 90%; height: 100px;"/>
 
-With focus inside a dynamic viewer, **Ctrl+M** (**Cmd+M** on macOS) focuses the map and activates the crosshair. It closes Side Bar panels, including Details, and navigation control panels, but leaves footer panels open. It does nothing while the **Download** dialog, the basic table view, or the data table's detailed view is open, including their dropdowns.
+With focus inside a dynamic viewer, **Ctrl+M** (**Cmd+M** on macOS) focuses the map and activates the crosshair. It closes Side Bar panels, including Details, and navigation control panels, but leaves footer panels open. It does nothing while a dialog is open.
 
 Use the **arrow** keys to move the map and **+** / **-** keys or **Ctrl+Up** / **Ctrl+Down** to zoom in and out. Press **Shift+Up** / **Shift+Down** to increase or decrease how far the map pans with each arrow key press. Press **Enter** to select a supported feature under the crosshair and display its associated data in the **Details** panel.
 

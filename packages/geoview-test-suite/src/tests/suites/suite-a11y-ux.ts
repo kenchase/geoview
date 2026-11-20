@@ -51,7 +51,7 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
       Enter queries again and reopens and focuses Details<br/>
       <b>Focus ownership</b> — Ctrl+M closes app-bar panels and map popovers but preserves footer panels;
       Escape returns from query-opened Details to the map only while focus ownership remains there<br/>
-      <b>Modal shortcut</b> — Ctrl+M is ignored while Export or Share is open<br/>
+      <b>Modal shortcut</b> — Ctrl+M is ignored while dialogs are open<br/>
       <b>Two-map entry</b> — entry prompt actions, Settings, and shortcut isolation with Group 6 visible in the foreground`;
   }
 
@@ -61,7 +61,7 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
    * @returns The full-suite test count
    */
   override getTestsTotalFinal(): number {
-    return 15;
+    return 22;
   }
 
   /**
@@ -83,6 +83,13 @@ export class GVTestSuiteA11yUx extends GVAbstractTestSuite {
    */
   protected override onLaunchTestSuite(): Promise<unknown> {
     return (async (): Promise<void> => {
+      await this.#a11yUxTester.testKeyboardShortcutIgnoredForOverlay('fullscreen');
+      await this.#a11yUxTester.testKeyboardShortcutIgnoredForOverlay('legend fullscreen');
+      await this.#a11yUxTester.testKeyboardShortcutIgnoredForOverlay('lightbox');
+      await this.#a11yUxTester.testKeyboardShortcutIgnoredForOverlay('export');
+      await this.#a11yUxTester.testKeyboardShortcutIgnoredForOverlay('basic table');
+      await this.#a11yUxTester.testKeyboardShortcutIgnoredForOverlay('feature detail');
+      await this.#a11yUxTester.testModalShortcutViewerIsolation();
       await this.#a11yUxTester.testKeyboardQueryMapFocusReturn();
       await this.#a11yUxTester.testKeyboardShortcutClosesPanelsAndPreservesFooter();
       await this.#a11yUxTester.testCrosshairDetailsEscapeReturnsToMap();

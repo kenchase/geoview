@@ -160,12 +160,14 @@ Contracts: [Keyboard navigation](../../docs/app/accessibility.md#keyboard-naviga
 - The `.geoview-map` wrapper contains the shell and focusable controls; `#{mapId}-mapTargetElement`
   is the OpenLayers canvas container. [Map](../../packages/geoview-core/src/core/components/map/map.tsx)
   assigns `tabIndex=0` for dynamic maps and `-1` for static maps. Its Ctrl/Cmd+M handler requires
-  focus inside that viewer and non-static interaction; it activates rather than toggles the crosshair.
-  Guard Ctrl/Cmd+M with `UIController.isFocusOwnedModalOpen()` before `notifyMapKeyboardEvent` or any
-  shortcut side effect. It reads only `focusItem.activeElementId`: `export`, `layerDataTable`, and
-  `featureDetailDataTable`, so portaled dropdown focus does not bypass the guard. Fullscreen dialogs
-  and Lightbox are not covered; Share keeps its existing portal container outside the map root.
-  Other keyboard notifications are unaffected; do not replace the owner check with DOM visibility heuristics.
+  focus inside that viewer; it activates rather than toggles the crosshair. Once focus is confirmed inside
+  the viewer, call `preventDefault()` before any branch (modal, static, or acting): macOS Chrome maps
+  Ctrl+M to Return, which otherwise activates the focused control, such as a dialog's close button.
+  Only dynamic maps act on the shortcut.
+  Before `notifyMapKeyboardEvent` or shortcut side effects, use `DomHelper.queryGVSelector` to check the
+  viewer root for `[role="dialog"][aria-modal="true"]`, independently of the focused element. Share
+  renders outside that root and is covered when its focus is outside the viewer. Dialogs remain matched
+  during exit transitions; do not substitute DOM visibility heuristics. Other keyboard notifications are unaffected.
   Flush app-bar panel and map-popover closure (navbar, About/Version, Notifications) before focusing
   the map so MUI focus restoration cannot reclaim focus; clear the registered focus item without
   restoring caller focus. Leave footer panels and remembered Details sub-panel state unchanged.

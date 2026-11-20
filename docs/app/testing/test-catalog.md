@@ -933,19 +933,21 @@ Launch Group 6 with both viewers visible and the document focused. The cases dis
 are reported as skipped in the hidden Run All view or when the document is not focused. Native traversal and wrapping
 are checked separately in the [manual WCAG plan](../../programming/release-testing/21-wcag-accessibility.md#tab-order).
 
-| Method                                               | Type | Description |
-| ---------------------------------------------------- | ---- | ----------- |
-| `testKeyboardQueryMapFocusReturn`                    | test | Test Ctrl+M closes query-opened Details, returns focus to the map, and allows Enter to query again |
-| `testKeyboardShortcutClosesPanelsAndPreservesFooter` | test | Test Ctrl+M closes app-bar panels and map popovers while preserving the open footer panel |
-| `testCrosshairDetailsEscapeReturnsToMap`             | test | Test Escape closes the feature sub-panel and focuses its layer item, then closes Details and returns to the map |
-| `testDetailsEscapeOwnershipCancellation`             | test | Test two-level Escape after mouse cancellation, mouse-open Details, and Close preserve existing focus behavior |
-| `testDetailsEscapeFocusLeaveCancellation`            | test | Test focus can leave query-opened Details' feature sub-panel, stays on Layers, and cancels its Escape focus return |
-| `testKeyboardShortcutIgnoredForExportModal`           | test | Test Ctrl+M is ignored while Export is open, and other map keyboard notifications still fire |
-| `testKeyboardShortcutIgnoredForShareModal`            | test | Test Ctrl+M leaves Share open and focused without notifying the map |
-| `testDetailsSubPanelReopensAfterDismissal`             | test | Test reopening Details preserves its feature sub-panel and selected layer/feature after app-bar and Ctrl+M dismissal |
-| `testSettingsEntryGuard`                              | test | Verify the per-viewer Settings switch, initial Tab guard, and repeatable boundary prompt |
-| `testForwardEntryEnable`                              | test | Verify the top-link Tab handler, Enable, and activation of the first viewer’s map skip link |
-| `testStaticEntryEnable`                               | test | Verify Enable focuses the static companion viewer's shell without activating its crosshair, then restores its interaction mode |
-| `testForwardAndReverseEntrySkip`                       | test | Verify Skip lands on the opposite outer link of the viewer entered in each direction |
-| `testTwoMapKeyboardShortcuts`                         | test | Verify crosshair blur and Ctrl+M/Ctrl+Q affect only the appropriate viewer |
-| `testUnansweredPromptStaysOpenOnMouseMove`             | test | Verify mouse movement on the dialog overlay does not dismiss the unanswered prompt |
+| Method                                               | Type | Description                                                                                                                                           |
+| ---------------------------------------------------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `testKeyboardQueryMapFocusReturn`                    | test | Test Ctrl+M closes query-opened Details, returns focus to the map, and allows Enter to query again                                                    |
+| `testKeyboardShortcutClosesPanelsAndPreservesFooter` | test | Test Ctrl+M closes app-bar panels and map popovers while preserving the open footer panel                                                             |
+| `testCrosshairDetailsEscapeReturnsToMap`             | test | Test Escape closes the feature sub-panel and focuses its layer item, then closes Details and returns to the map                                       |
+| `testDetailsEscapeOwnershipCancellation`             | test | Test two-level Escape after mouse cancellation, mouse-open Details, and Close preserve existing focus behavior                                        |
+| `testDetailsEscapeFocusLeaveCancellation`            | test | Test focus can leave query-opened Details' feature sub-panel, stays on Layers, and cancels its Escape focus return                                    |
+| `testKeyboardShortcutIgnoredForExportModal`          | test | Test Ctrl+M is ignored while Export is open, and other map keyboard notifications still fire                                                          |
+| `testKeyboardShortcutIgnoredForShareModal`           | test | Test Ctrl+M leaves Share open and focused without notifying the map                                                                                   |
+| `testKeyboardShortcutIgnoredForOverlay`              | test | Test Ctrl+M preserves fullscreen, image viewer, Export and table dialogs from their landing focus and escaped focus, and prevents the browser default |
+| `testModalShortcutViewerIsolation`                   | test | Test a modal in the companion viewer does not block Ctrl+M in the focused viewer                                                                      |
+| `testDetailsSubPanelReopensAfterDismissal`           | test | Test reopening Details preserves its feature sub-panel and selected layer/feature after app-bar and Ctrl+M dismissal                                  |
+| `testSettingsEntryGuard`                             | test | Verify the per-viewer Settings switch, initial Tab guard, and repeatable boundary prompt                                                              |
+| `testForwardEntryEnable`                             | test | Verify the top-link Tab handler, Enable, and activation of the first viewer’s map skip link                                                           |
+| `testStaticEntryEnable`                              | test | Verify Enable focuses the static companion viewer's shell without activating its crosshair, then restores its interaction mode                        |
+| `testForwardAndReverseEntrySkip`                     | test | Verify Skip lands on the opposite outer link of the viewer entered in each direction                                                                  |
+| `testTwoMapKeyboardShortcuts`                        | test | Verify crosshair blur and Ctrl+M/Ctrl+Q affect only the appropriate viewer                                                                            |
+| `testUnansweredPromptStaysOpenOnMouseMove`           | test | Verify mouse movement on the dialog overlay does not dismiss the unanswered prompt                                                                    |

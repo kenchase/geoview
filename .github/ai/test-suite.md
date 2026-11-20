@@ -52,6 +52,10 @@ Source boundaries most likely to produce misleading tests:
   `waitForRender()` there, since its `rendercomplete` event also depends on map sources finishing loading.
 - Before testing focus/blur behavior, verify `document.hasFocus()`; if false, bring the browser document to the foreground.
   A background document can update `activeElement` without firing the focus/blur events being tested.
+- Keep the real pointer off the test maps during multi-viewer focus runs: `MapViewer` focuses a map target on `mouseenter`
+  when that viewer is not in keyboard mode, so layout shifts under a resting pointer can steal focus into a companion viewer.
+- App-bar panels focus their close button after the opening transition. Wait for that focus before opening a dialog,
+  or the delayed panel focus can invalidate the dialog's shortcut assertions.
 - Query visibility is parent visibility plus current OL resolution limits; a hidden/out-of-range result is empty, not an error.
 - Layer visibility DOM checks must pass the Layers panel's `containerType` to `DomHelper.getVisibleButton` and
   `getVisibleButtonVisibility`; suffix-only row matching can select another panel's entry.

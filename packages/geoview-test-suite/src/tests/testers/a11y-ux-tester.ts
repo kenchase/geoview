@@ -18,6 +18,7 @@ import { Test } from '../core/test';
 import { GVAbstractTester } from './abstract-gv-tester';
 
 const MULTI_FEATURE_QUERY_EXTENT: Extent = [-88.5, 52.2, -85.5, 52.8];
+const MODAL_FOCUS_SETTLE_MS = 300;
 
 /**
  * Tests keyboard accessibility and cross-panel user interactions.
@@ -395,11 +396,15 @@ export class A11yUxTester extends GVAbstractTester {
     const originalAppBar = getStoreUIActiveAppBarTab(mapId);
     const originalFooterBar = getStoreUIActiveFooterBarTab(mapId);
 
-    /** Dispatches Ctrl+M from the element that currently owns focus in this map. */
+    const shortcutPrevented: boolean[] = [];
+
+    /** Dispatches Ctrl+M from the element that currently owns focus in this map and records whether its default was prevented. */
     const pressCtrlM = (): void => {
       const activeElement = DomHelper.getActiveElementWithinMap(mapId);
       if (!activeElement) throw new TestError('Ctrl+M panel test requires focus inside its existing map');
-      activeElement.dispatchEvent(new KeyboardEvent('keydown', { key: 'm', ctrlKey: true, bubbles: true, cancelable: true }));
+      shortcutPrevented.push(
+        !activeElement.dispatchEvent(new KeyboardEvent('keydown', { key: 'm', ctrlKey: true, bubbles: true, cancelable: true }))
+      );
     };
 
     return this.test(
@@ -484,9 +489,12 @@ export class A11yUxTester extends GVAbstractTester {
           footerPreservedAfterMapPopover: footerAfterMapPopover.tabId === 'data-table' && footerAfterMapPopover.isOpen,
           mapFocusedWithNothingOpen: DomHelper.getActiveElement() === target,
           crosshairActiveWithNothingOpen: getStoreAppIsCrosshairsActive(mapId),
+          shortcutPrevented: [...shortcutPrevented],
         };
       },
       (test, result): void => {
+        test.addStep('Verifying every acting Ctrl+M prevents the browser default...');
+        Test.assertIsArrayEqual(result.shortcutPrevented, [true, true, true, true]);
         test.addStep('Verifying the Layers app-bar panel was open before Ctrl+M...');
         Test.assertIsEqual(result.appBarWasOpen, true);
         test.addStep('Verifying Ctrl+M closes the Layers app-bar panel...');
@@ -1065,20 +1073,20 @@ export class A11yUxTester extends GVAbstractTester {
     const originalCrosshair = getStoreAppIsCrosshairsActive(mapId);
     const originalFocusItem = getStoreUIFocusItem(mapId);
     const originalAppBar = getStoreUIActiveAppBarTab(mapId);
-    const keyboardEvents: Array<{ key: string; ctrlKey: boolean }> = [];
+    const keyboardEvents: KeyboardEvent[] = [];
     let exportDialog: HTMLElement | undefined;
     let formatDropdown: HTMLElement | undefined;
     let formatSelect: HTMLElement | undefined;
 
-    /** Dispatches a key from the currently focused element, whether inside or outside the viewer root. */
-    const pressActiveKey = (key: string, ctrlKey = false): void => {
+    /** Dispatches a key from the currently focused element, whether inside or outside the viewer root, and returns whether its default was prevented. */
+    const pressActiveKey = (key: string, ctrlKey = false): boolean => {
       const activeElement = DomHelper.getActiveElement();
       if (!activeElement) throw new TestError('Export modal keyboard test requires an active element');
-      activeElement.dispatchEvent(new KeyboardEvent('keydown', { key, ctrlKey, bubbles: true, cancelable: true }));
+      return !activeElement.dispatchEvent(new KeyboardEvent('keydown', { key, ctrlKey, bubbles: true, cancelable: true }));
     };
 
     const keyboardEventDelegate = viewer.onMapKeyboardEvent((_sender, event) => {
-      keyboardEvents.push({ key: event.keyboardEvent.key.toLowerCase(), ctrlKey: event.keyboardEvent.ctrlKey });
+      keyboardEvents.push(event.keyboardEvent);
     });
 
     return this.test(
@@ -1135,19 +1143,22 @@ export class A11yUxTester extends GVAbstractTester {
         }
         const dropdownExpandedBeforeShortcut = formatSelect?.getAttribute('aria-expanded') === 'true';
         test.addStep('Pressing Ctrl+M from the focused Export control...');
-        pressActiveKey('m', true);
+        const exportShortcutPrevented = pressActiveKey('m', true);
         await DomHelper.waitForReactIdle();
         const exportOpenAfterShortcut = getStoreUIFocusItem(mapId).activeElementId === 'export';
         const exportFocusAfter = DomHelper.getActiveElement();
         const exportFocusStayedInModal = !!exportDialog && !!exportFocusAfter && exportDialog.contains(exportFocusAfter);
-        const exportCtrlMNotifications = keyboardEvents.filter((event) => event.ctrlKey && event.key === 'm').length;
+        const exportShortcutNotifications = keyboardEvents.filter(
+          (event) => (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'm'
+        ).length;
         const crosshairAfterExportShortcut = getStoreAppIsCrosshairsActive(mapId);
 
         return {
           exportOpenBeforeShortcut,
           exportOpenAfterShortcut,
           exportFocusStayedInModal,
-          exportCtrlMNotifications,
+          exportShortcutNotifications,
+          exportShortcutPrevented,
           crosshairAfterExportShortcut,
           ordinaryKeyboardNotification,
           dropdown: withFormatDropdown
@@ -1177,7 +1188,9 @@ export class A11yUxTester extends GVAbstractTester {
           Test.assertIsEqual(result.exportFocusStayedInModal, true);
         }
         test.addStep('Verifying Ctrl+M sends no map keyboard notification...');
-        Test.assertIsEqual(result.exportCtrlMNotifications, 0);
+        Test.assertIsEqual(result.exportShortcutNotifications, 0);
+        test.addStep('Verifying Ctrl+M prevents the browser default...');
+        Test.assertIsEqual(result.exportShortcutPrevented, true);
         test.addStep('Verifying Ctrl+M leaves the crosshair inactive...');
         Test.assertIsEqual(result.crosshairAfterExportShortcut, false);
 
@@ -1216,18 +1229,18 @@ export class A11yUxTester extends GVAbstractTester {
     const originalCrosshair = getStoreAppIsCrosshairsActive(mapId);
     const originalFocusItem = getStoreUIFocusItem(mapId);
     const originalAppBar = getStoreUIActiveAppBarTab(mapId);
-    const keyboardEvents: Array<{ key: string; ctrlKey: boolean }> = [];
+    const keyboardEvents: KeyboardEvent[] = [];
     let shareDialog: HTMLElement | undefined;
 
-    /** Dispatches a key from the currently focused element outside the viewer root. */
-    const pressActiveKey = (key: string, ctrlKey = false): void => {
+    /** Dispatches a key from the currently focused element outside the viewer root and returns whether its default was prevented. */
+    const pressActiveKey = (key: string, ctrlKey = false): boolean => {
       const activeElement = DomHelper.getActiveElement();
       if (!activeElement) throw new TestError('Share modal keyboard test requires an active element');
-      activeElement.dispatchEvent(new KeyboardEvent('keydown', { key, ctrlKey, bubbles: true, cancelable: true }));
+      return !activeElement.dispatchEvent(new KeyboardEvent('keydown', { key, ctrlKey, bubbles: true, cancelable: true }));
     };
 
     const keyboardEventDelegate = viewer.onMapKeyboardEvent((_sender, event) => {
-      keyboardEvents.push({ key: event.keyboardEvent.key.toLowerCase(), ctrlKey: event.keyboardEvent.ctrlKey });
+      keyboardEvents.push(event.keyboardEvent);
     });
 
     return this.test(
@@ -1267,7 +1280,7 @@ export class A11yUxTester extends GVAbstractTester {
         const shareFocusBefore = DomHelper.getActiveElement();
         const shareDialogOpenBeforeShortcut = openedShareDialog.getAttribute('aria-modal') === 'true';
         const shareActiveElementOutsideMap = !DomHelper.getActiveElementWithinMap(mapId);
-        pressActiveKey('m', true);
+        const shareShortcutPrevented = pressActiveKey('m', true);
         await DomHelper.waitForReactIdle();
         const shareFocusAfter = DomHelper.getActiveElement();
         const shareDialogOpenAfterShortcut = openedShareDialog.getAttribute('aria-modal') === 'true';
@@ -1278,7 +1291,9 @@ export class A11yUxTester extends GVAbstractTester {
           shareFocusStayedInModal:
             !!shareFocusBefore && shareFocusAfter === shareFocusBefore && openedShareDialog.contains(shareFocusAfter),
           shareActiveElementOutsideMap,
-          shareCtrlMNotifications: keyboardEvents.filter((event) => event.ctrlKey && event.key === 'm').length,
+          shareShortcutPrevented,
+          shareShortcutNotifications: keyboardEvents.filter((event) => (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'm')
+            .length,
           crosshairRemainsInactive: !getStoreAppIsCrosshairsActive(mapId),
         };
       },
@@ -1288,7 +1303,9 @@ export class A11yUxTester extends GVAbstractTester {
         Test.assertIsEqual(result.shareDialogOpenAfterShortcut, true);
         Test.assertIsEqual(result.shareFocusStayedInModal, true);
         Test.assertIsEqual(result.shareActiveElementOutsideMap, true);
-        Test.assertIsEqual(result.shareCtrlMNotifications, 0);
+        // Share is outside the viewer root, so this viewer must leave the browser default alone.
+        Test.assertIsEqual(result.shareShortcutPrevented, false);
+        Test.assertIsEqual(result.shareShortcutNotifications, 0);
         Test.assertIsEqual(result.crosshairRemainsInactive, true);
       },
       async (): Promise<void> => {
@@ -1305,6 +1322,316 @@ export class A11yUxTester extends GVAbstractTester {
         if (originalFocus instanceof HTMLElement && originalFocus.isConnected) originalFocus.focus({ preventScroll: true });
         uiController.setCrosshairActive(originalCrosshair);
         await DomHelper.waitForReactIdle();
+      }
+    );
+  }
+
+  /**
+   * Tests Ctrl+M while an overlay is open over an app-bar panel.
+   *
+   * @param kind - The modal to open
+   * @returns A promise that resolves with modal and shortcut observations
+   */
+  testKeyboardShortcutIgnoredForOverlay(kind: TypeOverlayKind): Promise<Test<TypeOverlayShortcutResult>> {
+    const mapId = kind === 'legend fullscreen' || kind === 'basic table' ? 'map14' : this.getMapId();
+    const viewer = this.getApi().getMapViewer(mapId);
+    const { uiController } = viewer.controllers;
+    const originalFocus = DomHelper.getActiveElement();
+    const originalMode = getStoreUIActiveTrapGeoView(mapId);
+    const originalCrosshair = getStoreAppIsCrosshairsActive(mapId);
+    const originalFocusItem = getStoreUIFocusItem(mapId);
+    const originalAppBar = getStoreUIActiveAppBarTab(mapId);
+    const originalFooterBar = getStoreUIActiveFooterBarTab(mapId);
+    const keyboardEvents: KeyboardEvent[] = [];
+    let dialog: HTMLElement | undefined;
+    let closeButton: HTMLButtonElement | undefined;
+
+    const keyboardEventDelegate = viewer.onMapKeyboardEvent((_sender, event) => {
+      keyboardEvents.push(event.keyboardEvent);
+    });
+
+    return this.test(
+      `Test Ctrl+M does nothing while ${kind} is open`,
+      async (test): Promise<TypeOverlayShortcutResult> => {
+        const panelId = kind === 'legend fullscreen' ? 'legend' : 'layers';
+        const panelButton = DomHelper.getAppBarButton(mapId, panelId);
+        const mapTarget = DomHelper.getMapTargetElement(mapId);
+        if (!panelButton || !mapTarget) throw new TestError('The app-bar and map controls must be mounted');
+        if (!mapTarget.ownerDocument.hasFocus())
+          throw new TestError('Keyboard focus tests require the browser page to be in the foreground');
+
+        test.addStep('Preparing the viewer and its app-bar panel...');
+        uiController.closeMapPopovers();
+        uiController.setCrosshairActive(false);
+        uiController.setActiveAppBarTab(undefined, false, false);
+        uiController.disableFocusTrap('no-focus');
+        uiController.setActiveTrapGeoView(false);
+        if (kind === 'lightbox' || kind === 'feature detail') {
+          uiController.setActiveFooterBarTab('data-table');
+          await DomHelper.waitForReactIdle();
+          const layerButton = DomHelper.getGVElementById<HTMLButtonElement>(mapId, 'footerBar-data-table-geojsonLYR5/polygons.json');
+          if (!layerButton) throw new TestError('The Polygons Data Table layer must be mounted');
+          await whenThisThen(() => !layerButton.disabled, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+          layerButton.click();
+        }
+        await DomHelper.waitForReactIdle();
+        panelButton.click();
+        await whenThisThen(
+          () => getStoreUIActiveAppBarTab(mapId).isOpen && getStoreUIActiveAppBarTab(mapId).tabId === panelId,
+          GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS
+        );
+        await DomHelper.waitForReactIdle();
+        const panelClose = DomHelper.getGVElementById(mapId, `appBar-${panelId}-panel-close-btn`);
+        if (!panelClose) throw new TestError('The app-bar panel close button must be mounted');
+        // The panel focuses its close button after opening; let that finish before opening the dialog.
+        await whenThisThen(() => DomHelper.getActiveElement() === panelClose, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        test.addStep(`Opening the ${kind} dialog...`);
+        let openButton: HTMLElement | undefined;
+        if (kind === 'basic table') {
+          const layer = DomHelper.getGVElementById<HTMLElement>(mapId, 'appBar-layers-geojsonLYR5/polygons.json');
+          if (!layer) throw new TestError('The companion Polygons layer must be mounted');
+          layer.click();
+          await whenThisThen(() => {
+            const tableButton = DomHelper.getGVElementById<HTMLButtonElement>(mapId, 'appBar-table-details');
+            openButton = tableButton;
+            return !!tableButton && !tableButton.disabled;
+          }, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        } else if (kind === 'fullscreen' || kind === 'legend fullscreen') {
+          const panel = DomHelper.getAppBarPanel(mapId, panelId);
+          openButton =
+            panel?.querySelector<HTMLButtonElement>(
+              kind === 'fullscreen' ? 'button[aria-label^="Full screen,"]' : 'button[aria-label="Ouvrir en plein écran"]'
+            ) ?? undefined;
+        } else if (kind === 'export') {
+          openButton = DomHelper.getGVElementById<HTMLButtonElement>(mapId, 'appBar-export-modal-btn');
+        } else {
+          await whenThisThen(() => {
+            openButton =
+              kind === 'lightbox'
+                ? DomHelper.queryGVSelector<HTMLButtonElement>(mapId, 'button[id$="_myImages"]')
+                : DomHelper.getGVElementById<HTMLButtonElement>(mapId, 'footerBar-table-details-btn-0');
+            return !!openButton;
+          }, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        }
+        if (!openButton) throw new TestError(`The ${kind} opening button must be mounted`);
+        openButton.click();
+        await whenThisThen(() => {
+          dialog = DomHelper.queryGVSelector<HTMLElement>(
+            mapId,
+            kind === 'lightbox' ? '.yarl__root[role="dialog"][aria-modal="true"]' : '[role="dialog"][aria-modal="true"]'
+          );
+          closeButton =
+            dialog?.querySelector<HTMLButtonElement>(kind === 'lightbox' ? 'button[aria-label="Close"]' : 'button') ?? undefined;
+          return !!dialog && !!closeButton;
+        }, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        if (!dialog || !closeButton) throw new TestError('The overlay and its close button must be mounted');
+        await whenThisThen(() => {
+          const settledFocus =
+            kind === 'export' ? dialog?.querySelector<HTMLInputElement>(`#${CSS.escape(`${mapId}-export-title-input`)}`) : closeButton;
+          return !!settledFocus && DomHelper.getActiveElement() === settledFocus;
+        }, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        if (kind === 'lightbox') await delay(MODAL_FOCUS_SETTLE_MS);
+
+        test.addStep('Pressing Ctrl+M from where focus lands after opening...');
+        const landingFocus = DomHelper.getActiveElement();
+        if (!landingFocus || !dialog.contains(landingFocus)) throw new TestError('Focus must land inside the dialog after opening');
+        const landingPrevented = !landingFocus.dispatchEvent(
+          new KeyboardEvent('keydown', { key: 'm', ctrlKey: true, bubbles: true, cancelable: true })
+        );
+        await DomHelper.waitForReactIdle();
+        const landingFocusUnchanged = DomHelper.getActiveElement() === landingFocus;
+        const landingDialogOpen = dialog.isConnected && dialog.getAttribute('aria-modal') === 'true';
+
+        const escapedFocus = kind === 'lightbox' ? DomHelper.getGVElementById<HTMLElement>(mapId, 'wcag-toplink') : dialog.parentElement;
+        if (!escapedFocus || dialog.contains(escapedFocus)) throw new TestError('The escaped-focus target must be outside the dialog');
+        escapedFocus.focus({ preventScroll: true });
+        await delay(MODAL_FOCUS_SETTLE_MS);
+
+        const focusBefore = DomHelper.getActiveElement();
+        const appBarBefore = getStoreUIActiveAppBarTab(mapId);
+        const footerBefore = getStoreUIActiveFooterBarTab(mapId);
+        const crosshairBefore = getStoreAppIsCrosshairsActive(mapId);
+        if (focusBefore !== escapedFocus)
+          throw new TestError(`Focus must be on the escaped-focus target before Ctrl+M (observed ${focusBefore?.outerHTML.slice(0, 180)})`);
+        const dialogOpenBefore = dialog.isConnected && dialog.getAttribute('aria-modal') === 'true';
+        test.addStep('Pressing Ctrl+M from outside the dialog paper...');
+        focusBefore.dispatchEvent(new KeyboardEvent('keydown', { key: 'Control', ctrlKey: true, bubbles: true, cancelable: true }));
+        const escapedPrevented = !focusBefore.dispatchEvent(
+          new KeyboardEvent('keydown', { key: 'm', ctrlKey: true, bubbles: true, cancelable: true })
+        );
+        await DomHelper.waitForReactIdle();
+        const appBarAfter = getStoreUIActiveAppBarTab(mapId);
+        const footerAfter = getStoreUIActiveFooterBarTab(mapId);
+        const focusUnchanged = DomHelper.getActiveElement() === focusBefore;
+        const crosshairAfter = getStoreAppIsCrosshairsActive(mapId);
+        return {
+          landingPrevented,
+          landingFocusUnchanged,
+          landingDialogOpen,
+          escapedPrevented,
+          dialogOpenBefore,
+          dialogOpenAfter: dialog.isConnected && dialog.getAttribute('aria-modal') === 'true',
+          focusUnchanged,
+          appBarOpenBefore: appBarBefore.isOpen && appBarBefore.tabId === panelId,
+          appBarOpenAfter: appBarAfter.isOpen && appBarAfter.tabId === panelId,
+          footerUnchanged: footerBefore.isOpen === footerAfter.isOpen && footerBefore.tabId === footerAfter.tabId,
+          crosshairBefore,
+          crosshairAfter,
+          modifierNotifications: keyboardEvents.filter((event) => event.key === 'Control').length,
+          shortcutNotifications: keyboardEvents.filter((event) => (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'm')
+            .length,
+        };
+      },
+      (test, result): void => {
+        test.addStep('Verifying Ctrl+M from the landing focus keeps the dialog and focus, and prevents the browser default...');
+        Test.assertIsEqual(result.landingDialogOpen, true);
+        Test.assertIsEqual(result.landingFocusUnchanged, true);
+        Test.assertIsEqual(result.landingPrevented, true);
+        test.addStep('Verifying Ctrl+M from the escaped focus prevents the browser default...');
+        Test.assertIsEqual(result.escapedPrevented, true);
+        test.addStep('Verifying the dialog remains open...');
+        Test.assertIsEqual(result.dialogOpenBefore, true);
+        Test.assertIsEqual(result.dialogOpenAfter, true);
+        test.addStep('Verifying focus remains unchanged...');
+        Test.assertIsEqual(result.focusUnchanged, true);
+        test.addStep('Verifying the app-bar panel remains open...');
+        Test.assertIsEqual(result.appBarOpenBefore, true);
+        Test.assertIsEqual(result.appBarOpenAfter, true);
+        test.addStep('Verifying the footer and crosshair are unchanged, and only the modifier key is notified...');
+        Test.assertIsEqual(result.footerUnchanged, true);
+        Test.assertIsEqual(result.crosshairBefore, false);
+        Test.assertIsEqual(result.crosshairAfter, false);
+        Test.assertIsEqual(result.modifierNotifications, 1);
+        Test.assertIsEqual(result.shortcutNotifications, 0);
+      },
+      async (): Promise<void> => {
+        viewer.offMapKeyboardEvent(keyboardEventDelegate);
+        if (dialog?.isConnected && closeButton) {
+          closeButton.click();
+          await whenThisThen(() => !dialog?.isConnected, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        }
+        uiController.setCrosshairActive(false);
+        uiController.setActiveAppBarTab(originalAppBar.tabId, originalAppBar.isOpen, originalAppBar.isFocusTrapped ?? false);
+        uiController.setActiveFooterBarTab(originalFooterBar.tabId || undefined, originalFooterBar.isOpen);
+        uiController.setFooterBarIsOpen(originalFooterBar.isOpen);
+        uiController.setActiveTrapGeoView(originalMode);
+        uiController.enableFocusTrap(originalFocusItem);
+        await DomHelper.waitForReactIdle();
+        await delay(MODAL_FOCUS_SETTLE_MS);
+        if (originalFocus instanceof HTMLElement && originalFocus.isConnected) originalFocus.focus({ preventScroll: true });
+        uiController.setCrosshairActive(originalCrosshair);
+        await DomHelper.waitForReactIdle();
+      }
+    );
+  }
+
+  /**
+   * Tests that a companion viewer's modal does not block this viewer's shortcut.
+   *
+   * @returns A promise that resolves with the two-viewer observations
+   */
+  testModalShortcutViewerIsolation(): Promise<Test<TypeModalIsolationResult>> {
+    const mapId = this.getMapId();
+    const companionId = 'map14';
+    const viewer = this.getMapViewer();
+    const companion = this.getApi().getMapViewer(companionId);
+    const ui = viewer.controllers.uiController;
+    const companionUI = companion.controllers.uiController;
+    const originalFocus = DomHelper.getActiveElement();
+    const originalState = [mapId, companionId].map((id) => ({
+      id,
+      appBar: getStoreUIActiveAppBarTab(id),
+      focusItem: getStoreUIFocusItem(id),
+      mode: getStoreUIActiveTrapGeoView(id),
+      crosshair: getStoreAppIsCrosshairsActive(id),
+    }));
+    let dialog: HTMLElement | undefined;
+    let notifications = 0;
+    const delegate = viewer.onMapKeyboardEvent((_sender, event) => {
+      if ((event.keyboardEvent.ctrlKey || event.keyboardEvent.metaKey) && event.keyboardEvent.key.toLowerCase() === 'm') notifications += 1;
+    });
+
+    return this.test(
+      'Test a companion modal does not block Ctrl+M in this viewer',
+      async (test): Promise<TypeModalIsolationResult> => {
+        const layers = DomHelper.getAppBarButton(mapId, 'layers');
+        const legend = DomHelper.getAppBarButton(companionId, 'legend');
+        const target = DomHelper.getMapTargetElement(mapId);
+        if (!layers || !legend || !target || !target.ownerDocument.hasFocus()) {
+          throw new TestError('Both viewers and the foreground page are required for modal isolation');
+        }
+        ui.disableFocusTrap('no-focus');
+        companionUI.disableFocusTrap('no-focus');
+        ui.setActiveAppBarTab(undefined, false, false);
+        companionUI.setActiveAppBarTab(undefined, false, false);
+        ui.setCrosshairActive(false);
+        companionUI.setCrosshairActive(false);
+        ui.setActiveTrapGeoView(false);
+        companionUI.setActiveTrapGeoView(false);
+        await DomHelper.waitForReactIdle();
+        layers.click();
+        await DomHelper.waitForReactIdle();
+        const layersClose = DomHelper.getGVElementById(mapId, 'appBar-layers-panel-close-btn');
+        if (!layersClose) throw new TestError('The Layers close button must be mounted');
+        await whenThisThen(() => DomHelper.getActiveElement() === layersClose, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        legend.click();
+        await DomHelper.waitForReactIdle();
+        const legendClose = DomHelper.getGVElementById(companionId, 'appBar-legend-panel-close-btn');
+        if (!legendClose) throw new TestError('The companion Legend close button must be mounted');
+        await whenThisThen(() => DomHelper.getActiveElement() === legendClose, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        const button = DomHelper.getAppBarPanel(companionId, 'legend')?.querySelector<HTMLButtonElement>(
+          'button[aria-label="Ouvrir en plein écran"]'
+        );
+        if (!button) throw new TestError('The companion Legend fullscreen button must be mounted');
+        test.addStep('Opening the companion Legend and immediately pressing Ctrl+M in the first viewer...');
+        button.click();
+        await whenThisThen(
+          () => {
+            dialog = DomHelper.queryGVSelector<HTMLElement>(companionId, '[role="dialog"][aria-modal="true"]');
+            return !!dialog;
+          },
+          GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS,
+          10
+        );
+        layers.focus({ preventScroll: true });
+        if (DomHelper.getActiveElement() !== layers) throw new TestError('The first viewer must have focus before Ctrl+M');
+        const companionDialogOpen = !!dialog?.isConnected;
+        const shortcutPrevented = !layers.dispatchEvent(
+          new KeyboardEvent('keydown', { key: 'm', ctrlKey: true, bubbles: true, cancelable: true })
+        );
+        return {
+          companionDialogOpen,
+          shortcutPrevented,
+          mainPanelClosed: !getStoreUIActiveAppBarTab(mapId).isOpen,
+          companionPanelOpen: getStoreUIActiveAppBarTab(companionId).isOpen,
+          mainCrosshair: getStoreAppIsCrosshairsActive(mapId),
+          notifications,
+        };
+      },
+      (test, result): void => {
+        test.addStep('Verifying the shortcut affects only the focused viewer while the companion modal is open...');
+        Test.assertIsEqual(result.companionDialogOpen, true);
+        Test.assertIsEqual(result.mainPanelClosed, true);
+        Test.assertIsEqual(result.companionPanelOpen, true);
+        Test.assertIsEqual(result.mainCrosshair, true);
+        Test.assertIsEqual(result.notifications, 1);
+        Test.assertIsEqual(result.shortcutPrevented, true);
+      },
+      async (): Promise<void> => {
+        viewer.offMapKeyboardEvent(delegate);
+        if (dialog?.isConnected) {
+          dialog.querySelector<HTMLButtonElement>('button')?.click();
+          await whenThisThen(() => !dialog?.isConnected, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+        }
+        originalState.forEach(({ id, appBar, focusItem, mode }) => {
+          const controller = this.getApi().getMapViewer(id).controllers.uiController;
+          controller.setActiveAppBarTab(appBar.tabId, appBar.isOpen, appBar.isFocusTrapped ?? false);
+          controller.setActiveTrapGeoView(mode);
+          controller.enableFocusTrap(focusItem);
+        });
+        await DomHelper.waitForReactIdle();
+        if (originalFocus instanceof HTMLElement && originalFocus.isConnected) originalFocus.focus({ preventScroll: true });
+        originalState.forEach(({ id, crosshair }) => this.getApi().getMapViewer(id).controllers.uiController.setCrosshairActive(crosshair));
       }
     );
   }
@@ -1369,6 +1696,7 @@ interface TypeKeyboardShortcutPanelsResult {
   footerPreservedAfterMapPopover: boolean;
   mapFocusedWithNothingOpen: boolean;
   crosshairActiveWithNothingOpen: boolean;
+  shortcutPrevented: boolean[];
 }
 
 /** Details focus ownership observations after an in-panel crosshair query. */
@@ -1418,7 +1746,8 @@ interface TypeExportModalShortcutResult {
   exportOpenBeforeShortcut: boolean;
   exportOpenAfterShortcut: boolean;
   exportFocusStayedInModal: boolean;
-  exportCtrlMNotifications: number;
+  exportShortcutNotifications: number;
+  exportShortcutPrevented: boolean;
   crosshairAfterExportShortcut: boolean;
   ordinaryKeyboardNotification: boolean;
   dropdown:
@@ -1437,8 +1766,39 @@ interface TypeShareModalShortcutResult {
   shareDialogOpenAfterShortcut: boolean;
   shareFocusStayedInModal: boolean;
   shareActiveElementOutsideMap: boolean;
-  shareCtrlMNotifications: number;
+  shareShortcutPrevented: boolean;
+  shareShortcutNotifications: number;
   crosshairRemainsInactive: boolean;
+}
+
+type TypeOverlayKind = 'fullscreen' | 'legend fullscreen' | 'lightbox' | 'export' | 'basic table' | 'feature detail';
+
+/** Overlay observations before and after Ctrl+M. */
+interface TypeOverlayShortcutResult {
+  landingPrevented: boolean;
+  landingFocusUnchanged: boolean;
+  landingDialogOpen: boolean;
+  escapedPrevented: boolean;
+  dialogOpenBefore: boolean;
+  dialogOpenAfter: boolean;
+  focusUnchanged: boolean;
+  appBarOpenBefore: boolean;
+  appBarOpenAfter: boolean;
+  footerUnchanged: boolean;
+  crosshairBefore: boolean;
+  crosshairAfter: boolean;
+  modifierNotifications: number;
+  shortcutNotifications: number;
+}
+
+/** Observations when another viewer has a modal open. */
+interface TypeModalIsolationResult {
+  companionDialogOpen: boolean;
+  shortcutPrevented: boolean;
+  mainPanelClosed: boolean;
+  companionPanelOpen: boolean;
+  mainCrosshair: boolean;
+  notifications: number;
 }
 
 // #endregion TYPES AND INTERFACES

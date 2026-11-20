@@ -1178,7 +1178,7 @@
       <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
       <div
         id="map13"
-        style="min-width: 0; height: 480px; margin: 0"
+        style="min-width: 0; height: 900px; margin: 0"
         class="geoview-map"
         data-shared
         data-lang="en"
@@ -1246,9 +1246,22 @@
               'initialView': { 'zoomAndCenter': [4, [-88.31, 51.97]] }
             },
             'basemapOptions': { 'basemapId': 'nogeom', 'shaded': false, 'labeled': false },
-            'listOfGeoviewLayerConfig': []
+            'listOfGeoviewLayerConfig': [
+              {
+                'geoviewLayerId': 'geojsonLYR5',
+                'geoviewLayerName': 'GeoJSON Sample',
+                'metadataAccessPath': './datasets/geojson/metadata.meta',
+                'geoviewLayerType': 'GeoJSON',
+                'serviceDateFormat': 'DD/MM/YYYYTHH:mm:ss',
+                'listOfLayerEntryConfig': [
+                  { 'layerId': 'polygons.json', 'layerName': 'Polygons' }
+                ]
+              }
+            ]
           },
           'components': [],
+          'appBar': { 'tabs': { 'core': ['legend', 'layers'] } },
+          'footerBar': { 'tabs': { 'core': [], 'custom': [] } },
           'theme': 'geo.ca'
         }"
       ></div>

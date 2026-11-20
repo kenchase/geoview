@@ -86,7 +86,7 @@ Lorsque vous focalisez la carte avec la touche de **tabulation**, son lien d'év
 
 <img src="{{assetsURL}}/img/guide/navigation/crosshair.svg" alt="Pointeur en croix affiché au centre de la carte pour la navigation au clavier" style="width: 90%; height: 100px;"/>
 
-Lorsque le focus est dans un visualiseur dynamique, **Ctrl+M** (**Cmd+M** sur macOS) focalise la carte et active le pointeur en croix. Ce raccourci ferme les panneaux de la barre latérale, dont Détails, et les panneaux des commandes de navigation, sans fermer les panneaux du pied de page. Il est sans effet lorsque la boîte de dialogue **Télécharger**, la vue de table de base ou la vue détaillée d'un élément du tableau de données est ouverte, y compris ses listes déroulantes.
+Lorsque le focus est dans un visualiseur dynamique, **Ctrl+M** (**Cmd+M** sur macOS) focalise la carte et active le pointeur en croix. Ce raccourci ferme les panneaux de la barre latérale, dont Détails, et les panneaux des commandes de navigation, sans fermer les panneaux du pied de page. Il est sans effet lorsqu’une boîte de dialogue est ouverte.
 
 Utilisez les touches **fléchées** pour déplacer la carte et les touches **+** et **-** ou **Ctrl+Flèche haut** / **Ctrl+Flèche bas** pour faire un zoom avant ou arrière. Appuyez sur **Maj.+Flèche haut** / **Maj.+Flèche bas** pour augmenter ou diminuer la distance de déplacement de la carte à chaque touche fléchée. Appuyez sur **Entrée** pour sélectionner un élément pris en charge sous le pointeur en croix et en voir les données dans le panneau **Détails**.
 

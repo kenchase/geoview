@@ -323,16 +323,6 @@ export class UIController extends AbstractMapViewerController {
   }
 
   /**
-   * Checks whether an existing focus-owned modal is open. Excludes fullscreen dialogs and Lightbox.
-   *
-   * @returns Whether Export, the data table modal, or the feature detail modal owns focus
-   */
-  isFocusOwnedModalOpen(): boolean {
-    const { activeElementId } = getStoreUIFocusItem(this.getMapId());
-    return activeElementId === 'export' || activeElementId === 'layerDataTable' || activeElementId === 'featureDetailDataTable';
-  }
-
-  /**
    * Sets or cancels the scoped Escape return target on the existing focus item.
    *
    * @param escapeReturn - The scoped return target, or undefined to cancel it
