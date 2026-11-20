@@ -17,9 +17,15 @@ about/notification controls and attribution/scale.
 With focus inside a dynamic viewer, Ctrl+M (or Cmd+M on macOS) focuses the map element
 and **activates**, not toggles, the crosshair. Ctrl+Q exits keyboard navigation mode and
 deactivates the crosshair. Tabbing to another control within the viewer also deactivates it.
-Ctrl+M closes open navigation, About/Version, and Notifications popovers before transferring focus, so Enter acts on the map
-rather than reopening the previous panel.
-The shortcut leaves focus and map interactions unchanged while Export or either data-table modal is open.
+Ctrl+M closes open app-bar panels (including both levels of Details) and map popovers before transferring focus,
+without returning focus to their buttons. Footer panels are unaffected. While a modal dialog is open in the viewer,
+the keyboard-entry prompt and viewer shortcuts (including Ctrl+M, Ctrl+Q, and drawing and measurement shortcuts)
+are suspended. The viewer does not forward map keyboard events while its dialog is open. Tab and Shift+Tab stay
+in the dialog, and Escape still dismisses it. Close the dialog before
+pressing Ctrl+Q to exit keyboard navigation mode. Ctrl+M is also ignored while focus is in the Share dialog,
+which renders outside the viewer. With focus inside the viewer, Ctrl+M always cancels the
+browser's default action, including when it is ignored or the map is static, so macOS cannot turn Ctrl+M into Return
+and activate the focused control.
 Escape is not a general crosshair-exit shortcut; drawer editing can use it to cancel a grabbed transform.
 Drawing hints show mouse wording by default. With keyboard navigation on or the crosshair active they show keyboard wording, preceded by "Press Ctrl+M to focus the map." until the map is focused.
 While measuring or drawing, Enter/Space and Shift+Enter/Space also act at the mouse pointer. This is documented in the guide, not in the hints.
@@ -33,13 +39,12 @@ the full map viewport center, not the logical view center shifted by map-info-ba
 This remains true after panning, rotating, or expanding/collapsing the map info bar.
 Activating the keyboard crosshair replaces any stale mouse pointer position.
 
-On first tab into the viewer, users are prompted to enable keyboard navigation mode or skip the viewer. Enabling the mode activates a focus trap and focuses the main-content skip link on dynamic maps, or the viewer shell on static maps so Tab can reach the viewer's controls. Activating the main-content link focuses the map and activates crosshair-based interaction. Choosing Skip instead focuses the outer skip link in the direction of travel.
+On first tab into the viewer, users are prompted to enable keyboard navigation mode or skip the viewer. Enabling the mode activates a focus trap and, for dynamic maps, focuses the top "Skip to main content - Map" link. Activating that link focuses the map and activates crosshair-based interaction.
+For static maps, Enable focuses the viewer shell so Tab moves through its available controls without activating the crosshair.
 
-- Dynamic maps include a permanent **Settings** button below Notifications. Its **Keyboard navigation** switch controls the same mode as the entry prompt; it stays open and focused when the switch changes. Choosing a mode here also handles initial onboarding, so switching it off does not redirect the next internal Tab to the entry prompt.
+- Dynamic maps include a permanent **Settings** button below Notifications. Its **Keyboard navigation** switch controls the same mode as the entry prompt; it stays open and focused when the switch changes.
 - Keyboard navigation mode remains enabled during mouse movement. Normal panels and Settings retain their Tab/Shift+Tab boundaries, but a deliberate pointer click may move focus outside them without turning the mode off. Keyboard input then continues from the clicked control.
 - Settings temporarily takes focus-trap ownership from another panel. Escape or its Close button returns focus to Settings; clicking elsewhere closes it without pulling focus away from the clicked target. Genuine modal dialogs keep strict focus containment.
-- Replacing one map-control popover with another preserves the underlying panel's keyboard boundary when the replacement closes, provided that panel is still available and selected. A closed popover or unavailable panel is never restored as the active owner.
-- Clicking another control while a popover opens preserves focus on that control, whether it is inside or outside the popover.
 
 - Press Ctrl + Q to exit keyboard navigation mode
 - Press Ctrl + M (or Cmd + M on macOS) with focus inside a dynamic viewer to focus the map and activate the crosshair
@@ -59,17 +64,21 @@ for developer guidance.
 
 In keyboard navigation mode, activating a panel (e.g., Layers, Legend, Details) enables a keyboard boundary within that panel. Only one inner panel owns that boundary at a time; opening Settings temporarily suspends the previous owner. Normal panels are non-modal, so deliberate pointer interaction outside them is permitted without changing the mode. Auto-opened panels may remain outside the active boundary.
 
-Opening an app-bar panel from the footer transfers the keyboard boundary to the app-bar panel. Closing it returns focus to its button without reactivating the footer boundary; select a footer tab to enter that panel again. A newer modal or popover keeps its ownership and focus.
-
-While Export or a data-table modal is open, requests to open map-control popovers are rejected without dismissing the modal or moving focus. Retry after closing the modal; rejected requests are not queued.
-
 - This speeds up navigation by preventing focus from cycling through the entire map
-- Close the active panel or selection by pressing **Esc** — focus returns to the associated button
+- Close the innermost panel or selection containing focus by pressing **Esc** — focus normally returns to the associated button
 - A **Close** or **Exit** button is provided within each trapped panel for explicit closure
 
-When Details is hosted in the app bar, pressing Enter on a feature with the crosshair active opens Details and focuses the panel-header Close button. Focus remains there as the feature attributes load. Pressing Enter on Close or pressing Esc closes Details and returns focus to the map for another crosshair query, unless another control has taken focus.
+With the crosshair active, pressing Enter opens app-bar Details with its feature sub-panel showing
+(or its guide when there are no features). Focus lands on the **main panel's Close button**, not the
+sub-panel's, and remains there as results load. One **Esc** closes Details, focuses the map, and
+reactivates the crosshair for another query.
 
-If Details is configured in the footer bar, that location takes precedence over the app bar. The app-bar-specific Close-button focus and return-to-map behaviour do not apply to footer-hosted Details.
+If focus moves into the feature sub-panel, the first Esc closes only that sub-panel and focuses its
+layer item in the Details layer list. A second Esc closes Details and returns to the crosshair.
+Tabbing, arrow-key navigation, switching results, and mouse movement preserve this return.
+Focus leaving Details, a mouse click (even inside Details), or the viewer window losing focus cancels it.
+Only Esc uses this return: the **Close** button and mouse-opened Details retain their usual behavior.
+Closing and reopening Details remembers its feature sub-panel and selection unless the sub-panel itself was closed.
 
 Sub-panels provide similar functionality.
 Scrollable right-panel content is also a keyboard stop; focus it and use the arrow keys to scroll
@@ -79,7 +88,7 @@ the panel independently of the page. Scrolling stays within the panel at its top
 
 The Esc key intelligently handles different scenarios:
 
-- Closes the active panel and restores focus to the triggering button, or
+- Closes the innermost active panel and restores focus to its associated control, with the crosshair-query exception above, or
 - Closes modal dialogs (lightbox, export, etc.) and restores focus to the triggering button
 
 Nested content, time-slider deferred closing, and browser fullscreen can affect which action happens first. See [intentional interaction patterns](#002-intentional-interaction-patterns) and [fullscreen constraints](#fullscreen-api-and-esc-key-priority).
@@ -143,7 +152,6 @@ Close buttons depend on the layout and content, not just the active focus trap. 
 1. **Focus priority** — One panel receives the focus trap, while other auto-opened panels remain open without it
 2. **Other panels** — An active trap restricts Tab navigation to its own content. Other open panels are not necessarily reachable by Tab until that trap is exited
 3. **Changing panels** — Use the current panel's Close or Exit control to return to its associated control, then navigate to another panel. Activating a layer entry can move focus into that panel's content
-4. **Preserving newer focus** — Leaving crosshair navigation or receiving delayed query results does not pull focus away from a control the user has chosen. Pending panel-entry focus yields to a newer focus destination or owner
 
 **Rationale:**
 

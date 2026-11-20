@@ -46,7 +46,17 @@ If you are building an application with GeoView's API (`cgpv.api`), test your in
 
 ### Step 4 — Test Keyboard Navigation (WCAG) Mode
 
-For keyboard/pointer behavior, panel boundaries, and modal focus, see [Keyboard Navigation Mode](../accessibility.md#keyboard-navigation-mode). If buttons stop responding or focus moves unexpectedly, report the steps below, including which panel was open and whether you used the keyboard, mouse, or both.
+Use **Settings → Keyboard navigation** to confirm the mode is enabled. Mouse movement does not disable
+it, and you do not need to move the pointer away before entering the viewer or fullscreen.
+
+- A deliberate click may move focus outside a non-modal panel; keyboard input continues from that control.
+- After a crosshair query, Esc returns to the crosshair only while its Details return remains valid.
+  Leaving Details, clicking, or switching windows cancels that return; mouse movement alone does not.
+- If focus is inside the feature sub-panel, Esc closes that level before the main Details panel.
+
+See [keyboard navigation and panel focus](../accessibility.md#focus-traps-for-enhanced-navigation)
+for the expected shortcuts and dismissal behavior. Report unexpected focus movement rather than
+working around it by keeping the mouse outside the viewer.
 
 ### Step 5 — Contact the GeoView Team
 

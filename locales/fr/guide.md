@@ -52,7 +52,7 @@ Selon la configuration de la visionneuse, le coin inférieur droit de la carte c
 | <img src="{{assetsURL}}/img/guide/navigation/360.svg" alt="Une icône représentant la fonction « Rotation de la carte »" />               | Rotation de la carte     | Permet de contrôler la rotation de la carte avec un curseur de -180° à +180°. Le panneau comprend un bouton à bascule **Nord fixe** (disponible pour la projection LCC) pour garder la carte orientée le nord au haut, et un bouton de réinitialisation pour revenir à l'orientation initiale. |
 | <img src="{{assetsURL}}/img/guide/navigation/geolocation.svg" alt="Une icône représentant la fonction « Géolocalisation »" />            | Géolocalisation          | Permet de zoomer et de déplacer la carte sur votre position géographique.                                                                                                                                                                                                                      |
 | <img src="{{assetsURL}}/img/guide/navigation/home.svg" alt="Une icône représentant la fonction « Vue initiale »" />                      | Zoom à la vue initiale   | Permet de zoomer et de déplacer la carte pour retourner à la vue initiale.                                                                                                                                                                                                                     |
-| <img src="{{assetsURL}}/img/guide/navigation/measure.svg" alt="Une icône représentant la fonction « Mesurer »" />                        | Mesurer                  | Permet de mesurer des distances et des surfaces sur la carte. Basculez entre les modes distance (ligne) et surface (polygone). Consultez [Mesurer](#mesurer) pour les instructions à la souris et au clavier.                                |
+| <img src="{{assetsURL}}/img/guide/navigation/measure.svg" alt="Une icône représentant la fonction « Mesurer »" />                        | Mesurer                  | Permet de mesurer des distances et des surfaces sur la carte. Basculez entre les modes distance (ligne) et surface (polygone). Consultez [Mesurer](#mesurer) pour les instructions à la souris et au clavier.                                                                                  |
 | <img src="{{assetsURL}}/img/guide/navigation/basemapSelect.svg" alt="Une icône représentant la fonction « Changer la carte de base »" /> | Changer la carte de base | Permet de changer la carte de base.                                                                                                                                                                                                                                                            |
 | <img src="{{assetsURL}}/img/guide/navigation/projection.svg" alt="Une icône représentant la fonction « Changer la projection »" />       | Changer la projection    | Permet de changer la projection de la carte entre Web Mercator et LCC.                                                                                                                                                                                                                         |
 
@@ -80,24 +80,23 @@ Cliquez sur l'encadré dans la carte d'aperçu et déplacez-le pour modifier la 
 
 Les personnes qui ne peuvent pas utiliser de souris peuvent choisir de naviguer avec le clavier. Utilisez la touche de **tabulation** pour atteindre les liens et les commandes sur la page. Appuyez sur **Maj.** et la touche de **tabulation** pour revenir à l’élément précédent. Utilisez la touche **Entrée** ou la **barre d’espace** pour activer les liens et les commandes.
 
-Utilisez la touche de **tabulation** pour entrer dans le visualiseur. Lorsque la fenêtre **Navigation clavier** s'affiche, sélectionnez **Activer** et appuyez sur **Entrée**.
+Lorsque vous entrez dans le visualiseur avec la touche de **tabulation** en passant par un lien d'évitement, la fenêtre contextuelle **Navigation clavier** s'affiche. Sélectionnez le bouton **Activer** et appuyez sur **Entrée** ; le focus passe au lien **Aller au contenu principal - Carte**. Appuyez de nouveau sur **Entrée** pour focaliser la carte. Sur les cartes dynamiques, utilisez **Paramètres**, sous Notifications, et son commutateur **Navigation clavier** pour activer ou désactiver ce mode.
 
-- Sur les cartes dynamiques, le focus passe au lien **Aller au contenu principal - Carte**. Appuyez de nouveau sur **Entrée** pour focaliser la carte et activer le pointeur en croix ; le bouton Activer seul ne l'active pas.
-- Sur les cartes statiques, le focus passe dans le visualiseur. Utilisez **Tabulation** ou **Maj.+Tabulation** pour atteindre les commandes disponibles. Les cartes statiques ne permettent pas la navigation avec le pointeur en croix, le déplacement de la carte ni le zoom.
-
-Sur les cartes dynamiques, un pointeur en croix s'affiche au centre lorsque la carte reçoit le focus :
+Lorsque vous focalisez la carte avec la touche de **tabulation**, son lien d'évitement ou **Ctrl+M**, un pointeur en croix s'affiche en son centre :
 
 <img src="{{assetsURL}}/img/guide/navigation/crosshair.svg" alt="Pointeur en croix affiché au centre de la carte pour la navigation au clavier" style="width: 90%; height: 100px;"/>
 
-Lorsque le focus se trouve dans un visualiseur dynamique, utilisez **Ctrl+M** (**Cmd+M** sur macOS) pour focaliser la carte et activer le pointeur en croix.
+Lorsque le focus est dans un visualiseur dynamique, **Ctrl+M** (**Cmd+M** sur macOS) focalise la carte et active le pointeur en croix. Ce raccourci ferme les panneaux de la barre latérale, dont Détails, et les panneaux des commandes de navigation, sans fermer les panneaux du pied de page. Il est sans effet lorsqu’une boîte de dialogue est ouverte.
 
-Utilisez les touches **fléchées** pour déplacer la carte et les touches **+** et **-** ou **Ctrl+Flèche haut** / **Ctrl+Flèche bas** pour faire un zoom avant ou arrière. Appuyez sur **Maj.+Flèche haut** / **Maj.+Flèche bas** pour augmenter ou diminuer la distance de déplacement de la carte à chaque touche fléchée. Appuyez sur **Entrée** pour sélectionner un élément sous le pointeur en croix et en voir les données dans le panneau **Détails**.
+Utilisez les touches **fléchées** pour déplacer la carte et les touches **+** et **-** ou **Ctrl+Flèche haut** / **Ctrl+Flèche bas** pour faire un zoom avant ou arrière. Appuyez sur **Maj.+Flèche haut** / **Maj.+Flèche bas** pour augmenter ou diminuer la distance de déplacement de la carte à chaque touche fléchée. Appuyez sur **Entrée** pour sélectionner un élément pris en charge sous le pointeur en croix et en voir les données dans le panneau **Détails**.
 
-Pour les éléments pris en charge, l’information s’affiche lorsque le pointeur en croix les survole.
+Lorsque Détails est accessible depuis la barre latérale, chaque requête au pointeur en croix ouvre son sous-panneau des détails de l'entité (ou son guide s'il n'y a aucun résultat), avec le focus sur le **bouton Fermer du panneau principal**. Appuyez une fois sur **Échap** pour fermer Détails et revenir au pointeur en croix. Si vous déplacez le focus dans le sous-panneau, le premier **Échap** ferme celui-ci et focalise sa couche dans la liste ; le second ferme Détails et revient au pointeur en croix.
+
+La navigation dans Détails et les mouvements de la souris préservent ce retour. Quitter Détails, cliquer avec la souris ou passer à une autre fenêtre l'annule. Le bouton **Fermer** et le panneau Détails ouvert avec la souris conservent leur comportement habituel.
 
 ## Mesurer
 
-#### Avec une souris
+### Avec une souris
 
 1. Ouvrez **Mesurer**, activez l'outil et choisissez **Distance** ou **Surface**.
 2. Cliquez sur la carte pour commencer, puis cliquez pour ajouter des points.
@@ -106,14 +105,14 @@ Pour les éléments pris en charge, l’information s’affiche lorsque le point
 5. Appuyez sur **Échap** pour annuler le tracé en cours. L'outil reste activé et vous pouvez recommencer.
 6. Pendant le tracé, appuyez sur **Ctrl+Z** ou **Retour arrière** pour annuler le dernier point. Utilisez **Effacer** dans le panneau Mesurer pour supprimer les mesures terminées.
 
-#### Avec le pointeur en croix
+### Avec le pointeur en croix
 
-La mesure au clavier nécessite une carte dynamique avec la navigation au clavier activée. Après avoir choisi **Activer**, appuyez sur **Entrée** sur le lien **Aller au contenu principal - Carte** pour activer le pointeur en croix. Ouvrez ensuite **Mesurer**, activez l'outil et choisissez **Distance** ou **Surface**.
+Activez la navigation au clavier, puis ouvrez **Mesurer**, activez l'outil et choisissez **Distance** ou **Surface**. Appuyez sur **Ctrl+M** pour focaliser la carte et afficher le pointeur en croix.
 
 - Appuyez sur **Entrée** ou **Espace** pour commencer et ajouter un point à la position du pointeur en croix.
 - Appuyez sur **Maj.+Entrée** ou **Maj.+Espace** pour terminer la mesure.
 - Pendant le tracé, appuyez sur **Ctrl+Z** ou **Retour arrière** pour annuler le dernier point; appuyez sur **Échap** pour annuler le tracé. Appuyez de nouveau sur **Échap**, lorsqu'il n'y a plus rien à annuler, pour ramener le focus sur le bouton **Mesurer**.
-- Utilisez les touches **fléchées** pour déplacer la carte. **Ctrl+M** focalise la carte et ferme le panneau de navigation ouvert sans désactiver l'outil Mesurer.
+- Utilisez les touches **fléchées** pour déplacer la carte. **Ctrl+M** focalise la carte et ferme les panneaux ouverts de la barre latérale et des commandes de navigation sans désactiver l'outil Mesurer.
 
 Le résultat de la mesure et les actions de tracé sont annoncés aux lecteurs d'écran. En plein écran, **Échap** annule le tracé en cours et quitte également le plein écran, car le navigateur réserve cette touche.
 
@@ -125,10 +124,10 @@ La carte n'est pas pleinement conforme au niveau AA des Règles pour l'accessibi
 
 ### Utilisateurs au clavier
 
-- L'ouverture des panneaux déclenche des pièges de focus pour accélérer la navigation ; la touche Échap ferme les panneaux et ramène le focus sur l'élément déclencheur.
+- Les panneaux délimitent la navigation par **Tab/Maj.+Tab**. **Échap** ferme le panneau le plus interne contenant le focus et revient normalement à la commande associée ; les requêtes au pointeur en croix utilisent le retour décrit ci-dessus.
 - En mode plein écran, la touche Échap permet de quitter le mode plein écran plutôt que de fermer les panneaux qui ont été ouverts.
 - Dans un panneau latéral, appuyez sur **Tab** jusqu’à ce que sa zone de contenu défilante reçoive le focus, puis utilisez les touches **fléchées** pour la faire défiler. Le défilement reste dans le panneau lorsqu’il atteint le haut ou le bas.
-- Sur les cartes dynamiques, utilisez **Paramètres**, sous Notifications, pour activer ou désactiver la navigation au clavier. Le mouvement de la souris ne désactive pas le mode ; les panneaux normaux conservent leurs limites de navigation au clavier tout en permettant une interaction volontaire avec les commandes à l'extérieur.
+- Le mouvement de la souris ne désactive pas la navigation au clavier ; les panneaux normaux conservent leurs limites de navigation au clavier tout en permettant une interaction volontaire avec les commandes à l'extérieur.
 - Le commutateur des paramètres reste ouvert et conserve le focus lorsqu'il change d'état. Échap ou **Fermer** ramène le focus aux paramètres ; un clic ailleurs conserve le focus sur la commande sélectionnée.
 
 ### Utilisateurs de lecteurs d'écran
@@ -195,11 +194,11 @@ _Note : Les raccourcis clavier (sauf annuler/rétablir/échap) peuvent être act
 
 ## Dessin et édition avec le pointeur en croix
 
-Lorsque la navigation au clavier est activée (pointeur en croix actif), les outils de dessin offrent un contrôle clavier amélioré :
+Lorsque le pointeur en croix est actif, les outils de dessin offrent un contrôle clavier amélioré :
 
 ### Dessiner avec le pointeur en croix
 
-1. Activez la navigation au clavier (touche **Tab** vers la carte, puis **Activer**)
+1. Activez la navigation au clavier, puis appuyez sur **Ctrl+M** pour focaliser la carte
 2. Activez le mode dessin (**D**)
 3. Sélectionnez un type de géométrie (**G** pour parcourir)
 4. Positionnez le pointeur en croix avec les **touches fléchées**

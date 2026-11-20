@@ -27,17 +27,20 @@ Add the test-suite package to your GeoView map configuration:
 | ------------------ | ---------------------------------------------------- |
 | `suite-core`       | Date/utility function tests                          |
 | `suite-config`     | Layer configuration validation                       |
-| `suite-map`        | Map zoom, projection, basemap, UI                    |
+| `suite-map`        | Map interactions and map-scoped UI tests             |
 | `suite-layer`      | Layer add/remove, legend, queries                    |
 | `suite-map-config` | Map config creation/destruction                      |
 | `suite-geochart`   | Geochart plugin (requires geochart in footer bar)    |
 | `suite-details`    | Details panel (requires details in footer bar)       |
-| `suite-ui`         | DOM-level UI tests                                   |
 | `suite-utilities`  | Utility function tests (core, date, geo, projection) |
 | `suite-swiper`     | Swiper plugin tests (requires swiper)                |
 | `suite-time-slider` | Time Slider plugin tests (requires time-slider)       |
+| `suite-a11y-ux`    | Keyboard accessibility and cross-panel UX (requires Details in the app bar) |
 
 ### HTML Configuration
+
+The test page's **6 - A11Y and UX** section uses a dedicated map with the local polygon fixture.
+Keep the browser page in the foreground when running keyboard-focus tests.
 
 Tests are triggered from HTML pages. Each map div specifies which suites to run:
 

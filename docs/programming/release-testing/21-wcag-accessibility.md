@@ -8,6 +8,11 @@ Keyboard navigation, focus management, screen reader support, and WCAG complianc
 
 Test page: `templates/tests/wcag.html`
 
+Crosshair/Details regression rows use [tests.html](https://canadian-geospatial-platform.github.io/geoview/public/tests.html),
+**Group 6 — A11Y and UX, map13**, which has app-bar Details/Layers, map popovers, a footer panel, and local polygon features.
+Enable **Settings → Keyboard navigation** for manual checks. Rows marked `A` are covered by that suite;
+the remaining rows still require manual verification.
+
 ---
 
 ## Skip Links
@@ -22,27 +27,14 @@ Three skip links are rendered (visually hidden, shown on focus).
 
 ## WCAG Mode Dialog
 
-When tabbing into GeoView for the first time, a dialog appears asking to enable keyboard navigation mode.
+Tabbing inward from an outer skip link opens a dialog asking to enable keyboard navigation mode.
 
 | Test                     | Description                      | Steps                                                  | Expected Result                                                 | Auto |
 | ------------------------ | -------------------------------- | ------------------------------------------------------ | --------------------------------------------------------------- | ---- |
-| Dialog appears           | WCAG dialog shown on first entry | 1. Tab into the GeoView viewer from outside            | "Keyboard navigation" dialog appears                            | M    |
-| Enable button            | Enables WCAG focus trap on dynamic maps | 1. On a dynamic map, activate "Enable"<br>2. Press Enter on the focused link | WCAG mode activates; focus starts on "Skip to main content - Map" without activating the crosshair; Enter focuses the map and activates the crosshair | M    |
-| Skip button              | Bypasses viewer                  | 1. Click "Skip"                                        | Dialog closes; focus continues past the viewer without trapping | M    |
-| Dialog stays closed while enabled | No prompt within an enabled viewer | 1. Activate "Enable"<br>2. Tab through the viewer | Dialog does not reappear while navigating within the enabled viewer | M    |
-
-## Keyboard Navigation Settings
-
-Use a dynamic map such as [rt-02-map.html](https://canadian-geospatial-platform.github.io/geoview/public/rt-02-map.html), Map 1. Repeat the label and switch checks in English and French. Settings is not available on static maps.
-
-| Test | Description | Steps | Expected Result | Auto |
-| ---- | ----------- | ----- | --------------- | ---- |
-| Settings availability | Permanent dynamic-map control | 1. Locate Settings below Notifications on a dynamic map<br>2. Compare with Map 4 (static) | Settings is available on the dynamic map, even when omitted from configured app-bar components; it is absent on the static map | M |
-| Switch enables mode | Enable without leaving Settings | 1. With keyboard navigation off, open Settings<br>2. Focus the Keyboard navigation switch<br>3. Press Space | Switch becomes checked; Settings stays open and the switch retains focus; Tab/Shift+Tab wrap within Settings | M |
-| Switch disables mode | Disable without moving focus | 1. With the switch checked and focused, press Space | Switch becomes unchecked; mode and crosshair turn off; Settings stays open and the switch retains focus | M |
-| Shared mode state | Settings reflects entry and exit actions | 1. Enable through the entry prompt<br>2. Open Settings<br>3. Press Ctrl+Q<br>4. Reopen Settings with the pointer | Switch is checked after entry; Ctrl+Q closes Settings and returns focus to the top outer skip link; reopening shows an unchecked switch | M |
-| Settings explicit dismissal | Close returns to Settings trigger | 1. Enable mode and open Settings<br>2. Press Escape<br>3. Reopen and activate Close | Each dismissal closes Settings and returns focus to its trigger without disabling mode | M |
-| Settings restores panel boundary | Previous footer owner resumes | 1. Enable mode and activate the Layers footer keyboard boundary<br>2. Click Settings and use Tab/Shift+Tab<br>3. Close Settings<br>4. Click inside the still-open Layers panel and use Tab/Shift+Tab | Only Settings owns the boundary while open; after dismissal, Layers wraps in both directions again | M |
+| Dialog appears           | Inward Tab opens the dialog      | 1. Focus the top skip link<br>2. Press Tab             | "Keyboard navigation" dialog appears with focus on Enable       | M    |
+| Enable button            | Enables WCAG focus trap          | 1. Click "Enable"<br>2. Press Enter on the focused link | WCAG mode activates; focus starts on the top "Skip to main content - Map" link without activating the crosshair; Enter focuses the map and activates the crosshair | M    |
+| Skip button              | Bypasses viewer in either direction | 1. Open from the top link and activate Skip<br>2. Repeat from the bottom link | Forward Skip focuses that viewer's bottom link; reverse Skip focuses its top link | M |
+| Dialog can reappear      | Boundary entry is repeatable     | 1. Dismiss the dialog<br>2. Tab inward from an outer skip link again | The same viewer's dialog reopens | M |
 
 ## Ctrl+Q Exit WCAG Mode
 
@@ -57,57 +49,37 @@ Use a dynamic map such as [rt-02-map.html](https://canadian-geospatial-platform.
 
 | Test                            | Description                   | Steps                                                             | Expected Result                                                                     | Auto |
 | ------------------------------- | ----------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ---- |
-| Ctrl+M activates crosshair      | Crosshair shown at center     | 1. Focus the map (via Tab or skip link)<br>2. Press `Ctrl+M`      | Crosshair graphic appears at the map center                                         | M    |
+| Ctrl+M activates crosshair      | Focus map without toggling    | 1. On map13, focus a viewer control with no panel open<br>2. Press `Ctrl+M` twice | Map stays focused with the crosshair active; no feature query is triggered | A    |
+| Crosshair graphic at map centre | Visual placement and rendering | 1. On map13, focus a viewer control<br>2. Press `Ctrl+M`<br>3. Inspect the map | Crosshair graphic is visible at the centre of the map viewport | M |
+| Ctrl+M closes map controls      | Preserve footer, not triggers | 1. On map13, open app-bar Details with its feature sub-panel, a map popover, and a footer panel<br>2. Press `Ctrl+M`<br>3. Repeat with Layers and the other map popovers | Entire app-bar panel and popover close without reclaiming focus; footer stays open; map is focused and crosshair active | A |
+| Ctrl+M respects modal dialogs   | Focus-owned modal stays open  | 1. Open Export on map13, then repeat with the layer data table modal and feature detail modal<br>2. Focus a modal control<br>3. Press `Ctrl+M` | Modal stays open and focused; crosshair stays inactive | M |
+| Ctrl+M in Export dropdown       | Portaled menu stays focused   | 1. On map13, open Export and expand its format dropdown<br>2. Focus a format option<br>3. Press `Ctrl+M` | Export and its dropdown stay open; focus stays in the dropdown; crosshair stays inactive | A |
+| Ctrl+M in Share                 | Preserve existing Share focus | 1. On map13, open Share<br>2. Press `Ctrl+M` | Share stays open and focused; crosshair stays inactive | A |
 | First focus is skip-to-map link | Skip link before map canvas   | 1. Enter the map area via Tab                                     | First focusable element is the skip-to-map link (not the map canvas directly)       | M    |
 | Arrow keys pan                  | Map pans with arrows          | 1. With crosshair active, press arrow keys                        | Map pans in the arrow direction (default 128px step)                                | M    |
 | Shift+Up increases step         | Coarser movement              | 1. With crosshair active, press Shift+ArrowUp                     | Pan step increases by 10px (for faster large moves)                                 | M    |
 | Shift+Down decreases step       | Finer movement                | 1. Press Shift+ArrowDown                                          | Pan step decreases by 10px (minimum 10px, for precise positioning over features)    | M    |
-| Enter queries features (app bar) | Details close focus repeat | 1. Use a dynamic map with queryable features and Details configured only in the app bar<br>2. Position the crosshair over a feature and press Enter<br>3. Wait for attributes to load<br>4. Press Enter on Close<br>5. Query again and dismiss with Escape | Focus remains on the header Close while attributes load; either dismissal returns focus to the map and restores the crosshair, unless a newer control has taken focus | M |
-| Footer Details takes precedence | No app-bar-specific map return | 1. Use a dynamic map with Details configured in both bars<br>2. Query a feature with the crosshair<br>3. Inspect which Details panel opens<br>4. Activate the footer Details keyboard boundary, then its Exit control | Only footer Details opens; Exit returns focus to the footer tab selector rather than applying the app-bar return-to-map behaviour | M |
+| Enter queries features          | Main Close focus after loading | 1. On map13, use `Ctrl+M`, position the crosshair over a polygon, and press Enter<br>2. Wait for results and deferred focus<br>3. Press Esc once<br>4. Repeat over polygons, over empty space, and after closing the sub-panel at the same coordinates | Feature sub-panel (or guide for no features) opens; main Details Close stays focused, never sub-panel Close; one Esc closes Details and restores map focus with the crosshair active | A |
 | Static map — no crosshair       | Crosshair disabled on static  | 1. Load a static map (`interaction: 'static'`)<br>2. Press Ctrl+M | Crosshair does NOT activate; map element has `tabIndex=-1` (not keyboard-focusable) | M    |
-| Static map — viewer controls | Enable enters the shell | 1. On rt-02-map.html Map 4, enter the static viewer and activate Enable<br>2. Confirm focus before pressing Tab<br>3. Press Tab<br>4. Reload and repeat entry, this time pressing Shift+Tab first | Enable focuses the viewer shell, not either outer skip link; the first Tab and first Shift+Tab each reach an available control inside the viewer; no crosshair activates | M |
+| Static map — viewer controls    | Viewer still accessible       | 1. On same static map, Tab through controls                       | App bar (notifications, about) and map info (attribution, scale) are focusable      | M    |
 | Rotation                        | Crosshair works with rotation | 1. Rotate the map<br>2. Use crosshair                             | Crosshair and panning work correctly with rotation applied                          | M    |
 | Click deactivates               | Mouse click removes crosshair | 1. With crosshair active, click the map with the mouse            | Crosshair deactivates                                                               | M    |
 
 ## Tab Order
 
-Natural tab order (with WCAG mode):
-
-```
-Host page → Top skip link → App Bar → Map → Nav Bar → Footer Bar → Bottom skip link → Host page continues
-```
+Use the two dynamic viewers in Group 6 of `tests.html` for the native entry and wrapping checks.
 
 | Test                        | Description                              | Steps                                             | Expected Result                                                                                           | Auto |
 | --------------------------- | ---------------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ---- |
-| Full tab cycle              | Forward tab order correct                | 1. Press Tab repeatedly through the viewer        | Focus moves in the documented order above                                                                 | M    |
-| Shift+Tab reverses          | Reverse tab order correct                | 1. Press Shift+Tab                                | Focus moves in reverse order                                                                              | M    |
+| Forward entry               | Native Tab from the host page            | 1. Focus **Before the test viewers**<br>2. Press Tab twice | The first Tab focuses map13's top link; the second opens only map13's prompt | M |
+| Reverse entry               | Native Shift+Tab from the host page      | 1. Focus **After the test viewers**<br>2. Press Shift+Tab twice | The first Shift+Tab focuses map14's bottom link; the second opens only map14's prompt | M |
+| Forward wrap                | Native Tab stays in the enabled shell    | 1. Enable on map13 with no panels open<br>2. Press Tab past the last control inside the viewer | Focus wraps to map13's **Skip to main content - Map** link without leaving the viewer | M |
+| Reverse wrap                | Native Shift+Tab stays in the enabled shell | 1. Enable on map14 with no panels open<br>2. From **Skip to main content - Map**, press Shift+Tab | Focus wraps to the last control inside map14 without leaving the viewer | M |
 | Static map limited controls | Static map only exposes non-map controls | 1. Load a static map<br>2. Tab through the viewer | Only notification, about, copyright, and scale controls are focusable; Ctrl+M does not activate crosshair | M    |
 
 ## Panel Focus Trapping (WCAG Mode)
 
-When WCAG mode is enabled and a panel claims the keyboard boundary, Tab/Shift+Tab wrap within it. Normal panels allow deliberate pointer interaction outside without disabling the mode; genuine modal dialogs retain strict focus containment.
-
-### Mixed Keyboard and Pointer Input
-
-| Test | Description | Steps | Expected Result | Auto |
-| ---- | ----------- | ----- | --------------- | ---- |
-| Hover preserves keyboard focus | No mouse-avoidance workaround | 1. Enable mode and focus a control inside Layers<br>2. Move the pointer across the map boundary in both directions without clicking<br>3. Press Tab | Hover does not move focus or disable mode; keyboard navigation continues within Layers | M |
-| Deliberate outside click | Pointer destination is respected | 1. Enable mode and open Settings<br>2. Click another focusable viewer control<br>3. Continue with the keyboard | Settings closes without pulling focus back to its trigger; focus stays on the clicked control and mode remains enabled | M |
-| Modal containment | Mixed-input exception for actual modals | 1. Open a modal such as Export<br>2. Try Tab/Shift+Tab and clicking a viewer control behind it | Focus remains within the modal and background controls cannot be activated until it is dismissed | M |
-| Popover replacement | Closed About owner is not restored | 1. Follow the replacement setup below<br>2. Enable mode and activate the Layers footer boundary<br>3. Open About<br>4. Programmatically open the probe<br>5. Dismiss it with Escape; repeat with its Close button<br>6. Click inside Layers and use Tab/Shift+Tab | Opening the probe closes About; either dismissal restores the still-open Layers boundary, not the closed About owner; both Tab directions wrap within Layers | M |
-
-For the replacement test, use rt-02-map.html Map 1. In the browser console, replace `MAP_ID` with that viewer's ID and register a temporary navbar panel:
-
-```js
-const focusProbeViewer = cgpv.api.getMapViewer('MAP_ID');
-focusProbeViewer.navBarApi.createNavbarButtonPanel(
-  { id: 'focus-probe', 'aria-label': 'Focus ownership probe', children: 'Probe' },
-  { title: 'Focus ownership probe', content: 'Focus ownership probe', icon: 'Probe', status: false },
-  'default'
-);
-```
-
-With About open, run `focusProbeViewer.navBarApi.setButtonPanelOpen('focus-probe', true)`, then click inside the probe before keyboard dismissal. After testing, remove it with `focusProbeViewer.navBarApi.removeNavbarButtonPanel('focus-probe')`. Console interaction is only setup; perform Escape and Tab/Shift+Tab with the keyboard, not synthetic events.
+Keyboard-owned panels retain Tab/Shift+Tab boundaries. Non-modal panels permit deliberate pointer interaction outside them.
 
 ### Footer Bar Panels
 
@@ -136,7 +108,15 @@ With About open, run `focusProbeViewer.navBarApi.setButtonPanelOpen('focus-probe
 | Details panel trap (app bar)    | Focus trapped in Details via app bar    | 1. Open Details from app bar<br>2. Press Tab    | Focus is trapped                                   | M    |
 | Layers panel trap (app bar)     | Focus trapped in Layers via app bar     | 1. Open Layers from app bar<br>2. Press Tab     | Focus is trapped                                   | M    |
 | Data Table panel trap (app bar) | Focus trapped in Data Table via app bar | 1. Open Data Table from app bar<br>2. Press Tab | Focus is trapped                                   | M    |
-| Escape closes app bar panel | Escape uses the appropriate return target | 1. Open a panel from its app-bar button<br>2. Press Escape | Focus returns to its app-bar button; keyboard-query AppBar Details instead follows the return-to-map case above; a newer focus destination is not overridden | M |
+| Escape closes app bar panel     | Ordinary dismissal returns to trigger   | 1. Open a panel without a crosshair query<br>2. Press Escape from its main level | Focus returns to the app-bar button that opened it | M |
+| Details nested Escape           | Close the focused level first | 1. Query a polygon on map13 with the crosshair<br>2. Move focus into feature navigation and switch features<br>3. Press Esc<br>4. Press Esc again | First Esc closes only the feature sub-panel and focuses its layer item; second closes Details and restores map focus with the crosshair active | A |
+| Details internal navigation     | Keep the crosshair return | 1. Query a polygon on map13<br>2. Navigate within Details using Tab/arrows and switch results<br>3. Move the mouse without clicking<br>4. Escape through the focused levels | Internal navigation and mouse movement preserve the main-panel Esc return to the crosshair | A |
+| Details focus leaves            | Do not enforce inner focus | 1. Query a polygon on map13 and focus feature navigation<br>2. Move focus to the Layers app-bar button<br>3. Press Esc | Focus stays on Layers, is not pulled back into Details, and does not return to the crosshair | A |
+| Details pointer cancellation    | A click inside cancels return | 1. Query a polygon on map13<br>2. Click Next feature inside Details<br>3. Escape through both levels | Sub-panel closes to its layer item; main-panel Esc does not return to the crosshair | A |
+| Details ordinary closure        | Preserve Close and mouse opening | 1. Query with the crosshair and activate main Close<br>2. Open Details by clicking a polygon and dismiss it with Esc | Close retains its ordinary focus behavior; mouse-opened Details does not gain an Esc return to the crosshair | A |
+| Details remembered sub-panel    | Reopen without a new query | 1. On map13, click a polygon and select a feature<br>2. Close/reopen Details using its app-bar button<br>3. Repeat after Ctrl+M dismissal | Same feature sub-panel, layer, and selected feature reopen | A |
+| Details sub-panel Tab boundary  | Keep forward/reverse wrapping | 1. On map13, open the Details feature sub-panel<br>2. Tab past its last control<br>3. Shift+Tab before its first control | Tab and Shift+Tab wrap within the feature sub-panel as before | M |
+| Details window blur             | Cancel return when window loses focus | 1. Query a polygon on map13<br>2. Switch to another window and back<br>3. Escape through the focused levels | Details closes normally without restoring the crosshair | M |
 
 ## Panel Full Screen Mode Focus
 
@@ -196,5 +176,5 @@ not a passing result for the universal focus-indicator check.
 
 | Test                      | Description                  | Steps                                                                                            | Expected Result                                                | Auto |
 | ------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- | ---- |
-| Only one map in WCAG mode | Second map deactivates first | 1. With 2 maps on page, enable WCAG on the first map<br>2. Tab to the second map and enable WCAG | First map's WCAG mode deactivates (only one active at a time)  | M    |
-| Ctrl+Q exits active map   | Exit and switch maps         | 1. With WCAG active on one map, press Ctrl+Q<br>2. Tab to the other map                          | WCAG exits; dialog appears on the other map to enable it there | M    |
+| Independent keyboard modes | Enabling a second viewer leaves the first enabled | 1. Enable on map13<br>2. Use map14's Settings to enable it<br>3. Inspect the Settings switch in each map | Both switches are on | M |
+| Ctrl+Q exits the focused map | Exit only one viewer's mode | 1. Enable on both maps<br>2. Focus a control inside map14 and press Ctrl+Q | Focus moves to map14's top link; map14's mode turns off and map13's stays on | M |

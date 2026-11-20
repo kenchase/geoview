@@ -52,7 +52,7 @@ Depending on the viewer configuration, the map's bottom right corner contains th
 | <img src="{{assetsURL}}/img/guide/navigation/360.svg" alt="An icon representing the Map Rotation function" />             | Map Rotation           | Control map rotation with a slider from -180° to +180°. The panel includes a **Fix North** toggle (available for LCC projection) to keep the map oriented with north at the top, and a reset button to return to the initial orientation. |
 | <img src="{{assetsURL}}/img/guide/navigation/geolocation.svg" alt="An icon representing the Geolocation function" />      | Geolocation            | Zoom and pan to your current geographical location.                                                                                                                                                                                       |
 | <img src="{{assetsURL}}/img/guide/navigation/home.svg" alt="An icon representing the Initial extent function" />          | Zoom to initial extent | Zoom and pan map such that initial extent is visible.                                                                                                                                                                                     |
-| <img src="{{assetsURL}}/img/guide/navigation/measure.svg" alt="An icon representing the Measure function" />              | Measure                | Measure distances and areas on the map. Toggle between distance (line) and area (polygon) modes. See [Measure](#measure) for mouse and keyboard instructions.                                                                            |
+| <img src="{{assetsURL}}/img/guide/navigation/measure.svg" alt="An icon representing the Measure function" />              | Measure                | Measure distances and areas on the map. Toggle between distance (line) and area (polygon) modes. See [Measure](#measure) for mouse and keyboard instructions.                                                                             |
 | <img src="{{assetsURL}}/img/guide/navigation/basemapSelect.svg" alt="An icon representing the Change Basemap function" /> | Change Basemap         | Change the basemap.                                                                                                                                                                                                                       |
 | <img src="{{assetsURL}}/img/guide/navigation/projection.svg" alt="An icon representing the Change Projection function" /> | Change Projection      | Change the map projection between Web Mercator and LCC.                                                                                                                                                                                   |
 
@@ -80,24 +80,23 @@ Click-hold on the box in the overview map and drag it to change the extent of th
 
 Keyboard functionality is provided as an alternative for users who are unable to use a mouse. Use the **Tab** key to navigate forward to links and controls on the page. Press **Shift** and **Tab** keys to go back one step. Use the **Enter** or **Spacebar** keys to activate links and controls.
 
-Use **Tab** to enter the viewer. When the **Keyboard navigation** prompt appears, select **Enable** and press **Enter**.
+When you Tab into the viewer through a skip link, the **Keyboard Navigation** prompt appears. Select **Enable** and press **Enter**; focus moves to **Skip to main content - Map**. Press **Enter** again to focus the map. On dynamic maps, use **Settings** below Notifications and its **Keyboard navigation** switch to turn the mode on or off.
 
-- On dynamic maps, focus moves to **Skip to main content - Map**. Press **Enter** again to focus the map and activate the crosshair; Enable alone does not activate it.
-- On static maps, focus moves into the viewer. Use **Tab** or **Shift+Tab** to reach its available controls. Static maps do not support crosshair navigation, panning, or zooming.
-
-On dynamic maps, a crosshair is displayed in the center when the map gains focus:
+When you focus the map using **Tab**, its skip link, or **Ctrl+M**, a crosshair is displayed in the center of the map:
 
 <img src="{{assetsURL}}/img/guide/navigation/crosshair.svg" alt="Crosshair marker displayed in the center of the map for keyboard navigation" style="width: 90%; height: 100px;"/>
 
-With focus inside a dynamic viewer, use **Ctrl+M** (**Cmd+M** on macOS) to focus the map and activate the crosshair.
+With focus inside a dynamic viewer, **Ctrl+M** (**Cmd+M** on macOS) focuses the map and activates the crosshair. It closes Side Bar panels, including Details, and navigation control panels, but leaves footer panels open. It does nothing while a dialog is open.
 
-Use the **arrow** keys to move the map and **+** / **-** keys or **Ctrl+Up** / **Ctrl+Down** to zoom in and out. Press **Shift+Up** / **Shift+Down** to increase or decrease how far the map pans with each arrow key press. Press **Enter** to select a feature under the crosshairs and display associated data in the **Details** panel.
+Use the **arrow** keys to move the map and **+** / **-** keys or **Ctrl+Up** / **Ctrl+Down** to zoom in and out. Press **Shift+Up** / **Shift+Down** to increase or decrease how far the map pans with each arrow key press. Press **Enter** to select a supported feature under the crosshair and display its associated data in the **Details** panel.
 
-Information will be shown for supported features when the crosshair is positioned over them.
+When Details is available in the Side Bar, each crosshair query opens its feature sub-panel (or its guide if there are no features), with focus on the panel's **main Close button**. Press **Esc** once to close Details and return to the crosshair. If you move into the feature sub-panel, the first **Esc** closes it and focuses its layer in the list; the second closes Details and returns to the crosshair.
+
+Navigating within Details and moving the mouse preserve this return. Leaving Details, clicking the mouse, or switching away from the viewer window cancels it. The **Close** button and Details opened with the mouse keep their usual behavior.
 
 ## Measure
 
-#### With a mouse
+### With a mouse
 
 1. Open **Measure**, enable the tool, and choose **Distance** or **Area**.
 2. Click the map to start, then click to add points.
@@ -106,18 +105,18 @@ Information will be shown for supported features when the crosshair is positione
 5. Press **Esc** to cancel the sketch in progress. The tool stays enabled so you can start again.
 6. While a sketch is in progress, press **Ctrl+Z** or **Backspace** to undo the last point. Use **Clear** in the Measure panel to remove completed measurements.
 
-#### With the crosshair
+### With the crosshair
 
-Keyboard measuring requires a dynamic map with keyboard navigation enabled. After choosing **Enable**, press **Enter** on **Skip to main content - Map** to activate the crosshair. Then open **Measure**, enable the tool, and choose **Distance** or **Area**.
+Enable keyboard navigation, then open **Measure**, enable the tool, and choose **Distance** or **Area**. Press **Ctrl+M** to focus the map and display the crosshair.
 
 - Press **Enter** or **Spacebar** to start and add a point at the crosshair.
 - Press **Shift+Enter** or **Shift+Spacebar** to finish the measurement.
 - While a sketch is in progress, press **Ctrl+Z** or **Backspace** to undo the last point; press **Esc** to cancel the sketch. Press **Esc** again, with nothing left to cancel, to return focus to the **Measure** button.
-- Use the **arrow** keys to pan the map. **Ctrl+M** focuses the map and closes an open navigation panel without disabling Measure.
+- Use the **arrow** keys to pan the map. **Ctrl+M** focuses the map and closes open Side Bar and navigation control panels without disabling Measure.
 
 The measurement result and drawing actions are announced to screen readers. In fullscreen, **Esc** cancels the current sketch and also exits fullscreen because the browser reserves that key.
 
-_Note: The map must be focused for key binding to work. The map has focus when the crosshairs marker is present._
+_Note: The map must be focused for key binding to work. The map has focus when the crosshair marker is present._
 
 ## Accessibility
 
@@ -125,10 +124,10 @@ This map is not fully compliant with Web Content Accessibility Guidelines (WCAG)
 
 ### Keyboard Users
 
-- Opening panels triggers focus traps to speed up navigation, with Esc closing panels and returning focus to the triggering element.
+- Panels provide Tab/Shift+Tab boundaries. **Esc** closes the innermost panel containing focus and normally returns to its associated control; crosshair queries use the return described above.
 - In full-screen mode, the Esc key will exit full-screen rather than close any panels that have been opened.
 - In a side panel, press **Tab** until its scrollable content area has focus, then use the **arrow** keys to scroll. Scrolling stays within the panel at its top and bottom edges.
-- On dynamic maps, use **Settings** below Notifications to turn keyboard navigation on or off. Mouse movement does not turn the mode off; normal panels keep their keyboard boundaries while allowing deliberate pointer interaction elsewhere.
+- Mouse movement does not turn keyboard navigation off; normal panels keep their keyboard boundaries while allowing deliberate pointer interaction elsewhere.
 - The Settings switch stays open and focused when changed. Escape or **Close** returns focus to Settings; clicking elsewhere preserves focus on the control you clicked.
 
 ### Screen Reader Users
@@ -195,11 +194,11 @@ _Note: Keyboard shortcuts (except undo/redo/escape) can be toggled on/off via th
 
 ## Crosshair Drawing and Editing
 
-When keyboard navigation is enabled (crosshair active), the drawing tools provide enhanced keyboard control:
+When the crosshair is active, the drawing tools provide enhanced keyboard control:
 
-### Drawing with Crosshairs
+### Drawing with the Crosshair
 
-1. Enable keyboard navigation (**Tab** to the map, then **Enable**)
+1. Enable keyboard navigation, then press **Ctrl+M** to focus the map
 2. Activate drawing mode (**D**)
 3. Select a geometry type (**G** to cycle)
 4. Position the crosshair using **arrow keys**
@@ -215,7 +214,7 @@ When keyboard navigation is enabled (crosshair active), the drawing tools provid
 
 Press **Esc** to cancel a sketch or a pending first coordinate. Press **Esc** again, with nothing left to cancel, to return focus to the **Toggle Drawing** button.
 
-### Editing with Crosshairs
+### Editing with the Crosshair
 
 1. Activate editing mode (**E**)
 2. Position the crosshair over a geometry and press **Enter** or **Spacebar** to select it
@@ -227,7 +226,7 @@ Press **Esc** to cancel a sketch or a pending first coordinate. Press **Esc** ag
 
 **Text editing:** With a text feature selected, press **Shift+Enter** or **Shift+Spacebar** when the crosshair is inside the text bounds to open the text editor (keyboard double-click equivalent).
 
-### Zoom Control with Crosshairs
+### Zoom Control with the Crosshair
 
 While using the drawing tools with keyboard navigation:
 
