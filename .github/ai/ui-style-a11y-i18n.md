@@ -118,6 +118,7 @@ selectors, run `npm run lint` from `packages/` and check both flagged literals a
 Size selectors follow value containers (responsive objects/arrays, conditional branches and JSX
 expressions), not helper-call arguments, lookup keys or condition tests. Preserve both positive and
 negative cases when changing these selectors.
+
 ## Shell scrolling
 
 The behavioural contract (offset, oversized alignment, map-info buttons) lives in the
@@ -164,10 +165,14 @@ Contracts: [Keyboard navigation](../../docs/app/accessibility.md#keyboard-naviga
   the viewer, call `preventDefault()` before any branch (modal, static, or acting): macOS Chrome maps
   Ctrl+M to Return, which otherwise activates the focused control, such as a dialog's close button.
   Only dynamic maps act on the shortcut.
-  Before `notifyMapKeyboardEvent` or shortcut side effects, use `DomHelper.queryGVSelector` to check the
-  viewer root for `[role="dialog"][aria-modal="true"]`, independently of the focused element. Share
-  renders outside that root and is covered when its focus is outside the viewer. Dialogs remain matched
-  during exit transitions; do not substitute DOM visibility heuristics. Other keyboard notifications are unaffected.
+  Use `DomHelper.hasOpenModal` before redirecting Tab to the entry links, opening the entry prompt,
+  processing Ctrl+Q, forwarding map keyboard events, or handling separate draw/measure shortcuts.
+  This checks the viewer root for `[role="dialog"][aria-modal="true"]` even if focus escaped and
+  still matches during exit transitions. Share renders outside the viewer root; focus in Share
+  does not reach handlers scoped to the viewer. Fullscreen Dialog keeps MUI focus enforcement;
+  its transition callback focuses Close on entry and restores the trigger on exit. Read-only Legend
+  also excludes its class toggles and image buttons from tab order through `showControls`: MUI's
+  backward wrap does not filter out inert descendants on its own.
   Flush app-bar panel and map-popover closure (navbar, About/Version, Notifications) before focusing
   the map so MUI focus restoration cannot reclaim focus; clear the registered focus item without
   restoring caller focus. Leave footer panels and remembered Details sub-panel state unchanged.

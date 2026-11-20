@@ -118,11 +118,9 @@ export function Map(props: MapProps): JSX.Element {
         // Reserve the shortcut in this viewer whether it acts or is blocked: macOS maps Ctrl+M to Return,
         // which would otherwise activate the focused control (e.g. a dialog's close button).
         event.preventDefault();
-
-        // Ignore the shortcut while this viewer has a modal, even if focus escaped its dialog.
-        // Share renders outside the viewer root and its focused controls do not reach this handler.
-        if (DomHelper.queryGVSelector(mapId, '[role="dialog"][aria-modal="true"]')) return;
       }
+
+      if (DomHelper.hasOpenModal(mapId)) return;
 
       const isTextInputFocused = DomHelper.isInputOrContentEditableElement(activeElement);
       const isMapTargetFocused = mapElement.current?.contains(activeElement) ?? false;
@@ -165,7 +163,7 @@ export function Map(props: MapProps): JSX.Element {
       if (event.key !== 'Tab') return;
 
       const activeElement = DomHelper.getActiveElementWithinMap(mapId);
-      if (!activeElement) return;
+      if (!activeElement || DomHelper.hasOpenModal(mapId)) return;
 
       const mapFocus = activeElement === mapElement.current;
       if (mapFocus) logger.logInfo(`Map ${mapId} focus and crosshair is enabled`, [mapFocus]);

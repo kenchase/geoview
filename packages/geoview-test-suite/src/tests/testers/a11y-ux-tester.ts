@@ -1194,7 +1194,8 @@ export class A11yUxTester extends GVAbstractTester {
         test.addStep('Verifying Ctrl+M leaves the crosshair inactive...');
         Test.assertIsEqual(result.crosshairAfterExportShortcut, false);
 
-        Test.assertIsEqual(result.ordinaryKeyboardNotification, true);
+        test.addStep('Verifying ordinary keys also send no map keyboard notification while Export is open...');
+        Test.assertIsEqual(result.ordinaryKeyboardNotification, false);
       },
       async (): Promise<void> => {
         viewer.offMapKeyboardEvent(keyboardEventDelegate);
@@ -1327,7 +1328,7 @@ export class A11yUxTester extends GVAbstractTester {
   }
 
   /**
-   * Tests Ctrl+M while an overlay is open over an app-bar panel.
+   * Tests shortcut isolation for overlays and keyboard entry and exit for fullscreen dialogs.
    *
    * @param kind - The modal to open
    * @returns A promise that resolves with modal and shortcut observations
@@ -1345,13 +1346,14 @@ export class A11yUxTester extends GVAbstractTester {
     const keyboardEvents: KeyboardEvent[] = [];
     let dialog: HTMLElement | undefined;
     let closeButton: HTMLButtonElement | undefined;
+    const fullscreen = kind === 'fullscreen' || kind === 'legend fullscreen';
 
     const keyboardEventDelegate = viewer.onMapKeyboardEvent((_sender, event) => {
       keyboardEvents.push(event.keyboardEvent);
     });
 
     return this.test(
-      `Test Ctrl+M does nothing while ${kind} is open`,
+      fullscreen ? `Test fullscreen keyboard isolation: ${kind}` : `Test Ctrl+M does nothing while ${kind} is open`,
       async (test): Promise<TypeOverlayShortcutResult> => {
         const panelId = kind === 'legend fullscreen' ? 'legend' : 'layers';
         const panelButton = DomHelper.getAppBarButton(mapId, panelId);
@@ -1387,6 +1389,10 @@ export class A11yUxTester extends GVAbstractTester {
         await whenThisThen(() => DomHelper.getActiveElement() === panelClose, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
         test.addStep(`Opening the ${kind} dialog...`);
         let openButton: HTMLElement | undefined;
+        const getFullscreenButton = (): HTMLButtonElement | undefined =>
+          DomHelper.getAppBarPanel(mapId, panelId)?.querySelector<HTMLButtonElement>(
+            kind === 'fullscreen' ? 'button[aria-label^="Full screen,"]' : 'button[aria-label="Ouvrir en plein écran"]'
+          ) ?? undefined;
         if (kind === 'basic table') {
           const layer = DomHelper.getGVElementById<HTMLElement>(mapId, 'appBar-layers-geojsonLYR5/polygons.json');
           if (!layer) throw new TestError('The companion Polygons layer must be mounted');
@@ -1396,12 +1402,8 @@ export class A11yUxTester extends GVAbstractTester {
             openButton = tableButton;
             return !!tableButton && !tableButton.disabled;
           }, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
-        } else if (kind === 'fullscreen' || kind === 'legend fullscreen') {
-          const panel = DomHelper.getAppBarPanel(mapId, panelId);
-          openButton =
-            panel?.querySelector<HTMLButtonElement>(
-              kind === 'fullscreen' ? 'button[aria-label^="Full screen,"]' : 'button[aria-label="Ouvrir en plein écran"]'
-            ) ?? undefined;
+        } else if (fullscreen) {
+          openButton = getFullscreenButton();
         } else if (kind === 'export') {
           openButton = DomHelper.getGVElementById<HTMLButtonElement>(mapId, 'appBar-export-modal-btn');
         } else {
@@ -1434,7 +1436,8 @@ export class A11yUxTester extends GVAbstractTester {
 
         test.addStep('Pressing Ctrl+M from where focus lands after opening...');
         const landingFocus = DomHelper.getActiveElement();
-        if (!landingFocus || !dialog.contains(landingFocus)) throw new TestError('Focus must land inside the dialog after opening');
+        if (!(landingFocus instanceof HTMLElement) || !dialog.contains(landingFocus))
+          throw new TestError('Focus must land inside the dialog after opening');
         const landingPrevented = !landingFocus.dispatchEvent(
           new KeyboardEvent('keydown', { key: 'm', ctrlKey: true, bubbles: true, cancelable: true })
         );
@@ -1464,22 +1467,87 @@ export class A11yUxTester extends GVAbstractTester {
         const footerAfter = getStoreUIActiveFooterBarTab(mapId);
         const focusUnchanged = DomHelper.getActiveElement() === focusBefore;
         const crosshairAfter = getStoreAppIsCrosshairsActive(mapId);
+        const dialogOpenAfter = dialog.isConnected && dialog.getAttribute('aria-modal') === 'true';
+        const modalNotifications = keyboardEvents.length;
+        let fullscreenKeyboard: TypeFullscreenKeyboardResult | undefined;
+        if (fullscreen) {
+          test.addStep('Dispatching Tab and Shift+Tab inside the fullscreen dialog before enabling keyboard mode...');
+          let legendReverseTabWrapped: boolean | undefined;
+          const tabFocusStayed = [false, true].map((shiftKey): boolean => {
+            landingFocus.focus();
+            landingFocus.dispatchEvent(
+              new KeyboardEvent('keydown', { key: 'Tab', code: 'Tab', shiftKey, bubbles: true, cancelable: true })
+            );
+            return DomHelper.getActiveElement() === landingFocus;
+          });
+          if (kind === 'legend fullscreen') {
+            const startSentinel = dialog.closest('.MuiDialog-root')?.querySelector<HTMLElement>('[data-testid="sentinelStart"]');
+            if (!startSentinel) throw new TestError('The Legend fullscreen start sentinel must be mounted');
+
+            // Synthetic Shift+Tab records the direction but does not move focus. Reproduce the browser's next focus step.
+            startSentinel.focus();
+            legendReverseTabWrapped = DomHelper.getActiveElement() === closeButton;
+          }
+          const topLink = DomHelper.getWCAGTopLink(mapId);
+          if (!topLink) throw new TestError('The viewer entry link must be mounted');
+
+          // Exercise the entry-link handler even if the dialog's focus trap prevents reaching the link.
+          topLink.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', code: 'Tab', bubbles: true, cancelable: true }));
+          await DomHelper.waitForReactIdle();
+          const promptOpened = !!DomHelper.getGVElementById(mapId, 'wcag-dialog-title');
+          if (promptOpened) {
+            DomHelper.getGVElementById<HTMLButtonElement>(mapId, 'skip-focus')?.click();
+            await whenThisThen(() => !DomHelper.getGVElementById(mapId, 'wcag-dialog-title'), GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+          }
+
+          test.addStep('Pressing Ctrl+Q with keyboard mode enabled, then repeating after closing the dialog...');
+          uiController.setActiveTrapGeoView(true);
+          await DomHelper.waitForReactIdle();
+          landingFocus.focus();
+          const dispatchCtrlQ = (target: HTMLElement): boolean =>
+            !target.dispatchEvent(new KeyboardEvent('keydown', { key: 'q', code: 'KeyQ', ctrlKey: true, bubbles: true, cancelable: true }));
+          const ctrlQHandledInDialog = dispatchCtrlQ(landingFocus);
+          await DomHelper.waitForReactIdle();
+          const modeStayedEnabled = getStoreUIActiveTrapGeoView(mapId);
+          const ctrlQFocusStayed = DomHelper.getActiveElement() === landingFocus;
+          closeButton.click();
+          await whenThisThen(() => !dialog?.isConnected, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+          const reopenedTrigger = getFullscreenButton();
+          if (!reopenedTrigger) throw new TestError('The fullscreen trigger must be mounted again after close');
+          await whenThisThen(() => DomHelper.getActiveElement() === reopenedTrigger, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
+
+          // Restore the precondition if the regression already turned keyboard mode off.
+          uiController.setActiveTrapGeoView(true);
+          await DomHelper.waitForReactIdle();
+          const ctrlQHandledAfterClose = dispatchCtrlQ(reopenedTrigger);
+          await DomHelper.waitForReactIdle();
+          fullscreenKeyboard = {
+            tabFocusStayed,
+            legendReverseTabWrapped,
+            promptOpened,
+            ctrlQHandledInDialog,
+            modeStayedEnabled,
+            ctrlQFocusStayed,
+            ctrlQHandledAfterClose,
+            modeExitedAfterClose: !getStoreUIActiveTrapGeoView(mapId),
+            focusReturnedToSkipLink: DomHelper.getActiveElement() === topLink,
+          };
+        }
         return {
           landingPrevented,
           landingFocusUnchanged,
           landingDialogOpen,
           escapedPrevented,
           dialogOpenBefore,
-          dialogOpenAfter: dialog.isConnected && dialog.getAttribute('aria-modal') === 'true',
+          dialogOpenAfter,
           focusUnchanged,
           appBarOpenBefore: appBarBefore.isOpen && appBarBefore.tabId === panelId,
           appBarOpenAfter: appBarAfter.isOpen && appBarAfter.tabId === panelId,
           footerUnchanged: footerBefore.isOpen === footerAfter.isOpen && footerBefore.tabId === footerAfter.tabId,
           crosshairBefore,
           crosshairAfter,
-          modifierNotifications: keyboardEvents.filter((event) => event.key === 'Control').length,
-          shortcutNotifications: keyboardEvents.filter((event) => (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'm')
-            .length,
+          modalNotifications,
+          fullscreenKeyboard,
         };
       },
       (test, result): void => {
@@ -1497,12 +1565,30 @@ export class A11yUxTester extends GVAbstractTester {
         test.addStep('Verifying the app-bar panel remains open...');
         Test.assertIsEqual(result.appBarOpenBefore, true);
         Test.assertIsEqual(result.appBarOpenAfter, true);
-        test.addStep('Verifying the footer and crosshair are unchanged, and only the modifier key is notified...');
+        if (fullscreen) {
+          Test.assertIsDefined('Fullscreen keyboard observations', result.fullscreenKeyboard);
+          const keyboard = result.fullscreenKeyboard;
+          test.addStep('Verifying neither Tab direction redirects focus and the entry prompt stays closed...');
+          Test.assertIsEqual(keyboard.tabFocusStayed[0], true);
+          Test.assertIsEqual(keyboard.tabFocusStayed[1], true);
+          Test.assertIsEqual(keyboard.promptOpened, false);
+          if (kind === 'legend fullscreen') {
+            test.addStep('Verifying backward traversal through the start sentinel wraps to Close...');
+            Test.assertIsEqual(keyboard.legendReverseTabWrapped, true);
+          }
+          test.addStep('Verifying Ctrl+Q is ignored in fullscreen but exits keyboard mode after close...');
+          Test.assertIsEqual(keyboard.ctrlQHandledInDialog, false);
+          Test.assertIsEqual(keyboard.modeStayedEnabled, true);
+          Test.assertIsEqual(keyboard.ctrlQFocusStayed, true);
+          Test.assertIsEqual(keyboard.ctrlQHandledAfterClose, true);
+          Test.assertIsEqual(keyboard.modeExitedAfterClose, true);
+          Test.assertIsEqual(keyboard.focusReturnedToSkipLink, true);
+        }
+        test.addStep('Verifying the footer and crosshair are unchanged and no map keyboard events are notified...');
         Test.assertIsEqual(result.footerUnchanged, true);
         Test.assertIsEqual(result.crosshairBefore, false);
         Test.assertIsEqual(result.crosshairAfter, false);
-        Test.assertIsEqual(result.modifierNotifications, 1);
-        Test.assertIsEqual(result.shortcutNotifications, 0);
+        Test.assertIsEqual(result.modalNotifications, 0);
       },
       async (): Promise<void> => {
         viewer.offMapKeyboardEvent(keyboardEventDelegate);
@@ -1773,7 +1859,7 @@ interface TypeShareModalShortcutResult {
 
 type TypeOverlayKind = 'fullscreen' | 'legend fullscreen' | 'lightbox' | 'export' | 'basic table' | 'feature detail';
 
-/** Overlay observations before and after Ctrl+M. */
+/** Overlay observations before and after viewer keyboard input. */
 interface TypeOverlayShortcutResult {
   landingPrevented: boolean;
   landingFocusUnchanged: boolean;
@@ -1787,8 +1873,21 @@ interface TypeOverlayShortcutResult {
   footerUnchanged: boolean;
   crosshairBefore: boolean;
   crosshairAfter: boolean;
-  modifierNotifications: number;
-  shortcutNotifications: number;
+  modalNotifications: number;
+  fullscreenKeyboard?: TypeFullscreenKeyboardResult;
+}
+
+/** Entry and exit behavior while a fullscreen dialog is open and after it closes. */
+interface TypeFullscreenKeyboardResult {
+  tabFocusStayed: boolean[];
+  legendReverseTabWrapped?: boolean;
+  promptOpened: boolean;
+  ctrlQHandledInDialog: boolean;
+  modeStayedEnabled: boolean;
+  ctrlQFocusStayed: boolean;
+  ctrlQHandledAfterClose: boolean;
+  modeExitedAfterClose: boolean;
+  focusReturnedToSkipLink: boolean;
 }
 
 /** Observations when another viewer has a modal open. */

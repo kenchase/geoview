@@ -103,7 +103,7 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
 
     const handleTabNavigation = (evt: KeyboardEvent): void => {
       // Only intercept Tab key
-      if (evt.key !== 'Tab' || activeTrapGeoView || hasBeenPromptedRef.current) {
+      if (evt.key !== 'Tab' || activeTrapGeoView || hasBeenPromptedRef.current || DomHelper.hasOpenModal(mapId)) {
         return;
       }
 
@@ -219,6 +219,8 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
    */
   const handleExit = useCallback(
     (evt: KeyboardEvent): void => {
+      if (DomHelper.hasOpenModal(mapId)) return;
+
       if (mapTargetElement && !ARROW_KEY_CODES.includes(evt.code)) mapTargetElement.style.border = 'unset';
 
       if (evt.code === 'KeyQ' && evt.ctrlKey) {
@@ -227,7 +229,7 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
         exitFocus();
       }
     },
-    [exitFocus, mapTargetElement]
+    [exitFocus, mapId, mapTargetElement]
   );
 
   /**
@@ -276,30 +278,33 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
   /**
    * Manages skip top and bottom link navigation.
    */
-  const manageLinks = useCallback((event: HTMLElementEventMap[keyof HTMLElementEventMap]): void => {
-    // If not Tab, skip to the right link (handle the ref of the link)
-    if (!(event instanceof KeyboardEvent) || event.key !== 'Tab') {
-      return;
-    }
+  const manageLinks = useCallback(
+    (event: HTMLElementEventMap[keyof HTMLElementEventMap]): void => {
+      // If not Tab, skip to the right link (handle the ref of the link)
+      if (!(event instanceof KeyboardEvent) || event.key !== 'Tab' || DomHelper.hasOpenModal(mapId)) {
+        return;
+      }
 
-    // If Tab from topLink or shift+Tab from bottomLink, focus the map element
-    const targetId = (event.target as HTMLElement).id;
-    let linkId = '';
-    if (targetId.endsWith('-wcag-toplink')) linkId = 'toplink';
-    else if (targetId.endsWith('-wcag-bottomlink')) linkId = 'bottomlink';
-    if (
-      (event.code === 'Tab' && !event.shiftKey && linkId === 'toplink') ||
-      (event.code === 'Tab' && event.shiftKey && linkId === 'bottomlink')
-    ) {
-      // prevent the event to tab to inner map
-      event.preventDefault();
-      event.stopPropagation();
-      navigationLinkRef.current = linkId === 'toplink' ? 'wcag-bottomlink' : 'wcag-toplink';
+      // If Tab from topLink or shift+Tab from bottomLink, focus the map element
+      const targetId = (event.target as HTMLElement).id;
+      let linkId = '';
+      if (targetId.endsWith('-wcag-toplink')) linkId = 'toplink';
+      else if (targetId.endsWith('-wcag-bottomlink')) linkId = 'bottomlink';
+      if (
+        (event.code === 'Tab' && !event.shiftKey && linkId === 'toplink') ||
+        (event.code === 'Tab' && event.shiftKey && linkId === 'bottomlink')
+      ) {
+        // prevent the event to tab to inner map
+        event.preventDefault();
+        event.stopPropagation();
+        navigationLinkRef.current = linkId === 'toplink' ? 'wcag-bottomlink' : 'wcag-toplink';
 
-      setOpen(true);
-      // Show the entry prompt at the viewer's keyboard-navigation boundary.
-    }
-  }, []);
+        setOpen(true);
+        // Show the entry prompt at the viewer's keyboard-navigation boundary.
+      }
+    },
+    [mapId]
+  );
   useEventListener<HTMLElement>('keydown', manageLinks, DomHelper.getWCAGBottomLink(mapId));
   useEventListener<HTMLElement>('keydown', manageLinks, DomHelper.getWCAGTopLink(mapId));
 

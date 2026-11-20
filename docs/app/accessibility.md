@@ -18,9 +18,12 @@ With focus inside a dynamic viewer, Ctrl+M (or Cmd+M on macOS) focuses the map e
 and **activates**, not toggles, the crosshair. Ctrl+Q exits keyboard navigation mode and
 deactivates the crosshair. Tabbing to another control within the viewer also deactivates it.
 Ctrl+M closes open app-bar panels (including both levels of Details) and map popovers before transferring focus,
-without returning focus to their buttons. Footer panels are unaffected. The shortcut is ignored while a modal
-dialog is open in the viewer, regardless of where focus is within that viewer. It is also ignored while focus is
-in the Share dialog, which renders outside the viewer. With focus inside the viewer, the shortcut always cancels the
+without returning focus to their buttons. Footer panels are unaffected. While a modal dialog is open in the viewer,
+the keyboard-entry prompt and viewer shortcuts (including Ctrl+M, Ctrl+Q, and drawing and measurement shortcuts)
+are suspended. The viewer does not forward map keyboard events while its dialog is open. Tab and Shift+Tab stay
+in the dialog, and Escape still dismisses it. Close the dialog before
+pressing Ctrl+Q to exit keyboard navigation mode. Ctrl+M is also ignored while focus is in the Share dialog,
+which renders outside the viewer. With focus inside the viewer, Ctrl+M always cancels the
 browser's default action, including when it is ignored or the map is static, so macOS cannot turn Ctrl+M into Return
 and activate the focused control.
 Escape is not a general crosshair-exit shortcut; drawer editing can use it to cancel a grabbed transform.
