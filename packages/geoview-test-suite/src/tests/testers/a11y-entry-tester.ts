@@ -311,7 +311,7 @@ export class A11yEntryTester extends GVAbstractTester {
           check(
             `Focus destination for ${id}`,
             DomHelper.getActiveElement()?.id || DomHelper.getActiveElement()?.tagName,
-            `${id}-${suffix}`
+            DomHelper.buildGVElementId(id, suffix)
           );
           ids(id, suffix);
         };

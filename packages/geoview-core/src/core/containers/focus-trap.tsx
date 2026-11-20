@@ -322,7 +322,9 @@ export function FocusTrapDialog(props: FocusTrapProps): JSX.Element {
         const currentFocus = DomHelper.getActiveElement();
         if (
           result === 'timeout' &&
-          (currentFocus === initialFocus || currentFocus?.tagName === 'BODY' || currentFocus?.id === `${mapId}-enable-focus`)
+          (currentFocus === initialFocus ||
+            currentFocus?.tagName === 'BODY' ||
+            currentFocus?.id === DomHelper.buildGVElementId(mapId, 'enable-focus'))
         ) {
           DomHelper.getGVElementById(mapId, 'enable-focus')?.focus();
         }

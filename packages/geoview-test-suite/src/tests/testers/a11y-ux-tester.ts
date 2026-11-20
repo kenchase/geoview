@@ -412,8 +412,8 @@ export class A11yUxTester extends GVAbstractTester {
       async (test): Promise<TypeKeyboardShortcutPanelsResult> => {
         const target = DomHelper.getMapTargetElement(mapId);
         const layersButton = DomHelper.getAppBarButton(mapId, 'layers');
-        const settingsButton = DomHelper.getGVElementByFullId<HTMLButtonElement>(mapId, `${mapId}-appBar-settings-btn`);
-        const basemapButton = DomHelper.getGVRootElement(mapId).querySelector<HTMLButtonElement>('button[aria-label="Change basemap"]');
+        const settingsButton = DomHelper.getGVElementById<HTMLButtonElement>(mapId, 'appBar-settings-btn');
+        const basemapButton = DomHelper.queryGVSelector<HTMLButtonElement>(mapId, 'button[aria-label="Change basemap"]');
         if (!target || !layersButton || !settingsButton || !basemapButton) {
           throw new TestError('The map target, Layers button, Settings button, and basemap control must be mounted');
         }
@@ -1094,7 +1094,7 @@ export class A11yUxTester extends GVAbstractTester {
         ? 'Test Ctrl+M does nothing while Export format dropdown is open'
         : 'Test Ctrl+M does nothing while Export is open',
       async (test): Promise<TypeExportModalShortcutResult> => {
-        const exportButton = DomHelper.getGVElementByFullId<HTMLButtonElement>(mapId, `${mapId}-appBar-export-modal-btn`);
+        const exportButton = DomHelper.getGVElementById<HTMLButtonElement>(mapId, 'appBar-export-modal-btn');
         const mapTarget = DomHelper.getMapTargetElement(mapId);
         if (!exportButton || !mapTarget) throw new TestError('Export and map controls must be mounted');
         if (!mapTarget.ownerDocument.hasFocus())
@@ -1109,8 +1109,9 @@ export class A11yUxTester extends GVAbstractTester {
         exportButton.click();
         await whenThisThen(() => {
           exportDialog =
-            DomHelper.getGVRootElement(mapId).querySelector<HTMLElement>(
-              `#${CSS.escape(`${mapId}-export-dialog`)} [role="dialog"][aria-modal="true"]`
+            DomHelper.queryGVSelector<HTMLElement>(
+              mapId,
+              `#${CSS.escape(DomHelper.buildGVElementId(mapId, 'export-dialog'))} [role="dialog"][aria-modal="true"]`
             ) ?? undefined;
           return !!exportDialog;
         }, GVAbstractTester.KEYBOARD_QUERY_TIMEOUT_MS);
@@ -1247,7 +1248,7 @@ export class A11yUxTester extends GVAbstractTester {
     return this.test(
       'Test Ctrl+M does nothing while Share is open',
       async (test): Promise<TypeShareModalShortcutResult> => {
-        const shareButton = DomHelper.getGVElementByFullId<HTMLButtonElement>(mapId, `${mapId}-share-button`);
+        const shareButton = DomHelper.getGVElementById<HTMLButtonElement>(mapId, 'share-button');
         if (!shareButton) throw new TestError('The Share button must be mounted');
         if (!shareButton.ownerDocument.hasFocus())
           throw new TestError('Keyboard focus tests require the browser page to be in the foreground');

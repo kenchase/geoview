@@ -15,6 +15,7 @@ import {
   type FocusItemProps,
 } from '@/core/stores/states/ui-state';
 import { CONTAINER_TYPE } from '@/core/utils/constant';
+import { DomHelper } from '@/core/utils/dom-helper';
 import { logger } from '@/core/utils/logger';
 import { Box } from '@/ui/layout';
 import { CloseIcon, SettingsIcon } from '@/ui/icons';
@@ -59,11 +60,11 @@ export function Settings(props: SettingsProps): JSX.Element {
   const previousFocusItemRef = useRef<FocusItemProps | undefined>(undefined);
   const previousOpenRef = useRef(open);
 
-  const buttonId = `${mapId}-${CONTAINER_TYPE.APP_BAR}-settings-btn`;
-  const panelId = `${mapId}-${CONTAINER_TYPE.APP_BAR}-settings-panel`;
-  const titleId = `${panelId}-title`;
-  const switchId = `${panelId}-keyboard-navigation`;
-  const settingsOwnerId = `${panelId}-focus`;
+  const buttonId = DomHelper.buildGVElementId(mapId, `${CONTAINER_TYPE.APP_BAR}-settings-btn`);
+  const panelId = DomHelper.buildGVElementId(mapId, `${CONTAINER_TYPE.APP_BAR}-settings-panel`);
+  const titleId = DomHelper.buildGVElementId(mapId, `${CONTAINER_TYPE.APP_BAR}-settings-panel-title`);
+  const switchId = DomHelper.buildGVElementId(mapId, `${CONTAINER_TYPE.APP_BAR}-settings-panel-keyboard-navigation`);
+  const settingsOwnerId = DomHelper.buildGVElementId(mapId, `${CONTAINER_TYPE.APP_BAR}-settings-panel-focus`);
 
   // #region Handlers
 
@@ -224,14 +225,14 @@ export function Settings(props: SettingsProps): JSX.Element {
           <SettingsIcon />
         </IconButton>
         <Popper
-          id={`${panelId}-popper`}
+          id={DomHelper.buildGVElementId(mapId, `${CONTAINER_TYPE.APP_BAR}-settings-panel-popper`)}
           role="presentation"
           open={open}
           anchorEl={anchorEl}
           container={shellContainer}
           placement="right-end"
           strategy="fixed"
-          focusSelector={`#${switchId}`}
+          focusSelector={`#${CSS.escape(switchId)}`}
           sx={memoSxClasses.popper}
           modifiers={[
             { name: 'eventListeners', options: { scroll: false, resize: true } },
