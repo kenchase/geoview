@@ -1,0 +1,1916 @@
+{
+  "unit": "layer-settings",
+  "phase": "after",
+  "sourceCommit": "7af9cb2f85386b572cec9beb09b655691fbff0b9",
+  "buildCommand": "cd packages/geoview-core && rushx build-dev",
+  "servedAt": "http://127.0.0.1:8081",
+  "bundleSha256": "dd54d1443df295900b5342d5dcdc83d908313a7a8ac36141227051e807de34f0",
+  "captureHelperSha256": "294101dbc78c75afa80bce552c65423c85a0ff17a1d7c567c69382dd21056b5b",
+  "environment": {
+    "visible": true,
+    "clock": "resumed",
+    "width": 1600,
+    "height": 1200,
+    "dpr": 1
+  },
+  "scope": "Computed transition fields only; no functional timers in these units.",
+  "selection": "Latest visible record per T-ID/theme/state; earlier hidden/partial diagnostic records excluded. Focus-owner states refer to the focusable owner of nonfocusable styled children.",
+  "observations": {
+    "T58": {
+      "geo.ca": {
+        "expanded-resting": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-expanded-resting",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1mddcpy-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:44.698Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-hover",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1mddcpy-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:46.148Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-focus-visible",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-1mddcpy-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:47.535Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        }
+      },
+      "light": {
+        "expanded-resting": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-expanded-resting",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-112mhs0-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:52.913Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-hover",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-112mhs0-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:53.825Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-focus-visible",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-112mhs0-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:56.465Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        }
+      },
+      "dark": {
+        "expanded-resting": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-expanded-resting",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-18q1flp-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:02.250Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-hover",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-18q1flp-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:03.968Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-focus-visible",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-18q1flp-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:05.350Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        }
+      },
+      "canada.ca": {
+        "expanded-resting": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-expanded-resting",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1ewqxoz-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:10.278Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-hover",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1ewqxoz-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:11.786Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-focus-visible",
+          "rows": {
+            "T58": {
+              "selector": "[data-baseline-t58]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-1ewqxoz-MuiButtonBase-root",
+                "label": null,
+                "text": "annual_crop_inventoryCombined annual crop inventory Remap and Attribute Table raster functions",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "border-color, background-color",
+                "transitionDuration": "0.2s, 0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "126px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:13.068Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        }
+      }
+    },
+    "T59": {
+      "geo.ca": {
+        "expanded-resting": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-expanded-resting",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-12se6q8-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:45.056Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-hover",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-12se6q8-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:47.164Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-focus-visible",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-12se6q8-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:47.908Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-collapsed",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-12se6q8-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": true,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:48.509Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        }
+      },
+      "light": {
+        "expanded-resting": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-expanded-resting",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1wl9iz3-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:53.279Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-hover",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1wl9iz3-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:56.095Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-focus-visible",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-1wl9iz3-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:56.835Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-collapsed",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-1wl9iz3-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:45:57.293Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        }
+      },
+      "dark": {
+        "expanded-resting": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-expanded-resting",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1pclucw-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:02.622Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-hover",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1pclucw-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:04.977Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-focus-visible",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-1pclucw-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:05.736Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-collapsed",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-1pclucw-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:06.293Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        }
+      },
+      "canada.ca": {
+        "expanded-resting": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-expanded-resting",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1v87o1k-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:10.639Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-hover",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1v87o1k-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:12.697Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-focus-visible",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-1v87o1k-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:13.435Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        },
+        "collapsed": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-collapsed",
+          "rows": {
+            "T59": {
+              "selector": "[data-baseline-t59]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-1v87o1k-MuiButtonBase-root",
+                "label": null,
+                "text": "Change raster functionannual_crop_inventory",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "color",
+                "transitionDuration": "0.2s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "46.0156px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:46:14.007Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/24b-initial-settings-states-controls.json"
+        }
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "id": "T58",
+      "theme": "geo.ca",
+      "state": "expanded-resting",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "geo.ca",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "geo.ca",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "light",
+      "state": "expanded-resting",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "light",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "light",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "dark",
+      "state": "expanded-resting",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "dark",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "dark",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "canada.ca",
+      "state": "expanded-resting",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "canada.ca",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "canada.ca",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "ease, ease",
+        "transitionDelay": "0s, 0s"
+      },
+      "after": {
+        "transitionProperty": "border-color, background-color",
+        "transitionDuration": "0.2s, 0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s, 0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "geo.ca",
+      "state": "expanded-resting",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "geo.ca",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "geo.ca",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "geo.ca",
+      "state": "collapsed",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "light",
+      "state": "expanded-resting",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "light",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "light",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "light",
+      "state": "collapsed",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "dark",
+      "state": "expanded-resting",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "dark",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "dark",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "dark",
+      "state": "collapsed",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "canada.ca",
+      "state": "expanded-resting",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "canada.ca",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "canada.ca",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "canada.ca",
+      "state": "collapsed",
+      "before": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "ease",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "color",
+        "transitionDuration": "0.2s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    }
+  ],
+  "validation": {
+    "workingDirectory": "/Users/kenchase/Documents/Projects/web/Clients/NRCan/geoview-2025/fork/geoview/packages",
+    "checks": [
+      {
+        "command": "node node_modules/prettier/bin/prettier.cjs --check geoview-core/src/core/components/layers/right-panel/layer-settings/layer-settings-style.ts",
+        "result": "passed"
+      },
+      {
+        "command": "node --max-old-space-size=8192 node_modules/eslint/bin/eslint.js geoview-core/src/core/components/layers/right-panel/layer-settings/layer-settings-style.ts",
+        "result": "passed"
+      },
+      {
+        "command": "node node_modules/typescript/bin/tsc --project geoview-core/tsconfig.json --noEmit --tsBuildInfoFile /Users/kenchase/.copilot/session-state/fc4b315b-7a92-4cda-800c-74e89717f1b3/files/layer-settings.tsbuildinfo",
+        "result": "passed"
+      },
+      {
+        "command": "cd geoview-core && rushx build-dev",
+        "result": "passed"
+      }
+    ],
+    "newThemeRead": false,
+    "twoMapCheck": "Not required: existing per-viewer theme parameter only.",
+    "timers": "None in this ledger unit."
+  },
+  "originalBaselineCrossCheck": [
+    {
+      "id": "T58",
+      "theme": "geo.ca",
+      "state": "expanded-resting",
+      "originalState": "expanded-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "geo.ca",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "geo.ca",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "light",
+      "state": "expanded-resting",
+      "originalState": "expanded-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "light",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "light",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "dark",
+      "state": "expanded-resting",
+      "originalState": "expanded-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "dark",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "dark",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "canada.ca",
+      "state": "expanded-resting",
+      "originalState": "expanded-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "canada.ca",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T58",
+      "theme": "canada.ca",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "geo.ca",
+      "state": "expanded-resting",
+      "originalState": "expanded-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "geo.ca",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "geo.ca",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "geo.ca",
+      "state": "collapsed",
+      "originalState": "collapsed",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "light",
+      "state": "expanded-resting",
+      "originalState": "expanded-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "light",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "light",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "light",
+      "state": "collapsed",
+      "originalState": "collapsed",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "dark",
+      "state": "expanded-resting",
+      "originalState": "expanded-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "dark",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "dark",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "dark",
+      "state": "collapsed",
+      "originalState": "collapsed",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "canada.ca",
+      "state": "expanded-resting",
+      "originalState": "expanded-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "canada.ca",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "canada.ca",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T59",
+      "theme": "canada.ca",
+      "state": "collapsed",
+      "originalState": "collapsed",
+      "status": "matches",
+      "differences": []
+    }
+  ]
+}

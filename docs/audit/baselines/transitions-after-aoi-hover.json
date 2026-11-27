@@ -1,0 +1,850 @@
+{
+  "unit": "aoi-hover",
+  "phase": "after",
+  "sourceCommit": "7af9cb2f85386b572cec9beb09b655691fbff0b9",
+  "buildCommand": "cd packages/geoview-core && rushx build-dev",
+  "servedAt": "http://127.0.0.1:8081",
+  "bundleSha256": "0e74d626014e19d95ba982beb79d47b7a0c20ef743de1f540d96da9ba13c1911",
+  "captureHelperSha256": "294101dbc78c75afa80bce552c65423c85a0ff17a1d7c567c69382dd21056b5b",
+  "environment": {
+    "visible": true,
+    "clock": "resumed",
+    "width": 1600,
+    "height": 1200,
+    "dpr": 1
+  },
+  "scope": "Computed transition fields only; no functional timers in these units.",
+  "selection": "Latest visible record per T-ID/theme/state; earlier hidden/partial diagnostic records excluded. Focus-owner states refer to the focusable owner of nonfocusable styled children.",
+  "observations": {
+    "T51": {
+      "geo.ca": {
+        "open-resting": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-open-resting",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1r43i2s-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:52.005Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-hover",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1r43i2s-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:52.382Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "after-focus-visible",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-1r43i2s-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:52.746Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        }
+      },
+      "light": {
+        "open-resting": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-open-resting",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-q9dg8-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:54.029Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-hover",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-q9dg8-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:54.398Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "after-focus-visible",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-q9dg8-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:54.764Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        }
+      },
+      "dark": {
+        "open-resting": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-open-resting",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1ny398f-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:56.371Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-hover",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-1ny398f-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:56.764Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "after-focus-visible",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-1ny398f-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:57.131Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        }
+      },
+      "canada.ca": {
+        "open-resting": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-open-resting",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-11e02ts-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:58.946Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-hover",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root css-11e02ts-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:59.334Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        },
+        "focus-visible": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "after-focus-visible",
+          "rows": {
+            "T51": {
+              "selector": "#map1 button[aria-label=\"Zoom to and highlight CN Tower\"]",
+              "element": {
+                "tag": "BUTTON",
+                "id": "",
+                "classes": "MuiButtonBase-root Mui-focusVisible css-11e02ts-MuiButtonBase-root",
+                "label": "Zoom to and highlight CN Tower",
+                "text": "CN Tower",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "all",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "254px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:37:59.704Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/16-package-area-of-interest.json"
+        }
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "id": "T51",
+      "theme": "geo.ca",
+      "state": "open-resting",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "geo.ca",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "geo.ca",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "light",
+      "state": "open-resting",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "light",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "light",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "dark",
+      "state": "open-resting",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "dark",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "dark",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "canada.ca",
+      "state": "open-resting",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "canada.ca",
+      "state": "hover",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "canada.ca",
+      "state": "focus-visible",
+      "before": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "ease-in-out",
+        "transitionDelay": "0s"
+      },
+      "after": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.3s",
+        "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "transitionDelay": "0s"
+      },
+      "verdict": "PASS",
+      "differences": []
+    }
+  ],
+  "validation": {
+    "workingDirectory": "/Users/kenchase/Documents/Projects/web/Clients/NRCan/geoview-2025/fork/geoview/packages",
+    "checks": [
+      {
+        "command": "node node_modules/prettier/bin/prettier.cjs --check geoview-aoi-panel/src/area-of-interest-style.ts",
+        "result": "passed"
+      },
+      {
+        "command": "node --max-old-space-size=8192 node_modules/eslint/bin/eslint.js geoview-aoi-panel/src/area-of-interest-style.ts",
+        "result": "passed"
+      },
+      {
+        "command": "node node_modules/typescript/bin/tsc --project geoview-aoi-panel/tsconfig.json --noEmit --tsBuildInfoFile /Users/kenchase/.copilot/session-state/fc4b315b-7a92-4cda-800c-74e89717f1b3/files/aoi-hover.tsbuildinfo",
+        "result": "passed"
+      },
+      {
+        "command": "cd geoview-core && rushx build-dev",
+        "result": "passed"
+      }
+    ],
+    "newThemeRead": false,
+    "twoMapCheck": "Not required: existing per-viewer theme parameter only.",
+    "timers": "None in this ledger unit."
+  },
+  "originalBaselineCrossCheck": [
+    {
+      "id": "T51",
+      "theme": "geo.ca",
+      "state": "open-resting",
+      "originalState": "open-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "geo.ca",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "geo.ca",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "light",
+      "state": "open-resting",
+      "originalState": "open-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "light",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "light",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "dark",
+      "state": "open-resting",
+      "originalState": "open-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "dark",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "dark",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "canada.ca",
+      "state": "open-resting",
+      "originalState": "open-resting",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "canada.ca",
+      "state": "hover",
+      "originalState": "hover",
+      "status": "matches",
+      "differences": []
+    },
+    {
+      "id": "T51",
+      "theme": "canada.ca",
+      "state": "focus-visible",
+      "originalState": "focus-visible",
+      "status": "matches",
+      "differences": []
+    }
+  ]
+}

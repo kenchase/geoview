@@ -1,0 +1,178 @@
+{
+  "unit": "f-a",
+  "ids": [
+    "F005"
+  ],
+  "phase": "after-f-a",
+  "sourceCommit": "af8d78d2466e2f3bea0111a886af02f215a9ee7a",
+  "worktreeDiff": "diff --git a/packages/geoview-core/src/ui/slider/slider-style.ts b/packages/geoview-core/src/ui/slider/slider-style.ts\nindex 41d703ecf..a6afe6c88 100644\n--- a/packages/geoview-core/src/ui/slider/slider-style.ts\n+++ b/packages/geoview-core/src/ui/slider/slider-style.ts\n@@ -44,7 +44,7 @@ export const getSxClasses = (theme: Theme): SxStyles => ({\n       boxShadow: 'rgba(1, 0, 155, 0.7) 0px 0px 0px 3px !important',\n     },\n     '& .MuiSlider-valueLabel': {\n-      fontSize: '0.7rem',\n+      fontSize: theme.palette.geoViewFontSize?.xs ?? '0.7rem',\n       padding: theme.spacing(0.5, 0.75),\n       [theme.breakpoints.down('md')]: {\n         ...visuallyHidden, // Hide value tooltips on tablets and below\n",
+  "buildHashes": {
+    "cgpv-main.js": "25173f3cc0d37957433b2155f8bf9f0218e9901429e5e1f35c57baff7ffe3cdf",
+    "corePackages/geoview-custom-legend.js": "0b5b22dd0970bbd83b53d23be40f86143bc3a263251d75dfe65bbdcfcc801513"
+  },
+  "harness": "session-state/files/final-runtime.js",
+  "consumers": "Production SliderUI and GroupItem (including DescriptionText), and TooltipUI; three named override fixtures reproduce the caller 1000/1000 props.",
+  "captures": [
+    {
+      "phase": "after-f-a",
+      "theme": "geo.ca",
+      "rows": {
+        "F005": {
+          "fontSize": "11.2px",
+          "tag": "SPAN",
+          "text": "40",
+          "visible": true
+        }
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-f-a",
+      "theme": "light",
+      "rows": {
+        "F005": {
+          "fontSize": "11.2px",
+          "tag": "SPAN",
+          "text": "40",
+          "visible": true
+        }
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-f-a",
+      "theme": "dark",
+      "rows": {
+        "F005": {
+          "fontSize": "11.2px",
+          "tag": "SPAN",
+          "text": "40",
+          "visible": true
+        }
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-f-a",
+      "theme": "canada.ca",
+      "rows": {
+        "F005": {
+          "fontSize": "11.2px",
+          "tag": "SPAN",
+          "text": "40",
+          "visible": true
+        }
+      },
+      "plain": {
+        "hasGeoViewFontSize": true,
+        "hasGeoViewColor": true,
+        "hasTooltipDelay": true
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    },
+    {
+      "phase": "after-f-a",
+      "theme": "plain",
+      "rows": {
+        "F005": {
+          "fontSize": "11.2px",
+          "tag": "SPAN",
+          "text": "40",
+          "visible": true
+        }
+      },
+      "plain": {
+        "hasGeoViewFontSize": false,
+        "hasGeoViewColor": false,
+        "hasTooltipDelay": false
+      },
+      "themeIdentity": true,
+      "identityDetail": {
+        "wholeObject": false,
+        "palette": true,
+        "transitions": true,
+        "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+      },
+      "environment": {
+        "visibility": "visible",
+        "width": 1600,
+        "height": 1200,
+        "dpr": 1,
+        "rootFontSize": "16px",
+        "clock": "resumed"
+      }
+    }
+  ],
+  "comparison": "PASS: exact computed font sizes/visibility and tooltip props; observed single-timer elapsed difference <=20ms where measured."
+}

@@ -1,0 +1,2774 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "phase": "before",
+    "unit": "Tooltip wrapper — T29",
+    "capturedAt": "2026-10-29T14:16:55.733Z",
+    "head": "ecf9e7a52932a8c2b18e625b7dd8f6ba8067c8d2",
+    "sourceSha256": "e0114ae227ab51ab3fe7b952cc1c18285ed8e7663489de70f1982d1dc1d45878",
+    "bundleSha256": "ba8f5e6282364baea37214049ebb3fd572ecdc381633067728c267f8fbe29ea8",
+    "captureHelperSha256": "294101dbc78c75afa80bce552c65423c85a0ff17a1d7c567c69382dd21056b5b",
+    "passiveObserversSha256": "3b33058ba3eae98dad977d2310b08eaa3e66d57f32ac1bff8faae01780dd25a6",
+    "consumerInspectorSha256": "5ea57c702866857a065ee4bc084fa24e4c3ed038a2a8f89b297f9190d4a109ed",
+    "buildCommand": "cd packages/geoview-core && rushx build-dev",
+    "server": "127.0.0.1:8081",
+    "conditions": {
+      "visibility": "visible",
+      "clock": "resumed",
+      "viewport": [
+        1600,
+        1200
+      ],
+      "dpr": 1,
+      "demo": "./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    "selectors": {
+      "trigger": "#map1 .ol-overviewmap button",
+      "computed": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+      "focusTrigger": "#map1 [aria-label^=\"Map rotation:\"]"
+    },
+    "interaction": "Real pointer coordinates on the existing overview button, with immediate scroll-to-top before each theme. Initial hover 1250ms; leave 250ms; subsequent hover sample at 230ms and 550ms. Keyboard focus attempt after scrolling rotation into view. Same sequence before/after.",
+    "consumerCheck": "Data Table tab mounted before inspecting LayerListItem; SingleLayer and LegendListItem also inspected in the live React tree. Legend uses MUI Tooltip directly, not TooltipUI."
+  },
+  "observations": {
+    "T29": {
+      "geo.ca": {
+        "initial-hover-settled": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-verified-initial-hover-settled",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "0",
+                "height": "12.5px",
+                "transform": "matrix(0.75, 0, 0, 0.5625, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:08:56.879Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "subsequent-hover-active": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-verified-subsequent-hover-active",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "0",
+                "height": "12.5px",
+                "transform": "matrix(0.75, 0, 0, 0.5625, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:08:57.387Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "subsequent-hover-open": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-verified-subsequent-hover-open",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "12.5px",
+                "transform": "none",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:08:57.714Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-open": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-verified-focus-visible-open",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "status": "not-captured",
+              "reason": "Exact consumer element not rendered/identified in current demo state"
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:00.096Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "light": {
+        "initial-hover-settled": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-verified-initial-hover-settled",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "0",
+                "height": "12.5px",
+                "transform": "matrix(0.75, 0, 0, 0.5625, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:02.871Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "subsequent-hover-active": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-verified-subsequent-hover-active",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "0.016783",
+                "height": "12.5px",
+                "transform": "matrix(0.760484, 0, 0, 0.580847, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:03.373Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "subsequent-hover-open": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-verified-subsequent-hover-open",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "1",
+                "height": "12.5px",
+                "transform": "none",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:03.699Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-open": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-verified-focus-visible-open",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "status": "not-captured",
+              "reason": "Exact consumer element not rendered/identified in current demo state"
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:06.080Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "dark": {
+        "initial-hover-settled": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-verified-initial-hover-settled",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "0",
+                "height": "12.5px",
+                "transform": "matrix(0.75, 0, 0, 0.5625, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:08.838Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "subsequent-hover-active": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-verified-subsequent-hover-active",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "0",
+                "height": "12.5px",
+                "transform": "matrix(0.75, 0, 0, 0.5625, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:09.342Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "subsequent-hover-open": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-verified-subsequent-hover-open",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "0",
+                "height": "12.5px",
+                "transform": "matrix(0.75, 0, 0, 0.5625, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:09.670Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-open": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-verified-focus-visible-open",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "status": "not-captured",
+              "reason": "Exact consumer element not rendered/identified in current demo state"
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:12.047Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "canada.ca": {
+        "initial-hover-settled": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-verified-initial-hover-settled",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "0",
+                "height": "12.5px",
+                "transform": "matrix(0.75, 0, 0, 0.5625, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:14.810Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "subsequent-hover-active": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-verified-subsequent-hover-active",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "0",
+                "height": "12.5px",
+                "transform": "matrix(0.75, 0, 0, 0.5625, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:15.314Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "subsequent-hover-open": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-verified-subsequent-hover-open",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "element": {
+                "tag": "DIV",
+                "id": "",
+                "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+                "label": null,
+                "text": "Toggle overview map",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "opacity, transform",
+                "transitionDuration": "0.2s, 0.133s",
+                "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+                "transitionDelay": "0s, 0s",
+                "opacity": "0",
+                "height": "12.5px",
+                "transform": "matrix(0.75, 0, 0, 0.5625, 0, 0)",
+                "display": "block"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:15.640Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-open": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-verified-focus-visible-open",
+          "rows": {
+            "T29": {
+              "selector": "[role=\"tooltip\"] .MuiTooltip-tooltip",
+              "status": "not-captured",
+              "reason": "Exact consumer element not rendered/identified in current demo state"
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:09:18.017Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      }
+    }
+  },
+  "sequences": [
+    {
+      "kind": "sequence",
+      "name": "T29-tooltip",
+      "theme": "geo.ca",
+      "started": 4135607,
+      "watched": {
+        "T29": "[role=\"tooltip\"] .MuiTooltip-tooltip"
+      },
+      "capturePhase": "before-verified",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "events": [
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 1000,
+          "ms": 11,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleTriggerMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:374:5)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "ms": 12,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-3lti44",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-fired",
+          "requestedDelay": 1000,
+          "elapsed": 1000,
+          "ms": 1011
+        },
+        {
+          "type": "tooltip-added",
+          "ms": 1018,
+          "text": "Toggle overview map"
+        },
+        {
+          "type": "tooltip-removed",
+          "ms": 1483,
+          "text": "Toggle overview map"
+        },
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 200,
+          "ms": 1536,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleTriggerMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:374:5)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "ms": 1537,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-3lti44",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-fired",
+          "requestedDelay": 200,
+          "elapsed": 201,
+          "ms": 1737
+        },
+        {
+          "type": "tooltip-added",
+          "ms": 1740,
+          "text": "Toggle overview map"
+        },
+        {
+          "ms": 1920,
+          "type": "transitionrun",
+          "ids": [
+            "T29"
+          ],
+          "property": "opacity",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.0173265",
+            "height": "12.5px",
+            "transform": "matrix(0.760843, 0, 0, 0.581475, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1920,
+          "type": "transitionstart",
+          "ids": [
+            "T29"
+          ],
+          "property": "opacity",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.0173265",
+            "height": "12.5px",
+            "transform": "matrix(0.760843, 0, 0, 0.581475, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1921,
+          "type": "transitionrun",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.0173265",
+            "height": "12.5px",
+            "transform": "matrix(0.760843, 0, 0, 0.581475, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1921,
+          "type": "transitionstart",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.0173265",
+            "height": "12.5px",
+            "transform": "matrix(0.760843, 0, 0, 0.581475, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1970,
+          "type": "transitioncancel",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0.04932600000697107,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.45803",
+            "height": "12.5px",
+            "transform": "matrix(0.892937, 0, 0, 0.812639, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1971,
+          "type": "transitionrun",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.45803",
+            "height": "12.5px",
+            "transform": "matrix(0.892937, 0, 0, 0.812639, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1971,
+          "type": "transitionstart",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.45803",
+            "height": "12.5px",
+            "transform": "matrix(0.892937, 0, 0, 0.812639, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 2087,
+          "type": "transitionend",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0.133,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.996226",
+            "height": "12.5px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 2104,
+          "type": "transitionend",
+          "ids": [
+            "T29"
+          ],
+          "property": "opacity",
+          "elapsedTime": 0.2,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "1",
+            "height": "12.5px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 2137,
+          "type": "transitionrun",
+          "ids": [
+            "T29"
+          ],
+          "property": "opacity",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0.067s",
+            "opacity": "0.982655",
+            "height": "12.5px",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 2137,
+          "type": "transitionstart",
+          "ids": [
+            "T29"
+          ],
+          "property": "opacity",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0.067s",
+            "opacity": "0.982655",
+            "height": "12.5px",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 2137,
+          "type": "transitionrun",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0.067s",
+            "opacity": "0.982655",
+            "height": "12.5px",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 2203,
+          "type": "transitionstart",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0.067s",
+            "opacity": "0.360394",
+            "height": "12.5px",
+            "transform": "matrix(0.990675, 0, 0, 0.983682, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "type": "tooltip-removed",
+          "ms": 2320,
+          "text": "Toggle overview map"
+        },
+        {
+          "ms": 3232,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiBox-root css-1rlf3xx",
+            "label": "Map rotation: 0°",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "30px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 1000,
+          "ms": 3233,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleFocus (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:431:7)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "type": "timer-cancelled",
+          "requestedDelay": 1000,
+          "ms": 3354
+        },
+        {
+          "ms": 3357,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-3lti44",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T01:09:00.100Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "sequence",
+      "name": "T29-tooltip",
+      "theme": "light",
+      "started": 4141601,
+      "watched": {
+        "T29": "[role=\"tooltip\"] .MuiTooltip-tooltip"
+      },
+      "capturePhase": "before-verified",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "events": [
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 1000,
+          "ms": 10,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleTriggerMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:374:5)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "ms": 11,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-3lti44",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-fired",
+          "requestedDelay": 1000,
+          "elapsed": 1001,
+          "ms": 1011
+        },
+        {
+          "type": "tooltip-added",
+          "ms": 1015,
+          "text": "Toggle overview map"
+        },
+        {
+          "type": "tooltip-removed",
+          "ms": 1480,
+          "text": "Toggle overview map"
+        },
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 200,
+          "ms": 1532,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleTriggerMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:374:5)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "ms": 1533,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-3lti44",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-fired",
+          "requestedDelay": 200,
+          "elapsed": 201,
+          "ms": 1733
+        },
+        {
+          "type": "tooltip-added",
+          "ms": 1737,
+          "text": "Toggle overview map"
+        },
+        {
+          "ms": 1759,
+          "type": "transitionrun",
+          "ids": [
+            "T29"
+          ],
+          "property": "opacity",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.016783",
+            "height": "12.5px",
+            "transform": "matrix(0.760484, 0, 0, 0.580847, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1759,
+          "type": "transitionstart",
+          "ids": [
+            "T29"
+          ],
+          "property": "opacity",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.016783",
+            "height": "12.5px",
+            "transform": "matrix(0.760484, 0, 0, 0.580847, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1759,
+          "type": "transitionrun",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.016783",
+            "height": "12.5px",
+            "transform": "matrix(0.760484, 0, 0, 0.580847, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1759,
+          "type": "transitionstart",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.016783",
+            "height": "12.5px",
+            "transform": "matrix(0.760484, 0, 0, 0.580847, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1876,
+          "type": "transitionend",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0.133,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "0.920541",
+            "height": "12.5px",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1943,
+          "type": "transitionend",
+          "ids": [
+            "T29"
+          ],
+          "property": "opacity",
+          "elapsedTime": 0.2,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "1",
+            "height": "12.5px",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1959,
+          "type": "transitionrun",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "1",
+            "height": "12.5px",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 1959,
+          "type": "transitionstart",
+          "ids": [
+            "T29"
+          ],
+          "property": "transform",
+          "elapsedTime": 0,
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiTooltip-tooltip MuiTooltip-tooltipPlacementBottom css-doy7er-MuiTooltip-tooltip",
+            "label": null,
+            "text": "Toggle overview map",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "opacity, transform",
+            "transitionDuration": "0.2s, 0.133s",
+            "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionDelay": "0s, 0s",
+            "opacity": "1",
+            "height": "12.5px",
+            "transform": "matrix(1, 0, 0, 1, 0, 0)",
+            "display": "block"
+          }
+        },
+        {
+          "type": "tooltip-removed",
+          "ms": 2313,
+          "text": "Toggle overview map"
+        },
+        {
+          "ms": 3225,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiBox-root css-juusqu",
+            "label": "Map rotation: 0°",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "30px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 1000,
+          "ms": 3225,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleFocus (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:431:7)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "type": "timer-cancelled",
+          "requestedDelay": 1000,
+          "ms": 3976
+        },
+        {
+          "ms": 3977,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-3lti44",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T01:09:06.083Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "sequence",
+      "name": "T29-tooltip",
+      "theme": "dark",
+      "started": 4147565,
+      "watched": {
+        "T29": "[role=\"tooltip\"] .MuiTooltip-tooltip"
+      },
+      "capturePhase": "before-verified",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "events": [
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 1000,
+          "ms": 10,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleTriggerMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:374:5)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "ms": 11,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-rpocn6",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-fired",
+          "requestedDelay": 1000,
+          "elapsed": 1001,
+          "ms": 1011
+        },
+        {
+          "type": "tooltip-added",
+          "ms": 1015,
+          "text": "Toggle overview map"
+        },
+        {
+          "type": "tooltip-removed",
+          "ms": 1484,
+          "text": "Toggle overview map"
+        },
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 200,
+          "ms": 1536,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleTriggerMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:374:5)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "ms": 1537,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-rpocn6",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-fired",
+          "requestedDelay": 200,
+          "elapsed": 202,
+          "ms": 1738
+        },
+        {
+          "type": "tooltip-added",
+          "ms": 1743,
+          "text": "Toggle overview map"
+        },
+        {
+          "type": "tooltip-removed",
+          "ms": 2317,
+          "text": "Toggle overview map"
+        },
+        {
+          "ms": 3229,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiBox-root css-axzjmj",
+            "label": "Map rotation: 0°",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "30px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 1000,
+          "ms": 3229,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleFocus (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:431:7)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "type": "timer-cancelled",
+          "requestedDelay": 1000,
+          "ms": 3462
+        },
+        {
+          "ms": 3463,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-rpocn6",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T01:09:12.050Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "sequence",
+      "name": "T29-tooltip",
+      "theme": "canada.ca",
+      "started": 4153538,
+      "watched": {
+        "T29": "[role=\"tooltip\"] .MuiTooltip-tooltip"
+      },
+      "capturePhase": "before-verified",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "events": [
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 1000,
+          "ms": 12,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleTriggerMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:374:5)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "ms": 13,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-3lti44",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-fired",
+          "requestedDelay": 1000,
+          "elapsed": 1000,
+          "ms": 1012
+        },
+        {
+          "type": "tooltip-added",
+          "ms": 1018,
+          "text": "Toggle overview map"
+        },
+        {
+          "type": "tooltip-removed",
+          "ms": 1482,
+          "text": "Toggle overview map"
+        },
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 200,
+          "ms": 1532,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleTriggerMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:374:5)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "ms": 1532,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-3lti44",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-fired",
+          "requestedDelay": 200,
+          "elapsed": 200,
+          "ms": 1732
+        },
+        {
+          "type": "tooltip-added",
+          "ms": 1738,
+          "text": "Toggle overview map"
+        },
+        {
+          "type": "tooltip-removed",
+          "ms": 2310,
+          "text": "Toggle overview map"
+        },
+        {
+          "ms": 3226,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "",
+            "classes": "MuiBox-root css-juusqu",
+            "label": "Map rotation: 0°",
+            "text": "",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "30px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "requestedDelay": 1000,
+          "ms": 3226,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__tooltip-observers.js:40:19)\n    at Timeout.start (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+utils@9.5.0_@types+react@19.3.0_react@19.3.1/node_modules/@mui/utils/useTimeout/useTimeout.mjs:23:22)\n    at handleMouseOver (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:355:18)\n    at handleFocus (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:431:7)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/@mui+material@9.5.0_@emotion+react@11.14.0_@types+react@19.3.0_react@19.3.1__@emotion+s_e4d91915e94d9ca442999cd0ee28c248/node_modules/@mui/material/Tooltip/Tooltip.mjs:244:5)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)\n    at batchedUpdates$1 (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:3436:40)"
+        },
+        {
+          "type": "timer-cancelled",
+          "requestedDelay": 1000,
+          "ms": 3673
+        },
+        {
+          "ms": 3676,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "DIV",
+            "id": "map1-mapTargetElement",
+            "classes": "MuiBox-root css-3lti44",
+            "label": "Interactive map map1",
+            "text": "Use Arrows, CTRL + Up/Down or +/- keys to navigate the map, Enter/Space to select and Shift+Arrow Up",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "all",
+            "transitionDuration": "0s",
+            "transitionTimingFunction": "ease",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "750px",
+            "transform": "none",
+            "display": "flex"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T01:09:18.020Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    }
+  ],
+  "timerChecks": [
+    {
+      "theme": "geo.ca",
+      "requested": 1000,
+      "elapsed": 1000,
+      "openingMsFromSchedule": 1007
+    },
+    {
+      "theme": "geo.ca",
+      "requested": 200,
+      "elapsed": 201,
+      "openingMsFromSchedule": 204
+    },
+    {
+      "theme": "light",
+      "requested": 1000,
+      "elapsed": 1001,
+      "openingMsFromSchedule": 1005
+    },
+    {
+      "theme": "light",
+      "requested": 200,
+      "elapsed": 201,
+      "openingMsFromSchedule": 205
+    },
+    {
+      "theme": "dark",
+      "requested": 1000,
+      "elapsed": 1001,
+      "openingMsFromSchedule": 1005
+    },
+    {
+      "theme": "dark",
+      "requested": 200,
+      "elapsed": 202,
+      "openingMsFromSchedule": 207
+    },
+    {
+      "theme": "canada.ca",
+      "requested": 1000,
+      "elapsed": 1000,
+      "openingMsFromSchedule": 1006
+    },
+    {
+      "theme": "canada.ca",
+      "requested": 200,
+      "elapsed": 200,
+      "openingMsFromSchedule": 206
+    }
+  ],
+  "consumerChecks": [
+    {
+      "kind": "consumer-precedence",
+      "capturePhase": "before-verified",
+      "theme": "geo.ca",
+      "groups": {
+        "LegendListItem": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          }
+        ],
+        "SingleLayer": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          }
+        ],
+        "LayerListItem": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          }
+        ]
+      },
+      "passed": true,
+      "timestamp": "1970-01-01T01:11:35.593Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "consumer-precedence",
+      "capturePhase": "before-verified",
+      "theme": "light",
+      "groups": {
+        "LegendListItem": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          }
+        ],
+        "SingleLayer": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          }
+        ],
+        "LayerListItem": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          }
+        ]
+      },
+      "passed": true,
+      "timestamp": "1970-01-01T01:11:41.250Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "consumer-precedence",
+      "capturePhase": "before-verified",
+      "theme": "dark",
+      "groups": {
+        "LegendListItem": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          }
+        ],
+        "SingleLayer": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          }
+        ],
+        "LayerListItem": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          }
+        ]
+      },
+      "passed": true,
+      "timestamp": "1970-01-01T01:11:42.001Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "consumer-precedence",
+      "capturePhase": "before-verified",
+      "theme": "canada.ca",
+      "groups": {
+        "LegendListItem": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": false
+          }
+        ],
+        "SingleLayer": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          }
+        ],
+        "LayerListItem": [
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          },
+          {
+            "enterDelay": 1000,
+            "enterNextDelay": 1000,
+            "throughWrapper": true
+          }
+        ]
+      },
+      "passed": true,
+      "timestamp": "1970-01-01T01:11:42.830Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    }
+  ],
+  "limitations": [
+    "Rotation focus attempt is redirected by existing viewer focus handling to map1-mapTargetElement; the 1000ms focus timer is cancelled and no tooltip is available for focus-visible CSS capture. This is recorded, not fixed.",
+    "Computed Grow transitions are context for JS-delay row T29; T29 itself has no CSS property tuple.",
+    "Initial locator-hover attempts caused page scrolling and lost hover. Those diagnostic records were rejected before editing; verified captures use real pointer coordinates without changing source, CSS or callbacks."
+  ]
+}

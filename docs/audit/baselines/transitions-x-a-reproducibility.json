@@ -1,0 +1,369 @@
+{
+  "unit": "X-A / T25",
+  "status": "PASS under user-approved reproducibility rule, 2026-10-29",
+  "sourceCommit": "af8d78d2466e2f3bea0111a886af02f215a9ee7a",
+  "coreBuildSHA256": "8e076e1c06ac26b47eae72cf4958aa5924e5fd64ed1d0d2e4fb35a00e92849f3",
+  "baselineElapsedMs": 1001,
+  "originalFailingSample": {
+    "phase": "after-x-a",
+    "theme": "geo.ca",
+    "rows": {},
+    "tooltips": [
+      {
+        "owner": "default",
+        "enterDelay": 1000,
+        "enterNextDelay": 200
+      },
+      {
+        "owner": "LayerListItem",
+        "enterDelay": 1000,
+        "enterNextDelay": 1000
+      },
+      {
+        "owner": "SingleLayer",
+        "enterDelay": 1000,
+        "enterNextDelay": 1000
+      },
+      {
+        "owner": "LegendListItem",
+        "enterDelay": 1000,
+        "enterNextDelay": 1000
+      }
+    ],
+    "timer": {
+      "requestedDelay": 1000,
+      "fired": true,
+      "elapsed": 1104
+    },
+    "plain": {
+      "hasGeoViewFontSize": true,
+      "hasGeoViewColor": true,
+      "hasTooltipDelay": true
+    },
+    "themeIdentity": true,
+    "identityDetail": {
+      "wholeObject": false,
+      "palette": true,
+      "transitions": true,
+      "note": "MUI useTheme adds vars:undefined on a shallow wrapper; palette/transitions retain exact supplied identities."
+    },
+    "environment": {
+      "visibility": "visible",
+      "width": 1600,
+      "height": 1200,
+      "dpr": 1,
+      "rootFontSize": "16px",
+      "clock": "resumed"
+    }
+  },
+  "rules": {
+    "requestedDelayMs": 1000,
+    "toleranceMs": 20,
+    "minimumNewPasses": 4,
+    "hiddenCapture": "Invalid, excluded from pass and fail counts; retained. User explicitly accepted four valid passing runs and the excluded hidden fifth run.",
+    "failure": "Two or more valid new runs outside tolerance: stop and investigate."
+  },
+  "counts": {
+    "requestedRuns": 5,
+    "valid": 4,
+    "pass": 4,
+    "fail": 0,
+    "excluded": 1
+  },
+  "runs": [
+    {
+      "kind": "xa-repeat",
+      "run": 1,
+      "mapReady": true,
+      "idleWaitMs": 2000,
+      "visibility": "visible",
+      "timer": {
+        "requestedDelay": 1000,
+        "fired": true,
+        "elapsed": 1000
+      },
+      "props": [
+        {
+          "owner": "default",
+          "enterDelay": 1000,
+          "enterNextDelay": 200
+        },
+        {
+          "owner": "LayerListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "SingleLayer",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "LegendListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        }
+      ],
+      "valid": true,
+      "deltaFromRecaptureMs": -1,
+      "verdict": "PASS"
+    },
+    {
+      "kind": "xa-repeat",
+      "run": 2,
+      "mapReady": true,
+      "idleWaitMs": 2000,
+      "visibility": "visible",
+      "timer": {
+        "requestedDelay": 1000,
+        "fired": true,
+        "elapsed": 1021
+      },
+      "props": [
+        {
+          "owner": "default",
+          "enterDelay": 1000,
+          "enterNextDelay": 200
+        },
+        {
+          "owner": "LayerListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "SingleLayer",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "LegendListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        }
+      ],
+      "valid": true,
+      "deltaFromRecaptureMs": 20,
+      "verdict": "PASS"
+    },
+    {
+      "kind": "xa-repeat",
+      "run": 3,
+      "mapReady": true,
+      "idleWaitMs": 2000,
+      "visibility": "visible",
+      "timer": {
+        "requestedDelay": 1000,
+        "fired": true,
+        "elapsed": 1001
+      },
+      "props": [
+        {
+          "owner": "default",
+          "enterDelay": 1000,
+          "enterNextDelay": 200
+        },
+        {
+          "owner": "LayerListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "SingleLayer",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "LegendListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        }
+      ],
+      "valid": true,
+      "deltaFromRecaptureMs": 0,
+      "verdict": "PASS"
+    },
+    {
+      "kind": "xa-repeat",
+      "run": 4,
+      "mapReady": true,
+      "idleWaitMs": 2000,
+      "visibility": "visible",
+      "timer": {
+        "requestedDelay": 1000,
+        "fired": true,
+        "elapsed": 1001
+      },
+      "props": [
+        {
+          "owner": "default",
+          "enterDelay": 1000,
+          "enterNextDelay": 200
+        },
+        {
+          "owner": "LayerListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "SingleLayer",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "LegendListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        }
+      ],
+      "valid": true,
+      "deltaFromRecaptureMs": 0,
+      "verdict": "PASS"
+    },
+    {
+      "kind": "xa-repeat",
+      "run": 5,
+      "mapReady": true,
+      "idleWaitMs": 2000,
+      "visibility": "hidden",
+      "timer": {
+        "requestedDelay": 1000,
+        "fired": true,
+        "elapsed": 1385
+      },
+      "props": [
+        {
+          "owner": "default",
+          "enterDelay": 1000,
+          "enterNextDelay": 200
+        },
+        {
+          "owner": "LayerListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "SingleLayer",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        },
+        {
+          "owner": "LegendListItem",
+          "enterDelay": 1000,
+          "enterNextDelay": 1000
+        }
+      ],
+      "valid": false,
+      "deltaFromRecaptureMs": 384,
+      "verdict": "INVALID: hidden; excluded from pass and fail counts"
+    }
+  ],
+  "kind": "xa-actual-consumers-two-map",
+  "consumers": [
+    {
+      "owner": "LayerListItem",
+      "enterDelay": 1000,
+      "enterNextDelay": 1000,
+      "throughWrapper": true
+    },
+    {
+      "owner": "SingleLayer",
+      "enterDelay": 1000,
+      "enterNextDelay": 1000,
+      "throughWrapper": true
+    },
+    {
+      "owner": "LegendListItem",
+      "enterDelay": 1000,
+      "enterNextDelay": 1000,
+      "throughWrapper": false
+    }
+  ],
+  "setup": "Production LayerListItem, SingleLayer and ItemsList/LegendListItem rendered with session-only row data, actual mapA controller/store/i18n providers and a GeoView theme. No Tooltip fixtures or component mocks. SingleLayer uses an unregistered probe path; no layer is loaded or modified.",
+  "twoMap": {
+    "independent": true,
+    "maps": [
+      {
+        "id": "mapA",
+        "theme": "geo.ca",
+        "checks": [
+          {
+            "title": "Toggle coordinates format",
+            "themeReads": [
+              {
+                "transitions": true,
+                "palette": true
+              },
+              {
+                "transitions": true,
+                "palette": true
+              }
+            ],
+            "enterDelay": 1000,
+            "enterNextDelay": 200
+          },
+          {
+            "title": "Toggle between scale and resolution",
+            "themeReads": [
+              {
+                "transitions": true,
+                "palette": true
+              },
+              {
+                "transitions": true,
+                "palette": true
+              }
+            ],
+            "enterDelay": 1000,
+            "enterNextDelay": 200
+          }
+        ]
+      },
+      {
+        "id": "mapB",
+        "theme": "dark",
+        "checks": [
+          {
+            "title": "Toggle coordinates format",
+            "themeReads": [
+              {
+                "transitions": true,
+                "palette": true
+              },
+              {
+                "transitions": true,
+                "palette": true
+              }
+            ],
+            "enterDelay": 1000,
+            "enterNextDelay": 200
+          },
+          {
+            "title": "Toggle between scale and resolution",
+            "themeReads": [
+              {
+                "transitions": true,
+                "palette": true
+              },
+              {
+                "transitions": true,
+                "palette": true
+              }
+            ],
+            "enterDelay": 1000,
+            "enterNextDelay": 200
+          }
+        ]
+      }
+    ],
+    "note": "Existing coordinate/scale TooltipUI instances inside each real map; exact hook context palette/transitions references compared to that map provider, not values alone."
+  },
+  "environment": {
+    "visibility": "visible",
+    "width": 1600,
+    "height": 1200,
+    "dpr": 1,
+    "rootFontSize": "16px"
+  },
+  "originalCaptureAuthority": "./transitions-after-x-a.json",
+  "note": "The original FAIL record is preserved, not overwritten. Production source expressions were not changed during reproducibility verification. The user updated only the tooltip explanatory comment in the worktree."
+}

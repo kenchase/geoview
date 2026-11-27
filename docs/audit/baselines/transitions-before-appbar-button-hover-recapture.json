@@ -1,0 +1,654 @@
+{
+  "unit": "appbar-button-hover",
+  "phase": "before",
+  "sourceCommit": "7af9cb2f85386b572cec9beb09b655691fbff0b9",
+  "buildCommand": "cd packages/geoview-core && rushx build-dev",
+  "servedAt": "http://127.0.0.1:8081",
+  "bundleSha256": "dfd343648e24f3e5d0190b214ac1ea3b58871c8caedc771591a5898ffe9518a6",
+  "captureHelperSha256": "294101dbc78c75afa80bce552c65423c85a0ff17a1d7c567c69382dd21056b5b",
+  "environment": {
+    "visible": true,
+    "clock": "resumed",
+    "width": 1600,
+    "height": 1200,
+    "dpr": 1
+  },
+  "scope": "Computed transition fields only; no functional timers in these units.",
+  "selection": "Latest visible record per T-ID/theme/state; earlier hidden/partial diagnostic records excluded. Focus-owner states refer to the focusable owner of nonfocusable styled children.",
+  "observations": {
+    "T53": {
+      "geo.ca": {
+        "resting": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-resting",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-135dl8j-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:01.487Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-hover",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-135dl8j-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:01.854Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-135dl8j-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:02.227Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "geolocator-open": {
+          "kind": "computed",
+          "theme": "geo.ca",
+          "state": "before-geolocator-open",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled active css-135dl8j-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:35.174Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "light": {
+        "resting": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-resting",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-1rfdxwh-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:10.685Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-hover",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-1rfdxwh-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:11.053Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-1rfdxwh-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:11.430Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "geolocator-open": {
+          "kind": "computed",
+          "theme": "light",
+          "state": "before-geolocator-open",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled active css-1rfdxwh-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:38.770Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "dark": {
+        "resting": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-resting",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-zlcm97-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:20.623Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-hover",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-zlcm97-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:20.986Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-zlcm97-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:21.364Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "geolocator-open": {
+          "kind": "computed",
+          "theme": "dark",
+          "state": "before-geolocator-open",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled active css-zlcm97-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:43.254Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "canada.ca": {
+        "resting": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-resting",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-1m537j4-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": false
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:31.109Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "hover": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-hover",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-1m537j4-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:31.472Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "focus-visible-owner": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-focus-visible-owner",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root Mui-focusVisible MuiIconButton-root MuiIconButton-sizeSmall buttonFilled css-1m537j4-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": true,
+                "focusVisible": true,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:33:31.846Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "geolocator-open": {
+          "kind": "computed",
+          "theme": "canada.ca",
+          "state": "before-geolocator-open",
+          "rows": {
+            "T53": {
+              "selector": "#map1-appBar-geolocator-panel-btn",
+              "element": {
+                "tag": "BUTTON",
+                "id": "map1-appBar-geolocator-panel-btn",
+                "classes": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall buttonFilled active css-1m537j4-MuiButtonBase-root-MuiIconButton-root",
+                "label": "Geolocator",
+                "text": "",
+                "visible": true,
+                "focused": false,
+                "focusVisible": false,
+                "hovered": true
+              },
+              "computed": {
+                "transitionProperty": "background-color",
+                "transitionDuration": "0.3s",
+                "transitionTimingFunction": "ease-in-out",
+                "transitionDelay": "0s",
+                "opacity": "1",
+                "height": "48px",
+                "transform": "none",
+                "display": "flex"
+              }
+            }
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "reducedMotion": false,
+          "timestamp": "1970-01-01T01:36:48.420Z",
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      }
+    }
+  }
+}

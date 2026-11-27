@@ -1,0 +1,3814 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "phase": "before",
+    "unit": "Footer/host set — T60, T61",
+    "capturedAt": "2026-10-29T13:42:00.066Z",
+    "head": "5144753511b890d84408b73703515caac23e89ed",
+    "sourceSha256": {
+      "core/components/footer-bar/footer-bar-style.ts": "87ff3b036ab0bcc302d0d00d3ead8114d1a7c4f1427f649c290a2e6e64c958d9",
+      "core/containers/use-map-resize.ts": "0e29d384d7bbe8fd2b0fe4691f923aef9cc83d8c84c20990d5ab64e7613d3257",
+      "core/components/footer-bar/footer-bar.tsx": "85fa2e96b94cc77f42ced6642ae389e51034793997657b94bf12a7d43f72adc4"
+    },
+    "existingC2SourceSha256": "9d70a89dba154822377db2945031b0eb67d703fcd7b9fee6c5e673f39ec4cde1",
+    "bundleSha256": "55c237df35af953e257d131de5f2b4523ade24bf7e78f0458ca8d1c3fe1e6e7e",
+    "buildCommand": "cd packages/geoview-core && rushx build-dev",
+    "server": "127.0.0.1:8081",
+    "captureHelperSha256": "294101dbc78c75afa80bce552c65423c85a0ff17a1d7c567c69382dd21056b5b",
+    "passiveObserversSha256": "533a490e7b1d3f3117478afd515ac54c5931b401bc2932bdb646e2de0960af34",
+    "conditions": {
+      "visibility": "visible",
+      "clock": "resumed",
+      "viewport": [
+        1600,
+        1200
+      ],
+      "dpr": 1,
+      "focus": "CDP Page.bringToFront + Emulation.setFocusEmulationEnabled(true); no visibility property replacement",
+      "demo": "./configs/navigator/demos/09-basic-footer-layers-tab.json",
+      "layerSelection": "Default; no manual layer selection during authoritative captures"
+    },
+    "themeRead": "New hook-local useTheme() in useMapResize; two-map identity check required after migration."
+  },
+  "observations": {
+    "T60": {
+      "geo.ca": {
+        "expanded-resting": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1magwet",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-hover": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1magwet",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-focus-visible": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1magwet",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-active": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1magwet",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "49px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-settled": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1magwet",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "49px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-active": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1magwet",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-settled": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1magwet",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "light": {
+        "expanded-resting": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-max0v1",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-hover": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-max0v1",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-focus-visible": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-max0v1",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-active": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-max0v1",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "49px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-settled": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-max0v1",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "49px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-active": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-max0v1",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-settled": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-max0v1",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "dark": {
+        "expanded-resting": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1f8elms",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-hover": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1f8elms",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-focus-visible": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1f8elms",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-active": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1f8elms",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "49px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-settled": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1f8elms",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "49px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-active": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1f8elms",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-settled": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-1f8elms",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "canada.ca": {
+        "expanded-resting": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-5cz06u",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-hover": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-5cz06u",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-focus-visible": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-5cz06u",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-active": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-5cz06u",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "49px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-settled": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-5cz06u",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "49px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-active": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-5cz06u",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-settled": {
+          "selector": "#map1-tabsContainer",
+          "element": {
+            "tag": "DIV",
+            "id": "map1-tabsContainer",
+            "classes": "tabsContainer MuiBox-root css-5cz06u",
+            "label": null,
+            "text": "LegendLayersDetailsData TableGuideShow AllCollapse AllAirborne RadioactivityLayer, Airborne Radioact",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "790px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      }
+    },
+    "T61": {
+      "geo.ca": {
+        "expanded-resting": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-hover": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-focus-visible": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": false
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-active": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-settled": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-active": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-settled": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "light": {
+        "expanded-resting": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-hover": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-focus-visible": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-active": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-settled": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-active": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-settled": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "dark": {
+        "expanded-resting": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-hover": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-focus-visible": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-active": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-settled": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-active": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-settled": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      },
+      "canada.ca": {
+        "expanded-resting": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-hover": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expanded-focus-visible": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-active": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "collapse-settled": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-active": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        },
+        "expand-settled": {
+          "selector": "#map1",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          },
+          "viewport": {
+            "width": 1600,
+            "height": 1200,
+            "dpr": 1
+          },
+          "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+        }
+      }
+    }
+  },
+  "sequences": [
+    {
+      "kind": "sequence",
+      "name": "R4-collapse",
+      "theme": "geo.ca",
+      "started": 2167161,
+      "watched": {
+        "T60": "#map1-tabsContainer",
+        "T61": "#map1"
+      },
+      "capturePhase": "before",
+      "action": "collapse",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "finalHeight": "49px",
+      "events": [
+        {
+          "ms": 8,
+          "type": "click",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1jtx031-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "delay": 25,
+          "ms": 11,
+          "timerId": 1,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__footer-observers.js:32:19)\n    at eval (webpack-internal:///./src/core/utils/utilities.ts:1273:21)\n    at new Promise (<anonymous>)\n    at doTimeout (webpack-internal:///./src/core/utils/utilities.ts:1259:21)\n    at delay (webpack-internal:///./src/core/utils/utilities.ts:1311:26)\n    at eval (webpack-internal:///./src/core/components/footer-bar/footer-bar.tsx:118:70)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)"
+        },
+        {
+          "type": "timer-fired",
+          "delay": 25,
+          "ms": 131,
+          "timerElapsedMs": 120,
+          "timerId": 1
+        },
+        {
+          "ms": 170,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 171,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 171,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 171,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 171,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 171,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T00:36:08.217Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "sequence",
+      "name": "R4-expand",
+      "theme": "geo.ca",
+      "started": 2168221,
+      "watched": {
+        "T60": "#map1-tabsContainer",
+        "T61": "#map1"
+      },
+      "capturePhase": "before",
+      "action": "expand",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "finalHeight": "790px",
+      "events": [
+        {
+          "ms": 6,
+          "type": "click",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root Mui-focusVisible MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary css-1jtx031-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": true,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "delay": 25,
+          "ms": 9,
+          "timerId": 2,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__footer-observers.js:32:19)\n    at eval (webpack-internal:///./src/core/utils/utilities.ts:1273:21)\n    at new Promise (<anonymous>)\n    at doTimeout (webpack-internal:///./src/core/utils/utilities.ts:1259:21)\n    at delay (webpack-internal:///./src/core/utils/utilities.ts:1311:26)\n    at eval (webpack-internal:///./src/core/components/footer-bar/footer-bar.tsx:118:70)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)"
+        },
+        {
+          "type": "timer-fired",
+          "delay": 25,
+          "ms": 132,
+          "timerElapsedMs": 123,
+          "timerId": 2
+        },
+        {
+          "type": "scroll-call",
+          "ms": 132,
+          "args": [
+            {
+              "top": 1107.2734375,
+              "behavior": "smooth"
+            }
+          ]
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T00:36:09.277Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "sequence",
+      "name": "R4-collapse",
+      "theme": "light",
+      "started": 2171082,
+      "watched": {
+        "T60": "#map1-tabsContainer",
+        "T61": "#map1"
+      },
+      "capturePhase": "before",
+      "action": "collapse",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "finalHeight": "49px",
+      "events": [
+        {
+          "ms": 8,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1f6icq2-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "ms": 13,
+          "type": "click",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1f6icq2-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "delay": 25,
+          "ms": 15,
+          "timerId": 3,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__footer-observers.js:32:19)\n    at eval (webpack-internal:///./src/core/utils/utilities.ts:1273:21)\n    at new Promise (<anonymous>)\n    at doTimeout (webpack-internal:///./src/core/utils/utilities.ts:1259:21)\n    at delay (webpack-internal:///./src/core/utils/utilities.ts:1311:26)\n    at eval (webpack-internal:///./src/core/components/footer-bar/footer-bar.tsx:118:70)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)"
+        },
+        {
+          "type": "timer-fired",
+          "delay": 25,
+          "ms": 136,
+          "timerElapsedMs": 121,
+          "timerId": 3
+        },
+        {
+          "ms": 162,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 163,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 163,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 163,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 163,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 163,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T00:36:12.168Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "sequence",
+      "name": "R4-expand",
+      "theme": "light",
+      "started": 2172171,
+      "watched": {
+        "T60": "#map1-tabsContainer",
+        "T61": "#map1"
+      },
+      "capturePhase": "before",
+      "action": "expand",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "finalHeight": "790px",
+      "events": [
+        {
+          "ms": 7,
+          "type": "click",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary css-1f6icq2-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "delay": 25,
+          "ms": 10,
+          "timerId": 4,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__footer-observers.js:32:19)\n    at eval (webpack-internal:///./src/core/utils/utilities.ts:1273:21)\n    at new Promise (<anonymous>)\n    at doTimeout (webpack-internal:///./src/core/utils/utilities.ts:1259:21)\n    at delay (webpack-internal:///./src/core/utils/utilities.ts:1311:26)\n    at eval (webpack-internal:///./src/core/components/footer-bar/footer-bar.tsx:118:70)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)"
+        },
+        {
+          "type": "timer-fired",
+          "delay": 25,
+          "ms": 134,
+          "timerElapsedMs": 124,
+          "timerId": 4
+        },
+        {
+          "type": "scroll-call",
+          "ms": 134,
+          "args": [
+            {
+              "top": 1107.2734375,
+              "behavior": "smooth"
+            }
+          ]
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 161,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T00:36:13.228Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "sequence",
+      "name": "R4-collapse",
+      "theme": "dark",
+      "started": 2175555,
+      "watched": {
+        "T60": "#map1-tabsContainer",
+        "T61": "#map1"
+      },
+      "capturePhase": "before",
+      "action": "collapse",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "finalHeight": "49px",
+      "events": [
+        {
+          "ms": 8,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-ys7z84-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "ms": 12,
+          "type": "click",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-ys7z84-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "delay": 25,
+          "ms": 14,
+          "timerId": 5,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__footer-observers.js:32:19)\n    at eval (webpack-internal:///./src/core/utils/utilities.ts:1273:21)\n    at new Promise (<anonymous>)\n    at doTimeout (webpack-internal:///./src/core/utils/utilities.ts:1259:21)\n    at delay (webpack-internal:///./src/core/utils/utilities.ts:1311:26)\n    at eval (webpack-internal:///./src/core/components/footer-bar/footer-bar.tsx:118:70)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)"
+        },
+        {
+          "type": "timer-fired",
+          "delay": 25,
+          "ms": 131,
+          "timerElapsedMs": 117,
+          "timerId": 5
+        },
+        {
+          "ms": 158,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 158,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 158,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 158,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 158,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 158,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T00:36:16.611Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "sequence",
+      "name": "R4-expand",
+      "theme": "dark",
+      "started": 2176614,
+      "watched": {
+        "T60": "#map1-tabsContainer",
+        "T61": "#map1"
+      },
+      "capturePhase": "before",
+      "action": "expand",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "finalHeight": "790px",
+      "events": [
+        {
+          "ms": 6,
+          "type": "click",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary css-ys7z84-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "delay": 25,
+          "ms": 9,
+          "timerId": 6,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__footer-observers.js:32:19)\n    at eval (webpack-internal:///./src/core/utils/utilities.ts:1273:21)\n    at new Promise (<anonymous>)\n    at doTimeout (webpack-internal:///./src/core/utils/utilities.ts:1259:21)\n    at delay (webpack-internal:///./src/core/utils/utilities.ts:1311:26)\n    at eval (webpack-internal:///./src/core/components/footer-bar/footer-bar.tsx:118:70)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)"
+        },
+        {
+          "type": "timer-fired",
+          "delay": 25,
+          "ms": 134,
+          "timerElapsedMs": 125,
+          "timerId": 6
+        },
+        {
+          "type": "scroll-call",
+          "ms": 134,
+          "args": [
+            {
+              "top": 1107.2734375,
+              "behavior": "smooth"
+            }
+          ]
+        },
+        {
+          "ms": 165,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 165,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 165,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 165,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 165,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 165,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T00:36:17.670Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "sequence",
+      "name": "R4-collapse",
+      "theme": "canada.ca",
+      "started": 2180316,
+      "watched": {
+        "T60": "#map1-tabsContainer",
+        "T61": "#map1"
+      },
+      "capturePhase": "before",
+      "action": "collapse",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "finalHeight": "49px",
+      "events": [
+        {
+          "ms": 10,
+          "type": "focusin",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1bdsnfg-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "ms": 14,
+          "type": "click",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary Mui-selected css-1bdsnfg-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "delay": 25,
+          "ms": 16,
+          "timerId": 7,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__footer-observers.js:32:19)\n    at eval (webpack-internal:///./src/core/utils/utilities.ts:1273:21)\n    at new Promise (<anonymous>)\n    at doTimeout (webpack-internal:///./src/core/utils/utilities.ts:1259:21)\n    at delay (webpack-internal:///./src/core/utils/utilities.ts:1311:26)\n    at eval (webpack-internal:///./src/core/components/footer-bar/footer-bar.tsx:118:70)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)"
+        },
+        {
+          "type": "timer-fired",
+          "delay": 25,
+          "ms": 128,
+          "timerElapsedMs": 112,
+          "timerId": 7
+        },
+        {
+          "ms": 159,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 159,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 159,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 159,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 159,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 159,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "800px",
+            "transform": "none",
+            "display": "block"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T00:36:21.364Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    },
+    {
+      "kind": "sequence",
+      "name": "R4-expand",
+      "theme": "canada.ca",
+      "started": 2181368,
+      "watched": {
+        "T60": "#map1-tabsContainer",
+        "T61": "#map1"
+      },
+      "capturePhase": "before",
+      "action": "expand",
+      "environment": {
+        "visibility": "visible",
+        "viewport": {
+          "width": 1600,
+          "height": 1200,
+          "dpr": 1
+        },
+        "clock": "resumed"
+      },
+      "finalHeight": "790px",
+      "events": [
+        {
+          "ms": 8,
+          "type": "click",
+          "ids": [],
+          "element": {
+            "tag": "BUTTON",
+            "id": "map1-tab-layers",
+            "classes": "MuiButtonBase-root MuiTab-root MuiTab-labelIcon MuiTab-textColorPrimary css-1bdsnfg-MuiButtonBase-root-MuiTab-root",
+            "label": null,
+            "text": "Layers",
+            "visible": true,
+            "focused": true,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "background-color",
+            "transitionDuration": "0.3s",
+            "transitionTimingFunction": "ease-in-out",
+            "transitionDelay": "0s",
+            "opacity": "1",
+            "height": "48px",
+            "transform": "none",
+            "display": "flex"
+          }
+        },
+        {
+          "type": "timer-scheduled",
+          "delay": 25,
+          "ms": 10,
+          "timerId": 8,
+          "stack": "Error\n    at window.setTimeout (http://127.0.0.1:8081/__footer-observers.js:32:19)\n    at eval (webpack-internal:///./src/core/utils/utilities.ts:1273:21)\n    at new Promise (<anonymous>)\n    at doTimeout (webpack-internal:///./src/core/utils/utilities.ts:1259:21)\n    at delay (webpack-internal:///./src/core/utils/utilities.ts:1311:26)\n    at eval (webpack-internal:///./src/core/components/footer-bar/footer-bar.tsx:118:70)\n    at executeDispatch (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20803:9)\n    at runWithFiberInDEV (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:1045:30)\n    at processDispatchQueue (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:20853:19)\n    at eval (webpack-internal:///../../common/temp/node_modules/.pnpm/react-dom@19.3.1_react@19.3.1/node_modules/react-dom/cjs/react-dom-client.development.js:21422:9)"
+        },
+        {
+          "type": "timer-fired",
+          "delay": 25,
+          "ms": 144,
+          "timerElapsedMs": 134,
+          "timerId": 8
+        },
+        {
+          "type": "scroll-call",
+          "ms": 144,
+          "args": [
+            {
+              "top": 1107.2734375,
+              "behavior": "smooth"
+            }
+          ]
+        },
+        {
+          "ms": 172,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 172,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 172,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 172,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 172,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        },
+        {
+          "ms": 172,
+          "type": "mutation",
+          "id": "T61",
+          "attribute": "style",
+          "element": {
+            "tag": "DIV",
+            "id": "map1",
+            "classes": "geoview-map geoview-map-func-call",
+            "label": null,
+            "text": "Skip after map elementSkip to main content - Map1Geolocator panel​Use Arrows, CTRL + Up/Down or +/- ",
+            "visible": true,
+            "focused": false,
+            "focusVisible": false,
+            "hovered": true
+          },
+          "computed": {
+            "transitionProperty": "height",
+            "transitionDuration": "0.2s",
+            "transitionTimingFunction": "ease-out",
+            "transitionDelay": "0.2s",
+            "opacity": "1",
+            "height": "1542px",
+            "transform": "none",
+            "display": "block"
+          }
+        }
+      ],
+      "timestamp": "1970-01-01T00:36:22.437Z",
+      "url": "http://127.0.0.1:8081/demos-navigator.html?config=./configs/navigator/demos/09-basic-footer-layers-tab.json"
+    }
+  ],
+  "timers": [
+    {
+      "theme": "geo.ca",
+      "action": "collapse",
+      "requested": 25,
+      "elapsed": 120,
+      "within20msOfRequest": false,
+      "events": [
+        {
+          "type": "timer-fired",
+          "msFromClick": 123
+        }
+      ],
+      "finalHeight": "49px"
+    },
+    {
+      "theme": "geo.ca",
+      "action": "expand",
+      "requested": 25,
+      "elapsed": 123,
+      "within20msOfRequest": false,
+      "events": [
+        {
+          "type": "timer-fired",
+          "msFromClick": 126
+        },
+        {
+          "type": "scroll-call",
+          "msFromClick": 126
+        }
+      ],
+      "finalHeight": "790px"
+    },
+    {
+      "theme": "light",
+      "action": "collapse",
+      "requested": 25,
+      "elapsed": 121,
+      "within20msOfRequest": false,
+      "events": [
+        {
+          "type": "timer-fired",
+          "msFromClick": 123
+        }
+      ],
+      "finalHeight": "49px"
+    },
+    {
+      "theme": "light",
+      "action": "expand",
+      "requested": 25,
+      "elapsed": 124,
+      "within20msOfRequest": false,
+      "events": [
+        {
+          "type": "timer-fired",
+          "msFromClick": 127
+        },
+        {
+          "type": "scroll-call",
+          "msFromClick": 127
+        }
+      ],
+      "finalHeight": "790px"
+    },
+    {
+      "theme": "dark",
+      "action": "collapse",
+      "requested": 25,
+      "elapsed": 117,
+      "within20msOfRequest": false,
+      "events": [
+        {
+          "type": "timer-fired",
+          "msFromClick": 119
+        }
+      ],
+      "finalHeight": "49px"
+    },
+    {
+      "theme": "dark",
+      "action": "expand",
+      "requested": 25,
+      "elapsed": 125,
+      "within20msOfRequest": false,
+      "events": [
+        {
+          "type": "timer-fired",
+          "msFromClick": 128
+        },
+        {
+          "type": "scroll-call",
+          "msFromClick": 128
+        }
+      ],
+      "finalHeight": "790px"
+    },
+    {
+      "theme": "canada.ca",
+      "action": "collapse",
+      "requested": 25,
+      "elapsed": 112,
+      "within20msOfRequest": false,
+      "events": [
+        {
+          "type": "timer-fired",
+          "msFromClick": 114
+        }
+      ],
+      "finalHeight": "49px"
+    },
+    {
+      "theme": "canada.ca",
+      "action": "expand",
+      "requested": 25,
+      "elapsed": 134,
+      "within20msOfRequest": false,
+      "events": [
+        {
+          "type": "timer-fired",
+          "msFromClick": 136
+        },
+        {
+          "type": "scroll-call",
+          "msFromClick": 136
+        }
+      ],
+      "finalHeight": "790px"
+    }
+  ],
+  "limitations": [
+    "Host height is fit-content; footer toggles between fit-content and 49px. Native height transition events are absent in this demo at baseline; no transition-end callback is implied or fabricated.",
+    "Existing T12 waits already exceed the 25ms +/-20ms elapsed-time design window in the unmigrated baseline. Requested values must remain 25ms. No adjacent performance/timer repair is authorized.",
+    "Initial before capture retained as authority. A separate layer-selection diagnostic probe also had timer latency; its raw sequence is preserved separately and is not substituted for the authoritative baseline."
+  ]
+}
